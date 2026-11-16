@@ -69,4 +69,519 @@
             </div>
             <!-- Filtro Distretto / Categoria -->
             <div class="flex items-center space-x-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0" id="filter-chips">
-                <button onclick="filterByDistrict('all')" class="filter-btn active-chip px-3 py-
+                <button onclick="filterByDistrict('all')" class="filter-btn active-chip px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white whitespace-nowrap shadow-sm transition">Tutti</button>
+                <button onclick="filterByDistrict('Spalla')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition">Spalla</button>
+                <button onclick="filterByDistrict('Gomito/Mano')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition">Gomito & Mano</button>
+                <button onclick="filterByDistrict('Colonna')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition">Colonna</button>
+                <button onclick="filterByDistrict('Anca')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition">Anca</button>
+                <button onclick="filterByDistrict('Ginocchio')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition">Ginocchio</button>
+                <button onclick="filterByDistrict('Caviglia')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition">Caviglia & Piede</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenuto Principale con Tab -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 overflow-y-auto">
+        
+        <!-- Navigazione Sezioni (Le 6 Sezioni) -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
+            <button onclick="switchSection('patologie')" id="btn-sec-patologie" class="section-tab p-3 rounded-xl border border-brand-500 bg-brand-50 text-brand-700 text-left transition shadow-sm flex flex-col justify-between">
+                <i class="fa-solid fa-stethoscope text-xl mb-2 text-brand-600"></i>
+                <div>
+                    <h3 class="font-bold text-sm">Patologie</h3>
+                    <p class="text-[11px] opacity-75">35 Schede Ortopediche</p>
+                </div>
+            </button>
+            <button onclick="switchSection('trattamenti')" id="btn-sec-trattamenti" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
+                <i class="fa-solid fa-hands-holding-child text-xl mb-2 text-brand-600"></i>
+                <div>
+                    <h3 class="font-bold text-sm">Trattamenti</h3>
+                    <p class="text-[11px] opacity-75">Tecniche Manuali</p>
+                </div>
+            </button>
+            <button onclick="switchSection('strumentale')" id="btn-sec-strumentale" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
+                <i class="fa-solid fa-bolt text-xl mb-2 text-amber-500"></i>
+                <div>
+                    <h3 class="font-bold text-sm">Terapia Strumentale</h3>
+                    <p class="text-[11px] opacity-75">Laser, Tecar, US</p>
+                </div>
+            </button>
+            <button onclick="switchSection('anatomia')" id="btn-sec-anatomia" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
+                <i class="fa-solid fa-bone text-xl mb-2 text-emerald-600"></i>
+                <div>
+                    <h3 class="font-bold text-sm">Anatomia</h3>
+                    <p class="text-[11px] opacity-75">Biomeccanica</p>
+                </div>
+            </button>
+            <button onclick="switchSection('esercizi')" id="btn-sec-esercizi" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
+                <i class="fa-solid fa-dumbbell text-xl mb-2 text-indigo-600"></i>
+                <div>
+                    <h3 class="font-bold text-sm">Esercizi</h3>
+                    <p class="text-[11px] opacity-75">Rieducazione Motoria</p>
+                </div>
+            </button>
+            <button onclick="switchSection('protocolli')" id="btn-sec-protocolli" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
+                <i class="fa-solid fa-clipboard-list text-xl mb-2 text-purple-600"></i>
+                <div>
+                    <h3 class="font-bold text-sm">Protocolli</h3>
+                    <p class="text-[11px] opacity-75">Post-Chirurgia</p>
+                </div>
+            </button>
+        </div>
+
+        <!-- Sezione 1: Patologie (Attiva di default) -->
+        <div id="section-patologie" class="content-section space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
+                    <i class="fa-solid fa-stethoscope text-brand-600"></i>
+                    <span>Archivio Patologie Ortopediche</span>
+                </h2>
+                <span id="patologie-count" class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">35 Patologie</span>
+            </div>
+            
+            <div id="patologie-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Verrà popolato dinamicamente via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Sezione 2: Trattamenti Riabilitativi -->
+        <div id="section-trattamenti" class="content-section hidden space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
+                    <i class="fa-solid fa-hands-holding-child text-brand-600"></i>
+                    <span>Trattamenti Riabilitativi e Terapia Manuale</span>
+                </h2>
+                <span class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">Tecniche Cliniche</span>
+            </div>
+            <div id="trattamenti-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Verrà popolato dinamicamente -->
+            </div>
+        </div>
+
+        <!-- Sezioni 3, 4, 5, 6 (Placeholder pronte per i prossimi step) -->
+        <div id="section-strumentale" class="content-section hidden py-16 text-center">
+            <div class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <i class="fa-solid fa-bolt text-4xl text-amber-500 mb-3"></i>
+                <h3 class="text-lg font-bold text-slate-800">Terapia Strumentale</h3>
+                <p class="text-sm text-slate-500 mt-1 mb-4">Sezione pronta per Laserterapia, TECAR, Ultrasuoni, Magnetoterapia ed Elettroterapia.</p>
+                <button onclick="switchSection('patologie')" class="bg-brand-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-brand-700 transition">Torna alle Patologie</button>
+            </div>
+        </div>
+
+        <div id="section-anatomia" class="content-section hidden py-16 text-center">
+            <div class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <i class="fa-solid fa-bone text-4xl text-emerald-600 mb-3"></i>
+                <h3 class="text-lg font-bold text-slate-800">Anatomia Funzionale</h3>
+                <p class="text-sm text-slate-500 mt-1 mb-4">Sezione pronta per atlas anatomico e biomeccanica articolare.</p>
+                <button onclick="switchSection('patologie')" class="bg-brand-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-brand-700 transition">Torna alle Patologie</button>
+            </div>
+        </div>
+
+        <div id="section-esercizi" class="content-section hidden py-16 text-center">
+            <div class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <i class="fa-solid fa-dumbbell text-4xl text-indigo-600 mb-3"></i>
+                <h3 class="text-lg font-bold text-slate-800">Esercizi Terapeutici</h3>
+                <p class="text-sm text-slate-500 mt-1 mb-4">Sezione pronta per chinesiterapia e protocolli di rinforzo con timer integrato.</p>
+                <button onclick="switchSection('patologie')" class="bg-brand-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-brand-700 transition">Torna alle Patologie</button>
+            </div>
+        </div>
+
+        <div id="section-protocolli" class="content-section hidden py-16 text-center">
+            <div class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <i class="fa-solid fa-clipboard-list text-4xl text-purple-600 mb-3"></i>
+                <h3 class="text-lg font-bold text-slate-800">Protocolli Riabilitativi</h3>
+                <p class="text-sm text-slate-500 mt-1 mb-4">Sezione pronta per linee guida post-operatorie e cronoprogrammi di recupero.</p>
+                <button onclick="switchSection('patologie')" class="bg-brand-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-brand-700 transition">Torna alle Patologie</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modale Dettaglio Clinico -->
+    <div id="detail-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col">
+            <div class="p-4 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white z-10">
+                <div class="flex items-center space-x-2">
+                    <span id="modal-district-badge" class="text-xs font-semibold px-2.5 py-1 rounded-full bg-brand-100 text-brand-800">Distretto</span>
+                    <h3 id="modal-title" class="text-base font-bold text-slate-800">Titolo Scheda</h3>
+                </div>
+                <button onclick="closeModal('detail-modal')" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="p-6 space-y-4 text-sm text-slate-600">
+                <!-- Contenuto dinamico -->
+            </div>
+            <div class="p-4 border-t border-slate-100 bg-slate-50 flex justify-end">
+                <button onclick="closeModal('detail-modal')" class="bg-slate-800 hover:bg-slate-900 text-white px-4 py-2 rounded-xl text-sm font-medium transition">Chiudi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale Timer Clinico -->
+    <div id="timer-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-6 text-center">
+            <div class="flex items-center justify-between">
+                <h3 class="font-bold text-slate-800 text-base"><i class="fa-solid fa-stopwatch text-brand-600 mr-2"></i>Timer Clinico per Esercizi</h3>
+                <button onclick="closeModal('timer-modal')" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="py-6 bg-slate-50 rounded-2xl border border-slate-100">
+                <div id="timer-display" class="text-5xl font-black text-brand-700 tracking-wider">00:45</div>
+                <p id="timer-status" class="text-xs text-slate-500 mt-2 font-medium">Pronto per l'esercizio isometrico</p>
+            </div>
+            <div class="flex justify-center space-x-3">
+                <button onclick="setTimer(30)" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-semibold text-slate-700 transition">30s</button>
+                <button onclick="setTimer(45)" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-semibold text-slate-700 transition">45s</button>
+                <button onclick="setTimer(60)" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-semibold text-slate-700 transition">60s</button>
+            </div>
+            <div class="flex space-x-3 pt-2">
+                <button onclick="startTimer()" class="flex-1 bg-brand-600 hover:bg-brand-500 text-white py-3 rounded-xl font-bold shadow-sm transition flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-play"></i><span>Avvia</span>
+                </button>
+                <button onclick="pauseTimer()" class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-700 py-3 rounded-xl font-bold transition flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-pause"></i><span>Pausa</span>
+                </button>
+                <button onclick="resetTimer()" class="px-4 bg-slate-100 hover:bg-slate-200 text-slate-600 py-3 rounded-xl font-bold transition">
+                    <i class="fa-solid fa-rotate-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JavaScript Applicativo -->
+    <script>
+        // Database 1: Patologie Ortopediche (35 Schede)
+        const patologieData = [
+            { id: 1, title: "Sindrome da Conflitto Subacromiale (Impingement)", district: "Spalla", severity: "Moderata", def: "Compressione dei tendini della cuffia dei rotatori e della borsa subacromiale sotto l'arco coraco-acromiale.", symptoms: "Dolore in arco doloroso (60°-120°), impotenza funzionale notturna, dolore irradiato alto braccio.", tests: "Test di Neer, Test di Hawkins-Kennedy, Painful Arc Test.", redFlags: "Dolore notturno intrattabile associato a calo ponderale o impotenza assoluta in elevazione (sospetto lesione massiva).", management: "Recupero spazio subacromiale, rinforzo extratoracici e stabilizzatori scapolo-toracici, correzione posturale." },
+            { id: 2, title: "Lesione della Cuffia dei Rotatori", district: "Spalla", severity: "Grave", def: "Lesione parziale o a tutto spessore dei tendini (sovraspinato, infraspinato, sottoscapolare, piccolo rotondo).", symptoms: "Debolezza muscolare attiva, dolore acuto post-traumatico o degenerativo cronico.", tests: "Drop Arm Test, Jobe Test (Empty Can), Patte Test.", redFlags: "Impossibilità assoluta a mantenere il braccio sollevato (Lag sign positivo).", management: "Gestione conservativa (rinforzo sinergico deltoide-cuffia) o riabilitazione post-chirurgica protocollata." },
+            { id: 3, title: "Capsulite Adesiva (Spalla Congelata)", district: "Spalla", severity: "Grave", def: "Infiammazione e fibrosi della capsula articolare gleno-omerale con progressiva perdita di mobilità attiva e passiva.", symptoms: "Fase 1 (Freezing): dolore acuto. Fase 2 (Frozen): rigidità severa. Fase 3 (Thawing): recupero graduale.", tests: "Limitazione severa e rigida dei movimenti passivi, in particolare extrarotazione e abduzione.", redFlags: "Escludere algodistrofia o artrite settica/infiammatoria sistemica.", management: "Mobilizzazione dolce nei limiti del dolore, terapia manuale capsulare, evitare forzature aggressive in fase infiammatoria." },
+            { id: 4, title: "Instabilità Gleno-Omerale e Lussazione", district: "Spalla", severity: "Grave", def: "Eccessiva traslazione della testa omerale sulla glena, spesso post-traumatica (anteriore nella maggior parte dei casi).", symptoms: "Sensazione di cedimento, paura del sblocco in abduzione ed extrarotazione, apprensione.", tests: "Apprehension Test, Relocation Test, Sulcus Sign.", redFlags: "Segni neurologici periferici (lesione nervo ascellare) post-lussazione.", management: "Rinforzo stabilizzatori dinamici (cuffia e scapolari), propriocettività in catena cinetica chiusa ed aperta." },
+            { id: 5, title: "Tendinopatia del Capo Lungo del Bicipite", district: "Spalla", severity: "Moderata", def: "Processo degenerativo o infiammatorio a carico del tendine del CLB nella doccia bicipitale.", symptoms: "Dolore anteriore di spalla accentuato dalla supinazione resistita e flessione di gomito.", tests: "Speed Test, Yergason Test.", redFlags: "Deformità 'a papa papa' (rottura del tendine con dislocazione del ventre muscolare).", management: "Scarico del tendine, massaggio trasverso profondo (se indicato), rinforzo eccentrico progressivo." },
+            { id: 6, title: "Artrosi Gleno-Omerale (Omartrosi)", district: "Spalla", severity: "Cronica", def: "Usura degenerativa della cartilagine articolare gleno-omerale.", symptoms: "Dolore sordo e profondo, crepitii articolari, limitazione ingravescente dei movimenti.", tests: "Riduzione globale e dolorosa del ROM passivo e attivo.", redFlags: "Blocco meccanico severo.", management: "Mantenimento del ROM residuo, chinesiterapia in scarico, gestione del dolore." },
+            { id: 7, title: "Epicondilite Laterale (Gomito del Tennis)", district: "Gomito/Mano", severity: "Moderata", def: "Tendinopatia inserzionale dei muscoli estensori dell'avambraccio (soprattutto estensore radiale breve del carpo).", symptoms: "Dolore alla palpazione dell'epicondilo laterale, deficit di presa (grip strength), dolore nel sollevare pesi a pronazione.", tests: "Cozen Test, Mill Test, Maudsley Test.", redFlags: "Dolore irradiato con parestesie (possibile compressione del nervo interosseo posteriore).", management: "Esercizi eccentrici progressivi, scarico dei flesso-estensori, manipolazioni cervicali se ipomobilità C5-C6." },
+            { id: 8, title: "Epitrocleite (Gomito del Golfista)", district: "Gomito/Mano", severity: "Moderata", def: "Tendinopatia dei muscoli flessori-pronatori a livello dell'inserzione sull'epitroclea mediale.", symptoms: "Dolore mediale al gomito aggravato dalla flessione resistita del polso e pronazione.", tests: "Golfer's Elbow Test (flessione resistita del polso a gomito esteso).", redFlags: "Parestesie al IV e V dito (coinvolgimento del nervo ulnare al tunnel cubitale).", management: "Rinforzo eccentrico flessori, stretching mirato, ergonomia lavorativa." },
+            { id: 9, title: "Sindrome del Tunnel Carpale", district: "Gomito/Mano", severity: "Moderata", def: "Compression neuropatica del nervo mediano nel suo passaggio attraverso il canale carpale al polso.", symptoms: "Parestesie, formicolii e dolore notturno alle prime tre dita, debolezza dei muscoli tenari nei casi avanzati.", tests: "Phalen Test, Tinel Test al polso, Durkan Test.", redFlags: "Atrofia dell'eminenza tenar e perdita della sensibilità cutanea permanente.", management: "Tutore notturno in posizione neutra, scivolamenti neurali del nervo mediano, rilasciamento del legamento trasverso." },
+            { id: 10, title: "Sindrome di De Quervain", district: "Gomito/Mano", severity: "Moderata", def: "Tenosinovite stenosante del primo compartimento dorsale del polso (ablungo lungo ed estensore breve del pollice).", symptoms: "Dolore acuto allo stiloide radiale accentuato dalla deviazione ulnare del polso con pollice chiuso (Finkelstein).", tests: "Finkelstein Test, Eichhoff Test.", redFlags: "Blocco meccanico nello scorrimento tendineo.", management: "Tutore specifico polso-pollice, terapia fisica antiflogistica, massaggio frizionale." },
+            { id: 11, title: "Rizoartrosi (Artrosi Trapezio-Metacarpale)", district: "Gomito/Mano", severity: "Cronica", def: "Osteoartrosi dell'articolazione tra trapezio e primo metacarpale.", symptoms: "Dolore alla base del pollice durante i gesti di presa a pinza, tumefazione articolare, perdita di forza.", tests: "Grind Test (pressione e rotazione assiale del primo metacarpo).", redFlags: "Deformità a zeta del pollice.", management: "Tutori di stabilizzazione funzionale, esercizi di rinforzo dei muscoli interossei e tenari." },
+            { id: 12, title: "Dito a Scatto (Tenosinovite Stenosante)", district: "Gomito/Mano", severity: "Lieve", def: "Infiammazione della guaina flessoria con formazione di nodulo tendineo che ostacola lo scorrimento.", symptoms: "Scatto doloroso durante la flesso-estensione delle dita, blocco in flessione al risveglio.", tests: "Palpazione del nodulo dolente alla base del dito sulla puleggia A1.", redFlags: "Blocco permanente irriducibile manualmente.", management: "Stretching dei flessori, ultrasuoni focalizzati, steccatura notturna." },
+            { id: 13, title: "Lombalgia Acuta (Colpo della Strega)", district: "Colonna", severity: "Moderata", def: "Spasmo muscolare acuto e disfunzione segmentaria lombare con sovraccarico capsulo-ligamentoso.", symptoms: "Dolore lombare improvviso e invalidante, blocco funzionale in flessione o inclinazione, spasmo muscolare paravertebrale.", tests: "Schober Test (ridotta mobilità), Test di flessione/estensione.", redFlags: "Sindrome della cauda equina, deficit neurologici progressivi, febbre o calo ponderale inspiegato.", management: "Decompressione vertebrale dolce, tecniche miofasciali, educazione posturale ed esercizio attivo precoce." },
+            { id: 14, title: "Ernia del Disco Lombare e Sciatalgia", district: "Colonna", severity: "Grave", def: "Fuoriuscita del nucleo polposo con compressione delle radici nervose spinali (es. L5-S1).", symptoms: "Dolore irradiato lungo il decorso del nervo sciatico (gluteo, coscia, gamba, piede), parestesie, ipostenia.", tests: "Lasegue Test (Straight Leg Raise), Bragard Test, Wasserman Test (per ernie alte).", redFlags: "Anestesia a sella, perdita di controllo sfinterico (urgenza chirurgica), deficit motorio severo (piede torto)." },
+            { id: 15, title: "Stenosi del Canale Vertebrale Lombare", district: "Colonna", severity: "Cronica", def: "Restringimento congenito o degenerativo del canale spinale lombare con compressione delle radici della cauda.", symptoms: "Claudicatio intermittens neurogena (dolore e pesantezza agli arti inferiori che insorge camminando e si riduce in flessione).", tests: "Test del carrello (miglioramento dei sintomi in flessione del tronco).", redFlags: "Parestesie bilaterali ingravescenti e perdita di forza ingravescente.", management: "Esercizi di flessione lombare (Williams), ciclismo stazionario, rinforzo del core in scarico." },
+            { id: 16, title: "Cervicalgia Miotensiva", district: "Colonna", severity: "Lieve", def: "Sindrome dolorosa cervicale da sovraccarico posturale e contrattura cronica dei muscoli trapezio e suboccipitali.", symptoms: "Dolore cervicale diffuso, rigidità mattutina, cefalea tensiva miogena associata.", tests: "Spurling Test negativo (per escludere radicolopatia), mobilità cervicale ridotta.", redFlags: "Vertigini acute, nistagmo, deficit dei nervi cranici (escludere insufficienza vertebro-basilare).", management: "Rilascio miofasciale suboccipitale, correzione ergonomica, rinforzo flessori profondi del collo." },
+            { id: 17, title: "Radicolopatia Cervicale", district: "Colonna", severity: "Grave", def: "Sofferenza radicolare a livello cervicale da conflitto disco-osteofitico (spesso C5-C6 o C6-C7).", symptoms: "Dolore cervico-brachiale irradiato al braccio/mano con parestesie nei dermatomeri corrispondenti.", tests: "Spurling Test, Distraction Test, Upper Limb Tension Test (ULTT).", redFlags: "Mielopatia cervicale (perdita di destrezza manuale, instabilità nella marcia, segni piramidali positivi).", management: "Trazione cervicale manuale dolce, stabilizzazione segmentaria, scarico neurale." },
+            { id: 18, title: "Spondilolistesi", district: "Colonna", severity: "Moderata", def: "Scivolamento anteriore di una vertebra rispetto alla sottostante (comune a livello L5-S1).", symptoms: "Lombalgia meccanica aggravata dall'estensione lombare, tensione dei muscoli ischiocrurali.", tests: "Stork Test (appoggio monopodalico in estensione), palpazione gradino metamesiale.", redFlags: "Instabilità severa con scivolamento progressivo e deficit neurologici.", management: "Stabilizzazione lombare profonda (core stability), rinforzo trasverso dell'addome e multifidi." },
+            { id: 19, title: "Coxartrosi (Artrosi d'Anca)", district: "Anca", severity: "Cronica", def: "Degenerazione progressiva della cartilagine dell'articolazione coxo-femorale.", symptoms: "Dolore inguinale irradiato al ginocchio, zoppia di fuga (Trendelenburg), limitazione severa in rotazione interna e flessione.", tests: "FABER Test (Patrick), FADIR Test, Scour Test.", redFlags: "Impossibilità assoluta al carico e dolore notturno intrattabile.", management: "Mantenimento del ROM in scarico, rinforzo abduttori d'anca (gluteo medio), idrokinesiterapia." },
+            { id: 20, title: "Simpicite Pubica / Pubalgia", district: "Anca", severity: "Moderata", def: "Tendinopatia inserzionale dei muscoli adduttori e sovraccarico della sinfisi pubica (comune negli atleti).", symptoms: "Dolore pubico e inguinale durante la corsa, cambi di direzione e calciato.", tests: "Squeeze Test (adduzione resistita a ginocchia flesse), palpazione sinfisi.", redFlags: "Frattura da stress pubica o patologie urologiche/ginecologiche.", management: "Gestione del carico, rinforzo eccentrico adduttori e stabilità del core pelvico." },
+            { id: 21, title: "Borsite Trocanterica (Sindrome Dolorosa del Greater Trochanter)", district: "Anca", severity: "Lieve", def: "Infiammazione della borsa sierosa tra il grande trocantere e il tratto ileotibiale.", symptoms: "Dolore laterale d'anca, accentuato dal decubito laterale sul lato interessato e nella stazione eretta prolungata.", tests: "Palpazione diretta del grande trocantere, Ober Test positivo.", redFlags: "Necrosi avascolare della testa femorale (da escludere con anamnesi e imaging).", management: "Stretching del tratto ileotibiale, rinforzo abduttori, terapia fisica." },
+            { id: 22, title: "Impingement Femoro-Acetabolare (FAI)", district: "Anca", severity: "Moderata", def: "Conflitto meccanico tra testa femorale e acetabolo (tipo Cam o Pincer) che danneggia il labbro acetabolare.", symptoms: "Dolore inguinale profondo durante la flessione e rotazione interna dell'anca, scatto meccanico.", tests: "FADIR Test, FABER Test.", redFlags: "Lesioni avanzate del labbro con blocco articolare.", management: "Correzione biomeccanica del bacino, rinforzo stabilizzatori profondi d'anca, chinesiterapia." },
+            { id: 23, title: "Lesione del Labbro Acetabolare", district: "Anca", severity: "Grave", def: "Lacerazione del cercine fibrocartilagineo dell'acetabolo.", symptoms: "Dolore acuto o sordo all'inguine, sensazione di click o blocco articolare durante il movimento.", tests: "Hip Arthroscopy Tests (FABER, FADIR).", redFlags: "Blocco articolare meccanico irriducibile.", management: "Fisioterapia mirata alla stabilità dinamica o preparazione/recupero post-artroscopia." },
+            { id: 24, title: "Lesione del Legamento Crociato Anteriore (LCA)", district: "Ginocchio", severity: "Grave", def: "Rottura parziale o totale del legamento crociato anteriore, solitamente per trauma distorsivo in valgo-rotazione.", symptoms: "Sensazione di 'pop' udibile/avvertibile al momento del trauma, emartro precoce, cedimento (giving way).", tests: "Lachman Test, Anterior Drawer Test, Pivot Shift Test.", redFlags: "Blocco meniscale associato che impedisce l'estensione completa.", management: "Recupero ROM in estensione, rinforzo quadricipite/ischiocrurali, protocollo pre e post-chirurgico (ricostruzione LCA)." },
+            { id: 25, title: "Lesione dei Menischi (Mediale o Laterale)", district: "Ginocchio", severity: "Moderata", def: "Lacerazione della fibrocartilagine meniscale, degenerativa o traumatica.", symptoms: "Dolore in rima articolare, blocco o scatto articolare, versamento recidivante.", tests: "McMurray Test, Apley Compression Test, Thessaly Test.", redFlags: "Ginocchio bloccato in flessione (manico di secchio meniscale).", management: "Controllo dell'edema, recupero estensione completa, rinforzo selettivo quadricipite (VMO)." },
+            { id: 26, title: "Tendinopatia Rotulea (Jumper's Knee)", district: "Ginocchio", severity: "Moderata", def: "Tendinopatia inserzionale o del corpo del tendine rotuleo, comune negli sport con salti ripetuti.", symptoms: "Dolore localizzato al polo inferiore della rotula, accentuato da saltare, correre o scendere le scale.", tests: "Palpazione del tendine in estensione e flessione, squat resistito.", redFlags: "Lesione parziale avanzata o rischio di rottura tendinea.", management: "Esercizi eccentrici pesanti (HEST), isometrici ad alto carico per il controllo del dolore, scarico catena estensoria." },
+            { id: 27, title: "Sindrome Femoro-Rotulea (PFPS)", district: "Ginocchio", severity: "Lieve", def: "Dolore anteriore di ginocchio derivante da un tracking anomalo della rotula nella troclea femorale.", symptoms: "Dolore salendo/scendendo le scale, segno del cinema (dolore dopo prolungata seduta a ginocchia flesse).", tests: "Clarke Test, Apprehension patellare, Zohlen Test.", redFlags: "Versamento articolare importante (escludere condropatie gravi o lesioni cartilaginee).", management: "Rinforzo selettivo vasto mediale obliquo (VMO), stretching catena posteriore, taping rotuleo." },
+            { id: 28, title: "Gonartrosi (Artrosi di Ginocchio)", district: "Ginocchio", severity: "Cronica", def: "Usura degenerativa della cartilagine articolare femoro-tibiale e/o femoro-rotulea.", symptoms: "Dolore meccanico, rigidità mattutina inferiore a 30 minuti, crepitii, deformità in varo o valgo nei casi avanzati.", tests: "Valgo/Varo stress test, test di stabilità e mobilità ridotta.", redFlags: "Instabilità legamentosa secondaria e perdita grave del ROM in estensione.", management: "Chinesiterapia in scarico e catena cinetica chiusa a basso impatto, rinforzo muscolare, educazione al peso." },
+            { id: 29, title: "Tendinopatia della Zampa d'Oca", district: "Ginocchio", severity: "Lieve", def: "Infiammazione della borsa o dei tendini congiunti di sartorio, gracile e semitendinoso sulla tibia mediale.", symptoms: "Dolore mediale e inferiore alla rima articolare del ginocchio, accentuato dalla flessione resistita.", tests: "Palpazione della zona mediale prossimale della tibia.", redFlags: "Borsite infetta o frattura da stress tibiale.", management: "Stretching flessori della coscia, crioterapia, terapia manuale locale." },
+            { id: 30, title: "Distorsione di Caviglia (Compartimento Laterale)", district: "Caviglia", severity: "Moderata", def: "Lesione capsulo-legamentosa dei legamenti collaterali laterali (solitamente peroneo-astragalico anteriore - PPAA).", symptoms: "Gonfiore, ecchimosi malleolare laterale, dolore al carico e instabilità.", tests: "Anterior Drawer Test di caviglia, Talar Tilt Test.", redFlags: "Frattura malleolare associata (applicare Ottawa Ankle Rules per radiografia).", management: "Protocollo RICE in fase acuta, recupero propriocettivo precoce, rinforzo peronieri, stabilità dinamica." },
+            { id: 31, title: "Fascite Plantare e Spina Calcaneare", district: "Caviglia", severity: "Moderata", def: "Infiammazione degenerativa della aponeurosi plantare alla sua inserzione sul calcagno.", symptoms: "Dolore acuto al primo appoggio mattutino o dopo riposo, localizzato alla tuberosità calcaneare mediale.", tests: "Windlass Test (estensione passiva delle dita a tallone scarico).", redFlags: "Dolore neuropatico irradiato o frattura da stress del calcagno.", management: "Stretching della fascia plantare e del polpaccio, rinforzo intrinseci del piede, plantari ortopedici di scarico." },
+            { id: 32, title: "Tendinopatia del Tendine d'Achille", district: "Caviglia", severity: "Moderata", def: "Tendinopatia inserzionale o medio-porzione del tendine d'Achille da sovraccarico funzionale.", symptoms: "Dolore e rigidità al tendine d'Achille, tumefazione fusiforme, dolore all'avvio della corsa.", tests: "Matles Test, Thompson Test (per escludere rottura completa).", redFlags: "Rottura completa del tendine d'Achille (Gap palpabile e Thompson Test positivo con assenza di flessione plantare).", management: "Protocollo di Alfredson (esercizi eccentrici pesanti), carico progressivo, onde d'urto se indicate." },
+            { id: 33, title: "Tendinite dei Muscoli Peronieri", district: "Caviglia", severity: "Lieve", def: "Infiammazione dei tendini peroniero lungo e breve dietro il malleolo laterale.", symptoms: "Dolore retromalleolare laterale, aggravato dall'eversion resistita del piede.", tests: "Eversione resistita della caviglia con piede in flessione plantare.", redFlags: "Lussazione dei tendini peronieri (sublussazione con scatto dietro il malleolo).", management: "Tutore di protezione, rinforzo peronieri, stretching, terapia fisica." },
+            { id: 34, title: "Sindrome del Tunnel Tarsale", district: "Caviglia", severity: "Moderata", def: "Compression neuropatica del nervo tibiale posteriore sotto il retinacolo dei flessori mediale.", symptoms: "Parestesie, bruciore e dolore alla pianta del piede e alle dita, accentuato dalla deambulazione.", tests: "Tinel Test al tunnel tarsale (dietro il malleolo mediale).", redFlags: "Deficit sensitivi plantari severi e atrofia muscoli intrinseci.", management: "Ortesi plantari per correggere l'eccessiva pronazione, mobilizzazione neurale, scarico." },
+            { id: 35, title: "Metatarsalgia", district: "Caviglia", severity: "Lieve", def: "Sindrome dolorosa localizzata alla pianta del piede a livello delle teste metatarsali (spesso II e III).", symptoms: "Dolore urente o meccanico sotto l'avampiede durante la camminata, formazione di callosità plantari.", tests: "Compressione laterale delle teste metatarsali (Mulder Test per neuroma di Morton).", redFlags: "Frattura da stress metatarsale (marciapiede/runner).", management: "Scarico pressorio con plantari metatarsali, mobilizzazione delle articolazioni metatarso-falangee." }
+        ];
+
+        // Database 2: Trattamenti Riabilitativi (Step 2)
+        const trattamentiData = [
+            { id: 1, title: "Terapia Manuale ortopedica (Mulligan & Maitland)", district: "Generale", severity: "Tecnica Clinica", def: "Approccio clinico basato sul ragionamento clinico, che utilizza tecniche manuali altamente specifiche, comprese manipolazioni e mobilizzazioni articolari.", goals: "Riduzione del dolore articolare, ripristino del ROM fisiologico, miglioramento dell'artrocinematica.", indications: "Ipomobilità articolare, artrosi, rigidità post-chirurgica o post-traumatica.", contraindications: "Instabilità articolare severa, osteoporosi grave, neoplasie ossee, segni di mielopatia.", execution: "Applicazione di forze passive accessorie o fisiologiche graduate (gradi da I a V di Maitland) associate a movimento attivo nel concetto Mulligan (MWMs)." },
+            { id: 2, title: "Massoterapia Decontratturante e Miofasciale", district: "Generale", severity: "Tecnica Clinica", def: "Insieme di manovre manuali eseguite sui tessuti molli per ridurre la tensione muscolare, migliorare la vascolarizzazione e liberare i piani fasciali.", goals: "Rilassamento muscolare, aumento del flusso sanguigno locale, riduzione del dolore miofasciale.", indications: "Mialgie, contratture da sovraccarico, cervicalgie e lombalgie miotensive, preparazione all'esercizio.", contraindications: "Trombosi venose profonde, infezioni cutanee locali, ferite aperte, fratture recenti.", execution: "Sfioramento, frizione profonda, impastamento e percussione associati a tecniche di rilascio miofasciale (trigger point therapy)." },
+            { id: 3, title: "Chinesiterapia Attiva e Passiva", district: "Generale", severity: "Tecnica Clinica", def: "Movimento terapeutico somministrato per ripristinare o mantenere la funzione neuromuscolare e biomeccanica dell'apparato locomotore.", goals: "Recupero della forza, del controllo motorio, della coordinazione e del ROM completo.", indications: "Tutte le fasi riabilitative post-chirurgiche, ortopediche e neurologiche.", contraindications: "Fratture instabili, dolore acuto severo dipendente dal movimento, infiammazione acuta grave.", execution: "Esercizi assistiti, resistiti o liberi basati su principi di dosaggio progressivo (carico, serie, ripetizioni)." },
+            { id: 4, title: "Rieducazione Propriocettiva e Neuromuscolare", district: "Generale", severity: "Tecnica Clinica", def: "Stimolazione dei recettori propriocettivi (fusi neuromuscolari, organi del Golgi) per migliorare il controllo riflesso e la stabilità articolare.", goals: "Miglioramento del controllo neuromuscolare dinamico, prevenzione delle recidive distorsive.", indications: "Post-operatorio di ricostruzione ligamentosa (es. LCA), distorsioni di caviglia, instabilità articolari.", contraindications: "Assenza totale di stabilità meccanica articolare in fase acuta.", execution: "Esercizi su superfici instabili (tavole propriocettive, cuscini propriocettivi), stimoli destabilizzanti in catena cinetica chiusa." },
+            { id: 5, title: "Linfodrenaggio Manuale (Metodo Vodder)", district: "Generale", severity: "Tecnica Clinica", def: "Tecnica di massaggio dolce e ritmato mirata a stimolare il sistema linfatico per favorire il riassorbimento dei liquidi interstiziali.", goals: "Riduzione dell'edema post-chirurgico o post-traumatico, stimolazione del sistema immunitario locale.", indications: "Edemi post-traumatici acuti, interventi di chirurgia ortopedica (es. protesi d'anca/ginocchio), linfedemi.", contraindications: "Infezioni acute, insufficienza cardiaca scompensata, tromboflebiti acute.", execution: "Manovre leggere di richiamo e pompaggio eseguite lungo i collettori linfatici verso i linfonodi regionali." },
+            { id: 6, title: "Idrokinesiterapia (Riabilitazione in Acqua)", district: "Generale", severity: "Tecnica Clinica", def: "Riabilitazione motoria eseguita in piscina riscaldata sfruttando le proprietà fisiche dell'acqua (galleggiamento, idrostatica, resistenza).", goals: "Deambulazione precoce in scarico parziale del peso corporeo, riduzione del dolore e rilassamento.", indications: "Fase precoce post-chirurgica (protesi, ricostruzioni tendinee e legamentose), sovrappeso, artrosi severa.", contraindications: "Ferite chirurgiche non guarite, infezioni cutanee o urinarie, epilessia non controllata, febbre.", execution: "Esercizi di deambulazione in acqua ad altezza variabile, mobilizzazioni in galleggiamento e rinforzo con resistenze idrodinamiche." }
+        ];
+
+        // Stato Attuale dell'App
+        let currentSection = 'patologie';
+        let currentDistrictFilter = 'all';
+
+        // Inizializzazione all'avvio
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPatologie();
+            renderTrattamenti();
+        });
+
+        // Funzione per cambiare sezione
+        function switchSection(sectionId) {
+            currentSection = sectionId;
+            
+            // Aggiorna classi bottoni tab
+            document.querySelectorAll('.section-tab').forEach(btn => {
+                btn.classList.remove('border-brand-500', 'bg-brand-50', 'text-brand-700');
+                btn.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
+            });
+            const activeBtn = document.getElementById(`btn-sec-${sectionId}`);
+            if(activeBtn) {
+                activeBtn.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
+                activeBtn.classList.add('border-brand-500', 'bg-brand-50', 'text-brand-700');
+            }
+
+            // Nascondi/Mostra sezioni
+            document.querySelectorAll('.content-section').forEach(sec => {
+                sec.classList.add('hidden');
+            });
+            const targetSec = document.getElementById(`section-${sectionId}`);
+            if(targetSec) {
+                targetSec.classList.remove('hidden');
+            }
+
+            // Mostra/Nascondi filtri distretto in base alla sezione
+            const filterChips = document.getElementById('filter-chips');
+            if(sectionId === 'patologie' || sectionId === 'trattamenti') {
+                filterChips.style.display = 'flex';
+            } else {
+                filterChips.style.display = 'none';
+            }
+
+            filterContent();
+        }
+
+        // Funzione per filtrare per distretto
+        function filterByDistrict(district) {
+            currentDistrictFilter = district;
+            
+            // Aggiorna chip attivi
+            document.querySelectorAll('#filter-chips button').forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            event.target.classList.remove('bg-slate-100', 'text-slate-600');
+            event.target.classList.add('bg-brand-600', 'text-white', 'shadow-sm');
+
+            filterContent();
+        }
+
+        // Ricerca globale e filtri combinati
+        function filterContent() {
+            const query = document.getElementById('global-search').value.toLowerCase();
+            
+            if(currentSection === 'patologie') {
+                const filtered = patologieData.filter(item => {
+                    const matchDistrict = currentDistrictFilter === 'all' || item.district === currentDistrictFilter;
+                    const matchQuery = item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.symptoms.toLowerCase().includes(query);
+                    return matchDistrict && matchQuery;
+                });
+                renderPatologieGrid(filtered);
+            } else if(currentSection === 'trattamenti') {
+                const filtered = trattamentiData.filter(item => {
+                    const matchDistrict = currentDistrictFilter === 'all' || item.district === currentDistrictFilter;
+                    const matchQuery = item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.goals.toLowerCase().includes(query);
+                    return matchDistrict && matchQuery;
+                });
+                renderTrattamentiGrid(filtered);
+            }
+        }
+
+        // Render Patologie
+        function renderPatologie() {
+            renderPatologieGrid(patologieData);
+        }
+
+        function renderPatologieGrid(data) {
+            const grid = document.getElementById('patologie-grid');
+            document.getElementById('patologie-count').innerText = `${data.length} Patologie`;
+            
+            if(data.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><i class="fa-solid fa-folder-open text-3xl mb-2"></i><p>Nessuna patologia trovata.</p></div>`;
+                return;
+            }
+
+            grid.innerHTML = data.map(item => `
+                <div onclick="openPatologiaDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-brand-50 text-brand-700">${item.district}</span>
+                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md ${item.severity === 'Grave' ? 'bg-rose-50 text-rose-700' : (item.severity === 'Moderata' ? 'bg-amber-50 text-amber-700' : 'bg-slate-100 text-slate-600')}">${item.severity}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-brand-600 font-semibold">
+                        <span>Leggi scheda clinica</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render Trattamenti
+        function renderTrattamenti() {
+            renderTrattamentiGrid(trattamentiData);
+        }
+
+        function renderTrattamentiGrid(data) {
+            const grid = document.getElementById('trattamenti-grid');
+            
+            if(data.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><i class="fa-solid fa-folder-open text-3xl mb-2"></i><p>Nessun trattamento trovato.</p></div>`;
+                return;
+            }
+
+            grid.innerHTML = data.map(item => `
+                <div onclick="openTrattamentoDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">${item.district}</span>
+                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-brand-50 text-brand-700">${item.severity}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-brand-600 font-semibold">
+                        <span>Protocollo tecnica</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Dettaglio Patologia Modal
+        function openPatologiaDetail(id) {
+            const item = patologieData.find(p => p.id === id);
+            if(!item) return;
+
+            document.getElementById('modal-district-badge').innerText = item.district;
+            document.getElementById('modal-title').innerText = item.title;
+            
+            document.getElementById('modal-body').innerHTML = `
+                <div>
+                    <h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Definizione ed Eziopatogenesi</h4>
+                    <p class="text-slate-600">${item.def}</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Quadro Clinico e Sintomi</h4>
+                    <p class="text-slate-600">${item.symptoms}</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Test Ortopedici Specifici</h4>
+                    <p class="text-slate-600">${item.tests}</p>
+                </div>
+                <div class="bg-rose-50 border border-rose-100 p-3 rounded-xl">
+                    <h4 class="font-bold text-rose-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Red Flags / Diagnosi Differenziale</h4>
+                    <p class="text-rose-900">${item.redFlags}</p>
+                </div>
+                <div class="bg-brand-50 border border-brand-100 p-3 rounded-xl">
+                    <h4 class="font-bold text-brand-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-circle-check mr-1"></i>Gestione Fisioterapica</h4>
+                    <p class="text-brand-900">${item.management}</p>
+                </div>
+            `;
+
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        // Dettaglio Trattamento Modal
+        function openTrattamentoDetail(id) {
+            const item = trattamentiData.find(t => t.id === id);
+            if(!item) return;
+
+            document.getElementById('modal-district-badge').innerText = item.district;
+            document.getElementById('modal-title').innerText = item.title;
+            
+            document.getElementById('modal-body').innerHTML = `
+                <div>
+                    <h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Descrizione Tecnica</h4>
+                    <p class="text-slate-600">${item.def}</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Obiettivi Terapeutici</h4>
+                    <p class="text-slate-600">${item.goals}</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Indicazioni Cliniche</h4>
+                    <p class="text-slate-600">${item.indications}</p>
+                </div>
+                <div class="bg-rose-50 border border-rose-100 p-3 rounded-xl">
+                    <h4 class="font-bold text-rose-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-ban mr-1"></i>Controindicazioni</h4>
+                    <p class="text-rose-900">${item.contraindications}</p>
+                </div>
+                <div class="bg-brand-50 border border-brand-100 p-3 rounded-xl">
+                    <h4 class="font-bold text-brand-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-list-check mr-1"></i>Modalità di Esecuzione</h4>
+                    <p class="text-brand-900">${item.execution}</p>
+                </div>
+            `;
+
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // Gestione Timer Clinico con Web Audio API
+        let timerInterval = null;
+        let timeLeft = 45;
+        let totalTime = 45;
+        let isRunning = false;
+
+        function setTimer(seconds) {
+            pauseTimer();
+            totalTime = seconds;
+            timeLeft = seconds;
+            updateTimerDisplay();
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+            const secs = (timeLeft % 60).toString().padStart(2, '0');
+            document.getElementById('timer-display').innerText = `${mins}:${secs}`;
+        }
+
+        function startTimer() {
+            if(isRunning) return;
+            if(timeLeft <= 0) timeLeft = totalTime;
+            isRunning = true;
+            document.getElementById('timer-status').innerText = "Esercizio in corso...";
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if(timeLeft <= 0) {
+                    pauseTimer();
+                    document.getElementById('timer-status').innerText = "Tempo scaduto! Ottimo lavoro.";
+                    playBeep();
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            isRunning = false;
+            clearInterval(timerInterval);
+            document.getElementById('timer-status').innerText = "Timer in pausa";
+        }
+
+        function resetTimer() {
+            pauseTimer();
+            timeLeft = totalTime;
+            updateTimerDisplay();
+            document.getElementById('timer-status').innerText = "Pronto per l'esercizio isometrico";
+        }
+
+        function playBeep() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.value = 587.33; // Nota D5
+                gain.gain.setValueAtTime(0.1, ctx.currentTime);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.6);
+            } catch(e) {
+                console.log("Audio non supportato automaticamente");
+            }
+        }
+    </script>
+</body>
+</html>
