@@ -65,7 +65,7 @@
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                     <i class="fa-solid fa-search"></i>
                 </span>
-                <input type="text" id="global-search" oninput="filterContent()" placeholder="Cerca patologia, trattamento, protocollo..." class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition">
+                <input type="text" id="global-search" oninput="filterContent()" placeholder="Cerca tra 70 patologie ortopediche..." class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition">
             </div>
             <!-- Filtro Distretto / Categoria -->
             <div class="flex items-center space-x-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0" id="filter-chips">
@@ -89,7 +89,7 @@
                 <i class="fa-solid fa-stethoscope text-xl mb-2 text-brand-600"></i>
                 <div>
                     <h3 class="font-bold text-sm">Patologie</h3>
-                    <p class="text-[11px] opacity-75">35 Schede Ortopediche</p>
+                    <p class="text-[11px] opacity-75">70 Schede Cliniche</p>
                 </div>
             </button>
             <button onclick="switchSection('trattamenti')" id="btn-sec-trattamenti" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
@@ -134,9 +134,9 @@
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-stethoscope text-brand-600"></i>
-                    <span>Archivio Patologie Ortopediche</span>
+                    <span>Archivio Patologie Ortopediche (70 Schede)</span>
                 </h2>
-                <span id="patologie-count" class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">35 Patologie</span>
+                <span id="patologie-count" class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">70 Patologie</span>
             </div>
             <div id="patologie-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
@@ -189,7 +189,7 @@
             <div id="esercizi-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione 6: Protocolli Riabilitativi (NUOVA) -->
+        <!-- Sezione 6: Protocolli Riabilitativi -->
         <div id="section-protocolli" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
@@ -259,43 +259,89 @@
 
     <!-- Script JavaScript Applicativo -->
     <script>
-        // Database 1: Patologie Ortopediche (35 Schede)
+        // Database 1: 70 Patologie Ortopediche Complete
         const patologieData = [
-            { id: 1, title: "Sindrome da Conflitto Subacromiale (Impingement)", district: "Spalla", severity: "Moderata", def: "Compressione dei tendini della cuffia dei rotatori e della borsa subacromiale sotto l'arco coraco-acromiale.", symptoms: "Dolore in arco doloroso (60°-120°), impotenza funzionale notturna, dolore irradiato alto braccio.", tests: "Test di Neer, Test di Hawkins-Kennedy, Painful Arc Test.", redFlags: "Dolore notturno intrattabile associato a calo ponderale o impotenza assoluta in elevazione (sospetto lesione massiva).", management: "Recupero spazio subacromiale, rinforzo extratoracici e stabilizzatori scapolo-toracici, correzione posturale." },
-            { id: 2, title: "Lesione della Cuffia dei Rotatori", district: "Spalla", severity: "Grave", def: "Lesione parziale o a tutto spessore dei tendini (sovraspinato, infraspinato, sottoscapolare, piccolo rotondo).", symptoms: "Debolezza muscolare attiva, dolore acuto post-traumatico o degenerativo cronico.", tests: "Drop Arm Test, Jobe Test (Empty Can), Patte Test.", redFlags: "Impossibilità assoluta a mantenere il braccio sollevato (Lag sign positivo).", management: "Gestione conservativa (rinforzo sinergico deltoide-cuffia) o riabilitazione post-chirurgica protocollata." },
-            { id: 3, title: "Capsulite Adesiva (Spalla Congelata)", district: "Spalla", severity: "Grave", def: "Infiammazione e fibrosi della capsula articolare gleno-omerale con progressiva perdita di mobilità attiva e passiva.", symptoms: "Fase 1 (Freezing): dolore acuto. Fase 2 (Frozen): rigidità severa. Fase 3 (Thawing): recupero graduale.", tests: "Limitazione severa e rigida dei movimenti passivi, in particolare extrarotazione e abduzione.", redFlags: "Escludere algodistrofia o artrite settica/infiammatoria sistemica.", management: "Mobilizzazione dolce nei limiti del dolore, terapia manuale capsulare, evitare forzature aggressive in fase infiammatoria." },
-            { id: 4, title: "Instabilità Gleno-Omerale e Lussazione", district: "Spalla", severity: "Grave", def: "Eccessiva traslazione della testa omerale sulla glena, spesso post-traumatica (anteriore nella maggior parte dei casi).", symptoms: "Sensazione di cedimento, paura del sblocco in abduzione ed extrarotazione, apprensione.", tests: "Apprehension Test, Relocation Test, Sulcus Sign.", redFlags: "Segni neurologici periferici (lesione nervo ascellare) post-lussazione.", management: "Rinforzo stabilizzatori dinamici (cuffia e scapolari), propriocettività in catena cinetica chiusa ed aperta." },
-            { id: 5, title: "Tendinopatia del Capo Lungo del Bicipite", district: "Spalla", severity: "Moderata", def: "Processo degenerativo o infiammatorio a carico del tendine del CLB nella doccia bicipitale.", symptoms: "Dolore anteriore di spalla accentuato dalla supinazione resistita e flessione di gomito.", tests: "Speed Test, Yergason Test.", redFlags: "Deformità 'a papa papa' (rottura del tendine con dislocazione del ventre muscolare).", management: "Scarico del tendine, massaggio trasverso profondo (se indicato), rinforzo eccentrico progressivo." },
-            { id: 6, title: "Artrosi Gleno-Omerale (Omartrosi)", district: "Spalla", severity: "Cronica", def: "Usura degenerativa della cartilagine articolare gleno-omerale.", symptoms: "Dolore sordo e profondo, crepitii articolari, limitazione ingravescente dei movimenti.", tests: "Riduzione globale e dolorosa del ROM passivo e attivo.", redFlags: "Blocco meccanico severo.", management: "Mantenimento del ROM residuo, chinesiterapia in scarico, gestione del dolore." },
-            { id: 7, title: "Epicondilite Laterale (Gomito del Tennis)", district: "Gomito/Mano", severity: "Moderata", def: "Tendinopatia inserzionale dei muscoli estensori dell'avambraccio (soprattutto estensore radiale breve del carpo).", symptoms: "Dolore alla palpazione dell'epicondilo laterale, deficit di presa (grip strength), dolore nel sollevare pesi a pronazione.", tests: "Cozen Test, Mill Test, Maudsley Test.", redFlags: "Dolore irradiato con parestesie (possibile compressione del nervo interosseo posteriore).", management: "Esercizi eccentrici progressivi, scarico dei flesso-estensori, manipolazioni cervicali se ipomobilità C5-C6." },
-            { id: 8, title: "Epitrocleite (Gomito del Golfista)", district: "Gomito/Mano", severity: "Moderata", def: "Tendinopatia dei muscoli flessori-pronatori a livello dell'inserzione sull'epitroclea mediale.", symptoms: "Dolore mediale al gomito aggravato dalla flessione resistita del polso e pronazione.", tests: "Golfer's Elbow Test (flessione resistita del polso a gomito esteso).", redFlags: "Parestesie al IV e V dito (coinvolgimento del nervo ulnare al tunnel cubitale).", management: "Rinforzo eccentrico flessori, stretching mirato, ergonomia lavorativa." },
-            { id: 9, title: "Sindrome del Tunnel Carpale", district: "Gomito/Mano", severity: "Moderata", def: "Compression neuropatica del nervo mediano nel suo passaggio attraverso il canale carpale al polso.", symptoms: "Parestesie, formicolii e dolore notturno alle prime tre dita, debolezza dei muscoli tenari nei casi avanzati.", tests: "Phalen Test, Tinel Test al polso, Durkan Test.", redFlags: "Atrofia dell'eminenza tenar e perdita della sensibilità cutanea permanente.", management: "Tutore notturno in posizione neutra, scivolamenti neurali del nervo mediano, rilasciamento del legamento trasverso." },
-            { id: 10, title: "Sindrome di De Quervain", district: "Gomito/Mano", severity: "Moderata", def: "Tenosinovite stenosante del primo compartimento dorsale del polso (ablungo lungo ed estensore breve del pollice).", symptoms: "Dolore acuto allo stiloide radiale accentuato dalla deviazione ulnare del polso con pollice chiuso (Finkelstein).", tests: "Finkelstein Test, Eichhoff Test.", redFlags: "Blocco meccanico nello scorrimento tendineo.", management: "Tutore specifico polso-pollice, terapia fisica antiflogistica, massaggio frizionale." },
-            { id: 11, title: "Rizoartrosi (Artrosi Trapezio-Metacarpale)", district: "Gomito/Mano", severity: "Cronica", def: "Osteoartrosi dell'articolazione tra trapezio e primo metacarpale.", symptoms: "Dolore alla base del pollice durante i gesti di presa a pinza, tumefazione articolare, perdita di forza.", tests: "Grind Test (pressione e rotazione assiale del primo metacarpo).", redFlags: "Deformità a zeta del pollice.", management: "Tutori di stabilizzazione funzionale, esercizi di rinforzo dei muscoli interossei e tenari." },
-            { id: 12, title: "Dito a Scatto (Tenosinovite Stenosante)", district: "Gomito/Mano", severity: "Lieve", def: "Infiammazione della guaina flessoria con formazione di nodulo tendineo che ostacola lo scorrimento.", symptoms: "Scatto doloroso durante la flesso-estensione delle dita, blocco in flessione al risveglio.", tests: "Palpazione del nodulo dolente alla base del dito sulla puleggia A1.", redFlags: "Blocco permanente irriducibile manualmente.", management: "Stretching dei flessori, ultrasuoni focalizzati, steccatura notturna." },
-            { id: 13, title: "Lombalgia Acuta (Colpo della Strega)", district: "Colonna", severity: "Moderata", def: "Spasmo muscolare acuto e disfunzione segmentaria lombare con sovraccarico capsulo-ligamentoso.", symptoms: "Dolore lombare improvviso e invalidante, blocco funzionale in flessione o inclinazione, spasmo muscolare paravertebrale.", tests: "Schober Test (ridotta mobilità), Test di flessione/estensione.", redFlags: "Sindrome della cauda equina, deficit neurologici progressivi, febbre o calo ponderale inspiegato.", management: "Decompressione vertebrale dolce, tecniche miofasciali, educazione posturale ed esercizio attivo precoce." },
-            { id: 14, title: "Ernia del Disco Lombare e Sciatalgia", district: "Colonna", severity: "Grave", def: "Fuoriuscita del nucleo polposo con compressione delle radici nervose spinali (es. L5-S1).", symptoms: "Dolore irradiato lungo il decorso del nervo sciatico (gluteo, coscia, gamba, piede), parestesie, ipostenia.", tests: "Lasegue Test (Straight Leg Raise), Bragard Test, Wasserman Test (per ernie alte).", redFlags: "Anestesia a sella, perdita di controllo sfinterico (urgenza chirurgica), deficit motorio severo (piede torto)." },
-            { id: 15, title: "Stenosi del Canale Vertebrale Lombare", district: "Colonna", severity: "Cronica", def: "Restringimento congenito o degenerativo del canale spinale lombare con compressione delle radici della cauda.", symptoms: "Claudicatio intermittens neurogena (dolore e pesantezza agli arti inferiori che insorge camminando e si riduce in flessione).", tests: "Test del carrello (miglioramento dei sintomi in flessione del tronco).", redFlags: "Parestesie bilaterali ingravescenti e perdita di forza ingravescente.", management: "Esercizi di flessione lombare (Williams), ciclismo stazionario, rinforzo del core in scarico." },
-            { id: 16, title: "Cervicalgia Miotensiva", district: "Colonna", severity: "Lieve", def: "Sindrome dolorosa cervicale da sovraccarico posturale e contrattura cronica dei muscoli trapezio e suboccipitali.", symptoms: "Dolore cervicale diffuso, rigidità mattutina, cefalea tensiva miogena associata.", tests: "Spurling Test negativo (per escludere radicolopatia), mobilità cervicale ridotta.", redFlags: "Vertigini acute, nistagmo, deficit dei nervi cranici (escludere insufficienza vertebro-basilare).", management: "Rilascio miofasciale suboccipitale, correzione ergonomica, rinforzo flessori profondi del collo." },
-            { id: 17, title: "Radicolopatia Cervicale", district: "Colonna", severity: "Grave", def: "Sofferenza radicolare a livello cervicale da conflitto disco-osteofitico (spesso C5-C6 o C6-C7).", symptoms: "Dolore cervico-brachiale irradiato al braccio/mano con parestesie nei dermatomeri corrispondenti.", tests: "Spurling Test, Distraction Test, Upper Limb Tension Test (ULTT).", redFlags: "Mielopatia cervicale (perdita di destrezza manuale, instabilità nella marcia, segni piramidali positivi).", management: "Trazione cervicale manuale dolce, stabilizzazione segmentaria, scarico neurale." },
-            { id: 18, title: "Spondilolistesi", district: "Colonna", severity: "Moderata", def: "Scivolamento anteriore di una vertebra rispetto alla sottostante (comune a livello L5-S1).", symptoms: "Lombalgia meccanica aggravata dall'estensione lombare, tensione dei muscoli ischiocrurali.", tests: "Stork Test (appoggio monopodalico in estensione), palpazione gradino metamesiale.", redFlags: "Instabilità severa con scivolamento progressivo e deficit neurologici.", management: "Stabilizzazione lombare profonda (core stability), rinforzo trasverso dell'addome e multifidi." },
-            { id: 19, title: "Coxartrosi (Artrosi d'Anca)", district: "Anca", severity: "Cronica", def: "Degenerazione progressiva della cartilagine dell'articolazione coxo-femorale.", symptoms: "Dolore inguinale irradiato al ginocchio, zoppia di fuga (Trendelenburg), limitazione severa in rotazione interna e flessione.", tests: "FABER Test (Patrick), FADIR Test, Scour Test.", redFlags: "Impossibilità assoluta al carico e dolore notturno intrattabile.", management: "Mantenimento del ROM in scarico, rinforzo abduttori d'anca (gluteo medio), idrokinesiterapia." },
-            { id: 20, title: "Simpicite Pubica / Pubalgia", district: "Anca", severity: "Moderata", def: "Tendinopatia inserzionale dei muscoli adduttori e sovraccarico della sinfisi pubica (comune negli atleti).", symptoms: "Dolore pubico e inguinale durante la corsa, cambi di direzione e calciato.", tests: "Squeeze Test (adduzione resistita a ginocchia flesse), palpazione sinfisi.", redFlags: "Frattura da stress pubica o patologie urologiche/ginecologiche.", management: "Gestione del carico, rinforzo eccentrico adduttori e stabilità del core pelvico." },
-            { id: 21, title: "Borsite Trocanterica (Sindrome Dolorosa del Greater Trochanter)", district: "Anca", severity: "Lieve", def: "Infiammazione della borsa sierosa tra il grande trocantere e il tratto ileotibiale.", symptoms: "Dolore laterale d'anca, accentuato dal decubito laterale sul lato interessato e nella stazione eretta prolungata.", tests: "Palpazione diretta del grande trocantere, Ober Test positivo.", redFlags: "Necrosi avascolare della testa femorale (da escludere con anamnesi e imaging).", management: "Stretching del tratto ileotibiale, rinforzo abduttori, terapia fisica." },
-            { id: 22, title: "Impingement Femoro-Acetabolare (FAI)", district: "Anca", severity: "Moderata", def: "Conflitto meccanico tra testa femorale e acetabolo (tipo Cam o Pincer) che danneggia il labbro acetabolare.", symptoms: "Dolore inguinale profondo durante la flessione e rotazione interna dell'anca, scatto meccanico.", tests: "FADIR Test, FABER Test.", redFlags: "Lesioni avanzate del labbro con blocco articolare.", management: "Correzione biomeccanica del bacino, rinforzo stabilizzatori profondi d'anca, chinesiterapia." },
-            { id: 23, title: "Lesione del Labbro Acetabolare", district: "Anca", severity: "Grave", def: "Lacerazione del cercine fibrocartilagineo dell'acetabolo.", symptoms: "Dolore acuto o sordo all'inguine, sensazione di click o blocco articolare durante il movimento.", tests: "Hip Arthroscopy Tests (FABER, FADIR).", redFlags: "Blocco articolare meccanico irriducibile.", management: "Fisioterapia mirata alla stabilità dinamica o preparazione/recupero post-artroscopia." },
-            { id: 24, title: "Lesione del Legamento Crociato Anteriore (LCA)", district: "Ginocchio", severity: "Grave", def: "Rottura parziale o totale del legamento crociato anteriore, solitamente per trauma distorsivo in valgo-rotazione.", symptoms: "Sensazione di 'pop' udibile/avvertibile al momento del trauma, emartro precoce, cedimento (giving way).", tests: "Lachman Test, Anterior Drawer Test, Pivot Shift Test.", redFlags: "Blocco meniscale associato che impedisce l'estensione completa.", management: "Recupero ROM in estensione, rinforzo quadricipite/ischiocrurali, protocollo pre e post-chirurgico (ricostruzione LCA)." },
-            { id: 25, title: "Lesione dei Menischi (Mediale o Laterale)", district: "Ginocchio", severity: "Moderata", def: "Lacerazione della fibrocartilagine meniscale, degenerativa o traumatica.", symptoms: "Dolore in rima articolare, blocco o scatto articolare, versamento recidivante.", tests: "McMurray Test, Apley Compression Test, Thessaly Test.", redFlags: "Ginocchio bloccato in flessione (manico di secchio meniscale).", management: "Controllo dell'edema, recupero estensione completa, rinforzo selettivo quadricipite (VMO)." },
-            { id: 26, title: "Tendinopatia Rotulea (Jumper's Knee)", district: "Ginocchio", severity: "Moderata", def: "Tendinopatia inserzionale o del corpo del tendine rotuleo, comune negli sport con salti ripetuti.", symptoms: "Dolore localizzato al polo inferiore della rotula, accentuato da saltare, correre o scendere le scale.", tests: "Palpazione del tendine in estensione e flessione, squat resistito.", redFlags: "Lesione parziale avanzata o rischio di rottura tendinea.", management: "Esercizi eccentrici pesanti (HEST), isometrici ad alto carico per il controllo del dolore, scarico catena estensoria." },
-            { id: 27, title: "Sindrome Femoro-Rotulea (PFPS)", district: "Ginocchio", severity: "Lieve", def: "Dolore anteriore di ginocchio derivante da un tracking anomalo della rotula nella troclea femorale.", symptoms: "Dolore salendo/scendendo le scale, segno del cinema (dolore dopo prolungata seduta a ginocchia flesse).", tests: "Clarke Test, Apprehension patellare, Zohlen Test.", redFlags: "Versamento articolare importante (escludere condropatie gravi o lesioni cartilaginee).", management: "Rinforzo selettivo vasto mediale obliquo (VMO), stretching catena posteriore, taping rotuleo." },
-            { id: 28, title: "Gonartrosi (Artrosi di Ginocchio)", district: "Ginocchio", severity: "Cronica", def: "Usura degenerativa della cartilagine articolare femoro-tibiale e/o femoro-rotulea.", symptoms: "Dolore meccanico, rigidità mattutina inferiore a 30 minuti, crepitii, deformità in varo o valgo nei casi avanzati.", tests: "Valgo/Varo stress test, test di stabilità e mobilità ridotta.", redFlags: "Instabilità legamentosa secondaria e perdita grave del ROM in estensione.", management: "Chinesiterapia in scarico e catena cinetica chiusa a basso impatto, rinforzo muscolare, educazione al peso." },
-            { id: 29, title: "Tendinopatia della Zampa d'Oca", district: "Ginocchio", severity: "Lieve", def: "Infiammazione della borsa o dei tendini congiunti di sartorio, gracile e semitendinoso sulla tibia mediale.", symptoms: "Dolore mediale e inferiore alla rima articolare del ginocchio, accentuato dalla flessione resistita.", tests: "Palpazione della zona mediale prossimale della tibia.", redFlags: "Borsite infetta o frattura da stress tibiale.", management: "Stretching flessori della coscia, crioterapia, terapia manuale locale." },
-            { id: 30, title: "Distorsione di Caviglia (Compartimento Laterale)", district: "Caviglia", severity: "Moderata", def: "Lesione capsulo-legamentosa dei legamenti collaterali laterali (solitamente peroneo-astragalico anteriore - PPAA).", symptoms: "Gonfiore, ecchimosi malleolare laterale, dolore al carico e instabilità.", tests: "Anterior Drawer Test di caviglia, Talar Tilt Test.", redFlags: "Frattura malleolare associata (applicare Ottawa Ankle Rules per radiografia).", management: "Protocollo RICE in fase acuta, recupero propriocettivo precoce, rinforzo peronieri, stabilità dinamica." },
-            { id: 31, title: "Fascite Plantare e Spina Calcaneare", district: "Caviglia", severity: "Moderata", def: "Infiammazione degenerativa della aponeurosi plantare alla sua inserzione sul calcagno.", symptoms: "Dolore acuto al primo appoggio mattutino o dopo riposo, localizzato alla tuberosità calcaneare mediale.", tests: "Windlass Test (estensione passiva delle dita a tallone scarico).", redFlags: "Dolore neuropatico irradiato o frattura da stress del calcagno.", management: "Stretching della fascia plantare e del polpaccio, rinforzo intrinseci del piede, plantari ortopedici di scarico." },
-            { id: 32, title: "Tendinopatia del Tendine d'Achille", district: "Caviglia", severity: "Moderata", def: "Tendinopatia inserzionale o medio-porzione del tendine d'Achille da sovraccarico funzionale.", symptoms: "Dolore e rigidità al tendine d'Achille, tumefazione fusiforme, dolore all'avvio della corsa.", tests: "Matles Test, Thompson Test (per escludere rottura completa).", redFlags: "Rottura completa del tendine d'Achille (Gap palpabile e Thompson Test positivo con assenza di flessione plantare).", management: "Protocollo di Alfredson (esercizi eccentrici pesanti), carico progressivo, onde d'urto se indicate." },
-            { id: 33, title: "Tendinite dei Muscoli Peronieri", district: "Caviglia", severity: "Lieve", def: "Infiammazione dei tendini peroniero lungo e breve dietro il malleolo laterale.", symptoms: "Dolore retromalleolare laterale, aggravato dall'eversion resistita del piede.", tests: "Eversione resistita della caviglia con piede in flessione plantare.", redFlags: "Lussazione dei tendini peronieri (sublussazione con scatto dietro il malleolo).", management: "Tutore di protezione, rinforzo peronieri, stretching, terapia fisica." },
-            { id: 34, title: "Sindrome del Tunnel Tarsale", district: "Caviglia", severity: "Moderata", def: "Compression neuropatica del nervo tibiale posteriore sotto il retinacolo dei flessori mediale.", symptoms: "Parestesie, bruciore e dolore alla pianta del piede e delle dita, accentuato dalla deambulazione.", tests: "Tinel Test al tunnel tarsale (dietro il malleolo mediale).", redFlags: "Deficit sensitivi plantari severi e atrofia muscoli intrinseci.", management: "Ortesi plantari per correggere l'eccessiva pronazione, mobilizzazione neurale, scarico." },
-            { id: 35, title: "Metatarsalgia", district: "Caviglia", severity: "Lieve", def: "Sindrome dolorosa localizzata alla pianta del piede a livello delle teste metatarsali (spesso II e III).", symptoms: "Dolore urente o meccanico sotto l'avampiede durante la camminata, formazione di callosità plantari.", tests: "Compressione laterale delle teste metatarsali (Mulder Test per neuroma di Morton).", redFlags: "Frattura da stress metatarsale (marciapiede/runner).", management: "Scarico pressorio con plantari metatarsali, mobilizzazione delle articolazioni metatarso-falangee." }
+            // SPALLA (12)
+            { id: 1, title: "Sindrome da Conflitto Subacromiale (Impingement)", district: "Spalla", severity: "Moderata", def: "Compressione dei tendini della cuffia dei rotatori e della borsa subacromiale sotto l'arco coraco-acromiale.", symptoms: "Dolore in arco doloroso (60°-120°), impotenza funzionale notturna.", tests: "Test di Neer, Test di Hawkins-Kennedy.", redFlags: "Dolore notturno intrattabile con calo ponderale.", management: "Recupero spazio subacromiale, rinforzo stabilizzatori scapolo-toracici." },
+            { id: 2, title: "Lesione della Cuffia dei Rotatori", district: "Spalla", severity: "Grave", def: "Lesione parziale o a tutto spessore dei tendini della cuffia.", symptoms: "Debolezza attiva, dolore acuto o degenerativo cronico.", tests: "Drop Arm Test, Jobe Test.", redFlags: "Impossibilità assoluta a mantenere il braccio sollevato (Lag sign).", management: "Rinforzo sinergico o riabilitazione post-chirurgica." },
+            { id: 3, title: "Capsulite Adesiva (Spalla Congelata)", district: "Spalla", severity: "Grave", def: "Infiammazione e fibrosi della capsula articolare gleno-omerale.", symptoms: "Fase 1 (Freezing): dolore acuto. Fase 2 (Frozen): rigidità severa.", tests: "Limitazione rigida dei movimenti passivi (extrarotazione).", redFlags: "Escludere artrite settica o algodistrofia.", management: "Mobilizzazione dolce nei limiti del dolore, terapia manuale." },
+            { id: 4, title: "Instabilità Gleno-Omerale e Lussazione", district: "Spalla", severity: "Grave", def: "Eccessiva traslazione della testa omerale, spesso post-traumatica.", symptoms: "Sensazione di cedimento, paura del sblocco in abduzione.", tests: "Apprehension Test, Relocation Test.", redFlags: "Segni neurologici periferici (nervo ascellare).", management: "Rinforzo stabilizzatori dinamici, propriocettività." },
+            { id: 5, title: "Tendinopatia del Capo Lungo del Bicipite", district: "Spalla", severity: "Moderata", def: "Processo degenerativo del tendine del CLB nella doccia bicipitale.", symptoms: "Dolore anteriore accentuato da supinazione e flessione resistita.", tests: "Speed Test, Yergason Test.", redFlags: "Deformità 'a papa papa' (rottura tendinea).", management: "Scarico del tendine, massaggio trasverso, eccentrici." },
+            { id: 6, title: "Artrosi Gleno-Omerale (Omartrosi)", district: "Spalla", severity: "Cronica", def: "Usura degenerativa della cartilagine articolare gleno-omerale.", symptoms: "Dolore sordo e profondo, crepitii, limitazione ROM.", tests: "Riduzione globale e dolorosa del ROM passivo.", redFlags: "Blocco meccanico severo.", management: "Mantenimento ROM in scarico, chinesiterapia." },
+            { id: 7, title: "Frattura della Clavicola", district: "Spalla", severity: "Grave", def: "Interruzione della continuità ossea della clavicola per trauma diretto.", symptoms: "Dolore acuto, tumefazione locale, crepitio, deformità visibile.", tests: "Palpazione dolorosa localizzata.", redFlags: "Compromissione vascolonervosa del plesso brachiale.", management: "Tutore a otto o immobilizzazione iniziale, recupero ROM." },
+            { id: 8, title: "Lesione SLAP (Superior Labrum Anterior Posterior)", district: "Spalla", severity: "Grave", def: "Lacerazione del cercine glenoideo superiore con coinvolgimento del CLB.", symptoms: "Click doloroso, dolore profondo in arm-cocking nello sport.", tests: "O'Brien Test, Crank Test.", redFlags: "Blocco articolare meccanico irriducibile.", management: "Controllo infiammazione, stabilità dinamica, post-chirurgia." },
+            { id: 9, title: "Sindrome dello Stretto Toracico (TOS)", district: "Spalla", severity: "Moderata", def: "Compression neuropatica o vascolare del plesso brachiale e vasi succlavi.", symptoms: "Parestesie notturne agli arti superiori, pesantezza, pallore.", tests: "Adson Test, Roos Test.", redFlags: "Perdita di polso radiale o deficit ischemico.", management: "Rilascio scaleni, correzione posturale, decompressione." },
+            { id: 10, title: "Calcificazione della Cuffia dei Rotatori", district: "Spalla", severity: "Moderata", def: "Depositi di idrossiapatite di calcio nei tendini della cuffia.", symptoms: "Dolore iperacuto durante la fase di riassorbimento spontaneo.", tests: "Ecografia o Rx spalla positiva.", redFlags: "Dolore flogistico intrattabile.", management: "Onde d'urto, ultrasuoni, gestione del dolore, laserterapia." },
+            { id: 11, title: "Borsite Subacromiale-Subdeltoidea", district: "Spalla", severity: "Lieve", def: "Infiammazione della borsa sierosa per attrito meccanico.", symptoms: "Dolore localizzato in faccia laterale di spalla, peggiorato dalla pressione.", tests: "Neer Test positivo con sollievo temporaneo da infiltrazione.", redFlags: "Borsite settica con febbre e rossore cutaneo.", management: "Criotherapia, tecarterapia, stretching capsulare." },
+            { id: 12, title: "Artrite Acromion-Claveare", district: "Spalla", severity: "Moderata", def: "Usura degenerativa o post-traumatica dell'articolazione AC.", symptoms: "Dolore localizzato al punto alto della spalla, peggiorato da adduzione estrema.", tests: "Cross-Body Adduction Test.", redFlags: "Osteolisi distale della clavicola.", management: "FANS, modulazione del carico, mobilizzazione locale." },
+
+            // GOMITO & MANO (12)
+            { id: 13, title: "Epicondilite Laterale (Gomito del Tennis)", district: "Gomito/Mano", severity: "Moderata", def: "Tendinopatia inserzionale dei muscoli estensori dell'avambraccio.", symptoms: "Dolore all'epicondilo laterale, deficit di grip.", tests: "Cozen Test, Mill Test.", redFlags: "Parestesie (compressione nervo interosseo posteriore).", management: "Esercizi eccentrici, scarico flesso-estensori." },
+            { id: 14, title: "Epitrocleite (Gomito del Golfista)", district: "Gomito/Mano", severity: "Moderata", def: "Tendinopatia dei muscoli flessori-pronatori all'epitroclea.", symptoms: "Dolore mediale aggravato da flessione resistita.", tests: "Golfer's Elbow Test.", redFlags: "Parestesie al IV e V dito (nervo ulnare).", management: "Rinforzo eccentrico flessori, stretching mirato." },
+            { id: 15, title: "Sindrome del Tunnel Carpale", district: "Gomito/Mano", severity: "Moderata", def: "Compressione del nervo mediano nel canale carpale.", symptoms: "Formicolio notturno prime tre dita, debolezza tenar.", tests: "Phalen Test, Tinel Test al polso.", redFlags: "Atrofia eminenza tenar.", management: "Tutore notturno, scivolamenti neurali, rilasciamento." },
+            { id: 16, title: "Sindrome di De Quervain", district: "Gomito/Mano", severity: "Moderata", def: "Tenosinovite stenosante primo compartimento dorsale.", symptoms: "Dolore acuto stiloide radiale con deviazione ulnare.", tests: "Finkelstein Test.", redFlags: "Blocco meccanico tendineo.", management: "Tutore pollice-polso, terapia fisica, frizioni." },
+            { id: 17, title: "Rizoartrosi", district: "Gomito/Mano", severity: "Cronica", def: "Osteoartrosi trapezio-metacarpale del pollice.", symptoms: "Dolore alla base del pollice in pinza, perdita forza.", tests: "Grind Test.", redFlags: "Deformità a zeta del pollice.", management: "Tutori funzionali, rinforzo intrinseci." },
+            { id: 18, title: "Dito a Scatto", district: "Gomito/Mano", severity: "Lieve", def: "Infiammazione guaina flessoria con blocco del tendine.", symptoms: "Scatto doloroso e blocco in flessione.", tests: "Palpazione nodulo su puleggia A1.", redFlags: "Blocco permanente irriducibile.", management: "Stretching flessori, US focalizzati, steccatura." },
+            { id: 19, title: "Frattura del Distrio di Pouteau-Colles", district: "Gomito/Mano", severity: "Grave", def: "Frattura extra-articolare dell'epifisi distale del radio con scompensazione dorsale.", symptoms: "Deformità 'a dorso di forchetta', dolore acuto, impotenza.", tests: "Esame radiografico.", redFlags: "Compromissione nervo mediano acuta.", management: "Riduzione, gesso/tutore, riabilitazione post-immobilizzazione ROM." },
+            { id: 20, title: "Sindrome del Tunnel Cubitale (Nervo Ulnare)", district: "Gomito/Mano", severity: "Moderata", def: "Compression neuropatica del nervo ulnare al gomito.", symptoms: "Parestesie IV-V dito, debolezza intrinseca mano.", tests: "Tinel Test al gomito, Flexion Test.", redFlags: "Artiglio ulnare (atrofia muscolare intrinseca).", management: "Evitare appoggio prolungato, scivolamenti neurali." },
+            { id: 21, title: "Contrattura di Dupuytren", district: "Gomito/Mano", severity: "Cronica", def: "Fibrosi progressiva dell'aponeurosi palmare con flessione fissa delle dita.", symptoms: "Noduli palmari e cordoni fibrosi con impossibilità a estendere le dita.", tests: "Table Top Test positivo.", redFlags: "Retrazione cutanea severa.", management: "Stretching, ultrasuoni, post-chirurgia plastica." },
+            { id: 22, title: "Tendinite dei Flessori delle Dita", district: "Gomito/Mano", severity: "Lieve", def: "Sovraccarico infiammatorio dei tendini flessori nell'avambraccio.", symptoms: "Dolore palmare durante la chiusura delle dita contro resistenza.", tests: "Flessione resistita dolorosa.", redFlags: "Infezione della guaina tendinea (dito infetto).", management: "Modifica carico, laser, massaggio miofasciale." },
+            { id: 23, title: "Distorsione del Legamento Collaterale Ulnare del Pollice (Gamekeeper's Thumb)", district: "Gomito/Mano", severity: "Moderata", def: "Lacerazione legamentosa acuta o cronica della MCP del pollice.", symptoms: "Instabilità in valgo del pollice, dolore acuto alla pinza.", tests: "Valgus Stress Test su pollice.", redFlags: "Lesione di Stener (interposizione aponeurosi).", management: "Tutore rigido polso-pollice, rinforzo graduale." },
+            { id: 24, title: "Tenosinovite dei Vasi Estensori", district: "Gomito/Mano", severity: "Lieve", def: "Infiammazione dei compartimenti estensori dorsali del polso.", symptoms: "Crepitio udibile e palpabile durante l'estensione delle dita.", tests: "Crepitio al movimento.", redFlags: "Artrite infiammatoria sistemica associata.", management: "Riposo funzionale, crioterapia, ultrasuoni." },
+
+            // COLONNA VERTEBRALE (12)
+            { id: 25, title: "Lombalgia Acuta (Colpo della Strega)", district: "Colonna", severity: "Moderata", def: "Spasmo muscolare acuto e disfunzione segmentaria lombare.", symptoms: "Dolore lombare improvviso, blocco funzionale in flessione.", tests: "Schober Test ridotto.", redFlags: "Cauda equina, deficit neurologici progressivi.", management: "Decompressione dolce, tecniche miofasciali, esercizio attivo." },
+            { id: 26, title: "Ernia del Disco Lombare e Sciatalgia", district: "Colonna", severity: "Grave", def: "Fuoriuscita del nucleo polposo con compressione radicolare (L5-S1).", symptoms: "Dolore irradiato lungo il nervo sciatico, parestesie, ipostenia.", tests: "Lasegue Test, Bragard Test.", redFlags: "Anestesia a sella, perdita controllo sfinterico.", management: "Terapia decongestionante, scarico neurale, core stability." },
+            { id: 27, title: "Stenosi del Canale Vertebrale Lombare", district: "Colonna", severity: "Cronica", def: "Restringimento del canale spinale lombare con compressione cauda.", symptoms: "Claudicatio intermittens neurogena, sollievo in flessione.", tests: "Test del carrello (miglioramento in flessione).", redFlags: "Parestesie bilaterali ingravescenti.", management: "Esercizi in flessione (Williams), ciclismo, core." },
+            { id: 28, title: "Cervicalgia Miotensiva", district: "Colonna", severity: "Lieve", def: "Sindrome dolorosa cervicale da sovraccarico e contrattura cronica.", symptoms: "Dolore cervicale diffuso, rigidità mattutina, cefalea tensiva.", tests: "Spurling Test negativo.", redFlags: "Vertigini acute, nistagmo, insufficienza vertebro-basilare.", management: "Rilascio suboccipitale, ergonomia, rinforzo flessori profondi." },
+            { id: 29, title: "Radicolopatia Cervicale", district: "Colonna", severity: "Grave", def: "Sofferenza radicolare da conflitto disco-osteofitico cervicale.", symptoms: "Dolore cervico-brachiale irradiato con parestesie nei dermatomeri.", tests: "Spurling Test, Distraction Test, ULTT.", redFlags: "Mielopatia cervicale, destrezza ridotta, segni piramidali.", management: "Trazione manuale dolce, stabilizzazione segmentaria." },
+            { id: 30, title: "Spondilolistesi", district: "Colonna", severity: "Moderata", def: "Scivolamento anteriore di una vertebra (es. L5 su S1).", symptoms: "Lombalgia meccanica aggravata da estensione, tensione ischiocrurali.", tests: "Stork Test in estensione, gradino palpabile.", redFlags: "Instabilità severa con scivolamento progressivo.", management: "Core stability profonda, rinforzo trasverso e multifidi." },
+            { id: 31, title: "Disfunzione dell'Articolazione Sacro-Iliaca (SIJ)", district: "Colonna", severity: "Moderata", def: "Ipomobilità o ipermobilità dolorosa dell'articolazione sacro-iliaca.", symptoms: "Dolore gluteo unilaterale che non supera il ginocchio, aggravato da transizioni.", tests: "Cluster di Laslett (Gaenslen, Compression, Distraction).", redFlags: "Spondilite anchilosante (dolore infiammatorio notturno).", management: "Manipolazioni/mobilizzazioni SIJ, stabilizzazione pelvica." },
+            { id: 32, title: "Sindrome del Muscolo Piriforme", district: "Colonna", severity: "Moderata", def: "Compression neuropatica del nervo sciatico da parte del muscolo piriforme contratto.", symptoms: "Dolore profondo al gluteo con irradiazione simil-sciatalgica.", tests: "FAIR Test (Flexion, Adduction, Internal Rotation).", redFlags: "Escludere ernia discale lombare vera.", management: "Stretching piriforme, rilasciamento miofasciale profondo." },
+            { id: 33, title: "Discopatia Degenerativa Cervicale", district: "Colonna", severity: "Cronica", def: "Disidratazione e usura del disco intervertebrale cervicale.", symptoms: "Dolore sordo locale, rigidità, scrosci articolari nei movimenti.", tests: "Riduzione ROM cervicale globale.", redFlags: "Segni di mielopatia compressiva.", management: "Mobilizzazioni dolci, chinesiterapia attiva, educazione." },
+            { id: 34, title: "Scoliosi Idiopatica dell'Adolescente (AIS)", district: "Colonna", severity: "Grave", def: "Deformità tridimensionale della colonna vertebrale con rotazione vertebrale.", symptoms: "Asimmetria delle spalle,gibbo costale inforward bending test.", tests: "Adams Forward Bend Test con scoliometro.", redFlags: "Scoliosi congenita o neurologica rapida evoluzione.", management: "Esercizi specifici (SEAS, Schroth), corsetto ortopedico." },
+            { id: 35, title: "Spondilolisi", district: "Colonna", severity: "Moderata", def: "Interruzione dell'istmo interarticolare (arco posteriore della vertebra).", symptoms: "Lombalgia in atleti giovani praticanti sport in iperestensione.", tests: "Hyperextension test monopodalico.", redFlags: "Evoluzione in spondilolistesi avanzata.", management: "Riposo funzionale sportivo, core stability, rinforzo." },
+            { id: 36, title: "Whiplash Associated Disorders (Colpo di Frusta)", district: "Colonna", severity: "Moderata", def: "Lesione cervicale da accelerazione-decelerazione (es. tamponamento).", symptoms: "Cervicalgia acuta, cefalea occipitale, vertigini, rigidità.", tests: "Neck Flexion-Rotation Test.", redFlags: "Fratture od odontoide o lesioni legamentose superiori.", management: "Educazione precoce al movimento, esercizi attivi, rassicurazione." },
+
+            // ANCA & BACINO (10)
+            { id: 37, title: "Coxartrosi (Artrosi d'Anca)", district: "Anca", severity: "Cronica", def: "Degenerazione progressiva della cartilagine coxo-femorale.", symptoms: "Dolore inguinale irradiato al ginocchio, zoppia di fuga.", tests: "FABER Test, FADIR Test, Scour Test.", redFlags: "Impossibilità assoluta al carico e dolore notturno.", management: "Mantenimento ROM in scarico, rinforzo abduttori, idro." },
+            { id: 38, title: "Pubalgia / Sindrome Adduttoria", district: "Anca", severity: "Moderata", def: "Tendinopatia inserzionale adduttori e sovraccarico sinfisi pubica.", symptoms: "Dolore pubico e inguinale in corsa e cambi di direzione.", tests: "Squeeze Test (adduzione resistita).", redFlags: "Frattura da stress pubica o patologia urologica.", management: "Gestione del carico, rinforzo eccentrico adduttori e core." },
+            { id: 39, title: "Borsite Trocanterica", district: "Anca", severity: "Lieve", def: "Infiammazione della borsa tra grande trocantere e tratto ileotibiale.", symptoms: "Dolore laterale d'anca, peggiorato in decubito laterale.", tests: "Palpazione trocantere, Ober Test.", redFlags: "Necrosi avascolare della testa femorale.", management: "Stretching tratto ileotibiale, rinforzo abduttori." },
+            { id: 40, title: "Impingement Femoro-Acetabolare (FAI)", district: "Anca", severity: "Moderata", def: "Conflitto meccanico testa-acetabolo (tipo Cam o Pincer).", symptoms: "Dolore inguinale profondo in flessione e rotazione interna.", tests: "FADIR Test, FABER Test.", redFlags: "Lesioni avanzate del labbro acetabolare.", management: "Correzione biomeccanica bacino, stabilità profonda." },
+            { id: 41, title: "Lesione del Labbro Acetabolare", district: "Anca", severity: "Grave", def: "Lacerazione del cercine fibrocartilagineo acetabolare.", symptoms: "Dolore acuto o sordo, click o blocco meccanico in movimento.", tests: "Hip Arthroscopy Tests (FABER, FADIR).", redFlags: "Blocco articolare meccanico irriducibile.", management: "Stabilità dinamica o preparazione post-artroscopia." },
+            { id: 42, title: "Borsite Ileo-Psoas", district: "Anca", severity: "Lieve", def: "Infiammazione della borsa retro-psoas a livello anteriore d'anca.", symptoms: "Dolore inguinale anteriore durante flessione attiva dell'anca.", tests: "Flessione attiva resistita d'anca.", redFlags: "Ascesso dello psoas (febbre e dolore profondo).", management: "Stretching ileo-psoas, terapia fisica antiflogistica." },
+            { id: 43, title: "Tendinopatia del Tensore della Fascia Lata", district: "Anca", severity: "Lieve", def: "Sovraccarico infiammatorio del TFL e tratto ileotibiale prossimale.", symptoms: "Dolore laterale d'anca associato a sfregamento nella corsa.", tests: "Noble Compression Test.", redFlags: "Sindrome della bandelletta tibiale distale associata.", management: "Rilascio miofasciale, foam roller, allungamento." },
+            { id: 44, title: "Frattura del Collo del Femore", district: "Anca", severity: "Grave", def: "Interruzione traumatica o osteoporotica del collo femorale.", symptoms: "Impossibilità assoluta al carico, accorciamento ed extrarotazione dell'arto.", tests: "Impossibilità a sollevare il tallone dal letto.", redFlags: "Urgenza chirurgica ortopedica immediata.", management: "Riabilitazione post-protesi o post-osteosintesi." },
+            { id: 45, title: "Apofisite della Cresta Iliaca (Malattia di Van Der Hauwaert)", district: "Anca", severity: "Lieve", def: "Traction apophysitis a livello dell'inserzione dei muscoli addominali/obliqui.", symptoms: "Dolore localizzato alla cresta iliaca in giovani atleti.", tests: "Palpazione dolorosa e contrazione addominale.", redFlags: "Distacco apofisario acuto.", management: "Riposo sportivo temporaneo, stretching, chinesi." },
+            { id: 46, title: "Sindrome del Piriforme", district: "Anca", severity: "Moderata", def: "(Vedi anche colonna) Intrappolamento del nervo sciatico.", symptoms: "Dolore gluteo irradiato.", tests: "FAIR Test.", redFlags: "Deficit di forza distale severo.", management: "Stretching e rilasciamento." },
+
+            // CINQUE - GINOCCHIO (12)
+            { id: 47, title: "Lesione del Legamento Crociato Anteriore (LCA)", district: "Ginocchio", severity: "Grave", def: "Rottura parziale o totale del legamento crociato anteriore.", symptoms: "Sensazione di pop, emartro precoce, cedimento (giving way).", tests: "Lachman Test, Anterior Drawer, Pivot Shift.", redFlags: "Blocco meniscale associato che impedisce estensione.", management: "Recupero ROM in estensione, rinforzo quadricipite, chirurgia." },
+            { id: 48, title: "Lesione dei Menischi (Mediale o Laterale)", district: "Ginocchio", severity: "Moderata", def: "Lacerazione della fibrocartilagine meniscale.", symptoms: "Dolore in rima articolare, blocco o scatto, versamento.", tests: "McMurray Test, Apley Compression, Thessaly Test.", redFlags: "Ginocchio bloccato in flessione (manico di secchio).", management: "Controllo edema, recupero estensione, rinforzo VMO." },
+            { id: 49, title: "Tendinopatia Rotulea (Jumper's Knee)", district: "Ginocchio", severity: "Moderata", def: "Tendinopatia inserzionale del polo inferiore rotuleo.", symptoms: "Dolore al polo inferiore rotuleo in salto e corsa.", tests: "Palpazione tendine in flessione, squat resistito.", redFlags: "Lesione parziale avanzata o rischio rottura.", management: "Esercizi eccentrici pesanti (HEST), isometrici ad alto carico." },
+            { id: 50, title: "Sindrome Femoro-Rotulea (PFPS)", district: "Ginocchio", severity: "Lieve", def: "Tracking anomalo della rotula nella troclea femorale.", symptoms: "Dolore salendo/scendendo scale, segno del cinema.", tests: "Clarke Test, Apprehension patellare.", redFlags: "Versamento articolare importante.", management: "Rinforzo VMO, stretching catena posteriore, taping." },
+            { id: 51, title: "Gonartrosi (Artrosi di Ginocchio)", district: "Ginocchio", severity: "Cronica", def: "Usura degenerativa cartilaginea femoro-tibiale e rotulea.", symptoms: "Dolore meccanico, rigidità mattutina <30 min, crepitii.", tests: "Valgo/Varo stress test, mobilità ridotta.", redFlags: "Instabilità legamentosa secondaria severa.", management: "Chinesiterapia in scarico, catena cinetica chiusa a basso impatto." },
+            { id: 52, title: "Tendinopatia della Zampa d'Oca", district: "Ginocchio", severity: "Lieve", def: "Infiammazione tendini congiunti sartorio, gracile e semitendinoso.", symptoms: "Dolore mediale inferiore alla rima articolare.", tests: "Palpazione tibia mediale prossimale.", redFlags: "Borsite infetta.", management: "Stretching flessori, crioterapia, terapia manuale." },
+            { id: 53, title: "Malattia di Osgood-Schlatter", district: "Ginocchio", severity: "Lieve", def: "Osteocondrosi della tuberosità tibiale anteriore nei giovani.", symptoms: "Tumefazione e dolore dolente alla pressione sulla tuberosità tibiale.", tests: "Palpazione dolorosa tuberosità tibiale in estensione.", redFlags: "Distacco osteocondriale grave.", management: "Riduzione carico sportivo, stretching quadricipite." },
+            { id: 54, title: "Sindrome della Bandelletta Tibio-Tarsale (Racer's / Runner's Knee)", district: "Ginocchio", severity: "Lieve", def: "Attrito del tratto ileotibiale sul condilo femorale laterale.", symptoms: "Dolore laterale di ginocchio che compare dopo un tot di km di corsa.", tests: "Noble Compression Test.", redFlags: "Borsite laterale profonda.", management: "Stretching TFL, correzione appoggio plantare, scarico." },
+            { id: 55, title: "Lesione del Legamento Collaterale Mediale (LCM)", district: "Ginocchio", severity: "Moderata", def: "Distorsione o rottura del legamento collaterale mediale per trauma in valgo.", symptoms: "Dolore mediale, lassità in valgo a ginocchio flesso a 30°.", tests: "Valgus Stress Test a 0° e 30°.", redFlags: "Lesione combinata (Unhappy triad: LCA + LCM + Menisco mediale).", management: "Tutore articolato protettivo, recupero ROM, rinforzo." },
+            { id: 56, title: "Ciste di Baker (Poplitea)", district: "Ginocchio", severity: "Lieve", def: "Raccolta di liquido sinoviale nella borsa gastrocnemio-semimembranosa.", symptoms: "Tumefazione e tensione al cavo popliteo, peggio in estensione.", tests: "Transilluminazione o ecografia poplitea.", redFlags: "Rottura della ciste con quadro simil-tromboflebite (pseudotromboflebiti).", management: "Trattamento della causa primaria (es. versamento intra-articolare)." },
+            { id: 57, title: "Tendinopatia del Popliteo", district: "Ginocchio", severity: "Lieve", def: "Infiammazione del tendine del muscolo popliteo sul lato posterolaterale.", symptoms: "Dolore posterolaterale in discesa o in curva durante la corsa.", tests: "Popliteus Test (rotazione tibiale interna resistita).", redFlags: "Lesione associata del corner posterolaterale.", management: "Riposo relativo, crioterapia, rinforzo estensori." },
+            { id: 58, title: "Sindrome di Sinding-Larsen-Johansson", district: "Ginocchio", severity: "Lieve", def: "Traction apophysitis al polo superiore della rotula.", symptoms: "Dolore localizzato al polo superiore rotuleo nei giovani atleti.", tests: "Palpazione polo superiore rotula.", redFlags: "Frattura da stress rotulea.", management: "Gestione del carico, stretching catena anteriore." },
+
+            // CAVIGLIA & PIEDE (12)
+            { id: 59, title: "Distorsione di Caviglia (Compartimento Laterale)", district: "Caviglia", severity: "Moderata", def: "Lesione capsulo-legamentosa legamenti collaterali laterali (PPAA).", symptoms: "Gonfiore, ecchimosi malleolare laterale, dolore al carico.", tests: "Anterior Drawer Test, Talar Tilt Test.", redFlags: "Frattura malleolre associata (Ottawa Ankle Rules).", management: "Protocollo RICE in acuto, propriocettività precoce, peronieri." },
+            { id: 60, title: "Fascite Plantare e Spina Calcaneare", district: "Caviglia", severity: "Moderata", def: "Infiammazione degenerativa aponeurosi plantare all'inserzione.", symptoms: "Dolore acuto al primo appoggio mattutino al tallone.", tests: "Windlass Test (estensione passiva dita).", redFlags: "Dolore neuropatico irradiato o frattura stress calcagno.", management: "Stretching fascia plantare e polpaccio, plantari ortopedici." },
+            { id: 61, title: "Tendinopatia del Tendine d'Achille", district: "Caviglia", severity: "Moderata", def: "Tendinopatia inserzionale o medio-porzione tendine d'Achille.", symptoms: "Dolore e rigidità tendinea, tumefazione fusiforme.", tests: "Matles Test, Thompson Test (per escludere rottura).", redFlags: "Rottura completa tendinea (Thompson positivo, gap palpabile).", management: "Protocollo Alfredson (eccentrici pesanti), carico progressivo." },
+            { id: 62, title: "Tendinite dei Muscoli Peronieri", district: "Caviglia", severity: "Lieve", def: "Infiammazione tendini peroniero lungo e breve retromalleolari.", symptoms: "Dolore retromalleolare laterale aggravato da eversione.", tests: "Eversione resistita della caviglia.", redFlags: "Sublussazione o lussazione dei tendini peronieri.", management: "Tutore, rinforzo peronieri, terapia fisica." },
+            { id: 63, title: "Sindrome del Tunnel Tarsale", district: "Caviglia", severity: "Moderata", def: "Compressione del nervo tibiale posteriore sotto retinacolo flessori.", symptoms: "Parestesie, bruciore alla pianta del piede e dita.", tests: "Tinel Test al tunnel tarsale (dietro malleolo mediale).", redFlags: "Deficit sensitivi plantari severi e atrofia intrinseci.", management: "Ortesi plantari, mobilizzazione neurale, scarico." },
+            { id: 64, title: "Metatarsalgia", district: "Caviglia", severity: "Lieve", def: "Sindrome dolorosa plantare alle teste metatarsali (II e III).", symptoms: "Dolore urente o meccanico sotto l'avampiede in camminata.", tests: "Compressione laterale teste metatarsali.", redFlags: "Frattura da stress metatarsale.", management: "Scarico pressorio, plantari metatarsali." },
+            { id: 65, title: "Neuroma di Morton", district: "Caviglia", severity: "Moderata", def: "Fibrosi perianale del nervo interdigitale (solitamente tra III e IV dito).", symptoms: "Dolore urente e sensazione di 'sassolino' in scarpa all'avampiede.", tests: "Mulder Sign (compressione metatarsale con click e dolore).", redFlags: "Dolore neuropatico persistente intrattabile.", management: "Calzature a pianta larga, ortesi con scarico metatarsale." },
+            { id: 66, title: "Alluce Valgo", district: "Caviglia", severity: "Cronica", def: "Deviazione mediale del primo metatarso e laterale dell'alluce.", symptoms: "Deformità estetica, borsite della cipolla (bunion), dolore calzatura.", tests: "Esame clinico e radiografico dell'angolo metatarso-falangeo.", redFlags: "Ulcerazione cutanea da sfregamento severo.", management: "Terapie conservative, tutori notturni, post-chirurgia." },
+            { id: 67, title: "Tendinite del Tibiale Posteriore", district: "Caviglia", severity: "Moderata", def: "Infiammazione o disfunzione del tibiale posteriore (causa di piede piatto acquisito).", symptoms: "Dolore mediale alla caviglia, cedimento dell'arco plantare.", tests: "Too Many Toes Sign, Single Leg Heel Raise Test.", redFlags: "Rottura completa del tendine con piede piatto rigido.", management: "Ortesi plantari su misura, rinforzo selettivo tibiale." },
+            { id: 68, title: "Frattura da Stress della Tibia o del Perone", district: "Caviglia", severity: "Grave", def: "Microfrattura ossea da sovraccarico funzionale ripetuto (runner/marciatori).", symptoms: "Dolore localizzato che insorge durante l'attività e scompare a riposo.", tests: "Tuning Fork Test (diapason) o palpazione puntiforme.", redFlags: "Frattura completa in scomposizione.", management: "Riposo assoluto dal carico per 4-6 settimane, magnetoterapia." },
+            { id: 69, title: "Sindrome del Seno del Tarso", district: "Caviglia", severity: "Moderata", def: "Infiammazione cronica dei legamenti interossei all'interno del seno del tarso.", symptoms: "Dolore localizzato nella depressione laterale anteriore al malleolo esterno.", symptomsCl: "Instabilità percepita post-distorsione.", tests: "Palpazione profonda del seno del tarso.", redFlags: "Lesione osteocondrale dell'astragalo associata.", management: "Infiltrazioni ecoguidate, propriocettività, tecar." },
+            { id: 70, title: "Tallonite da Impatto (Contusione del Cuscinetto Calcaneare)", district: "Caviglia", severity: "Lieve", def: "Atrofia o infiammazione del pad adiposo plantare calcaneare.", symptoms: "Dolore profondo al tallone durante la corsa o camminata su superfici dure.", tests: "Compressione laterale del cuscinetto calcaneare.", redFlags: "Frattura da stress del calcagno.", management: "Talloniere ammortizzanti in silicone, scarico." }
         ];
 
         // Database 2: Trattamenti Riabilitativi
@@ -320,33 +366,33 @@
 
         // Database 4: Anatomia Funzionale
         const anatomiaData = [
-            { id: 1, title: "Complesso Articolare della Spalla (Cuffia e Scapola)", district: "Spalla", severity: "Anatomia Palpatoria", def: "Insieme di 5 articolazioni (gleno-omerale, acromion-clavicolare, sternoclavicolare, scapolo-toracica, subacromiale) che garantiscono la massima mobilità corporea.", biomechanics: "Rapporto scapolo-omerale di 2:1 durante l'abduzione (ogni 3 gradi, 2 gleno-omerali e 1 scapolo-toracica).", structures: "Cuffia dei rotatori (sovraspinato, infraspinato, sottoscapolare, piccolo rotondo), borsa subacromiale, cercine glenoideo.", palpation: "Reperimento di acromion, processo coracoide, grande e piccolo tubercolo omerale, angolo inferiore della scapola." },
-            { id: 2, title: "Articolazione del Gomito e Complesso Radio-Ulnare", district: "Gomito/Mano", severity: "Biomeccanica", def: "Articolazione trocleoartrodiale complessa che unisce omero, ulna e radio, permettendo flesso-estensione e pronosupinazione.", biomechanics: "Asse di flesso-estensione orientato in valgo fisiologico (angolo di trasporto di 10-15° nell'adulto).", structures: "Legamento collaterale ulnare e radiale, legamento anulare del radio, tendine del bicipite brachiale.", palpation: "Epicondilo laterale, epitroclea mediale, olecrano, testa del radio (inferiormente all'epicondilo)." },
-            { id: 3, title: "Polso e Complesso Articolare Carpale", district: "Gomito/Mano", severity: "Anatomia Palpatoria", def: "Articolazione radiocarpale e mediocarpale che unisce l'avambraccio alla mano, consentendo flessione, estensione e deviazioni.", biomechanics: "Mobilità ripartita tra articolazione radiocarpale (prevalentemente flessione e deviazione ulnare) e mediocarpale.", structures: "Legamento trasverso del carpo, tunnel carpale, ossa del carpo (scafoide, semilunare, piramidale, pisiforme, trapezio, trapezoide, capitato, uncinato).", palpation: "Snuffbox anatomica (tabacchiera anatomica - scafoide), processo stiloide radiale e ulnare, pisiforme." },
-            { id: 4, title: "Colonna Vertebrale Cervicale e Unità Funzionale", district: "Colonna", severity: "Biomeccanica", def: "Tratto cervicale composto da C0-C1-C2 (atlante e asse) altamente specializzati per la rotazione, e C3-C7 per flesso-estensione e inclinazione.", biomechanics: "C0-C1 (atlanto-occipitale) gestisce la flessione/estensione (sì); C1-C2 gestisce il 50% della rotazione totale del capo (no).", structures: "Dischi intervertebrali cervicali, legamento trasverso, muscoli suboccipitali profondi, arteria vertebrale nel forame trasversario.", palpation: "Processo spinoso di C2 (il primo bifido palpabile), tuberculo carotideo di C6, processo spinoso prominente di C7." },
-            { id: 5, title: "Colonna Lombare e Stabilità del Core", district: "Colonna", severity: "Biomeccanica", def: "Tratto lombare caratterizzato da lordosi fisiologica e vertebre massicce progettate per supportare il carico del tronco.", biomechanics: "Orientamento delle faccette articolari sul piano sagittale per limitare la rotazione e favorire flesso-estensione.", structures: "Muscolo trasverso dell'addome, multifidi lombari, legamento longitudinale comune anteriore e posteriore, disco L5-S1.", palpation: "Linee intercrestali (linea di Tuffier a livello L4), processi spinosi lombari, articolazione sacro-iliaca (PSIS)." },
-            { id: 6, title: "Articolazione Coxo-Femorale (Anca) e Bacino", district: "Anca", severity: "Anatomia Palpatoria", def: "Enartrosi profonda tra la testa del femore e l'acetabolo del bacino, fondamentale per la stazione eretta e la deambulazione.", biomechanics: "Ampio ROM in tutti i piani con stabilità garantita dal labbro acetabolare e dai potenti legamenti capsulari (ileo-femorale, pubo-femorale, ischio-femorale).", structures: "Gluteo medio e piccolo (stabilizzatori del bacino), borsa trocanterica, legamento rotondo.", palpation: "Grande trocantere del femore, spina iliaca anteriore superiore (ASIS), spina iliaca posteriore superiore (PSIS)." },
-            { id: 7, title: "Complesso Articolare del Ginocchio", district: "Ginocchio", severity: "Biomeccanica", def: "Ginglymo modificato (femoro-tibiale e femoro-rotulea) che unisce il femore alla tibia e alla rotula.", biomechanics: "Meccanismo di 'screw-home' (avvitamento automatico) in estensione completa per bloccare l'articolazione in piedi.", structures: "LCA, LCP, Legamenti Collaterali (Mediale e Laterale), Menischi (Mediale a C, Laterale a O), Quadricipite e Tendine rotuleo.", palpation: "Rima articolare mediale e laterale, polo superiore e inferiore della rotula, tuberosità tibiale, tendine d'Achille." },
-            { id: 8, title: "Caviglia, Retropiede e Complesso Subastragalico", district: "Caviglia", severity: "Anatomia Palpatoria", def: "Articolazione tibio-tarsica e subastragalica che unisce gamba e piede, gestendo flessione plantare, dorsale, inversione ed eversione.", biomechanics: "Stabilità primaria nei piani frontale e sagittale garantita dai legamenti collaterali laterali (PPAA, PPL, PTF) e mediale (deltoideo).", structures: "Tendine d'Achille, muscoli peronieri, aponeurosi plantare, legamenti del collo del piede.", palpation: "Malleolo mediale e laterale, tuberosità del calcagno, sustentaculum tali, base del quinto metatarso." }
+            { id: 1, title: "Complesso Articolare della Spalla (Cuffia e Scapola)", district: "Spalla", severity: "Anatomia Palpatoria", def: "Insieme di 5 articolazioni che garantiscono la massima mobilità corporea.", biomechanics: "Rapporto scapolo-omerale di 2:1 durante l'abduzione.", structures: "Cuffia dei rotatori, borsa subacromiale, cercine glenoideo.", palpation: "Reperimento di acromion, processo coracoide, grande tubercolo." },
+            { id: 2, title: "Articolazione del Gomito e Complesso Radio-Ulnare", district: "Gomito/Mano", severity: "Biomeccanica", def: "Articolazione complessa che unisce omero, ulna e radio.", biomechanics: "Asse di flesso-estensione orientato in valgo fisiologico (10-15°).", structures: "Legamento collaterale ulnare e radiale, anulare del radio.", palpation: "Epicondilo laterale, epitroclea, olecrano, testa del radio." },
+            { id: 3, title: "Polso e Complesso Articolare Carpale", district: "Gomito/Mano", severity: "Anatomia Palpatoria", def: "Articolazione radiocarpale e mediocarpale.", biomechanics: "Mobilità ripartita tra flessione, estensione e deviazioni.", structures: "Tunnel carpale, legamento trasverso, ossa del carpo.", palpation: "Snuffbox anatomica, stiloide radiale e ulnare." },
+            { id: 4, title: "Colonna Vertebrale Cervicale", district: "Colonna", severity: "Biomeccanica", def: "Tratto cervicale composto da C0-C2 (rotazione) e C3-C7.", biomechanics: "C0-C1 gestisce flessione/estensione; C1-C2 il 50% della rotazione.", structures: "Dischi intervertebrali, legamento trasverso, arteria vertebrale.", palpation: "Processo spinoso di C2, tubercolo carotideo di C6, C7." },
+            { id: 5, title: "Colonna Lombare e Stabilità del Core", district: "Colonna", severity: "Biomeccanica", def: "Tratto lombare con lordosi fisiologica per supportare il carico.", biomechanics: "Faccette articolari sul piano sagittale.", structures: "Trasverso dell'addome, multifidi lombari, disco L5-S1.", palpation: "Linea intercrestale (Tuffier L4), processi spinosi." },
+            { id: 6, title: "Articolazione Coxo-Femorale (Anca)", district: "Anca", severity: "Anatomia Palpatoria", def: "Enartrosi profonda tra testa femorale e acetabolo.", biomechanics: "Ampio ROM con stabilità garantita dal labbro acetabolare.", structures: "Gluteo medio e piccolo, borsa trocanterica.", palpation: "Grande trocantere, ASIS, PSIS." },
+            { id: 7, title: "Complesso Articolare del Ginocchio", district: "Ginocchio", severity: "Biomeccanica", def: "Ginglymo modificato femoro-tibiale e femoro-rotulea.", biomechanics: "Meccanismo di 'screw-home' in estensione completa.", structures: "LCA, LCP, Collaterali, Menischi mediale e laterale.", palpation: "Rima articolare, rotula, tendine rotuleo e d'Achille." },
+            { id: 8, title: "Caviglia e Retropiede", district: "Caviglia", severity: "Anatomia Palpatoria", def: "Articolazione tibio-tarsica e subastragalica.", biomechanics: "Stabilità primaria nei piani frontale e sagittale.", structures: "Tendine d'Achille, peronieri, legamenti collaterali.", palpation: "Malleolo mediale e laterale, calcagno." }
         ];
 
         // Database 5: Esercizi Terapeutici
         const eserciziData = [
-            { id: 1, title: "Esercizi di Codman (Pendolo per la Spalla)", district: "Spalla", severity: "Chinesiterapia", def: "Mobilizzazione passiva in scarico della spalla sfruttando la forza di gravità e il rilassamento del cingolo scapolare.", dosage: "3 serie da 2 minuti (con timer)", execution: "Paziente flesso in avanti appoggiato con il braccio sano su un tavolo; il braccio interessato dondola liberamente compiendo cerchi e movimenti pendolari." },
-            { id: 2, title: "Rinforzo Isometrico del Vasto Mediale (VMO)", district: "Ginocchio", severity: "Rinforzo Muscolare", def: "Contrazione muscolare statica selettiva per il controllo rotuleo senza sovraccaricare l'articolazione in flessione.", dosage: "10 ripetizioni da 10 secondi (Usa il Timer!)", execution: "Paziente seduto o supino con un rullo sotto il ginocchio; spingere il ginocchio verso il basso contraendo il quadricipite focalizzandosi sulla porzione mediale." },
-            { id: 3, title: "Ponte Gluteo (Glute Bridge) per Stabilità Pelvica", district: "Colonna", severity: "Core Stability", def: "Esercizio attivo in catena cinetica chiusa per il rinforzo dei glutei, ischiocrurali e stabilizzatori lombari.", dosage: "3 serie da 15 ripetizioni", execution: "Supino con ginocchia flesse e piedi a terra; sollevare il bacino contraendo i glutei fino ad allineare cosce e tronco, evitando l'iperlordosi lombare." },
-            { id: 4, title: "Protocollo di Alfredson (Eccentrici per Tendine d'Achille)", district: "Caviglia", severity: "Rinforzo Eccentrico", def: "Carico eccentrico progressivo sul tendine d'Achille per stimolare il rimodellamento tendineo.", dosage: "3 serie da 15 ripetizioni (lento e controllato)", execution: "In piedi su un gradino sulle punte, sollevarsi con l'arto sano e scendere molto lentamente sfruttando solo l'arto in esame." },
-            { id: 5, title: "Clamshell Exercise per il Gluteo Medio", district: "Anca", severity: "Rinforzo Muscolare", def: "Rinforzo selettivo degli abduttori ed extrarotatori d'anca per prevenire il valgo dinamico di ginocchio.", dosage: "3 serie da 12-15 ripetizioni per lato", execution: "Decubito laterale con anche e ginocchia flesse a 45°; mantenere i piedi uniti e sollevare il ginocchio superiore aprendo a libro." },
-            { id: 6, title: "Scivolamenti Neurali del Nervo Mediano", district: "Gomito/Mano", severity: "Neurodinamica", def: "Mobilizzazione dolce del sistema nervoso periferico per ridurre la tensione meccanica e migliorare lo scorrimento intraneurale.", dosage: "2 serie da 10 ripetizioni lente", execution: "In piedi o seduti, coordinare l'estensione del polso/dita con l'inclinazione cervicale controlaterale in modo fluido." }
+            { id: 1, title: "Esercizi di Codman (Pendolo per la Spalla)", district: "Spalla", severity: "Chinesiterapia", def: "Mobilizzazione passiva in scarico della spalla sfruttando la gravità.", dosage: "3 serie da 2 minuti (con timer)", execution: "Paziente flesso in avanti appoggiato con braccio sano; il braccio interessato dondola liberamente." },
+            { id: 2, title: "Rinforzo Isometrico del Vasto Mediale (VMO)", district: "Ginocchio", severity: "Rinforzo Muscolare", def: "Contrazione muscolare statica selettiva per il controllo rotuleo.", dosage: "10 ripetizioni da 10 secondi (Usa il Timer!)", execution: "Seduto o supino con rullo sotto il ginocchio; spingere in basso contraendo il quadricipite." },
+            { id: 3, title: "Ponte Gluteo (Glute Bridge)", district: "Colonna", severity: "Core Stability", def: "Esercizio attivo in catena cinetica chiusa per glutei e lombari.", dosage: "3 serie da 15 ripetizioni", execution: "Supino con ginocchia flesse; sollevare il bacino contraendo i glutei senza iperlordosi." },
+            { id: 4, title: "Protocollo di Alfredson (Eccentrici per Achille)", district: "Caviglia", severity: "Rinforzo Eccentrico", def: "Carico eccentrico progressivo sul tendine d'Achille.", dosage: "3 serie da 15 ripetizioni (lento)", execution: "In piedi su un gradino sulle punte, sollevarsi con l'arto sano e scendere lentamente." },
+            { id: 5, title: "Clamshell Exercise per il Gluteo Medio", district: "Anca", severity: "Rinforzo Muscolare", def: "Rinforzo selettivo abduttori ed extrarotatori d'anca.", dosage: "3 serie da 12-15 ripetizioni", execution: "Decubito laterale con ginocchia flesse; aprire il ginocchio superiore a libro." },
+            { id: 6, title: "Scivolamenti Neurali del Nervo Mediano", district: "Gomito/Mano", severity: "Neurodinamica", def: "Mobilizzazione dolce del sistema nervoso periferico.", dosage: "2 serie da 10 ripetizioni lente", execution: "Coordinare estensione polso/dita con inclinazione cervicale controlaterale." }
         ];
 
-        // Database 6: Protocolli Riabilitativi (Step 6)
+        // Database 6: Protocolli Riabilitativi
         const protocolliData = [
-            { id: 1, title: "Protocollo Post-Chirurgico Ricostruzione LCA", district: "Ginocchio", severity: "Post-Operatorio", def: "Linee guida riabilitative basate su criteri per la ricostruzione del Legamento Crociato Anteriore (es. graft da hamstring o rotuleo).", phases: "Fase 1 (0-4 sett): Controllo edema, estensione completa obbligatoria, flessione a 90°. Fase 2 (4-12 sett): Rinforzo in catena cinetica chiusa, propriocezione. Fase 3 (3-6 mesi): Corsa lineare, pliometria leggera. Fase 4 (>6 mesi): Ritorno allo sport (Return to Sport test).", criteria: "Assenza di versamento, simmetria di forza quadricipitale >90% prima del test di sblocco sportivo." },
-            { id: 2, title: "Protocollo Riabilitativo Protesi Totale d'Anca (PTA)", district: "Anca", severity: "Post-Operatorio", def: "Percorso clinico precoce per pazienti sottoposti a artroplastica totale d'anca.", phases: "Fase 1 (Giorni 0-14): Mobilizzazione precoce, deambulazione con ausili (2 bastoni canadesi), prevenzione TVP, rispetto delle precauzioni anti-lussazione (evitare flessione >90°, adduzione e rotazione interna). Fase 2 (2-6 settimane): Rinforzo abduttori (gluteo medio), autonomia nel cammino. Fase 3 (>6 settimane): Recupero completo dello schema del passo senza zoppia.", criteria: "Indipendenza negli spostamenti, controllo attivo dell'arto operato." },
-            { id: 3, title: "Protocollo Riabilitativo Protesi Totale di Ginocchio (PTG)", district: "Ginocchio", severity: "Post-Operatorio", def: "Gestione fisioterapica post-operatoria per il recupero funzionale della gonartrosi operata.", phases: "Fase 1 (0-3 settimane): Controllo del dolore e del gonfiore, recupero assoluto dell'estensione a 0° e flessione iniziale (almeno 90°). Fase 2 (3-6 settimane): Incremento della flessione oltre i 110°, rinforzo quadricipite, cyclette senza resistenza. Fase 3 (6-12 settimane): Deambulazione autonoma, rinforzo in carico.", criteria: "Estensione completa passiva e attiva, autonomia nelle scale." },
-            { id: 4, title: "Protocollo di Riparazione della Cuffia dei Rotatori", district: "Spalla", severity: "Post-Operatorio", def: "Gestione protetta della spalla dopo intervento di sutura tendinea artroscopica o a cielo aperto.", phases: "Fase 1 (0-6 settimane): Tutore in abduzione obbligatorio giorno e notte. Mobilità passiva concessa nei limiti stabiliti dal chirurgo (evitare assolutamente attivazione attiva della cuffia). Fase 2 (6-12 settimane): Svezzamento dal tutore, inizio chinesiterapia attiva assistita e rinforzo scapolare. Fase 3 (>12 settimane): Rinforzo progressivo in catena cinetica aperta e chiusa.", criteria: "Guarigione tendinea confermata dal chirurgo, recupero del ROM passivo." },
-            { id: 5, title: "Protocollo Post-Sutura Meniscale", district: "Ginocchio", severity: "Post-Operatorio", def: "Riabilitazione protetta mirata a preservare l'integrità della sutura meniscale (specialmente in zona rossa-rossa o rosso-bianca).", phases: "Fase 1 (0-4 settimane): Carico parziale protetto con tutore bloccato in estensione durante la deambulazione. Limitazione della flessione a 90° per proteggere il menisco riparato. Fase 2 (4-8 settimane): Sblocco graduale del tutore, recupero progressivo del ROM in flessione. Fase 3 (>8 settimane): Inizio rinforzo muscolare completo ed esercizi funzionali.", criteria: "Assenza di dolore in rima articolare e stabilità meniscale." }
+            { id: 1, title: "Protocollo Post-Chirurgico Ricostruzione LCA", district: "Ginocchio", severity: "Post-Operatorio", def: "Linee guida riabilitative basate su criteri per ricostruzione LCA.", phases: "Fase 1 (0-4 sett): Estensione completa obbligatoria. Fase 2 (4-12 sett): Rinforzo catena chiusa. Fase 3 (>3 mesi): Corsa e pliometria.", criteria: "Assenza di versamento, simmetria di forza quadricipitale >90%." },
+            { id: 2, title: "Protocollo Riabilitativo Protesi Totale d'Anca (PTA)", district: "Anca", severity: "Post-Operatorio", def: "Percorso clinico precoce per artroplastica totale d'anca.", phases: "Fase 1 (0-14 giorni): Mobilizzazione precoce, rispetto precauzioni anti-lussazione. Fase 2: Rinforzo abduttori. Fase 3: Autonomia nel cammino.", criteria: "Indipendenza negli spostamenti senza zoppia." },
+            { id: 3, title: "Protocollo Riabilitativo Protesi Totale di Ginocchio (PTG)", district: "Ginocchio", severity: "Post-Operatorio", def: "Gestione fisioterapica post-operatoria per gonartrosi operata.", phases: "Fase 1 (0-3 sett): Estensione a 0° e flessione a 90°. Fase 2: Flessione oltre 110°. Fase 3: Deambulazione autonoma.", criteria: "Estensione completa passiva e attiva, autonomia scale." },
+            { id: 4, title: "Protocollo di Riparazione Cuffia dei Rotatori", district: "Spalla", severity: "Post-Operatorio", def: "Gestione protetta della spalla dopo sutura tendinea artroscopica.", phases: "Fase 1 (0-6 sett): Tutore in abduzione obbligatorio, solo mobilità passiva. Fase 2: Svezzamento tutore e chinesi attiva.", criteria: "Guarigione tendinea confermata, ROM passivo recuperato." },
+            { id: 5, title: "Protocollo Post-Sutura Meniscale", district: "Ginocchio", severity: "Post-Operatorio", def: "Riabilitazione protetta mirata a preservare la sutura meniscale.", phases: "Fase 1 (0-4 sett): Carico parziale, flessione limitata a 90°. Fase 2: Sblocco tutore e ROM progressivo.", criteria: "Assenza di dolore in rima articolare e stabilità." }
         ];
 
         // Stato Attuale dell'App
@@ -366,8 +412,6 @@
         // Funzione per cambiare sezione
         function switchSection(sectionId) {
             currentSection = sectionId;
-            
-            // Aggiorna classi bottoni tab
             document.querySelectorAll('.section-tab').forEach(btn => {
                 btn.classList.remove('border-brand-500', 'bg-brand-50', 'text-brand-700');
                 btn.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
@@ -377,46 +421,34 @@
                 activeBtn.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
                 activeBtn.classList.add('border-brand-500', 'bg-brand-50', 'text-brand-700');
             }
-
-            // Nascondi/Mostra sezioni
-            document.querySelectorAll('.content-section').forEach(sec => {
-                sec.classList.add('hidden');
-            });
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
             const targetSec = document.getElementById(`section-${sectionId}`);
-            if(targetSec) {
-                targetSec.classList.remove('hidden');
-            }
+            if(targetSec) targetSec.classList.remove('hidden');
 
-            // Mostra/Nascondi filtri distretto in base alla sezione
             const filterChips = document.getElementById('filter-chips');
-            if(sectionId === 'patologie' || sectionId === 'trattamenti' || sectionId === 'strumentale' || sectionId === 'anatomia' || sectionId === 'esercizi' || sectionId === 'protocolli') {
+            if(['patologie', 'trattamenti', 'strumentale', 'anatomia', 'esercizi', 'protocolli'].includes(sectionId)) {
                 filterChips.style.display = 'flex';
             } else {
                 filterChips.style.display = 'none';
             }
-
             filterContent();
         }
 
-        // Funzione per filtrare per distretto
+        // Filtro per distretto
         function filterByDistrict(district) {
             currentDistrictFilter = district;
-            
-            // Aggiorna chip attivi
             document.querySelectorAll('#filter-chips button').forEach(btn => {
                 btn.classList.remove('bg-brand-600', 'text-white', 'shadow-sm');
                 btn.classList.add('bg-slate-100', 'text-slate-600');
             });
             event.target.classList.remove('bg-slate-100', 'text-slate-600');
             event.target.classList.add('bg-brand-600', 'text-white', 'shadow-sm');
-
             filterContent();
         }
 
         // Ricerca globale e filtri combinati
         function filterContent() {
             const query = document.getElementById('global-search').value.toLowerCase();
-            
             if(currentSection === 'patologie') {
                 const filtered = patologieData.filter(item => {
                     const matchDistrict = currentDistrictFilter === 'all' || item.district === currentDistrictFilter;
@@ -425,39 +457,19 @@
                 });
                 renderPatologieGrid(filtered);
             } else if(currentSection === 'trattamenti') {
-                const filtered = trattamentiData.filter(item => {
-                    const matchDistrict = currentDistrictFilter === 'all' || item.district === currentDistrictFilter;
-                    const matchQuery = item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.goals.toLowerCase().includes(query);
-                    return matchDistrict && matchQuery;
-                });
+                const filtered = trattamentiData.filter(item => (currentDistrictFilter === 'all' || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query)));
                 renderTrattamentiGrid(filtered);
             } else if(currentSection === 'strumentale') {
-                const filtered = strumentaleData.filter(item => {
-                    const matchDistrict = currentDistrictFilter === 'all' || item.district === currentDistrictFilter;
-                    const matchQuery = item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.goals.toLowerCase().includes(query);
-                    return matchDistrict && matchQuery;
-                });
+                const filtered = strumentaleData.filter(item => (currentDistrictFilter === 'all' || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query)));
                 renderStrumentaleGrid(filtered);
             } else if(currentSection === 'anatomia') {
-                const filtered = anatomiaData.filter(item => {
-                    const matchDistrict = currentDistrictFilter === 'all' || item.district === currentDistrictFilter;
-                    const matchQuery = item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.biomechanics.toLowerCase().includes(query);
-                    return matchDistrict && matchQuery;
-                });
+                const filtered = anatomiaData.filter(item => (currentDistrictFilter === 'all' || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query)));
                 renderAnatomiaGrid(filtered);
             } else if(currentSection === 'esercizi') {
-                const filtered = eserciziData.filter(item => {
-                    const matchDistrict = currentDistrictFilter === 'all' || item.district === currentDistrictFilter;
-                    const matchQuery = item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.dosage.toLowerCase().includes(query);
-                    return matchDistrict && matchQuery;
-                });
+                const filtered = eserciziData.filter(item => (currentDistrictFilter === 'all' || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query)));
                 renderEserciziGrid(filtered);
             } else if(currentSection === 'protocolli') {
-                const filtered = protocolliData.filter(item => {
-                    const matchDistrict = currentDistrictFilter === 'all' || item.district === currentDistrictFilter;
-                    const matchQuery = item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.phases.toLowerCase().includes(query);
-                    return matchDistrict && matchQuery;
-                });
+                const filtered = protocolliData.filter(item => (currentDistrictFilter === 'all' || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query)));
                 renderProtocolliGrid(filtered);
             }
         }
@@ -467,7 +479,7 @@
         function renderPatologieGrid(data) {
             const grid = document.getElementById('patologie-grid');
             document.getElementById('patologie-count').innerText = `${data.length} Patologie`;
-            if(data.length === 0) { grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><i class="fa-solid fa-folder-open text-3xl mb-2"></i><p>Nessuna patologia trovata.</p></div>`; return; }
+            if(data.length === 0) { grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><p>Nessuna patologia trovata.</p></div>`; return; }
             grid.innerHTML = data.map(item => `
                 <div onclick="openPatologiaDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
                     <div>
@@ -487,105 +499,55 @@
 
         function renderTrattamenti() { renderTrattamentiGrid(trattamentiData); }
         function renderTrattamentiGrid(data) {
-            const grid = document.getElementById('trattamenti-grid');
-            if(data.length === 0) { grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><i class="fa-solid fa-folder-open text-3xl mb-2"></i><p>Nessun trattamento trovato.</p></div>`; return; }
-            grid.innerHTML = data.map(item => `
+            document.getElementById('trattamenti-grid').innerHTML = data.map(item => `
                 <div onclick="openTrattamentoDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">${item.district}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-brand-50 text-brand-700">${item.severity}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
-                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-brand-600 font-semibold">
-                        <span>Protocollo tecnica</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
+                    <div><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">${item.district}</span>
+                    <h3 class="font-bold text-slate-800 text-base mt-2 mb-1">${item.title}</h3><p class="text-xs text-slate-500 line-clamp-2">${item.def}</p></div>
+                    <div class="pt-3 border-t border-slate-100 text-xs text-brand-600 font-semibold flex justify-between"><span>Protocollo tecnica</span><i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             `).join('');
         }
 
         function renderStrumentale() { renderStrumentaleGrid(strumentaleData); }
         function renderStrumentaleGrid(data) {
-            const grid = document.getElementById('strumentale-grid');
-            if(data.length === 0) { grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><i class="fa-solid fa-folder-open text-3xl mb-2"></i><p>Nessuna terapia trovata.</p></div>`; return; }
-            grid.innerHTML = data.map(item => `
+            document.getElementById('strumentale-grid').innerHTML = data.map(item => `
                 <div onclick="openStrumentaleDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700">${item.district}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-amber-50 text-amber-700">${item.severity}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
-                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-amber-600 font-semibold">
-                        <span>Scheda tecnica fisica</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
+                    <div><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700">${item.district}</span>
+                    <h3 class="font-bold text-slate-800 text-base mt-2 mb-1">${item.title}</h3><p class="text-xs text-slate-500 line-clamp-2">${item.def}</p></div>
+                    <div class="pt-3 border-t border-slate-100 text-xs text-amber-600 font-semibold flex justify-between"><span>Scheda fisica</span><i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             `).join('');
         }
 
         function renderAnatomia() { renderAnatomiaGrid(anatomiaData); }
         function renderAnatomiaGrid(data) {
-            const grid = document.getElementById('anatomia-grid');
-            if(data.length === 0) { grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><i class="fa-solid fa-folder-open text-3xl mb-2"></i><p>Nessun contenuto anatomico trovato.</p></div>`; return; }
-            grid.innerHTML = data.map(item => `
+            document.getElementById('anatomia-grid').innerHTML = data.map(item => `
                 <div onclick="openAnatomiaDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-emerald-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">${item.district}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700">${item.severity}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
-                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-emerald-600 font-semibold">
-                        <span>Atlante e biomeccanica</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
+                    <div><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">${item.district}</span>
+                    <h3 class="font-bold text-slate-800 text-base mt-2 mb-1">${item.title}</h3><p class="text-xs text-slate-500 line-clamp-2">${item.def}</p></div>
+                    <div class="pt-3 border-t border-slate-100 text-xs text-emerald-600 font-semibold flex justify-between"><span>Atlante</span><i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             `).join('');
         }
 
         function renderEsercizi() { renderEserciziGrid(eserciziData); }
         function renderEserciziGrid(data) {
-            const grid = document.getElementById('esercizi-grid');
-            if(data.length === 0) { grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><i class="fa-solid fa-folder-open text-3xl mb-2"></i><p>Nessun esercizio trovato.</p></div>`; return; }
-            grid.innerHTML = data.map(item => `
+            document.getElementById('esercizi-grid').innerHTML = data.map(item => `
                 <div onclick="openEsercizioDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-indigo-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700">${item.district}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700">${item.severity}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
-                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-indigo-600 font-semibold">
-                        <span>Scheda e dosaggio</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
+                    <div><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700">${item.district}</span>
+                    <h3 class="font-bold text-slate-800 text-base mt-2 mb-1">${item.title}</h3><p class="text-xs text-slate-500 line-clamp-2">${item.def}</p></div>
+                    <div class="pt-3 border-t border-slate-100 text-xs text-indigo-600 font-semibold flex justify-between"><span>Dosaggio</span><i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             `).join('');
         }
 
         function renderProtocolli() { renderProtocolliGrid(protocolliData); }
         function renderProtocolliGrid(data) {
-            const grid = document.getElementById('protocolli-grid');
-            if(data.length === 0) { grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><i class="fa-solid fa-folder-open text-3xl mb-2"></i><p>Nessun protocollo trovato.</p></div>`; return; }
-            grid.innerHTML = data.map(item => `
+            document.getElementById('protocolli-grid').innerHTML = data.map(item => `
                 <div onclick="openProtocolloDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-purple-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-50 text-purple-700">${item.district}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-purple-50 text-purple-700">${item.severity}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
-                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-purple-600 font-semibold">
-                        <span>Cronoprogramma chirurgico</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
+                    <div><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-50 text-purple-700">${item.district}</span>
+                    <h3 class="font-bold text-slate-800 text-base mt-2 mb-1">${item.title}</h3><p class="text-xs text-slate-500 line-clamp-2">${item.def}</p></div>
+                    <div class="pt-3 border-t border-slate-100 text-xs text-purple-600 font-semibold flex justify-between"><span>Cronoprogramma</span><i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             `).join('');
         }
@@ -597,11 +559,11 @@
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Definizione ed Eziopatogenesi</h4><p class="text-slate-600">${item.def}</p></div>
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Quadro Clinico e Sintomi</h4><p class="text-slate-600">${item.symptoms}</p></div>
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Test Ortopedici Specifici</h4><p class="text-slate-600">${item.tests}</p></div>
-                <div class="bg-rose-50 border border-rose-100 p-3 rounded-xl"><h4 class="font-bold text-rose-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Red Flags / Diagnosi Differenziale</h4><p class="text-rose-900">${item.redFlags}</p></div>
-                <div class="bg-brand-50 border border-brand-100 p-3 rounded-xl"><h4 class="font-bold text-brand-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-circle-check mr-1"></i>Gestione Fisioterapica</h4><p class="text-brand-900">${item.management}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Definizione</h4><p class="text-slate-600">${item.def}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Sintomi</h4><p class="text-slate-600">${item.symptoms}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Test Ortopedici</h4><p class="text-slate-600">${item.tests}</p></div>
+                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Red Flags</h4><p class="text-rose-900">${item.redFlags}</p></div>
+                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Gestione Fisioterapica</h4><p class="text-brand-900">${item.management}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
@@ -612,11 +574,11 @@
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Descrizione Tecnica</h4><p class="text-slate-600">${item.def}</p></div>
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Obiettivi Terapeutici</h4><p class="text-slate-600">${item.goals}</p></div>
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Indicazioni Cliniche</h4><p class="text-slate-600">${item.indications}</p></div>
-                <div class="bg-rose-50 border border-rose-100 p-3 rounded-xl"><h4 class="font-bold text-rose-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-ban mr-1"></i>Controindicazioni</h4><p class="text-rose-900">${item.contraindications}</p></div>
-                <div class="bg-brand-50 border border-brand-100 p-3 rounded-xl"><h4 class="font-bold text-brand-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-list-check mr-1"></i>Modalità di Esecuzione</h4><p class="text-brand-900">${item.execution}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Descrizione</h4><p class="text-slate-600">${item.def}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Obiettivi</h4><p class="text-slate-600">${item.goals}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Indicazioni</h4><p class="text-slate-600">${item.indications}</p></div>
+                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Controindicazioni</h4><p class="text-rose-900">${item.contraindications}</p></div>
+                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Esecuzione</h4><p class="text-brand-900">${item.execution}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
@@ -627,11 +589,11 @@
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Principio Fisico e Descrizione</h4><p class="text-slate-600">${item.def}</p></div>
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Obiettivi Biologici</h4><p class="text-slate-600">${item.goals}</p></div>
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Indicazioni Cliniche</h4><p class="text-slate-600">${item.indications}</p></div>
-                <div class="bg-rose-50 border border-rose-100 p-3 rounded-xl"><h4 class="font-bold text-rose-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-ban mr-1"></i>Controindicazioni Assolute/Relative</h4><p class="text-rose-900">${item.contraindications}</p></div>
-                <div class="bg-amber-50 border border-amber-100 p-3 rounded-xl"><h4 class="font-bold text-amber-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-bolt mr-1"></i>Parametri di Esecuzione</h4><p class="text-amber-900">${item.execution}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Principio Fisico</h4><p class="text-slate-600">${item.def}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Obiettivi</h4><p class="text-slate-600">${item.goals}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Indicazioni Cliniche</h4><p class="text-slate-600">${item.indications}</p></div>
+                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Controindicazioni</h4><p class="text-rose-900">${item.contraindications}</p></div>
+                <div class="bg-amber-50 p-3 rounded-xl border border-amber-100"><h4 class="font-bold text-amber-700 text-[11px] uppercase mb-1">Parametri</h4><p class="text-amber-900">${item.execution}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
@@ -642,10 +604,10 @@
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Architettura e Descrizione</h4><p class="text-slate-600">${item.def}</p></div>
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Biomeccanica e Cinetica</h4><p class="text-slate-600">${item.biomechanics}</p></div>
-                <div class="bg-emerald-50 border border-emerald-100 p-3 rounded-xl"><h4 class="font-bold text-emerald-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-bone mr-1"></i>Strutture Chiave e Legamenti</h4><p class="text-emerald-900">${item.structures}</p></div>
-                <div class="bg-brand-50 border border-brand-100 p-3 rounded-xl"><h4 class="font-bold text-brand-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-hand-point-right mr-1"></i>Anatomia Palpatoria</h4><p class="text-brand-900">${item.palpation}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Descrizione</h4><p class="text-slate-600">${item.def}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Biomeccanica</h4><p class="text-slate-600">${item.biomechanics}</p></div>
+                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100"><h4 class="font-bold text-emerald-700 text-[11px] uppercase mb-1">Strutture</h4><p class="text-emerald-900">${item.structures}</p></div>
+                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Palpazione</h4><p class="text-brand-900">${item.palpation}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
@@ -656,9 +618,9 @@
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Descrizione dell'Esercizio</h4><p class="text-slate-600">${item.def}</p></div>
-                <div class="bg-indigo-50 border border-indigo-100 p-3 rounded-xl"><h4 class="font-bold text-indigo-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-stopwatch mr-1"></i>Dosaggio e Parametri</h4><p class="text-indigo-900">${item.dosage}</p></div>
-                <div class="bg-brand-50 border border-brand-100 p-3 rounded-xl"><h4 class="font-bold text-brand-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-person-walking mr-1"></i>Modalità di Esecuzione Pratica</h4><p class="text-brand-900">${item.execution}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Esercizio</h4><p class="text-slate-600">${item.def}</p></div>
+                <div class="bg-indigo-50 p-3 rounded-xl border border-indigo-100"><h4 class="font-bold text-indigo-700 text-[11px] uppercase mb-1">Dosaggio</h4><p class="text-indigo-900">${item.dosage}</p></div>
+                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Esecuzione</h4><p class="text-brand-900">${item.execution}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
@@ -669,38 +631,24 @@
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Obiettivo e Descrizione Chirurgica</h4><p class="text-slate-600">${item.def}</p></div>
-                <div class="bg-purple-50 border border-purple-100 p-3 rounded-xl"><h4 class="font-bold text-purple-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-timeline mr-1"></i>Fasi Cronologiche di Recupero</h4><p class="text-purple-900">${item.phases}</p></div>
-                <div class="bg-brand-50 border border-brand-100 p-3 rounded-xl"><h4 class="font-bold text-brand-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-square-check mr-1"></i>Criteri di Progressione / Dimissione</h4><p class="text-brand-900">${item.criteria}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Protocollo</h4><p class="text-slate-600">${item.def}</p></div>
+                <div class="bg-purple-50 p-3 rounded-xl border border-purple-100"><h4 class="font-bold text-purple-700 text-[11px] uppercase mb-1">Fasi</h4><p class="text-purple-900">${item.phases}</p></div>
+                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Criteri</h4><p class="text-brand-900">${item.criteria}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
 
         function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); }
-        function toggleModal(modalId) { 
-            const m = document.getElementById(modalId);
-            m.classList.toggle('hidden');
-        }
+        function toggleModal(modalId) { document.getElementById(modalId).classList.toggle('hidden'); }
 
-        // Gestione Timer Clinico
-        let timerInterval = null;
-        let timeLeft = 45;
-        let totalTime = 45;
-        let isRunning = false;
-
-        function setTimer(seconds) {
-            pauseTimer();
-            totalTime = seconds;
-            timeLeft = seconds;
-            updateTimerDisplay();
-        }
-
+        // Timer Clinico
+        let timerInterval = null, timeLeft = 45, totalTime = 45, isRunning = false;
+        function setTimer(seconds) { pauseTimer(); totalTime = seconds; timeLeft = seconds; updateTimerDisplay(); }
         function updateTimerDisplay() {
             const mins = Math.floor(timeLeft / 60).toString().padStart(2, '0');
             const secs = (timeLeft % 60).toString().padStart(2, '0');
             document.getElementById('timer-display').innerText = `${mins}:${secs}`;
         }
-
         function startTimer() {
             if(isRunning) return;
             if(timeLeft <= 0) timeLeft = totalTime;
@@ -709,40 +657,20 @@
             timerInterval = setInterval(() => {
                 timeLeft--;
                 updateTimerDisplay();
-                if(timeLeft <= 0) {
-                    pauseTimer();
-                    document.getElementById('timer-status').innerText = "Tempo scaduto! Ottimo lavoro.";
-                    playBeep();
-                }
+                if(timeLeft <= 0) { pauseTimer(); document.getElementById('timer-status').innerText = "Tempo scaduto!"; playBeep(); }
             }, 1000);
         }
-
-        function pauseTimer() {
-            isRunning = false;
-            clearInterval(timerInterval);
-            document.getElementById('timer-status').innerText = "Timer in pausa";
-        }
-
-        function resetTimer() {
-            pauseTimer();
-            timeLeft = totalTime;
-            updateTimerDisplay();
-            document.getElementById('timer-status').innerText = "Pronto per l'esercizio isometrico";
-        }
-
+        function pauseTimer() { isRunning = false; clearInterval(timerInterval); document.getElementById('timer-status').innerText = "In pausa"; }
+        function resetTimer() { pauseTimer(); timeLeft = totalTime; updateTimerDisplay(); document.getElementById('timer-status').innerText = "Pronto"; }
         function playBeep() {
             try {
                 const ctx = new (window.AudioContext || window.webkitAudioContext)();
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
-                osc.type = 'sine';
                 osc.frequency.value = 587.33;
-                gain.gain.setValueAtTime(0.1, ctx.currentTime);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.6);
-            } catch(e) { console.log("Audio non supportato"); }
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.start(); osc.stop(ctx.currentTime + 0.5);
+            } catch(e) {}
         }
     </script>
 </body>
