@@ -65,7 +65,7 @@
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                     <i class="fa-solid fa-search"></i>
                 </span>
-                <input type="text" id="global-search" oninput="filterContent()" placeholder="Cerca in ordine alfabetico (patologie, trattamenti...)" class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition">
+                <input type="text" id="global-search" oninput="filterContent()" placeholder="Cerca tra patologie, terapie strumentali..." class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition">
             </div>
             <!-- Filtro Distretto / Categoria -->
             <div class="flex items-center space-x-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0" id="filter-chips">
@@ -103,7 +103,7 @@
                 <i class="fa-solid fa-bolt text-xl mb-2 text-amber-500"></i>
                 <div>
                     <h3 class="font-bold text-sm">Terapia Strumentale</h3>
-                    <p class="text-[11px] opacity-75">Laser, TECAR, US</p>
+                    <p class="text-[11px] opacity-75">12 Macchinari Avanzati</p>
                 </div>
             </button>
             <button onclick="switchSection('anatomia')" id="btn-sec-anatomia" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
@@ -141,7 +141,7 @@
             <div id="patologie-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione 2: Trattamenti Riabilitativi (Divisi per Specialità) -->
+        <!-- Sezione 2: Trattamenti Riabilitativi -->
         <div id="section-trattamenti" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
@@ -153,14 +153,14 @@
             <div id="trattamenti-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione 3: Terapia Strumentale -->
+        <!-- Sezione 3: Terapia Strumentale (Potenziata con 12 Macchinari e 5+ Patologie ciascuno) -->
         <div id="section-strumentale" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-bolt text-amber-500"></i>
-                    <span>Terapia Strumentale e Mezzi Fisici</span>
+                    <span>Terapia Strumentale e Mezzi Fisici Avanzati (12 Macchinari A-Z)</span>
                 </h2>
-                <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2.5 py-1 rounded-full">Elettroterapia & Fisica</span>
+                <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2.5 py-1 rounded-full">Associazione Clinica Dettagliata</span>
             </div>
             <div id="strumentale-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
@@ -259,7 +259,7 @@
 
     <!-- Script JavaScript Applicativo -->
     <script>
-        // Database 1: 70 Patologie Ortopediche Complete (Ordinamento Alfabetico A-Z)
+        // Database 1: 70 Patologie Ortopediche (A-Z)
         const patologieData = [
             { id: 1, title: "Alluce Valgo", district: "Caviglia", severity: "Cronica", def: "Deviazione mediale del primo metatarso e laterale dell'alluce.", symptoms: "Deformità estetica, borsite della cipolla (bunion), dolore con calzatura.", tests: "Esame clinico e radiografico dell'angolo metatarso-falangeo.", redFlags: "Ulcerazione cutanea da sfregamento severo.", management: "Terapie conservative, tutori notturni, post-chirurgia." },
             { id: 2, title: "Apofisite della Cresta Iliaca (Malattia di Van Der Hauwaert)", district: "Anca", severity: "Lieve", def: "Traction apophysitis a livello dell'inserzione dei muscoli addominali/obliqui.", symptoms: "Dolore localizzato alla cresta iliaca in giovani atleti.", tests: "Palpazione dolorosa e contrazione addominale.", redFlags: "Distacco apofisario acuto.", management: "Riposo sportivo temporaneo, stretching, chinesi." },
@@ -308,7 +308,7 @@
             { id: 45, title: "Sindrome della Cauda Equina (Red Flag Generica)", district: "Colonna", severity: "Grave", def: "Compressione massiva delle radici della cauda equina nel canale spinale.", symptoms: "Anestesia a sella, perdita di controllo sfinterico, deficit motori severi.", tests: "Esame neurologico d'urgenza.", redFlags: "URGENZA CHIRURGICA IMMEDIATA (entro 24h).", management: "Invio immediato in pronto soccorso per intervento neurochirurgico." },
             { id: 46, title: "Sindrome dell'Opercolo Toracico (TOS)", district: "Spalla", severity: "Moderata", def: "Compressione del plesso brachiale e vasi succlavi.", symptoms: "Parestesie notturne agli arti superiori, pesantezza, pallore.", tests: "Adson Test, Roos Test.", redFlags: "Perdita di polso radiale o deficit ischemico.", management: "Rilascio scaleni, correzione posturale, decompressione." },
             { id: 47, title: "Sindrome del Muscolo Piriforme", district: "Colonna", severity: "Moderata", def: "Compressione del nervo sciatico da parte del piriforme contratto.", symptoms: "Dolore profondo al gluteo con irradiazione simil-sciatalgica.", tests: "FAIR Test (Flexion, Adduction, Internal Rotation).", redFlags: "Escludere ernia discale lombare vera.", management: "Stretching piriforme, rilasciamento miofasciale profondo." },
-            { id: 48, title: "Sindrome del Seno del Tarso", district: "Caviglia", severity: "Moderata", def: "Infiammazione cronica dei legamenti interossei nel seno del tarso.", symptoms: "Dolore localizzato nella depressione laterale anteriore al malleolo.", tests: "Palpazione profonda del seno del tarso.", redFlags: "Lesione osteocondrale dell'astragalo associata.", management: "Infiltrazioni ecoguidate, propriocettività, tecar." },
+            { id: 48, title: "Sindrome del Seno del Tarso", district: "Caviglia", severity: "Moderata", def: "Infiammazione cronica dei legamenti interossei nel seno del tarso.", symptoms: "Dolore localizzato nella depressione lateralmente anteriore al malleolo.", tests: "Palpazione profonda del seno del tarso.", redFlags: "Lesione osteocondrale dell'astragalo associata.", management: "Infiltrazioni ecoguidate, propriocettività, tecar." },
             { id: 49, title: "Sindrome del Tunnel Carpale", district: "Gomito/Mano", severity: "Moderata", def: "Compressione del nervo mediano nel canale carpale.", symptoms: "Formicolio notturno prime tre dita, debolezza tenar.", tests: "Phalen Test, Tinel Test al polso.", redFlags: "Atrofia eminenza tenar.", management: "Tutore notturno, scivolamenti neurali, rilasciamento." },
             { id: 50, title: "Sindrome del Tunnel Cubitale (Nervo Ulnare)", district: "Gomito/Mano", severity: "Moderata", def: "Compressione del nervo ulnare al gomito.", symptoms: "Parestesie IV-V dito, debolezza intrinseca mano.", tests: "Tinel Test al gomito, Flexion Test.", redFlags: "Artiglio ulnare (atrofia muscolare intrinseca).", management: "Evitare appoggio prolungato, scivolamenti neurali." },
             { id: 51, title: "Sindrome del Tunnel Tarsale", district: "Caviglia", severity: "Moderata", def: "Compressione del nervo tibiale posteriore sotto retinacolo flessori.", symptoms: "Parestesie, bruciore alla pianta del piede e dita.", tests: "Tinel Test al tunnel tarsale (dietro malleolo mediale).", redFlags: "Deficit sensitivi plantari severi e atrofia intrinseci.", management: "Ortesi plantari, mobilizzazione neurale, scarico." },
@@ -333,37 +333,227 @@
             { id: 70, title: "Whiplash Associated Disorders (Colpo di Frusta)", district: "Colonna", severity: "Moderata", def: "Lesione cervicale da accelerazione-decelerazione (es. tamponamento).", symptoms: "Cervicalgia acuta, cefalea occipitale, vertigini, rigidità.", tests: "Neck Flexion-Rotation Test.", redFlags: "Fratture od odontoide o lesioni legamentose superiori.", management: "Educazione precoce al movimento, esercizi attivi, rassicurazione." }
         ];
 
-        // Database 2: Trattamenti Riabilitativi (Divisi per Specialità e Ordinati A-Z)
+        // Database 2: Trattamenti Riabilitativi
         const trattamentiData = [
-            // ORTOPEDICI - Terapia Manuale Ortopedica
-            { id: 1, title: "Chinesiterapia Attiva e Passiva", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Movimento terapeutico somministrato per ripristinare o mantenere la funzione neuromuscolare e biomeccanica.", goals: "Recupero della forza, del controllo motorio, della coordinazione e del ROM completo.", indications: "Tutte le fasi riabilitative post-chirurgiche, ortopediche e neurologiche.", contraindications: "Fratture instabili, dolore acuto severo dipendente dal movimento.", execution: "Esercizi assistiti, resistiti o liberi basati su principi di dosaggio progressivo." },
-            { id: 2, title: "Idrokinesiterapia (Riabilitazione in Acqua)", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Riabilitazione motoria in piscina riscaldata sfruttando galleggiamento e idrostatica.", goals: "Deambulazione precoce in scarico parziale, riduzione del dolore e rilassamento.", indications: "Fase precoce post-chirurgica (protesi, ricostruzioni), sovrappeso, artrosi.", contraindications: "Ferite chirurgiche non guarite, infezioni cutanee, epilessia.", execution: "Esercizi di deambulazione in acqua e mobilizzazioni in galleggiamento." },
-            { id: 3, title: "Linfodrenaggio Manuale (Metodo Vodder)", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Tecnica di massaggio dolce e ritmato per stimolare il sistema linfatico.", goals: "Riduzione dell'edema post-chirurgico o post-traumatico.", indications: "Edemi post-traumatici acuti, interventi di chirurgia ortopedica, linfedemi.", contraindications: "Infezioni acute, insufficienza cardiaca scompensata, tromboflebiti.", execution: "Manovre leggere di richiamo e pompaggio lungo i collettori linfatici." },
-            { id: 4, title: "Massoterapia Decontratturante e Miofasciale", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Manovre manuali sui tessuti molli per ridurre la tensione muscolare e liberare i piani fasciali.", goals: "Rilassamento muscolare, aumento del flusso sanguigno locale.", indications: "Mialgie, contratture da sovraccarico, cervicalgie e lombalgie miotensive.", contraindications: "Trombosi venose profonde, infezioni cutanee locali, ferite aperte.", execution: "Sfioramento, frizione profonda, impastamento e trigger point therapy." },
-            { id: 5, title: "Rieducazione Propriocettiva e Neuromuscolare", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Stimolazione dei recettori propriocettivi per migliorare controllo riflesso e stabilità.", goals: "Controllo neuromuscolare dinamico, prevenzione recidive distorsive.", indications: "Post-operatorio LCA, distorsioni di caviglia, instabilità articolari.", contraindications: "Assenza totale di stabilità meccanica articolare in fase acuta.", execution: "Esercizi su superfici instabili e stimoli destabilizzanti in catena chiusa." },
-            { id: 6, title: "Terapia Manuale Ortopedica (Mulligan & Maitland)", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Approccio clinico con tecniche manuali specifiche e mobilizzazioni articolari.", goals: "Riduzione del dolore articolare, ripristino del ROM fisiologico.", indications: "Ipomobilità articolare, artrosi, rigidità post-chirurgica.", contraindications: "Instabilità articolare severa, osteoporosi grave, neoplasie ossee.", execution: "Applicazione di forze passive graduate (gradi I-V Maitland) o MWMs." },
-
-            // ORTOPEDICI - Rieducazione Posturale
-            { id: 7, title: "Metodo Mézières (Rieducazione Posturale Globale)", category: "Ortopedici", subcategory: "Rieducazione Posturale", district: "Colonna", def: "Approccio posturale globale basato sulla retrazione delle catene muscolari.", goals: "Allungamento delle catene cinetiche posteriori, recupero della simmetria.", indications: "Iperlordosi, ipercifosi, scoliosi, disallineamenti posturali cronici.", contraindications: "Fasi acute infiammatorie e dolorose severe, fratture recenti.", execution: "Posture globali attive in scarico con correzione respiratoria e stretching." },
-            { id: 8, title: "Metodo Souchard (RPG - Rieducazione Posturale Globale)", category: "Ortopedici", subcategory: "Rieducazione Posturale", district: "Colonna", def: "Metodologia di fisioterapia posturale basata sui concetti di globalità e causalità.", goals: "Riequilibrio muscolare globale, eliminazione delle compensazioni.", indications: "Algie vertebrali croniche, alterazioni posturali strutturali.", contraindications: "Patologie psichiatriche gravi, impossibilità del paziente alla collaborazione.", execution: "Posture di allungamento globale decompensate guidate dal terapista." },
-
-            // NEUROLOGICI
-            { id: 9, title: "Concetto Bobath (Neurodevelopmental Treatment)", category: "Neurologici", subcategory: "Riabilitazione Neurologica", district: "Generale", def: "Approccio per la risoluzione dei problemi e il trattamento di soggetti con lesioni del SNC.", goals: "Inibizione dei riflessi patologici e facilitazione del movimento normale.", indications: "Ictus cerebrale (stroke), emiplegie, paralisi cerebrali infantili, SLA.", contraindications: "Fasi acute con instabilità clinica e vitale del paziente.", execution: "Manipolazioni facilitatorie e posizionamenti guidati basati sulla riaffermazione neuromuscolare." },
-            { id: 10, title: "Esercizio Terapeutico Conoscitivo (Metodo Perfetti)", category: "Neurologici", subcategory: "Riabilitazione Neurologica", district: "Generale", def: "Riabilitazione motoria basata sull'attivazione dei processi cognitivi (attenzione, memoria, percezione).", goals: "Recupero del controllo motorio attraverso il governo dei processi cognitivi.", indications: "Esiti di stroke, lesioni corticali focali, rieducazione neuromotoria.", contraindications: "Stati di coma profondo o grave compromissione cognitiva non collaborante.", execution: "Esercizi di riconoscimento aptico e spaziale con controllo visivo escluso o parziale." },
-
-            // PEDIATRICI
-            { id: 11, title: "Fisioterapia per Torcicollo Congenito Miogeno", category: "Pediatrici", subcategory: "Fisioterapia Pediatrica", district: "Colonna", def: "Trattamento riabilitativo precoce per la retrazione fibrosa del muscolo sternocleidomastoideo.", goals: "Recupero completo del ROM di rotazione e inclinazione del capo.", indications: "Torcicollo congenito posizionale o miogeno del neonato.", contraindications: "Fratture clavicolari o anomalie vertebrali congenite non diagnosticate.", execution: "Stretching dolce del muscolo SCM, stimolazione visiva e posizionamenti correttivi." },
-            { id: 12, title: "Trattamento del Piede Torto Congenito (Metodo Ponseti)", category: "Pediatrici", subcategory: "Fisioterapia Pediatrica", district: "Caviglia", def: "Protocollo manipolativo e gessato sequenziale per la correzione delle deformità del piede neonatale.", goals: "Correzione graduale e definitiva delle componenti di equino, varo e supinazione.", indications: "Piede torto congenito idiopatico nel neonato.", contraindications: "Piede torto sindromico complesso non idoneo al trattamento standard iniziale.", execution: "Manipolazioni seriali seguite da apparecchi gessati settimanali e tenotomia percutanea." }
+            { id: 1, title: "Chinesiterapia Attiva e Passiva", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Movimento terapeutico somministrato per ripristinare o mantenere la funzione.", goals: "Recupero della forza, del controllo motorio e del ROM.", indications: "Fasi riabilitative post-chirurgiche e ortopediche.", contraindications: "Fratture instabili, dolore acuto severo.", execution: "Esercizi assistiti, resistiti o liberi con dosaggio progressivo." },
+            { id: 2, title: "Concetto Bobath (Neurodevelopmental Treatment)", category: "Neurologici", subcategory: "Riabilitazione Neurologica", district: "Generale", def: "Approccio per il trattamento di soggetti con lesioni del SNC.", goals: "Inibizione dei riflessi patologici e facilitazione del movimento.", indications: "Ictus cerebrale, emiplegie, paralisi cerebrali infantili.", contraindications: "Fasi acute con instabilità clinica.", execution: "Manipolazioni facilitatorie e posizionamenti guidati." },
+            { id: 3, title: "Esercizio Terapeutico Conoscitivo (Metodo Perfetti)", category: "Neurologici", subcategory: "Riabilitazione Neurologica", district: "Generale", def: "Riabilitazione motoria basata sui processi cognitivi.", goals: "Recupero del controllo motorio attraverso l'attenzione e la percezione.", indications: "Esiti di stroke, lesioni corticali focali.", contraindications: "Coma profondo o grave compromissione cognitiva.", execution: "Esercizi di riconoscimento aptico e spaziale." },
+            { id: 4, title: "Fisioterapia per Torcicollo Congenito Miogeno", category: "Pediatrici", subcategory: "Fisioterapia Pediatrica", district: "Colonna", def: "Trattamento precoce per retrazione sternocleidomastoidea.", goals: "Recupero completo del ROM di rotazione e inclinazione.", indications: "Torcicollo congenito posizionale o miogeno.", contraindications: "Fratture clavicolari o anomalie vertebrali.", execution: "Stretching dolce, stimolazione visiva e posizionamento." },
+            { id: 5, title: "Idrokinesiterapia (Riabilitazione in Acqua)", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Riabilitazione in piscina riscaldata sfruttando il galleggiamento.", goals: "Deambulazione precoce in scarico parziale, riduzione del dolore.", indications: "Fase precoce post-chirurgica (protesi), sovrappeso, artrosi.", contraindications: "Ferite aperte, infezioni cutanee, epilessia.", execution: "Esercizi di deambulazione e mobilizzazione in acqua." },
+            { id: 6, title: "Linfodrenaggio Manuale (Metodo Vodder)", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Massaggio dolce e ritmato per stimolare il sistema linfatico.", goals: "Riduzione dell'edema post-chirurgico o post-traumatico.", indications: "Edemi post-traumatici acuti, chirurgia ortopedica, linfedemi.", contraindications: "Infezioni acute, insufficienza cardiaca, tromboflebiti.", execution: "Manovre leggere di richiamo lungo i collettori linfatici." },
+            { id: 7, title: "Massoterapia Decontratturante e Miofasciale", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Manovre manuali sui tessuti molli per ridurre la tensione.", goals: "Rilassamento muscolare, aumento del flusso ematico.", indications: "Mialgie, contratture, cervicalgie e lombalgie.", contraindications: "Trombosi venose, infezioni cutanee, ferite aperte.", execution: "Sfioramento, frizione profonda, trigger point therapy." },
+            { id: 8, title: "Metodo Mézières (Rieducazione Posturale Globale)", category: "Ortopedici", subcategory: "Rieducazione Posturale", def: "Approccio globale basato sulla retrazione delle catene muscolari.", goals: "Allungamento delle catene posteriori, recupero simmetria.", indications: "Iperlordosi, ipercifosi, scoliosi, disallineamenti posturali.", contraindications: "Fasi acute infiammatorie e dolorose severe.", execution: "Posture globali attive in scarico con controllo respiratorio." },
+            { id: 9, title: "Metodo Souchard (RPG)", category: "Ortopedici", subcategory: "Rieducazione Posturale", def: "Metodologia posturale basata sui concetti di globalità.", goals: "Riequilibrio muscolare globale, eliminazione compensazioni.", indications: "Algie vertebrali croniche, alterazioni posturali.", contraindications: "Patologie psichiatriche gravi, non collaborazione.", execution: "Posture di allungamento globale decompensate guidate." },
+            { id: 10, title: "Rieducazione Propriocettiva e Neuromuscolare", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", def: "Stimolazione recettoriale per controllo riflesso e stabilità.", goals: "Controllo neuromuscolare dinamico, prevenzione distorsioni.", indications: "Post-operatorio LCA, distorsioni di caviglia, instabilità.", contraindications: "Assenza totale di stabilità meccanica articolare.", execution: "Esercizi su superfici instabili in catena cinetica chiusa." },
+            { id: 11, title: "Terapia Manuale Ortopedica (Mulligan & Maitland)", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", def: "Tecniche manuali specifiche e mobilizzazioni articolari.", goals: "Riduzione del dolore, ripristino del ROM fisiologico.", indications: "Ipomobilità articolare, artrosi, rigidità post-chirurgica.", contraindications: "Instabilità severa, osteoporosi grave, neoplasie.", execution: "Forze passive graduate (gradi I-V Maitland) o MWMs." },
+            { id: 12, title: "Trattamento del Piede Torto Congenito (Metodo Ponseti)", category: "Pediatrici", subcategory: "Fisioterapia Pediatrica", district: "Caviglia", def: "Protocollo manipolativo e gessato sequenziale neonatale.", goals: "Correzione graduale di equino, varo e supinazione.", indications: "Piede torto congenito idiopatico nel neonato.", contraindications: "Piede torto sindromico complesso non idoneo.", execution: "Manipolazioni seriali e gessi settimanali con tenotomia." }
         ];
 
-        // Database 3: Terapia Strumentale
+        // Database 3: Terapia Strumentale (12 Macchinari con 5+ Patologie Ciascuno, A-Z)
         const strumentaleData = [
-            { id: 1, title: "Elettroterapia Antalgica (TENS)", district: "Generale", severity: "Mezzo Fisico", def: "Stimolazione elettrica nervosa transcutanea tramite impulsi a bassa frequenza.", goals: "Controllo del dolore acuto e cronico attraverso la teoria del 'Gate Control'.", indications: "Lombalgie, cervico-brachialgie, dolori post-operatori, artrosi.", contraindications: "Portatori di pacemaker cardiaco, applicazione su ferite aperte.", execution: "Posizionamento elettrodi adesivi intorno o sopra l'area dolorosa." },
-            { id: 2, title: "Laserterapia ad Alta Potenza (HILT)", district: "Generale", severity: "Mezzo Fisico", def: "Radiazioni laser ad alta energia con effetto fototermico e fotochimico.", goals: "Antinfiammatorio, analgesico profondo e bio-stimolante.", indications: "Tendinopatie croniche (Achille, rotulea), borsiti, lesioni muscolari.", contraindications: "Neoplasie nell'area di trattamento, gravidanza, epilessia.", execution: "Applicazione puntiforme o a scansione con manipolo erogatore." },
-            { id: 3, title: "Magnetoterapia a Bassa Frequenza", district: "Generale", severity: "Mezzo Fisico", def: "Campi magnetici pulsati a bassa frequenza per stimolare rigenerazione ossea.", goals: "Accelerazione della guarigione ossea, effetto antinfiammatorio.", indications: "Fratture ossee in ritardo di consolidamento, osteoporosi, edemi ossei.", contraindications: "Pacemaker, dispositivi elettronici impiantati, gravidanza.", execution: "Applicazione tramite solenoidi attorno al distretto per sedute prolungate." },
-            { id: 4, title: "Onde d'Urto Focali (ESWT)", district: "Generale", severity: "Mezzo Fisico", def: "Onde acustiche ad alta energia focalizzate su un punto specifico.", goals: "Guarigione tendinea cronica, dissoluzione di calcificazioni, osteogenesi.", indications: "Tendinopatie inserzionali croniche (fascite plantare, epicondilite).", contraindications: "Disturbi della coagulazione, terapia anticoagulante, infezioni locali.", execution: "Erogazione di impulsi energetici focalizzati a frequenza controllata." },
-            { id: 5, title: "TECARterapia (Diatermia Profonda)", district: "Generale", severity: "Mezzo Fisico", def: "Trasferimento energetico capacitivo e resistivo per energia endogena.", goals: "Iperemia profonda, aumento metabolismo cellulare, drenaggio.", indications: "Contratture muscolari, tendinopatie, edemi post-traumatici.", contraindications: "Portatori di pacemaker, donne in gravidanza, insensibilità termica.", execution: "Massaggio con piastra mobile capacitiva o resistiva con crema conduttiva." },
-            { id: 6, title: "Ultrasuonoterapia (US)", district: "Generale", severity: "Mezzo Fisico", def: "Vibrazioni acustiche ad alta frequenza (1-3 MHz) con effetto micromassaggio.", goals: "Riduzione delle aderenze fibrose, effetto antalgico.", indications: "Cicatrici tissutali fibrose, tendiniti calcifiche, fasciti plantari.", contraindications: "Epifisi fertili nei bambini, protesi cementate, trombosi.", execution: "Testina vibrante a contatto con gel con movimento circolare." }
+            { 
+                id: 1, 
+                title: "Correnti Diadinamiche (Bernard)", 
+                district: "Generale", 
+                severity: "Elettroterapia", 
+                def: "Correnti a bassa frequenza (monofase e difase fissa) ad elevato effetto analgesico e vasoattivo.", 
+                goals: "Iperemia locale, forte azione antalgica e rilassamento neuromuscolare.", 
+                indicationsList: [
+                    "1. Cervicalgia Miotensiva", 
+                    "2. Lombalgia Acuta (Colpo della Strega)", 
+                    "3. Epicondilite Laterale", 
+                    "4. Distorsione di Caviglia (Fase subacuta)", 
+                    "5. Tendinopatia d'Achille (Controllo dolore)"
+                ], 
+                contraindications: "Pacemaker, lesioni cutanee nei punti d'applicazione, gravidanza.", 
+                execution: "Applicazione di elettrodi con spugnette imbevute in modalità DF, MF o CP secondo tolleranza per 15-20 minuti." 
+            },
+            { 
+                id: 2, 
+                title: "Crioterapia Compressiva (Game Ready)", 
+                district: "Generale", 
+                severity: "Mezzo Fisico", 
+                def: "Sistema avanzato che combina freddo controllato e compressione attiva intermittente.", 
+                goals: "Controllo immediato di edema, ematoma e dolore post-operatorio o post-traumatico.", 
+                indicationsList: [
+                    "1. Post-Chirurgico Ricostruzione LCA", 
+                    "2. Post-Operatorio Protesi Totale di Ginocchio (PTG)", 
+                    "3. Distorsione di Caviglia (Fase acuta edema)", 
+                    "4. Versamento Articolare da Lesione Meniscale", 
+                    "5. Post-Riparazione Cuffia dei Rotatori"
+                ], 
+                contraindications: "Disturbi vascolari periferici severi, sindrome di Raynaud, crioglobulinemia.", 
+                execution: "Applicazione tramite manicotti anatomici collegati all'unità di controllo a 5-10°C con cicli di compressione per 20-30 minuti." 
+            },
+            { 
+                id: 3, 
+                title: "Elettroterapia Antalgica (TENS)", 
+                district: "Generale", 
+                severity: "Elettroterapia", 
+                def: "Stimolazione elettrica nervosa transcutanea tramite impulsi a bassa/alta frequenza.", 
+                goals: "Blocco della trasmissione nocicettiva secondo la teoria del 'Gate Control' e rilascio di endorfine.", 
+                indicationsList: [
+                    "1. Lombalgia Acuta e Cronica", 
+                    "2. Radicolopatia Cervicale", 
+                    "3. Gonartrosi (Gestione dolore quotidiano)", 
+                    "4. Coxartrosi", 
+                    "5. Dolori post-operatori ortopedici generali"
+                ], 
+                contraindications: "Portatori di pacemaker cardiaco, applicazione su seno carotideo o ferite aperte.", 
+                execution: "Posizionamento di elettrodi adesivi periarticolari o lungo i dermatomeri con frequenza 80-100 Hz per 20-30 minuti." 
+            },
+            { 
+                id: 4, title: "Ipertermia (Thermotherapy Profonda)", 
+                district: "Generale", 
+                severity: "Mezzo Fisico", 
+                def: "Emissione di energia elettromagnetica a microonde controllate per generare calore endogeno profondo e selettivo.", 
+                goals: "Vasodilatazione profonda, incremento metabolico e rilassamento delle contratture tenaci.", 
+                indicationsList: [
+                    "1. Capsulite Adesiva (Spalla Congelata)", 
+                    "2. Contratture muscolari profonde (es. Muscoli paravertebrali)", 
+                    "3. Tendinopatia del Capo Lungo del Bicipite", 
+                    "4. Artrosi Gleno-Omerale", 
+                    "5. Fibrosi cicatriziali post-chirurgiche"
+                ], 
+                contraindications: "Protesi metalliche vicine alla zona di trattamento, mezzi di sintesi, gravidanza, tumori.", 
+                execution: "Applicazione con manipolo radiante raffreddato con controllo termometrico costante per cicli di 15-20 minuti." 
+            },
+            { 
+                id: 5, 
+                title: "Laserterapia ad Alta Potenza (HILT)", 
+                district: "Generale", 
+                severity: "Mezzo Fisico", 
+                def: "Radiazioni laser ad alta energia (es. Nd:YAG) con profonda capacità di penetrazione tissutale e fototermica.", 
+                goals: "Effetto antinfiammatorio marcato, biostimolazione cellulare e analgesia profonda.", 
+                indicationsList: [
+                    "1. Tendinopatia del Tendine d'Achille", 
+                    "2. Tendinopatia Rotulea (Jumper's Knee)", 
+                    "3. Fascite Plantare", 
+                    "4. Epicondilite Laterale", 
+                    "5. Borsite Subacromiale-Subdeltoidea"
+                ], 
+                contraindications: "Neoplasie nell'area di trattamento, gravidanza, epilessia, aree con emorragie attive.", 
+                execution: "Applicazione puntiforme o a scansione (piana energetica con fluenza in J/cm²) prescritta dal medico riabilitatore." 
+            },
+            { 
+                id: 6, 
+                title: "Magnetoterapia a Bassa Frequenza", 
+                district: "Generale", 
+                severity: "Mezzo Fisico", 
+                def: "Campi magnetici pulsati a bassa frequenza (PEMF) per stimolare i processi di riparazione osteo-articolare.", 
+                goals: "Accelerazione dell'osteogenesi, riduzione dell'edema osseo e trofismo tissutale.", 
+                indicationsList: [
+                    "1. Frattura del Collo del Femore (post-operatorio)", 
+                    "2. Frattura da Stress della Tibia", 
+                    "3. Frattura della Clavicola", 
+                    "4. Algodistrofia / Sudeck (Edema osseo)", 
+                    "5. Ritardi di consolidamento osseo (Pseudoartrosi)"
+                ], 
+                contraindications: "Pacemaker cardiaci, dispositivi elettronici impiantati, gravidanza, neoplasie attive.", 
+                execution: "Applicazione tramite solenoidi posizionati attorno al distretto per sedute prolungate di 2-4 ore giornaliere." 
+            },
+            { 
+                id: 7, 
+                title: "Onde d'Urto Focali (ESWT)", 
+                district: "Generale", 
+                severity: "Mezzo Fisico", 
+                def: "Onde acustiche ad elevatissima energia focalizzate millimetricamente sui tessuti profondi.", 
+                goals: "Neovascolarizzazione tissutale, disgregazione di depositi calcifici e stimolazione rigenerativa.", 
+                indicationsList: [
+                    "1. Calcificazione della Cuffia dei Rotatori", 
+                    "2. Fascite Plantare con Spina Calcaneare", 
+                    "3. Tendinopatia d'Achille Inserzionale Cronica", 
+                    "4. Epicondilite Laterale Refrattaria", 
+                    "5. Pseudoartrosi ossee e ritardi di consolidamento"
+                ], 
+                contraindications: "Disturbi della coagulazione, terapia anticoagulante in corso, infezioni locali, vicinanza a grandi nervi.", 
+                execution: "Erogazione di 1500-2500 impulsi energetici focalizzati a frequenza controllata, valutando la tolleranza del paziente." 
+            },
+            { 
+                id: 8, 
+                title: "Onde d'Urto Radiali (RSWT)", 
+                district: "Generale", 
+                severity: "Mezzo Fisico", 
+                def: "Onde acustiche balistiche generate pneumaticamente che agiscono su aree più ampie dei tessuti superficiali e medi.", 
+                goals: "Rilassamento miofasciale profondo, aumento del microcircolo e riduzione del tono ipertonico.", 
+                indicationsList: [
+                    "1. Sindrome del Muscolo Piriforme", 
+                    "2. Sindrome della Bandelletta Tibio-Tarsale", 
+                    "3. Mialgie e Trigger Point miofasciali cronici del dorso", 
+                    "4. Tendinopatia della Zampa d'Oca", 
+                    "5. Periostite tibiale da sovraccarico"
+                ], 
+                contraindications: "Aree di accrescimento osseo nei bambini, placche neuromuscolari, vicinanza al cranio o midollo.", 
+                execution: "Applicazione con manipolo a testina multipla radiale (es. 2000-3000 colpi a 8-15 Hz) con gel conduttore." 
+            },
+            { 
+                id: 9, 
+                title: "Ionoforesi Medica", 
+                district: "Generale", 
+                severity: "Elettroterapia", 
+                def: "Corrente galvanica continua utilizzata per veicolare farmaci ionizzati attraverso la pelle nei tessuti sottostanti.", 
+                goals: "Azione antinfiammatoria o decongestionante localizzata senza assorbimento sistemico.", 
+                indicationsList: [
+                    "1. Epicondilite Laterale (con antinfiammatorio)", 
+                    "2. Tendinite dei Flessori delle Dita", 
+                    "3. Borsite Trocanterica", 
+                    "4. Tendinopatia del Capo Longo del Bicipite", 
+                    "5. Tenosinovite dei Vasi Estensori"
+                ], 
+                contraindications: "Lesioni cutanee nel punto di posizionamento degli elettrodi, allergie al farmaco veicolato.", 
+                execution: "Posizionamento di elettrodo attivo con soluzione farmacologica e passivo a distanza, durata seduta 20 minuti." 
+            },
+            { 
+                id: 10, 
+                title: "TECARterapia (Diatermia Profonda)", 
+                district: "Generale", 
+                severity: "Mezzo Fisico", 
+                def: "Trasferimento energetico capacitivo e resistivo ad alta frequenza che stimola energia endogena.", 
+                goals: "Iperemia profonda, aumento del metabolismo cellulare e drenaggio linfatico rapido.", 
+                indicationsList: [
+                    "1. Distorsione di Caviglia (Fase subacuta con edema)", 
+                    "2. Contratture muscolari acute e croniche", 
+                    "3. Gonartrosi (Riduzione rigidità)", 
+                    "4. Coxartrosi", 
+                    "5. Cervicalgia Miotensiva"
+                ], 
+                contraindications: "Portatori di pacemaker, donne in gravidanza, zone con insensibilità termica cutanea.", 
+                execution: "Massaggio con piastra mobile capacitiva (tessuti molli) o resistiva (ossa/tendini) abbinato a crema conduttiva." 
+            },
+            { 
+                id: 11, 
+                title: "Ultrasuonoterapia in Acqua (US)", 
+                district: "Generale", 
+                severity: "Mezzo Fisico", 
+                def: "Vibrazioni acustiche ad alta frequenza applicate immergendo l'arto in vasca per trattare aree irregolari.", 
+                goals: "Micromassaggio cellulare e riduzione delle aderenze in sedi ossee superficiali.", 
+                indicationsList: [
+                    "1. Tendinite del Tibiale Posteriore", 
+                    "2. Tenosinovite Stenosante di De Quervain", 
+                    "3. Sindrome del Tunnel Tarsale (rilascio)", 
+                    "4. Metatarsalgia", 
+                    "5. Tendinite dei Flessori delle Dita"
+                ], 
+                contraindications: "Ferite aperte in acqua, infezioni cutanee, epifisi fertili.", 
+                execution: "Testina immersa in acqua a 2-3 cm dalla cute, con movimento circolare costante per 10-12 minuti." 
+            },
+            { 
+                id: 12, 
+                title: "Ultrasuonoterapia Tradizionale (US)", 
+                district: "Generale", 
+                severity: "Mezzo Fisico", 
+                def: "Vibrazioni acustiche ad alta frequenza (1-3 MHz) con effetti termici e meccanici localizzati.", 
+                goals: "Ammorbidimento di cicatrici fibrose, effetto antalgico e aumento permeabilità.", 
+                indicationsList: [
+                    "1. Calcificazione della Cuffia dei Rotatori", 
+                    "2. Fascite Plantare", 
+                    "3. Cicatrici post-chirurgiche fibrose profonde", 
+                    "4. Epicondilite Laterale", 
+                    "5. Borsite Subacromiale"
+                ], 
+                contraindications: "Epifisi fertili nei bambini, midollo spinale dopo laminectomia, protesi cementate, trombosi.", 
+                execution: "Testina vibrante a contatto con gel con movimento circolare continuo (modalità continua o pulsata 1:5)." 
+            }
         ];
 
         // Database 4: Anatomia Funzionale
@@ -462,7 +652,7 @@
                 const filtered = trattamentiData.filter(item => (currentDistrictFilter === 'all' || item.category === currentDistrictFilter || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query)));
                 renderTrattamentiGrid(filtered);
             } else if(currentSection === 'strumentale') {
-                const filtered = strumentaleData.filter(item => (currentDistrictFilter === 'all' || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query)));
+                const filtered = strumentaleData.filter(item => (currentDistrictFilter === 'all' || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.indicationsList.some(ind => ind.toLowerCase().includes(query))));
                 renderStrumentaleGrid(filtered);
             } else if(currentSection === 'anatomia') {
                 const filtered = anatomiaData.filter(item => (currentDistrictFilter === 'all' || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query)));
@@ -522,11 +712,21 @@
 
         function renderStrumentale() { renderStrumentaleGrid(strumentaleData); }
         function renderStrumentaleGrid(data) {
-            document.getElementById('strumentale-grid').innerHTML = data.map(item => `
+            const grid = document.getElementById('strumentale-grid');
+            if(data.length === 0) { grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><p>Nessuna terapia trovata.</p></div>`; return; }
+            grid.innerHTML = data.map(item => `
                 <div onclick="openStrumentaleDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700">${item.district}</span>
-                    <h3 class="font-bold text-slate-800 text-base mt-2 mb-1">${item.title}</h3><p class="text-xs text-slate-500 line-clamp-2">${item.def}</p></div>
-                    <div class="pt-3 border-t border-slate-100 text-xs text-amber-600 font-semibold flex justify-between"><span>Scheda fisica</span><i class="fa-solid fa-arrow-right"></i></div>
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700">${item.severity}</span>
+                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-amber-50 text-amber-700">5+ Patologie</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-amber-600 font-semibold">
+                        <span>Visualizza 5+ patologie associate</span><i class="fa-solid fa-arrow-right"></i>
+                    </div>
                 </div>
             `).join('');
         }
@@ -599,14 +799,21 @@
         function openStrumentaleDetail(id) {
             const item = strumentaleData.find(s => s.id === id);
             if(!item) return;
-            document.getElementById('modal-district-badge').innerText = item.district;
+            document.getElementById('modal-district-badge').innerText = item.severity;
             document.getElementById('modal-title').innerText = item.title;
+            
+            // Genera la lista HTML delle 5+ patologie
+            const patologieHTML = item.indicationsList.map(pat => `<li class="py-1 px-2 bg-white rounded-lg border border-amber-100 text-slate-700 font-medium">${pat}</li>`).join('');
+
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Principio Fisico</h4><p class="text-slate-600">${item.def}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Obiettivi</h4><p class="text-slate-600">${item.goals}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Indicazioni Cliniche</h4><p class="text-slate-600">${item.indications}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Principio Fisico e Azione</h4><p class="text-slate-600">${item.def}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Obiettivi Biologici</h4><p class="text-slate-600">${item.goals}</p></div>
+                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 space-y-2">
+                    <h4 class="font-bold text-amber-800 text-xs uppercase tracking-wider"><i class="fa-solid fa-stethoscope mr-1.5"></i>Patologie Specifiche Trattabili (5+):</h4>
+                    <ul class="space-y-1.5 text-xs">${patologieHTML}</ul>
+                </div>
                 <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Controindicazioni</h4><p class="text-rose-900">${item.contraindications}</p></div>
-                <div class="bg-amber-50 p-3 rounded-xl border border-amber-100"><h4 class="font-bold text-amber-700 text-[11px] uppercase mb-1">Parametri</h4><p class="text-amber-900">${item.execution}</p></div>
+                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Parametri di Esecuzione</h4><p class="text-brand-900">${item.execution}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
