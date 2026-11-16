@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FisioPro Clinical v1.3 - Atlante & 50 Protocolli Post-Op</title>
+    <title>FisioPro Clinical v1.3 Supreme - Ordinamento Alfabetico Totale</title>
     
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="./manifest.json">
@@ -47,9 +47,9 @@
                 <div>
                     <div class="flex items-center space-x-2">
                         <h1 class="text-lg font-bold tracking-tight">FisioPro Clinical</h1>
-                        <span class="text-[10px] bg-brand-600 border border-brand-500 text-white font-semibold px-2 py-0.5 rounded-full">v1.3 Ultimate</span>
+                        <span class="text-[10px] bg-brand-600 border border-brand-500 text-white font-semibold px-2 py-0.5 rounded-full">v1.3 Supreme</span>
                     </div>
-                    <p class="text-xs text-brand-100 opacity-95">Atlante Miologico & 50 Protocolli Post-Operatorio Dettagliati</p>
+                    <p class="text-xs text-brand-100 opacity-95">Tutte le Sezioni Ordinate in Strict A-Z</p>
                 </div>
             </div>
             <div class="flex items-center space-x-2">
@@ -90,7 +90,7 @@
     <!-- Contenuto Principale con Tab -->
     <main class="flex-1 max-w-7xl w-full mx-auto p-4 overflow-y-auto">
         
-        <!-- Navigazione Sezioni (Tutte le 6 funzioni) -->
+        <!-- Navigazione Sezioni -->
         <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-6">
             <button onclick="switchSection('patologie-ortopediche')" id="btn-sec-patologie-ortopediche" class="section-tab p-3 rounded-xl border border-brand-500 bg-brand-50 text-brand-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-bone text-xl mb-2 text-brand-600"></i>
@@ -110,35 +110,35 @@
                 <i class="fa-solid fa-hands-holding-child text-xl mb-2 text-brand-600"></i>
                 <div>
                     <h3 class="font-bold text-xs">Trattamenti</h3>
-                    <p class="text-[10px] opacity-75">Per Specialità</p>
+                    <p class="text-[10px] opacity-75">Ordinati A-Z</p>
                 </div>
             </button>
             <button onclick="switchSection('strumentale')" id="btn-sec-strumentale" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-bolt text-xl mb-2 text-amber-500"></i>
                 <div>
                     <h3 class="font-bold text-xs">Terapia Strumentale</h3>
-                    <p class="text-[10px] opacity-75">12 Macchinari</p>
+                    <p class="text-[10px] opacity-75">12 Macchinari A-Z</p>
                 </div>
             </button>
             <button onclick="switchSection('anatomia')" id="btn-sec-anatomia" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-person text-xl mb-2 text-emerald-600"></i>
                 <div>
                     <h3 class="font-bold text-xs">Anatomia</h3>
-                    <p class="text-[10px] opacity-75">151 Muscoli + Funzione</p>
+                    <p class="text-[10px] opacity-75">151 Muscoli A-Z</p>
                 </div>
             </button>
             <button onclick="switchSection('esercizi')" id="btn-sec-esercizi" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-dumbbell text-xl mb-2 text-indigo-600"></i>
                 <div>
                     <h3 class="font-bold text-xs">Esercizi</h3>
-                    <p class="text-[10px] opacity-75">42 Schede Cliniche</p>
+                    <p class="text-[10px] opacity-75">42 Schede A-Z</p>
                 </div>
             </button>
             <button onclick="switchSection('protocolli')" id="btn-sec-protocolli" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-clipboard-list text-xl mb-2 text-purple-600"></i>
                 <div>
                     <h3 class="font-bold text-xs">Protocolli</h3>
-                    <p class="text-[10px] opacity-75">50 Guide Post-Op</p>
+                    <p class="text-[10px] opacity-75">50 Guide A-Z</p>
                 </div>
             </button>
         </div>
@@ -172,9 +172,9 @@
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-hands-holding-child text-brand-600"></i>
-                    <span>Trattamenti Riabilitativi per Specialità Clinica</span>
+                    <span>Trattamenti Riabilitativi (Ordinamento Alfabetico A-Z)</span>
                 </h2>
-                <span class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">Ortopedici, Neurologici, Pediatrici</span>
+                <span class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">Ordinati A-Z</span>
             </div>
             <div id="trattamenti-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
@@ -184,9 +184,9 @@
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-bolt text-amber-500"></i>
-                    <span>Terapia Strumentale e Mezzi Fisici Avanzati (12 Macchinari A-Z)</span>
+                    <span>Terapia Strumentale e Mezzi Fisici (Ordinamento Alfabetico A-Z)</span>
                 </h2>
-                <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2.5 py-1 rounded-full">Associazione Clinica Dettagliata</span>
+                <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2.5 py-1 rounded-full">12 Macchinari A-Z</span>
             </div>
             <div id="strumentale-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
@@ -196,9 +196,9 @@
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-person text-emerald-600"></i>
-                    <span>Atlante Miologico Ufficiale (151 Muscoli Filtrati per Sezione Anatomica)</span>
+                    <span>Atlante Miologico Ufficiale (Ordinamento Alfabetico A-Z)</span>
                 </h2>
-                <span id="anatomia-count" class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded-full">151 Muscoli Certificati</span>
+                <span id="anatomia-count" class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded-full">151 Muscoli A-Z</span>
             </div>
             <div id="anatomia-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
@@ -208,21 +208,21 @@
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-dumbbell text-indigo-600"></i>
-                    <span>Manuale Prescrittivo di Esercizio Terapeutico (42 Schede Cliniche per Distretto)</span>
+                    <span>Manuale Prescrittivo di Esercizio Terapeutico (Ordinamento Alfabetico A-Z)</span>
                 </h2>
-                <span id="esercizi-count" class="text-xs bg-indigo-100 text-indigo-800 font-semibold px-2.5 py-1 rounded-full">42 Esercizi</span>
+                <span id="esercizi-count" class="text-xs bg-indigo-100 text-indigo-800 font-semibold px-2.5 py-1 rounded-full">42 Esercizi A-Z</span>
             </div>
             <div id="esercizi-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione Protocolli (50 Guide Post-Operatorie Complete) -->
+        <!-- Sezione Protocolli (50 Guide Post-Operatorie) -->
         <div id="section-protocolli" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-clipboard-list text-purple-600"></i>
-                    <span>50 Protocolli Riabilitativi Post-Operatorii (Guide Cliniche Integrali)</span>
+                    <span>50 Protocolli Riabilitativi Post-Operatorii (Ordinamento Alfabetico A-Z)</span>
                 </h2>
-                <span id="protocolli-count" class="text-xs bg-purple-100 text-purple-800 font-semibold px-2.5 py-1 rounded-full">50 Protocolli</span>
+                <span id="protocolli-count" class="text-xs bg-purple-100 text-purple-800 font-semibold px-2.5 py-1 rounded-full">50 Protocolli A-Z</span>
             </div>
             <div id="protocolli-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
@@ -283,9 +283,9 @@
         </div>
     </div>
 
-    <!-- Script JavaScript (Versione 1.3 con 50 Protocolli Completi) -->
+    <!-- Script JavaScript (Versione 1.3 Supreme - Ordinamento Alfabetico Completo) -->
     <script>
-        // Database integrati (Orto, Neuro, Trattamenti, Strumentale, Anatomia, Esercizi)
+        // Database integrati
         const ortopedicheData = [
             { id: 1, title: "Alluce Valgo", district: "Piede", severity: "Cronica", def: "Deviazione mediale del primo metatarso e laterale dell'alluce.", meds: "FANS topici.", surgery: "Osteotomie correttive metatarsali.", rehab: "Terapie conservative, tutori notturni." },
             { id: 2, title: "Apofisite della Cresta Iliaca", district: "Anca", severity: "Lieve", def: "Traction apophysitis addominale nei giovani.", meds: "Analgesici leggeri.", surgery: "Non indicata.", rehab: "Riposo e stretching." },
@@ -402,7 +402,7 @@
             { id: 120, title: "Sindrome Post-Polio", district: "Generale", severity: "Cronica", def: "Debolezza tardiva.", meds: "Analgesici.", surgery: "Correzione scheletrica.", rehab: "Attività a basso impatto." },
             { id: 121, title: "Trauma Cranico (TCE)", district: "Cervicale", severity: "Grave", def: "Insulto traumatico acuto.", meds: "Controllo PIC.", surgery: "Craniotomia decompressiva.", rehab: "Riabilitazione intensiva." },
             { id: 122, title: "Tremore Essenziale", district: "Cervicale", severity: "Moderata", def: "Tremore posturale.", meds: "Beta-bloccanti.", surgery: "FUS o DBS.", rehab: "Ergoterapia." },
-            { id: 123, title: "Tumore Midollare", district: "Lombare", severity: "Grave", def: "Neoplasia midollare.", meds: "Corticosteroidi.", surgery: "Microchirurgia.", rehab: "Propriocezione." },
+            { id: 123, title: "Tumore Midollare", district: "Lombare", severity: "Grave", def: "Neoplasia midollare.", meds: "Corticosteroidi.", surgery: "Microchirurgia.", rehab: "Propriocettività." },
             { id: 124, title: "Vasculite SNC", district: "Generale", severity: "Grave", def: "Infiammazione vasi cerebrali.", meds: "Immunosoppressori.", surgery: "Per emorragie.", rehab: "Recupero focale." },
             { id: 125, title: "Distrofia di Steinert", district: "Generale", severity: "Cronica", def: "Miotonia e debolezza.", meds: "Mexiletina.", surgery: "Cataratta o ortopedia.", rehab: "Stretching e aerobica." },
             { id: 126, title: "Corea di Huntington", district: "Generale", severity: "Grave", def: "Movimenti coreici involontari.", meds: "Tetrabenazina.", surgery: "Non indicata.", rehab: "Prevenzione cadute." },
@@ -421,581 +421,588 @@
             { id: 6, title: "Linfodrenaggio Manuale", category: "Ortopedici", district: "Generale", def: "Massaggio ritmato linfatico.", goals: "Riduzione edemi.", indications: "Edemi post-traumatici.", contraindications: "Tromboflebiti." },
             { id: 7, title: "Massoterapia Decontratturante", category: "Ortopedici", district: "Generale", def: "Manovre tessuti molli.", goals: "Rilassamento.", indications: "Mialgie.", contraindications: "Trombosi." },
             { id: 8, title: "Metodo Mézières (RPG)", category: "Ortopedici", district: "Generale", def: "Allungamento catene.", goals: "Riequilibrio posturale.", indications: "Scoliosi.", contraindications: "Fasi acute." },
-            { id: 9, title: "Metodo Souchard", category: "Ortopedici", district: "Generale", def: "Globalità posturale.", goals: "Eliminazione compensazioni.", indications: "Algie croniche.", contraindications: "Non collaborazione." },
-            { id: 10, title: "Rieducazione Propriocettiva", category: "Ortopedici", district: "Generale", def: "Stimolazione recettoriale.", goals: "Controllo neuromuscolare.", indications: "Distorsioni.", contraindications: "Instabilità grave." },
-            { id: 11, title: "Terapia Manuale (Maitland)", category: "Ortopedici", district: "Generale", def: "Mobilizzazioni articolari.", goals: "Ripristino ROM.", indications: "Ipomobilità.", contraindications: "Osteoporosi." },
-            { id: 12, title: "Metodo Ponseti", category: "Pediatrici", district: "Piede", def: "Protocollo gessato neonatale.", goals: "Correzione equino-varo.", indications: "Piede torto.", contraindications: "Sindromico." }
+            { id: 9, title: "Metodo Ponseti", category: "Pediatrici", district: "Piede", def: "Protocollo gessato neonatale.", goals: "Correzione equino-varo.", indications: "Piede torto.", contraindications: "Sindromico." },
+            { id: 10, title: "Metodo Souchard", category: "Ortopedici", district: "Generale", def: "Globalità posturale.", goals: "Eliminazione compensazioni.", indications: "Algie croniche.", contraindications: "Non collaborazione." },
+            { id: 11, title: "Rieducazione Propriocettiva", category: "Ortopedici", district: "Generale", def: "Stimolazione recettoriale.", goals: "Controllo neuromuscolare.", indications: "Distorsioni.", contraindications: "Instabilità grave." },
+            { id: 12, title: "Terapia Manuale (Maitland)", category: "Ortopedici", district: "Generale", def: "Mobilizzazioni articolari.", goals: "Ripristino ROM.", indications: "Ipomobilità.", contraindications: "Osteoporosi." }
         ];
 
         const strumentaleData = [
             { id: 1, title: "Correnti Diadinamiche", district: "Cervicale", severity: "Elettroterapia", def: "Correnti antalgiche.", goals: "Analgesia.", indicationsList: ["1. Cervicalgia", "2. Lombalgia", "3. Epicondilite", "4. Distorsione", "5. Achillea"], contraindications: "Pacemaker." },
             { id: 2, title: "Crioterapia Compressiva", district: "Coscia", severity: "Mezzo Fisico", def: "Freddo e compressione.", goals: "Controllo edema.", indicationsList: ["1. Post LCA", "2. Post PTG", "3. Distorsione", "4. Versamento", "5. Post cuffia"], contraindications: "Raynaud." },
-            { id: 3, title: "TENS", district: "Lombare", severity: "Elettroterapia", def: "Stimolazione elettrica transcutanea.", goals: "Blocco nocicettivo.", indicationsList: ["1. Lombalgia", "2. Radicolopatia", "3. Gonartrosi", "4. Coxartrosi", "5. Post-op"], contraindications: "Pacemaker." },
-            { id: 4, title: "Ipertermia", district: "Spalla", severity: "Mezzo Fisico", def: "Calore endogeno.", goals: "Vasodilatazione.", indicationsList: ["1. Capsulite", "2. Contratture", "3. Tendinopatia", "4. Omartrosi", "5. Fibrosi"], contraindications: "Protesi metalliche." },
+            { id: 3, title: "Ipertermia", district: "Spalla", severity: "Mezzo Fisico", def: "Calore endogeno.", goals: "Vasodilatazione.", indicationsList: ["1. Capsulite", "2. Contratture", "3. Tendinopatia", "4. Omartrosi", "5. Fibrosi"], contraindications: "Protesi metalliche." },
+            { id: 4, title: "Ionoforesi", district: "Braccio", severity: "Elettroterapia", def: "Veicolazione farmaci.", goals: "Antinfiammatorio.", indicationsList: ["1. Epicondilite", "2. Tendinite", "3. Borsite", "4. Tenosinovite", "5. Tendinopatia"], contraindications: "Lesioni cutanee." },
             { id: 5, title: "Laserterapia HILT", district: "Piede", severity: "Mezzo Fisico", def: "Laser ad alta potenza.", goals: "Biostimolazione.", indicationsList: ["1. Achillea", "2. Rotuleo", "3. Fascite", "4. Epicondilite", "5. Borsite"], contraindications: "Neoplasie." },
             { id: 6, title: "Magnetoterapia PEMF", district: "Spalla", severity: "Mezzo Fisico", def: "Campi magnetici pulsati.", goals: "Osteogenesi.", indicationsList: ["1. Frattura femore", "2. Frattura tibia", "3. Clavicola", "4. Algodistrofia", "5. Pseudoartrosi"], contraindications: "Pacemaker." },
             { id: 7, title: "Onde d'Urto Focali", district: "Spalla", severity: "Mezzo Fisico", def: "Onde acustiche alta energia.", goals: "Calcificazioni.", indicationsList: ["1. Calcificazione cuffia", "2. Fascite", "3. Achillea", "4. Epicondilite", "5. Pseudoartrosi"], contraindications: "Coagulopatie." },
             { id: 8, title: "Onde d'Urto Radiali", district: "Lombare", severity: "Mezzo Fisico", def: "Onde pneumatiche.", goals: "Rilascio miofasciale.", indicationsList: ["1. Piriforme", "2. Bandelletta", "3. Trigger point", "4. Zampa d'oca", "5. Periostite"], contraindications: "Cranio." },
-            { id: 9, title: "Ionoforesi", district: "Braccio", severity: "Elettroterapia", def: "Veicolazione farmaci.", goals: "Antinfiammatorio.", indicationsList: ["1. Epicondilite", "2. Tendinite", "3. Borsite", "4. Tenosinovite", "5. Tendinopatia"], contraindications: "Lesioni cutanee." },
-            { id: 10, title: "TECARterapia", district: "Coscia", severity: "Mezzo Fisico", def: "Diatermia.", goals: "Iperemia e drenaggio.", indicationsList: ["1. Distorsione", "2. Contratture", "3. Gonartrosi", "4. Coxartrosi", "5. Cervicalgia"], contraindications: "Pacemaker." },
+            { id: 9, title: "TECARterapia", district: "Coscia", severity: "Mezzo Fisico", def: "Diatermia.", goals: "Iperemia e drenaggio.", indicationsList: ["1. Distorsione", "2. Contratture", "3. Gonartrosi", "4. Coxartrosi", "5. Cervicalgia"], contraindications: "Pacemaker." },
+            { id: 10, title: "TENS", district: "Lombare", severity: "Elettroterapia", def: "Stimolazione elettrica transcutanea.", goals: "Blocco nocicettivo.", indicationsList: ["1. Lombalgia", "2. Radicolopatia", "3. Gonartrosi", "4. Coxartrosi", "5. Post-op"], contraindications: "Pacemaker." },
             { id: 11, title: "Ultrasuoni in Acqua", district: "Piede", severity: "Mezzo Fisico", def: "Vibrazioni in vasca.", goals: "Micromassaggio.", indicationsList: ["1. Tibiale", "2. De Quervain", "3. Tunnel tarsale", "4. Metatarsalgia", "5. Flessori"], contraindications: "Ferite aperte." },
             { id: 12, title: "Ultrasuoni Tradizionali", district: "Spalla", severity: "Mezzo Fisico", def: "Vibrazioni acustiche.", goals: "Cicatrici.", indicationsList: ["1. Calcificazioni", "2. Fascite", "3. Cicatrici", "4. Epicondilite", "5. Borsite"], contraindications: "Epifisi fertili." }
         ];
 
-        // ATLANTE MIOLOGICO COMPLETO (151 Muscoli) - Mantenuto intatto
         const anatomiaData = [
             { id: 1, district: "Piede", title: "Abduttore dell'Alluce", origin: "Tuberosità calcaneare mediale", insertion: "Base falange prossimale alluce", innervation: "N. plantare mediale", blood: "A. plantare mediale", daily: "Camminare a piedi nudi sulla sabbia", movements: ["Abduzione alluce", "Flessione alluce"] },
-            { id: 2, district: "Piede", title: "Flessore Breve delle Dita", origin: "Processo mediale calcagno", insertion: "Falangi medie II-V", innervation: "N. plantare mediale", blood: "A. plantare mediale", daily: "Afferrare il terreno con le dita", movements: ["Flessione dita II-V"] },
-            { id: 3, district: "Piede", title: "Abduttore del Quinto Dito", origin: "Tuberosità calcaneare", insertion: "Base falange V dito", innervation: "N. plantare laterale", blood: "A. plantare laterale", daily: "Stabilizzare il piede su terreni sconnessi", movements: ["Abduzione V dito"] },
-            { id: 4, district: "Piede", title: "Quadrato della Pianta", origin: "Calcagno", insertion: "Tendine flessore lungo dita", innervation: "N. plantare laterale", blood: "A. plantare laterale", daily: "Allineare la trazione delle dita", movements: ["Flessione dita II-V"] },
-            { id: 5, district: "Piede", title: "Lombricali del Piede", origin: "Tendini flessore lungo", insertion: "Espansione estensoria", innervation: "N. plantare mediale/laterale", blood: "Arterie metatarsali", daily: "Mantenere le dita distese", movements: ["Flessione falangi prossimali"] },
-            { id: 6, district: "Piede", title: "Flessore Breve dell'Alluce", origin: "Cuboide e cuneiforme", insertion: "Base falange alluce", innervation: "N. plantare mediale", blood: "A. plantare mediale", daily: "Spinta finale sull'alluce", movements: ["Flessione alluce"] },
-            { id: 7, district: "Piede", title: "Adduttore dell'Alluce", origin: "Basi metatarsi II-IV", insertion: "Base falange alluce", innervation: "N. plantare laterale", blood: "Arcata plantare", daily: "Arco trasverso dell'avampiede", movements: ["Adduzione alluce"] },
-            { id: 8, district: "Piede", title: "Flessore Breve V Dito", origin: "Base V metatarsale", insertion: "Base falange V dito", innervation: "N. plantare laterale", blood: "A. plantare laterale", daily: "Premere il mignolo", movements: ["Flessione V dito"] },
-            { id: 9, district: "Piede", title: "Interossei Plantari", origin: "Metatarsi III-V", insertion: "Falangi III-V", innervation: "N. plantare laterale", blood: "Arcata plantare", daily: "Stringere le dita", movements: ["Adduzione dita"] },
-            { id: 10, district: "Piede", title: "Interossei Dorsali Piede", origin: "Metatarsi I-V", insertion: "Falangi II-IV", innervation: "N. plantare laterale", blood: "A. dorsale piede", daily: "Allargare le dita a ventaglio", movements: ["Abduzione dita"] },
-            { id: 11, district: "Piede", title: "Estensore Breve delle Dita", origin: "Calcagno", insertion: "Tendini estensore lungo", innervation: "N. fibulare profondo", blood: "A. dorsale piede", daily: "Sollevare le dita", movements: ["Estensione dita II-IV"] },
-            { id: 12, district: "Piede", title: "Estensore Breve dell'Alluce", origin: "Calcagno", insertion: "Base alluce", innervation: "N. fibulare profondo", blood: "A. dorsale piede", daily: "Alzare l'alluce", movements: ["Estensione alluce"] },
-            { id: 13, district: "Gamba", title: "Estensore Lungo delle Dita", origin: "Condilo laterale tibia", insertion: "Falangi II-V", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", daily: "Sollevare la punta del piede", movements: ["Flessione dorsale"] },
-            { id: 14, district: "Gamba", title: "Tibiale Anteriore", origin: "Tibia laterale", insertion: "I metatarso", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", daily: "Guidare l'auto (acceleratore-freno)", movements: ["Flessione dorsale e inversione"] },
-            { id: 15, district: "Gamba", title: "Estensore Lungo dell'Alluce", origin: "Fibula anteriore", insertion: "Falange distale alluce", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", daily: "Evitare di inciampare", movements: ["Estensione alluce"] },
-            { id: 16, district: "Gamba", title: "Peroneo Terzo", origin: "Fibula distale", insertion: "V metatarso", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", daily: "Raddrizzare il piede", movements: ["Eversione"] },
-            { id: 17, district: "Gamba", title: "Peroneo Lungo", origin: "Testa fibula", insertion: "I metatarso", innervation: "N. fibulare superficiale", blood: "A. fibulare", daily: "Camminare sui ciottoli", movements: ["Eversione e flessione plantare"] },
-            { id: 18, district: "Gamba", title: "Peroneo Breve", origin: "Fibula laterale", insertion: "V metatarso", innervation: "N. fibulare superficiale", blood: "A. fibulare", daily: "Corsa con cambi di direzione", movements: ["Eversione"] },
-            { id: 19, district: "Gamba", title: "Gastrocnemio Mediale", origin: "Condilo mediale femore", insertion: "Calcagno (Achille)", innervation: "N. tibiale", blood: "A. surali", daily: "Prendere oggetti in alto", movements: ["Flessione plantare"] },
-            { id: 20, district: "Gamba", title: "Gastrocnemio Laterale", origin: "Condilo laterale femore", insertion: "Calcagno", innervation: "N. tibiale", blood: "A. surali", daily: "Saltare", movements: ["Flessione plantare"] },
-            { id: 21, district: "Gamba", title: "Plantare", origin: "Femore distale", insertion: "Calcagno", innervation: "N. tibiale", blood: "A. surali", daily: "Propriocezione spinta", movements: ["Debole flessione plantare"] },
-            { id: 22, district: "Gamba", title: "Popliteo", origin: "Condilo laterale femore", insertion: "Tibia posteriore", innervation: "N. tibiale", blood: "A. ginocchio", daily: "Sbloccare il ginocchio esteso", movements: ["Rotazione interna tibia"] },
-            { id: 23, district: "Gamba", title: "Tibiale Posteriore", origin: "Tibia e fibula", insertion: "Navicolare", innervation: "N. tibiale", blood: "A. fibulare", daily: "Evitare il piede piatto", movements: ["Inversione"] },
-            { id: 24, district: "Gamba", title: "Soleo", origin: "Fibula e linea solea", insertion: "Calcagno", innervation: "N. tibiale", blood: "A. tibiale posteriore", daily: "Stazione eretta prolungata", movements: ["Flessione plantare"] },
-            { id: 25, district: "Gamba", title: "Flessore Lungo delle Dita", origin: "Tibia posteriore", insertion: "Falangi distali II-V", innervation: "N. tibiale", blood: "A. tibiale posteriore", daily: "Equilibrio su bus in movimento", movements: ["Flessione dita"] },
-            { id: 26, district: "Gamba", title: "Flessore Lungo dell'Alluce", origin: "Fibula posteriore", insertion: "Falange distale alluce", innervation: "N. tibiale", blood: "A. fibulare", daily: "Danza sulle punte", movements: ["Flessione alluce"] },
-            { id: 27, district: "Coscia", title: "Sartorio", origin: "SIAS", insertion: "Tibia mediale (zampa d'oca)", innervation: "N. femorale", blood: "A. femorale", daily: "Accavallare le gambe", movements: ["Flessione e rotazione anca"] },
-            { id: 28, district: "Coscia", title: "Vasto Laterale", origin: "Femore laterale", insertion: "Rotula", innervation: "N. femorale", blood: "A. circonflessa laterale", daily: "Alzarsi da una sedia", movements: ["Estensione ginocchio"] },
-            { id: 29, district: "Coscia", title: "Vasto Mediale", origin: "Linea aspra", insertion: "Rotula mediale", innervation: "N. femorale", blood: "A. femorale", daily: "Camminare in discesa", movements: ["Estensione ginocchio (VMO)"] },
-            { id: 30, district: "Coscia", title: "Vasto Intermedio", origin: "Femore anteriore", insertion: "Rotula", innervation: "N. femorale", blood: "A. circonflessa laterale", daily: "Raddrizzare la gamba", movements: ["Estensione ginocchio"] },
-            { id: 31, district: "Coscia", title: "Articolare del Ginocchio", origin: "Femore distale", insertion: "Capsula articolare", innervation: "N. femorale", blood: "A. femorale", daily: "Proteggere la borsa sinoviale", movements: ["Trazione capsulare"] },
-            { id: 32, district: "Coscia", title: "Pettineo", origin: "Pube", insertion: "Linea pettinea", innervation: "N. femorale", blood: "A. otturatoria", daily: "Chiudere le ginocchia", movements: ["Adduzione anca"] },
-            { id: 33, district: "Coscia", title: "Adduttore Lungo", origin: "Corpo del pube", insertion: "Linea aspra", innervation: "N. otturatorio", blood: "A. femorale profonda", daily: "Calciare un pallone", movements: ["Adduzione anca"] },
-            { id: 34, district: "Coscia", title: "Adduttore Breve", origin: "Pube", insertion: "Linea aspra", innervation: "N. otturatorio", blood: "A. femorale profonda", daily: "Stringere oggetti tra le ginocchia", movements: ["Adduzione anca"] },
-            { id: 35, district: "Coscia", title: "Grande Adduttore", origin: "Ramo ischiopubico", insertion: "Tubercolo adduttorio", innervation: "N. otturatorio e tibiale", blood: "A. otturatoria", daily: "Andare a cavallo", movements: ["Potente adduzione"] },
-            { id: 36, district: "Coscia", title: "Retto Femorale", origin: "SIAI", insertion: "Tuberosità tibiale", innervation: "N. femorale", blood: "A. circonflessa laterale", daily: "Calciare", movements: ["Estensione ginocchio e flessione anca"] },
-            { id: 37, district: "Coscia", title: "Gracile", origin: "Pube", insertion: "Zampa d'oca", innervation: "N. otturatorio", blood: "A. circonflessa mediale", daily: "Entrare in auto", movements: ["Adduzione anca e flessione ginocchio"] },
-            { id: 38, district: "Coscia", title: "Bicipite Femorale", origin: "Tuberosità ischiatica", insertion: "Testa fibula", innervation: "N. sciatico", blood: "A. glutea inferiore", daily: "Frenare la gamba nella corsa", movements: ["Flessione ginocchio"] },
-            { id: 39, district: "Coscia", title: "Semitendinoso", origin: "Tuberosità ischiatica", insertion: "Zampa d'oca", innervation: "N. sciatico", blood: "A. perforanti", daily: "Portare il tallone al gluteo", movements: ["Flessione ginocchio"] },
-            { id: 40, district: "Coscia", title: "Semimembranoso", origin: "Tuberosità ischiatica", insertion: "Tibia mediale", innervation: "N. sciatico", blood: "A. perforanti", daily: "Camminare in salita", movements: ["Flessione ginocchio"] },
-            { id: 41, district: "Coscia", title: "Tensore Fascia Lata", origin: "SIAS", insertion: "Tubercolo di Gerdy", innervation: "N. gluteo superiore", blood: "A. circonflessa laterale", daily: "Equilibrio monopodalico", movements: ["Abduzione anca"] },
-            { id: 42, district: "Anca", title: "Grande Psoas", origin: "Vertebre T12-L5", insertion: "Piccolo trocantere", innervation: "Plesso lombare", blood: "A. lombari", daily: "Salire un gradino", movements: ["Flessione anca"] },
-            { id: 43, district: "Anca", title: "Iliaco", origin: "Fossa iliaca", insertion: "Piccolo trocantere", innervation: "N. femorale", blood: "A. ileolombare", daily: "Portare la gamba in avanti", movements: ["Flessione anca"] },
-            { id: 44, district: "Anca", title: "Piccolo Psoas", origin: "T12-L1", insertion: "Eminenza ileopubica", innervation: "L1", blood: "A. lombari", daily: "Stabilizzare il bacino", movements: ["Debole flessione lombare"] },
-            { id: 45, district: "Anca", title: "Grande Gluteo", origin: "Sacro e ileo", insertion: "Tratto ileotibiale", innervation: "N. gluteo inferiore", blood: "A. glutea superiore", daily: "Alzarsi da una sedia o fare le scale", movements: ["Estensione anca"] },
-            { id: 46, district: "Anca", title: "Piriforme", origin: "Sacro anteriore", insertion: "Grande trocantere", innervation: "Plesso sacrale", blood: "A. glutea inferiore", daily: "Uscire dall'auto", movements: ["Rotazione esterna anca"] },
-            { id: 47, district: "Anca", title: "Otturatore Interno", origin: "Membrana otturatoria", insertion: "Fossa trocanterica", innervation: "N. otturatore interno", blood: "A. otturatoria", daily: "Stabilizzare la testa femorale", movements: ["Rotazione esterna"] },
-            { id: 48, district: "Anca", title: "Medio Gluteo", origin: "Ala iliaca", insertion: "Grande trocantere", innervation: "N. gluteo superiore", blood: "A. glutea superiore", daily: "Camminare senza zoppicare", movements: ["Abduzione anca"] },
-            { id: 49, district: "Anca", title: "Piccolo Gluteo", origin: "Ala iliaca", insertion: "Grande trocantere", innervation: "N. gluteo superiore", blood: "A. glutea superiore", daily: "Equilibrio monopodalico", movements: ["Abduzione e rotazione interna"] },
-            { id: 50, district: "Anca", title: "Gemello Superiore", origin: "Spina ischiatica", insertion: "Grande trocantere", innervation: "N. otturatore interno", blood: "A. glutea inferiore", daily: "Ruotare il piede in fuori", movements: ["Rotazione esterna"] },
+            { id: 2, district: "Piede", title: "Abduttore del Quinto Dito", origin: "Tuberosità calcaneare", insertion: "Base falange V dito", innervation: "N. plantare laterale", blood: "A. plantare laterale", daily: "Stabilizzare il piede su terreni sconnessi", movements: ["Abduzione V dito"] },
+            { id: 3, district: "Mano", title: "Abduttore Breve Pollice", origin: "Retinacolo flessori", insertion: "Pollice", innervation: "N. mediano", blood: "A. radiale", daily: "Prendere una mela", movements: ["Abduzione pollice"] },
+            { id: 4, district: "Mano", title: "Abduttore Quinto Dito", origin: "Pisiforme", insertion: "V dito", innervation: "N. ulnare", blood: "A. ulnare", daily: "Suonare il pianoforte", movements: ["Abduzione V dito"] },
+            { id: 5, district: "Avambraccio", title: "Abduttore Lungo Pollice", origin: "Ulna e radio", insertion: "I metacarpo", innervation: "N. radiale", blood: "A. interossea", daily: "Afferrare un bicchiere", movements: ["Abduzione pollice"] },
+            { id: 6, district: "Piede", title: "Adduttore dell'Alluce", origin: "Basi metatarsi II-IV", insertion: "Base falange alluce", innervation: "N. plantare laterale", blood: "Arcata plantare", daily: "Arco trasverso dell'avampiede", movements: ["Adduzione alluce"] },
+            { id: 7, district: "Mano", title: "Adduttore del Pollice", origin: "Capitato e metatarsi", insertion: "Pollice", innervation: "N. ulnare", blood: "Arcata palmare", daily: "Tenere un foglio tra le dita", movements: ["Adduzione pollice"] },
+            { id: 8, district: "Coscia", title: "Adduttore Breve", origin: "Pube", insertion: "Linea aspra", innervation: "N. otturatorio", blood: "A. femorale profonda", daily: "Stringere oggetti tra le ginocchia", movements: ["Adduzione anca"] },
+            { id: 9, district: "Coscia", title: "Adduttore Lungo", origin: "Corpo del pube", insertion: "Linea aspra", innervation: "N. otturatorio", blood: "A. femorale profonda", daily: "Calciare un pallone", movements: ["Adduzione anca"] },
+            { id: 10, district: "Braccio", title: "Anconeo", origin: "Epicondilo laterale", insertion: "Ulna", innervation: "N. radiale", blood: "A. interossea", daily: "Usare un cacciavite", movements: ["Estensione gomito"] },
+            { id: 11, district: "Coscia", title: "Articolare del Ginocchio", origin: "Femore distale", insertion: "Capsula articolare", innervation: "N. femorale", blood: "A. femorale", daily: "Proteggere la borsa sinoviale", movements: ["Trazione capsulare"] },
+            { id: 12, district: "Coscia", title: "Bicipite Femorale", origin: "Tuberosità ischiatica", insertion: "Testa fibula", innervation: "N. sciatico", blood: "A. glutea inferiore", daily: "Frenare la gamba nella corsa", movements: ["Flessione ginocchio"] },
+            { id: 13, district: "Braccio", title: "Bicipite Brachiale", origin: "Scapola", insertion: "Radio", innervation: "N. muscolocutaneo", blood: "A. brachiale", daily: "Sollevare una spesa", movements: ["Supinazione e flessione gomito"] },
+            { id: 14, district: "Braccio", title: "Brachiale", origin: "Omero anteriore", insertion: "Ulna", innervation: "N. muscolocutaneo", blood: "A. brachiale", daily: "Portare cibo alla bocca", movements: ["Flessione gomito"] },
+            { id: 15, district: "Avambraccio", title: "Brachioradiale", origin: "Omero laterale", insertion: "Radio distale", innervation: "N. radiale", blood: "A. ricorrente radiale", daily: "Presa a martello", movements: ["Flessione gomito neutra"] },
+            { id: 16, district: "Spalla", title: "Deltoide", origin: "Clavicola e scapola", insertion: "Omero", innervation: "N. ascellare", blood: "A. circonflessa posteriore", daily: "Sollevare il braccio", movements: ["Abduzione spalla"] },
+            { id: 17, district: "Torace", title: "Dentato Anteriore", origin: "Coste I-VIII", insertion: "Margine mediale scapola", innervation: "N. toracico lungo", blood: "A. toracica laterale", daily: "Aprire una finestra scorrevole", movements: ["Protrazione scapola"] },
+            { id: 18, district: "Torace", title: "Dentato Posteriore Inferiore", origin: "T11-L2", insertion: "Coste IX-XII", innervation: "Nervi intercostali", blood: "A. intercostali", daily: "Soffiare forte", movements: ["Depressione coste"] },
+            { id: 19, district: "Torace", title: "Dentato Posteriore Superiore", origin: "C7-T3", insertion: "Coste II-V", innervation: "Nervi intercostali", blood: "A. intercostali", daily: "Respiro profondo", movements: ["Elevazione coste"] },
+            { id: 20, district: "Torace", title: "Diaframma", origin: "Sterno, coste e L1-L3", insertion: "Centro frenico", innervation: "N. frenico", blood: "A. freniche", daily: "Respirazione principale", movements: ["Abbassamento centro frenico"] },
+            { id: 21, district: "Cervicale", title: "Digastrico", origin: "Osso temporale e mandibola", insertion: "Osso ioide", innervation: "N. trigemino e facciale", blood: "A. facciale", daily: "Aprire la bocca e deglutire", movements: ["Abbassamento mandibola"] },
+            { id: 22, district: "Cervicale", title: "Elevatore della Scapola", origin: "C1-C4", insertion: "Scapola", innervation: "N. dorsale scapola", blood: "A. dorsale scapola", daily: "Tenere il telefono all'orecchio", movements: ["Elevazione scapola"] },
+            { id: 23, district: "Torace", title: "Elevatori delle Coste", origin: "C7-T11", insertion: "Costa sottostante", innervation: "Rami posteriori", blood: "A. intercostali", daily: "Rotazione toracica", movements: ["Elevazione coste"] },
+            { id: 24, district: "Piede", title: "Estensore Breve dell'Alluce", origin: "Calcagno", insertion: "Base alluce", innervation: "N. fibulare profondo", blood: "A. dorsale piede", daily: "Alzare l'alluce", movements: ["Estensione alluce"] },
+            { id: 25, district: "Piede", title: "Estensore Breve delle Dita", origin: "Calcagno", insertion: "Tendini estensore lungo", innervation: "N. fibulare profondo", blood: "A. dorsale piede", daily: "Sollevare le dita", movements: ["Estensione dita II-IV"] },
+            { id: 26, district: "Avambraccio", title: "Estensore Breve Pollice", origin: "Radio", insertion: "Falange prossimale pollice", innervation: "N. radiale", blood: "A. interossea", daily: "Gesto dell'OK", movements: ["Estensione pollice"] },
+            { id: 27, district: "Avambraccio", title: "Estensore Indice", origin: "Ulna", insertion: "Indice", innervation: "N. radiale", blood: "A. interossea", daily: "Puntare il dito", movements: ["Estensione indice"] },
+            { id: 28, district: "Gamba", title: "Estensore Lungo dell'Alluce", origin: "Fibula anteriore", insertion: "Falange distale alluce", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", daily: "Evitare di inciampare", movements: ["Estensione alluce"] },
+            { id: 29, district: "Gamba", title: "Estensore Lungo delle Dita", origin: "Condilo laterale tibia", insertion: "Falangi II-V", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", daily: "Sollevare la punta del piede", movements: ["Flessione dorsale"] },
+            { id: 30, district: "Avambraccio", title: "Estensore Lungo Pollice", origin: "Ulna", insertion: "Falange distale pollice", innervation: "N. radiale", blood: "A. interossea", daily: "Autostop", movements: ["Estensione pollice"] },
+            { id: 31, district: "Avambraccio", title: "Estensore Mignolo", origin: "Epicondilo laterale", insertion: "V dito", innervation: "N. radiale", blood: "A. interossea", daily: "Alzare il mignolo", movements: ["Estensione mignolo"] },
+            { id: 32, district: "Avambraccio", title: "Estensore Radiale Breve", origin: "Epicondilo laterale", insertion: "III metacarpo", innervation: "N. radiale", blood: "A. radiale", daily: "Giocare a tennis", movements: ["Estensione polso"] },
+            { id: 33, district: "Avambraccio", title: "Estensore Radiale Lungo", origin: "Omero", insertion: "II metacarpo", innervation: "N. radiale", blood: "A. radiale", daily: "Stabilizzare il polso", movements: ["Estensione polso"] },
+            { id: 34, district: "Avambraccio", title: "Estensore Ulnare Carpo", origin: "Epicondilo laterale", insertion: "V metacarpo", innervation: "N. radiale", blood: "A. interossea", daily: "Estendere il polso di lato", movements: ["Estensione e deviazione ulnare"] },
+            { id: 35, district: "Avambraccio", title: "Estensore delle Dita", origin: "Epicondilo laterale", insertion: "Falangi II-V", innervation: "N. radiale", blood: "A. interossea", daily: "Lasciare andare un oggetto", movements: ["Estensione dita"] },
+            { id: 36, district: "Piede", title: "Flessore Breve V Dito", origin: "Base V metatarsale", insertion: "Base falange V dito", innervation: "N. plantare laterale", blood: "A. plantare laterale", daily: "Premere il mignolo", movements: ["Flessione V dito"] },
+            { id: 37, district: "Mano", title: "Flessore Breve V Dito", origin: "Uncinato", insertion: "V dito", innervation: "N. ulnare", blood: "A. ulnare", daily: "Chiudere il pugno", movements: ["Flessione V dito"] },
+            { id: 38, district: "Piede", title: "Flessore Breve dell'Alluce", origin: "Cuboide e cuneiforme", insertion: "Base falange alluce", innervation: "N. plantare mediale", blood: "A. plantare mediale", daily: "Spinta finale sull'alluce", movements: ["Flessione alluce"] },
+            { id: 39, district: "Mano", title: "Flessore Breve Pollice", origin: "Retinacolo flessori", insertion: "Pollice", innervation: "N. mediano e ulnare", blood: "A. radiale", daily: "Tenere una penna", movements: ["Flessione pollice"] },
+            { id: 40, district: "Piede", title: "Flessore Breve delle Dita", origin: "Processo mediale calcagno", insertion: "Falangi medie II-V", innervation: "N. plantare mediale", blood: "A. plantare mediale", daily: "Afferrare il terreno con le dita", movements: ["Flessione dita II-V"] },
+            { id: 41, district: "Gamba", title: "Flessore Lungo dell'Alluce", origin: "Fibula posteriore", insertion: "Falange distale alluce", innervation: "N. tibiale", blood: "A. fibulare", daily: "Danza sulle punte", movements: ["Flessione alluce"] },
+            { id: 42, district: "Gamba", title: "Flessore Lungo delle Dita", origin: "Tibia posteriore", insertion: "Falangi distali II-V", innervation: "N. tibiale", blood: "A. tibiale posteriore", daily: "Equilibrio su bus in movimento", movements: ["Flessione dita"] },
+            { id: 43, district: "Avambraccio", title: "Flessore Lungo Pollice", origin: "Radio", insertion: "Falange distale pollice", innervation: "N. mediano", blood: "A. radiale", daily: "Premere un pulsante", movements: ["Flessione pollice"] },
+            { id: 44, district: "Avambraccio", title: "Flessore Profondo Dita", origin: "Ulna", insertion: "Falangi distali", innervation: "N. mediano e ulnare", blood: "A. ulnare", daily: "Suonare il pianoforte", movements: ["Flessione IFD"] },
+            { id: 45, district: "Avambraccio", title: "Flessore Radiale Carpo", origin: "Epicondilo mediale", insertion: "II metacarpo", innervation: "N. mediano", blood: "A. radiale", daily: "Palleggiare a basket", movements: ["Flessione polso"] },
+            { id: 46, district: "Avambraccio", title: "Flessore Superficiale Dita", origin: "Omero, ulna e radio", insertion: "Falangi medie II-V", innervation: "N. mediano", blood: "A. ulnare", daily: "Impugnare una valigia", movements: ["Flessione IFP"] },
+            { id: 47, district: "Avambraccio", title: "Flessore Ulnare Carpo", origin: "Omero e ulna", insertion: "Pisiforme", innervation: "N. ulnare", blood: "A. ulnare", daily: "Dare un colpo di martello", movements: ["Flessione e deviazione ulnare"] },
+            { id: 48, district: "Gamba", title: "Gastrocnemio Laterale", origin: "Condilo laterale femore", insertion: "Calcagno", innervation: "N. tibiale", blood: "A. surali", daily: "Saltare", movements: ["Flessione plantare"] },
+            { id: 49, district: "Gamba", title: "Gastrocnemio Mediale", origin: "Condilo mediale femore", insertion: "Calcagno (Achille)", innervation: "N. tibiale", blood: "A. surali", daily: "Prendere oggetti in alto", movements: ["Flessione plantare"] },
+            { id: 50, district: "Cervicale", title: "Genioioideo", origin: "Mandibola", insertion: "Osso ioide", innervation: "C1 e N. ipoglosso", blood: "A. linguale", daily: "Allargare la faringe", movements: ["Protrazione ioide"] },
             { id: 51, district: "Anca", title: "Gemello Inferiore", origin: "Tuberosità ischiatica", insertion: "Grande trocantere", innervation: "N. quadrato femore", blood: "A. circonflessa mediale", daily: "Stabilizzare l'anca", movements: ["Rotazione esterna"] },
-            { id: 52, district: "Anca", title: "Quadrato del Femore", origin: "Tuberosità ischiatica", insertion: "Cresta intertrocanterica", innervation: "N. quadrato femore", blood: "A. circonflessa mediale", daily: "Calciare o ruotare con forza", movements: ["Rotazione esterna e adduzione"] },
-            { id: 53, district: "Anca", title: "Otturatore Esterno", origin: "Foro otturato", insertion: "Fossa trocanterica", innervation: "N. otturatorio", blood: "A. otturatoria", daily: "Centrare la testa femorale", movements: ["Rotazione esterna"] },
-            { id: 54, district: "Lombare", title: "Retto dell'Addome", origin: "Pube", insertion: "Cartilagini costali V-VII", innervation: "Nervi intercostali", blood: "A. epigastrica", daily: "Alzarsi dal letto", movements: ["Flessione tronco"] },
-            { id: 55, district: "Lombare", title: "Obliquo Esterno", origin: "Coste V-XII", insertion: "Cresta iliaca e linea alba", innervation: "Nervi intercostali", blood: "A. epigastrica", daily: "Mischiare o ruotare il busto", movements: ["Rotazione controlaterale"] },
-            { id: 56, district: "Lombare", title: "Obliquo Interno", origin: "Fascia toracolombare", insertion: "Coste inferiori e pube", innervation: "Nervi intercostali", blood: "A. epigastrica", daily: "Ruotare il busto dallo stesso lato", movements: ["Rotazione ipsilaterale"] },
-            { id: 57, district: "Lombare", title: "Trasverso dell'Addome", origin: "Coste VII-XII", insertion: "Linea alba", innervation: "Nervi intercostali", blood: "A. epigastrica", daily: "Tossire o proteggere la schiena", movements: ["Compressione viscerale e core"] },
-            { id: 58, district: "Lombare", title: "Piramidale", origin: "Pube", insertion: "Linea alba", innervation: "N. sottocostale", blood: "A. epigastrica", daily: "Tendere la linea alba", movements: ["Tensione addominale"] },
-            { id: 59, district: "Lombare", title: "Ileocostale dei Lombi", origin: "Cresta iliaca e sacro", insertion: "Coste inferiori", innervation: "Rami posteriori", blood: "A. lombari", daily: "Raddrizzare la schiena", movements: ["Estensione colonna"] },
-            { id: 60, district: "Lombare", title: "Lunghissimo del Torace", origin: "Sacro e ileo", insertion: "Processi trasversi toracici", innervation: "Rami posteriori", blood: "A. lombari", daily: "Stare seduti dritti", movements: ["Estensione colonna"] },
-            { id: 61, district: "Lombare", title: "Quadrato dei Lombi", origin: "Cresta iliaca", insertion: "XII costa e L1-L4", innervation: "N. sottocostale", blood: "A. subcostale", daily: "Piegarsi di lato con una valigia", movements: ["Inclinazione laterale lombare"] },
-            { id: 62, district: "Lombare", title: "Multifido Lombare", origin: "Sacro e processi mammillari", insertion: "Processi spinosi", innervation: "Rami posteriori", blood: "A. lombari", daily: "Stabilizzare ogni vertebra", movements: ["Stabilizzazione segmentaria"] },
-            { id: 63, district: "Lombare", title: "Rotatori dei Lombi", origin: "Processi mammillari", insertion: "Processo spinoso superiore", innervation: "Rami posteriori", blood: "A. lombari", daily: "Propriocezione lombare", movements: ["Rotazione controlaterale"] },
-            { id: 64, district: "Lombare", title: "Interspinosi", origin: "Processo spinoso inferiore", insertion: "Processo spinoso superiore", innervation: "Rami posteriori", blood: "A. lombari", daily: "Estensione lombare fine", movements: ["Estensione segmentaria"] },
-            { id: 65, district: "Lombare", title: "Intertrasversari", origin: "Processo trasverso inferiore", insertion: "Processo trasverso superiore", innervation: "Nervi spinali", blood: "A. lombari", daily: "Equilibrio laterale busto", movements: ["Inclinazione laterale"] },
-            { id: 66, district: "Torace", title: "Grande Pettorale", origin: "Clavicola e sterno", insertion: "Omero", innervation: "Nervi pettorali", blood: "A. toracoacromiale", daily: "Abbracciare o spingere", movements: ["Adduzione e rotazione interna"] },
-            { id: 67, district: "Torace", title: "Piccolo Pettorale", origin: "Coste III-V", insertion: "Processo coracoide", innervation: "N. pettorale mediale", blood: "A. toracoacromiale", daily: "Abbassare la spalla in avanti", movements: ["Protrazione scapola"] },
-            { id: 68, district: "Torace", title: "Succlavio", origin: "Prima costa", insertion: "Clavicola", innervation: "N. succlavio", blood: "A. toracoacromiale", daily: "Portare uno zaino", movements: ["Depressione clavicola"] },
-            { id: 69, district: "Torace", title: "Grande Dorsale", origin: "T7-L5 e cresta iliaca", insertion: "Solco bicipitale omero", innervation: "N. toracodorsale", blood: "A. toracodorsale", daily: "Nuotare o fare trazioni", movements: ["Estensione e adduzione omero"] },
-            { id: 70, district: "Torace", title: "Dentato Anteriore", origin: "Coste I-VIII", insertion: "Margine mediale scapola", innervation: "N. toracico lungo", blood: "A. toracica laterale", daily: "Aprire una finestra scorrevole", movements: ["Protrazione scapola"] },
-            { id: 71, district: "Torace", title: "Trapezio", origin: "Occipite e C7-T12", insertion: "Clavicola e spina scapola", innervation: "N. accessorio", blood: "A. trasversa collo", daily: "Scrollare le spalle", movements: ["Elevazione, adduzione scapola"] },
-            { id: 72, district: "Torace", title: "Grande Romboide", origin: "T2-T5", insertion: "Margine mediale scapola", innervation: "N. dorsale scapola", blood: "A. dorsale scapola", daily: "Aprire un cassetto", movements: ["Retrazione scapola"] },
-            { id: 73, district: "Torace", title: "Piccolo Romboide", origin: "C7-T1", insertion: "Spina della scapola", innervation: "N. dorsale scapola", blood: "A. dorsale scapola", daily: "Fissare la scapola", movements: ["Retrazione ed elevazione"] },
-            { id: 74, district: "Torace", title: "Dentato Posteriore Superiore", origin: "C7-T3", insertion: "Coste II-V", innervation: "Nervi intercostali", blood: "A. intercostali", daily: "Respiro profondo", movements: ["Elevazione coste"] },
-            { id: 75, district: "Torace", title: "Dentato Posteriore Inferiore", origin: "T11-L2", insertion: "Coste IX-XII", innervation: "Nervi intercostali", blood: "A. intercostali", daily: "Soffiare forte", movements: ["Depressione coste"] },
-            { id: 76, district: "Torace", title: "Intercostali Esterni", origin: "Costa superiore", insertion: "Costa inferiore", innervation: "Nervi intercostali", blood: "A. intercostali", daily: "Inspirare", movements: ["Elevazione coste"] },
-            { id: 77, district: "Torace", title: "Intercostali Interni", origin: "Solco costale", insertion: "Costa inferiore", innervation: "Nervi intercostali", blood: "A. intercostali", daily: "Espirare attivamente", movements: ["Depressione coste"] },
-            { id: 78, district: "Torace", title: "Intercostali Intimi", origin: "Faccia interna coste", insertion: "Costa sottostante", innervation: "Nervi intercostali", blood: "A. intercostali", daily: "Respirazione", movements: ["Depressione coste"] },
-            { id: 79, district: "Torace", title: "Sottocostali", origin: "Coste inferiori", insertion: "Costa sottostante", innervation: "Nervi intercostali", blood: "A. intercostali", daily: "Abbassamento torace", movements: ["Depressione coste"] },
-            { id: 80, district: "Torace", title: "Trasverso del Torace", origin: "Sterno", insertion: "Cartilagini costali II-VI", innervation: "Nervi intercostali", blood: "A. toracica interna", daily: "Tossire", movements: ["Depressione cartilagini"] },
-            { id: 81, district: "Torace", title: "Diaframma", origin: "Sterno, coste e L1-L3", insertion: "Centro frenico", innervation: "N. frenico", blood: "A. freniche", daily: "Respirazione principale", movements: ["Abbassamento centro frenico"] },
-            { id: 82, district: "Torace", title: "Elevatori delle Coste", origin: "C7-T11", insertion: "Costa sottostante", innervation: "Rami posteriori", blood: "A. intercostali", daily: "Rotazione toracica", movements: ["Elevazione coste"] },
-            { id: 83, district: "Torace", title: "Spinale del Torace", origin: "T11-L2", insertion: "T1-T8", innervation: "Rami posteriori", blood: "A. intercostali", daily: "Estendere la schiena", movements: ["Estensione toracica"] },
-            { id: 84, district: "Cervicale", title: "Platisma", origin: "Fascia pettorale", insertion: "Mandibola", innervation: "N. facciale", blood: "A. sottomentale", daily: "Fare una smorfia", movements: ["Tensione cute collo"] },
-            { id: 85, district: "Cervicale", title: "Digastrico", origin: "Osso temporale e mandibola", insertion: "Osso ioide", innervation: "N. trigemino e facciale", blood: "A. facciale", daily: "Aprire la bocca e deglutire", movements: ["Abbassamento mandibola"] },
-            { id: 86, district: "Cervicale", title: "Stiloioideo", origin: "Processo stiloideo", insertion: "Osso ioide", innervation: "N. facciale", blood: "A. facciale", daily: "Deglutizione", movements: ["Elevazione ioide"] },
+            { id: 52, district: "Anca", title: "Gemello Superiore", origin: "Spina ischiatica", insertion: "Grande trocantere", innervation: "N. otturatore interno", blood: "A. glutea inferiore", daily: "Ruotare il piede in fuori", movements: ["Rotazione esterna"] },
+            { id: 53, district: "Coscia", title: "Gracile", origin: "Pube", insertion: "Zampa d'oca", innervation: "N. otturatorio", blood: "A. circonflessa mediale", daily: "Entrare in auto", movements: ["Adduzione anca e flessione ginocchio"] },
+            { id: 54, district: "Coscia", title: "Grande Adduttore", origin: "Ramo ischiopubico", insertion: "Tubercolo adduttorio", innervation: "N. otturatorio e tibiale", blood: "A. otturatoria", daily: "Andare a cavallo", movements: ["Potente adduzione"] },
+            { id: 55, district: "Torace", title: "Grande Dorsale", origin: "T7-L5 e cresta iliaca", insertion: "Solco bicipitale omero", innervation: "N. toracodorsale", blood: "A. toracodorsale", daily: "Nuotare o fare trazioni", movements: ["Estensione e adduzione omero"] },
+            { id: 56, district: "Anca", title: "Grande Gluteo", origin: "Sacro e ileo", insertion: "Tratto ileotibiale", innervation: "N. gluteo inferiore", blood: "A. glutea superiore", daily: "Alzarsi da una sedia o fare le scale", movements: ["Estensione anca"] },
+            { id: 57, district: "Torace", title: "Grande Pettorale", origin: "Clavicola e sterno", insertion: "Omero", innervation: "Nervi pettorali", blood: "A. toracoacromiale", daily: "Abbracciare o spingere", movements: ["Adduzione e rotazione interna"] },
+            { id: 58, district: "Anca", title: "Grande Psoas", origin: "Vertebre T12-L5", insertion: "Piccolo trocantere", innervation: "Plesso lombare", blood: "A. lombari", divider: "Salire un gradino", movements: ["Flessione anca"] },
+            { id: 59, district: "Torace", title: "Grande Romboide", origin: "T2-T5", insertion: "Margine mediale scapola", innervation: "N. dorsale scapola", blood: "A. dorsale scapola", daily: "Aprire un cassetto", movements: ["Retrazione scapola"] },
+            { id: 60, district: "Spalla", title: "Grande Rotondo", origin: "Scapola inferiore", insertion: "Omero", innervation: "N. sottoscapolare inferiore", blood: "A. circonflessa scapola", daily: "Mani dietro la schiena", movements: ["Adduzione e rotazione interna"] },
+            { id: 61, district: "Anca", title: "Iliaco", origin: "Fossa iliaca", insertion: "Piccolo trocantere", innervation: "N. femorale", blood: "A. ileolombare", daily: "Portare la gamba in avanti", movements: ["Flessione anca"] },
+            { id: 62, district: "Lombare", title: "Ileocostale dei Lombi", origin: "Cresta iliaca e sacro", insertion: "Coste inferiori", innervation: "Rami posteriori", blood: "A. lombari", daily: "Raddrizzare la schiena", movements: ["Estensione colonna"] },
+            { id: 63, district: "Spalla", title: "Infraspinato", origin: "Fossa infraspinata", insertion: "Tubercolo maggiore", innervation: "N. soprascapolare", blood: "A. soprascapolare", daily: "Pettinarsi", movements: ["Rotazione esterna"] },
+            { id: 64, district: "Torace", title: "Intercostali Esterni", origin: "Costa superiore", insertion: "Costa inferiore", innervation: "Nervi intercostali", blood: "A. intercostali", daily: "Inspirare", movements: ["Elevazione coste"] },
+            { id: 65, district: "Torace", title: "Intercostali Interni", origin: "Solco costale", insertion: "Costa inferiore", innervation: "Nervi intercostali", blood: "A. intercostali", daily: "Espirare attivamente", movements: ["Depressione coste"] },
+            { id: 66, district: "Torace", title: "Intercostali Intimi", origin: "Faccia interna coste", insertion: "Costa sottostante", innervation: "Nervi intercostali", blood: "A. intercostali", daily: "Respirazione", movements: ["Depressione coste"] },
+            { id: 67, district: "Lombare", title: "Interspinosi", origin: "Processo spinoso inferiore", insertion: "Processo spinoso superiore", innervation: "Rami posteriori", blood: "A. lombari", daily: "Estensione lombare fine", movements: ["Estensione segmentaria"] },
+            { id: 68, district: "Lombare", title: "Intertrasversari", origin: "Processo trasverso inferiore", insertion: "Processo trasverso superiore", innervation: "Nervi spinali", blood: "A. lombari", daily: "Equilibrio laterale busto", movements: ["Inclinazione laterale"] },
+            { id: 69, district: "Mano", title: "Interosseo Dorsale I", origin: "Metacarpi I-II", insertion: "Indice", innervation: "N. ulnare", blood: "A. radiale", daily: "Presa di pinza", movements: ["Abduzione indice"] },
+            { id: 70, district: "Mano", title: "Interosseo Dorsale II", origin: "Metacarpi II-III", insertion: "Medio", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Allargare le dita", movements: ["Abduzione medio"] },
+            { id: 71, district: "Mano", title: "Interosseo Dorsale III", origin: "Metacarpi III-IV", insertion: "Medio", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Allargare le dita", movements: ["Abduzione medio"] },
+            { id: 72, district: "Mano", title: "Interosseo Dorsale IV", origin: "Metacarpi IV-V", insertion: "Anulare", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Allontanare l'anulare", movements: ["Abduzione anulare"] },
+            { id: 73, district: "Piede", title: "Interossei Dorsali Piede", origin: "Metatarsi I-V", insertion: "Falangi II-IV", innervation: "N. plantare laterale", blood: "A. dorsale piede", daily: "Allargare le dita a ventaglio", movements: ["Abduzione dita"] },
+            { id: 74, district: "Mano", title: "Interosseo Palmare I", origin: "II metacarpo", insertion: "Indice", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Tenere una moneta", movements: ["Adduzione indice"] },
+            { id: 75, district: "Mano", title: "Interosseo Palmare II", origin: "IV metacarpo", insertion: "Anulare", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Stringere l'anulare", movements: ["Adduzione anulare"] },
+            { id: 76, district: "Mano", title: "Interosseo Palmare III", origin: "V metacarpo", insertion: "Mignolo", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Saluto militare", movements: ["Adduzione mignolo"] },
+            { id: 77, district: "Mano", title: "Interosseo Palmare Pollice", origin: "I metacarpo", insertion: "Pollice", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Presa di precisione", movements: ["Adduzione pollice"] },
+            { id: 78, district: "Piede", title: "Interossei Plantari", origin: "Metatarsi III-V", insertion: "Falangi III-V", innervation: "N. plantare laterale", blood: "Arcata plantare", daily: "Stringere le dita", movements: ["Adduzione dita"] },
+            { id: 79, district: "Piede", title: "Lombricali del Piede", origin: "Tendini flessore lungo", insertion: "Espansione estensoria", innervation: "N. plantare mediale/laterale", blood: "Arterie metatarsali", daily: "Mantenere le dita distese", movements: ["Flessione falangi prossimali"] },
+            { id: 80, district: "Mano", title: "Lombricale I", origin: "Flessore profondo", insertion: "Indice", innervation: "N. mediano", blood: "Arcata superficiale", daily: "Scrivere", movements: ["Flessione MTF e stasi IF"] },
+            { id: 81, district: "Mano", title: "Lombricale II", origin: "Flessore profondo", insertion: "Medio", innervation: "N. mediano", blood: "Arcata superficiale", daily: "Movimenti fini", movements: ["Flessione MTF"] },
+            { id: 82, district: "Mano", title: "Lombricale III", origin: "Flessore profondo", insertion: "Anulare", innervation: "N. ulnare", blood: "Arcata superficiale", daily: "Digitare", movements: ["Flessione MTF"] },
+            { id: 83, district: "Mano", title: "Lombricale IV", origin: "Flessore profondo", insertion: "Mignolo", innervation: "N. ulnare", blood: "Arcata superficiale", daily: "Aprire la mano", movements: ["Flessione MTF"] },
+            { id: 84, district: "Lombare", title: "Lunghissimo del Torace", origin: "Sacro e ileo", insertion: "Processi trasversi toracici", innervation: "Rami posteriori", blood: "A. lombari", daily: "Stare seduti dritti", movements: ["Estensione colonna"] },
+            { id: 85, district: "Cervicale", title: "Lungo della Testa", origin: "C3-C6", insertion: "Osso occipitale", innervation: "Rami anteriori", blood: "A. cervicale ascendente", daily: "Annuire", movements: ["Flessione capo"] },
+            { id: 86, district: "Cervicale", title: "Lungo del Collo", origin: "C5-T3", insertion: "Atlante e C2-C4", innervation: "Rami anteriori", blood: "A. vertebrale", daily: "Fare il doppio mento", movements: ["Flessione profonda collo"] },
             { id: 87, district: "Cervicale", title: "Miloioideo", origin: "Mandibola", insertion: "Osso ioide", innervation: "N. miloioideo", blood: "A. sottolinguale", daily: "Sollevare la lingua", movements: ["Elevazione pavimento orale"] },
-            { id: 88, district: "Cervicale", title: "Genioioideo", origin: "Mandibola", insertion: "Osso ioide", innervation: "C1 e N. ipoglosso", blood: "A. linguale", daily: "Allargare la faringe", movements: ["Protrazione ioide"] },
-            { id: 89, district: "Cervicale", title: "Sternoioideo", origin: "Sterno", insertion: "Osso ioide", innervation: "Ansa cervicale", blood: "A. tiroidea", daily: "Abbassare la laringe", movements: ["Depressione ioide"] },
-            { id: 90, district: "Cervicale", title: "Sternotiroideo", origin: "Sterno", insertion: "Cartilagine tiroidea", innervation: "Ansa cervicale", blood: "A. tiroidea", daily: "Abbassare il pomo d'Adamo", movements: ["Depressione laringe"] },
-            { id: 91, district: "Cervicale", title: "Tiroioideo", origin: "Cartilagine tiroidea", insertion: "Osso ioide", innervation: "C1", blood: "A. tiroidea", daily: "Proteggere le vie aeree", movements: ["Elevazione laringe"] },
-            { id: 92, district: "Cervicale", title: "Omoioideo", origin: "Scapola", insertion: "Osso ioide", innervation: "Ansa cervicale", blood: "A. tiroidea", daily: "Respirare profondamente", movements: ["Depressione ioide"] },
-            { id: 93, district: "Cervicale", title: "Scaleno Anteriore", origin: "C3-C6", insertion: "Prima costa", innervation: "Rami anteriori C4-C6", blood: "A. cervicale ascendente", daily: "Respiro affannoso", movements: ["Inclinazione laterale collo"] },
-            { id: 94, district: "Cervicale", title: "Scaleno Medio", origin: "C2-C7", insertion: "Prima costa", innervation: "Rami anteriori", blood: "A. cervicale ascendente", daily: "Piegare l'orecchio alla spalla", movements: ["Inclinazione laterale"] },
-            { id: 95, district: "Cervicale", title: "Scaleno Posteriore", origin: "C4-C6", insertion: "Seconda costa", innervation: "Rami anteriori", blood: "A. cervicale ascendente", daily: "Respirazione alta", movements: ["Inclinazione laterale"] },
-            { id: 96, district: "Cervicale", title: "Lungo del Collo", origin: "C5-T3", insertion: "Atlante e C2-C4", innervation: "Rami anteriori", blood: "A. vertebrale", daily: "Fare il doppio mento", movements: ["Flessione profonda collo"] },
-            { id: 97, district: "Cervicale", title: "Sternocleidomastoideo", origin: "Sterno e clavicola", insertion: "Processo mastoideo", innervation: "N. accessorio", blood: "A. occipitale", daily: "Girare la testa per attraversare", movements: ["Rotazione controlaterale testa"] },
-            { id: 98, district: "Cervicale", title: "Lungo della Testa", origin: "C3-C6", insertion: "Osso occipitale", innervation: "Rami anteriori", blood: "A. cervicale ascendente", daily: "Annuire", movements: ["Flessione capo"] },
-            { id: 99, district: "Cervicale", title: "Splenio della Testa", origin: "C7-T6", insertion: "Processo mastoideo", innervation: "Rami posteriori", blood: "A. occipitale", daily: "Guardare in alto", movements: ["Estensione capo"] },
-            { id: 100, district: "Cervicale", title: "Elevatore della Scapola", origin: "C1-C4", insertion: "Scapola", innervation: "N. dorsale scapola", blood: "A. dorsale scapola", daily: "Tenere il telefono all'orecchio", movements: ["Elevazione scapola"] },
-            { id: 101, district: "Cervicale", title: "Suboccipitali", origin: "C1-C2", insertion: "Occipitale", innervation: "N. sottoccipitale", blood: "A. vertebrale", daily: "Micro-movimenti della testa", movements: ["Estensione e rotazione fine"] },
-            { id: 102, district: "Spalla", title: "Deltoide", origin: "Clavicola e scapola", insertion: "Omero", innervation: "N. ascellare", blood: "A. circonflessa posteriore", daily: "Sollevare il braccio", movements: ["Abduzione spalla"] },
-            { id: 103, district: "Spalla", title: "Grande Rotondo", origin: "Scapola inferiore", insertion: "Omero", innervation: "N. sottoscapolare inferiore", blood: "A. circonflessa scapola", daily: "Mani dietro la schiena", movements: ["Adduzione e rotazione interna"] },
-            { id: 104, district: "Spalla", title: "Sottoscapolare", origin: "Fossa sottoscapolare", insertion: "Tubercolo minore", innervation: "Nervi sottoscapolari", blood: "A. sottoscapolare", daily: "Chiudere una porta", movements: ["Rotazione interna"] },
-            { id: 105, district: "Spalla", title: "Sovraspinato", origin: "Fossa sopraspinata", insertion: "Tubercolo maggiore", innervation: "N. soprascapolare", blood: "A. soprascapolare", daily: "Iniziare ad alzare il braccio", movements: ["Abduzione iniziale"] },
-            { id: 106, district: "Spalla", title: "Infraspinato", origin: "Fossa infraspinata", insertion: "Tubercolo maggiore", innervation: "N. soprascapolare", blood: "A. soprascapolare", daily: "Pettinarsi", movements: ["Rotazione esterna"] },
-            { id: 107, district: "Spalla", title: "Piccolo Rotondo", origin: "Scapola laterale", insertion: "Tubercolo maggiore", innervation: "N. ascellare", blood: "A. circonflessa scapola", daily: "Rovescio a tennis", movements: ["Rotazione esterna"] },
-            { id: 108, district: "Spalla", title: "Coracobrachiale", origin: "Processo coracoide", insertion: "Omero", innervation: "N. muscolocutaneo", blood: "A. brachiale", daily: "Afferrare il volante", movements: ["Flessione spalla"] },
-            { id: 109, district: "Braccio", title: "Bicipite Brachiale", origin: "Scapola", insertion: "Radio", innervation: "N. muscolocutaneo", blood: "A. brachiale", daily: "Sollevare una spesa", movements: ["Supinazione e flessione gomito"] },
-            { id: 110, district: "Braccio", title: "Brachiale", origin: "Omero anteriore", insertion: "Ulna", innervation: "N. muscolocutaneo", blood: "A. brachiale", daily: "Portare cibo alla bocca", movements: ["Flessione gomito"] },
-            { id: 111, district: "Braccio", title: "Tricipite Brachiale", origin: "Scapola e omero", insertion: "Olecrano", innervation: "N. radiale", blood: "A. brachiale profonda", daily: "Alzarsi da una poltrona", movements: ["Estensione gomito"] },
-            { id: 112, district: "Braccio", title: "Anconeo", origin: "Epicondilo laterale", insertion: "Ulna", innervation: "N. radiale", blood: "A. interossea", daily: "Usare un cacciavite", movements: ["Estensione gomito"] },
+            { id: 88, district: "Lombare", title: "Multifido Lombare", origin: "Sacro e processi mammillari", insertion: "Processi spinosi", innervation: "Rami posteriori", blood: "A. lombari", daily: "Stabilizzare ogni vertebra", movements: ["Stabilizzazione segmentaria"] },
+            { id: 89, district: "Lombare", title: "Obliquo Esterno", origin: "Coste V-XII", insertion: "Cresta iliaca e linea alba", innervation: "Nervi intercostali", blood: "A. epigastrica", daily: "Mischiare o ruotare il busto", movements: ["Rotazione controlaterale"] },
+            { id: 90, district: "Lombare", title: "Obliquo Interno", origin: "Fascia toracolombare", insertion: "Coste inferiori e pube", innervation: "Nervi intercostali", blood: "A. epigastrica", daily: "Ruotare il busto dallo stesso lato", movements: ["Rotazione ipsilaterale"] },
+            { id: 91, district: "Cervicale", title: "Omoioideo", origin: "Scapola", insertion: "Osso ioide", innervation: "Ansa cervicale", blood: "A. tiroidea", daily: "Respirare profondamente", movements: ["Depressione ioide"] },
+            { id: 92, district: "Mano", title: "Opponente V Dito", origin: "Uncinato", insertion: "V metacarpo", innervation: "N. ulnare", blood: "A. ulnare", daily: "Mano a coppa", movements: ["Opposizione mignolo"] },
+            { id: 93, district: "Mano", title: "Opponente del Pollice", origin: "Trapezio", insertion: "I metacarpo", innervation: "N. mediano", blood: "A. radiale", daily: "Toccare il mignolo col pollice", movements: ["Opposizione pollice"] },
+            { id: 94, district: "Anca", title: "Otturatore Esterno", origin: "Foro otturato", insertion: "Fossa trocanterica", innervation: "N. otturatorio", blood: "A. otturatoria", daily: "Centrare la testa femorale", movements: ["Rotazione esterna"] },
+            { id: 95, district: "Anca", title: "Otturatore Interno", origin: "Membrana otturatoria", insertion: "Fossa trocanterica", innervation: "N. otturatore interno", blood: "A. otturatoria", daily: "Stabilizzare la testa femorale", movements: ["Rotazione esterna"] },
+            { id: 96, district: "Mano", title: "Palmare Breve", origin: "Aponeurosi palmare", insertion: "Cute eminenza ipotenar", innervation: "N. ulnare", blood: "A. ulnare", daily: "Migliorare la presa", movements: ["Tensione cute palmare"] },
+            { id: 97, district: "Avambraccio", title: "Palmare Lungo", origin: "Epicondilo mediale", insertion: "Aponeurosi palmare", innervation: "N. mediano", blood: "A. ulnare", daily: "Afferrare una sbarra", movements: ["Flessione polso"] },
+            { id: 98, district: "Gamba", title: "Peroneo Breve", origin: "Fibula laterale", insertion: "V metatarso", innervation: "N. fibulare superficiale", blood: "A. fibulare", daily: "Corsa con cambi di direzione", movements: ["Eversione"] },
+            { id: 99, district: "Gamba", title: "Peroneo Lungo", origin: "Testa fibula", insertion: "I metatarso", innervation: "N. fibulare superficiale", blood: "A. fibulare", daily: "Camminare sui ciottoli", movements: ["Eversione e flessione plantare"] },
+            { id: 100, district: "Coscia", title: "Pettineo", origin: "Pube", insertion: "Linea pettinea", innervation: "N. femorale", blood: "A. otturatoria", daily: "Chiudere le ginocchia", movements: ["Adduzione anca"] },
+            { id: 101, district: "Anca", title: "Piccolo Gluteo", origin: "Ala iliaca", insertion: "Grande trocantere", innervation: "N. gluteo superiore", blood: "A. glutea superiore", daily: "Equilibrio monopodalico", movements: ["Abduzione e rotazione interna"] },
+            { id: 102, district: "Torace", title: "Piccolo Pettorale", origin: "Coste III-V", insertion: "Processo coracoide", innervation: "N. pettorale mediale", blood: "A. toracoacromiale", daily: "Abbassare la spalla in avanti", movements: ["Protrazione scapola"] },
+            { id: 103, district: "Anca", title: "Piccolo Psoas", origin: "T12-L1", insertion: "Eminenza ileopubica", innervation: "L1", blood: "A. lombari", daily: "Stabilizzare il bacino", movements: ["Debole flessione lombare"] },
+            { id: 104, district: "Torace", title: "Piccolo Romboide", origin: "C7-T1", insertion: "Spina della scapola", innervation: "N. dorsale scapola", blood: "A. dorsale scapola", daily: "Fissare la scapola", movements: ["Retrazione ed elevazione"] },
+            { id: 105, district: "Spalla", title: "Piccolo Rotondo", origin: "Scapola laterale", insertion: "Tubercolo maggiore", innervation: "N. ascellare", blood: "A. circonflessa scapola", daily: "Rovescio a tennis", movements: ["Rotazione esterna"] },
+            { id: 106, district: "Lombare", title: "Piramidale", origin: "Pube", insertion: "Linea alba", innervation: "N. sottocostale", blood: "A. epigastrica", daily: "Tendere la linea alba", movements: ["Tensione addominale"] },
+            { id: 107, district: "Anca", title: "Piriforme", origin: "Sacro anteriore", insertion: "Grande trocantere", innervation: "Plesso sacrale", blood: "A. glutea inferiore", daily: "Uscire dall'auto", movements: ["Rotazione esterna anca"] },
+            { id: 108, district: "Gamba", title: "Plantare", origin: "Femore distale", insertion: "Calcagno", innervation: "N. tibiale", blood: "A. surali", daily: "Propriocezione spinta", movements: ["Debole flessione plantare"] },
+            { id: 109, district: "Cervicale", title: "Platisma", origin: "Fascia pettorale", insertion: "Mandibola", innervation: "N. facciale", blood: "A. sottomentale", daily: "Fare una smorfia", movements: ["Tensione cute collo"] },
+            { id: 110, district: "Gamba", title: "Popliteo", origin: "Condilo laterale femore", insertion: "Tibia posteriore", innervation: "N. tibiale", blood: "A. ginocchio", daily: "Sbloccare il ginocchio esteso", movements: ["Rotazione interna tibia"] },
+            { id: 111, district: "Gamba", title: "Peroneo Terzo", origin: "Fibula distale", insertion: "V metatarso", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", daily: "Raddrizzare il piede", movements: ["Eversione"] },
+            { id: 112, district: "Avambraccio", title: "Pronatore Quadrato", origin: "Ulna distale", insertion: "Radio distale", innervation: "N. mediano", blood: "A. interossea", daily: "Scrivere al computer", movements: ["Pronazione pura"] },
             { id: 113, district: "Avambraccio", title: "Pronatore Rotondo", origin: "Omero e ulna", insertion: "Radio", innervation: "N. mediano", blood: "A. ulnare", daily: "Versare acqua da una bottiglia", movements: ["Pronazione"] },
-            { id: 114, district: "Avambraccio", title: "Flessore Radiale Carpo", origin: "Epicondilo mediale", insertion: "II metacarpo", innervation: "N. mediano", blood: "A. radiale", daily: "Palleggiare a basket", movements: ["Flessione polso"] },
-            { id: 115, district: "Avambraccio", title: "Palmare Lungo", origin: "Epicondilo mediale", insertion: "Aponeurosi palmare", innervation: "N. mediano", blood: "A. ulnare", daily: "Afferrare una sbarra", movements: ["Flessione polso"] },
-            { id: 116, district: "Avambraccio", title: "Flessore Ulnare Carpo", origin: "Omero e ulna", insertion: "Pisiforme", innervation: "N. ulnare", blood: "A. ulnare", daily: "Dare un colpo di martello", movements: ["Flessione e deviazione ulnare"] },
-            { id: 117, district: "Avambraccio", title: "Flessore Superficiale Dita", origin: "Omero, ulna e radio", insertion: "Falangi medie II-V", innervation: "N. mediano", blood: "A. ulnare", daily: "Impugnare una valigia", movements: ["Flessione IFP"] },
-            { id: 118, district: "Avambraccio", title: "Flessore Profondo Dita", origin: "Ulna", insertion: "Falangi distali", innervation: "N. mediano e ulnare", blood: "A. ulnare", daily: "Suonare il pianoforte", movements: ["Flessione IFD"] },
-            { id: 119, district: "Avambraccio", title: "Flessore Lungo Pollice", origin: "Radio", insertion: "Falange distale pollice", innervation: "N. mediano", blood: "A. radiale", daily: "Premere un pulsante", movements: ["Flessione pollice"] },
-            { id: 120, district: "Avambraccio", title: "Pronatore Quadrato", origin: "Ulna distale", insertion: "Radio distale", innervation: "N. mediano", blood: "A. interossea", daily: "Scrivere al computer", movements: ["Pronazione pura"] },
-            { id: 121, district: "Avambraccio", title: "Brachioradiale", origin: "Omero laterale", insertion: "Radio distale", innervation: "N. radiale", blood: "A. ricorrente radiale", daily: "Presa a martello", movements: ["Flessione gomito neutra"] },
-            { id: 122, district: "Avambraccio", title: "Estensore Radiale Lungo", origin: "Omero", insertion: "II metacarpo", innervation: "N. radiale", blood: "A. radiale", daily: "Stabilizzare il polso", movements: ["Estensione polso"] },
-            { id: 123, district: "Avambraccio", title: "Estensore Radiale Breve", origin: "Epicondilo laterale", insertion: "III metacarpo", innervation: "N. radiale", blood: "A. radiale", daily: "Giocare a tennis", movements: ["Estensione polso"] },
-            { id: 124, district: "Avambraccio", title: "Estensore delle Dita", origin: "Epicondilo laterale", insertion: "Falangi II-V", innervation: "N. radiale", blood: "A. interossea", daily: "Lasciare andare un oggetto", movements: ["Estensione dita"] },
-            { id: 125, district: "Avambraccio", title: "Estensore Mignolo", origin: "Epicondilo laterale", insertion: "V dito", innervation: "N. radiale", blood: "A. interossea", daily: "Alzare il mignolo", movements: ["Estensione mignolo"] },
-            { id: 126, district: "Avambraccio", title: "Estensore Ulnare Carpo", origin: "Epicondilo laterale", insertion: "V metacarpo", innervation: "N. radiale", blood: "A. interossea", daily: "Estendere il polso di lato", movements: ["Estensione e deviazione ulnare"] },
-            { id: 127, district: "Avambraccio", title: "Supinatore", origin: "Omero e ulna", insertion: "Radio", innervation: "N. radiale", blood: "A. ricorrente radiale", daily: "Girare una chiave", movements: ["Supinazione"] },
-            { id: 128, district: "Avambraccio", title: "Abduttore Lungo Pollice", origin: "Ulna e radio", insertion: "I metacarpo", innervation: "N. radiale", blood: "A. interossea", daily: "Afferrare un bicchiere", movements: ["Abduzione pollice"] },
-            { id: 129, district: "Avambraccio", title: "Estensore Breve Pollice", origin: "Radio", insertion: "Falange prossimale pollice", innervation: "N. radiale", blood: "A. interossea", daily: "Gesto dell'OK", movements: ["Estensione pollice"] },
-            { id: 130, district: "Avambraccio", title: "Estensore Lungo Pollice", origin: "Ulna", insertion: "Falange distale pollice", innervation: "N. radiale", blood: "A. interossea", daily: "Autostop", movements: ["Estensione pollice"] },
-            { id: 131, district: "Avambraccio", title: "Estensore Indice", origin: "Ulna", insertion: "Indice", innervation: "N. radiale", blood: "A. interossea", daily: "Puntare il dito", movements: ["Estensione indice"] },
-            { id: 132, district: "Mano", title: "Palmare Breve", origin: "Aponeurosi palmare", insertion: "Cute eminenza ipotenar", innervation: "N. ulnare", blood: "A. ulnare", daily: "Migliorare la presa", movements: ["Tensione cute palmare"] },
-            { id: 133, district: "Mano", title: "Abduttore Breve Pollice", origin: "Retinacolo flessori", insertion: "Pollice", innervation: "N. mediano", blood: "A. radiale", daily: "Prendere una mela", movements: ["Abduzione pollice"] },
-            { id: 134, district: "Mano", title: "Flessore Breve Pollice", origin: "Retinacolo flessori", insertion: "Pollice", innervation: "N. mediano e ulnare", blood: "A. radiale", daily: "Tenere una penna", movements: ["Flessione pollice"] },
-            { id: 135, district: "Mano", title: "Opponente del Pollice", origin: "Trapezio", insertion: "I metacarpo", innervation: "N. mediano", blood: "A. radiale", daily: "Toccare il mignolo col pollice", movements: ["Opposizione pollice"] },
-            { id: 136, district: "Mano", title: "Adduttore del Pollice", origin: "Capitato e metatarsi", insertion: "Pollice", innervation: "N. ulnare", blood: "Arcata palmare", daily: "Tenere un foglio tra le dita", movements: ["Adduzione pollice"] },
-            { id: 137, district: "Mano", title: "Abduttore Quinto Dito", origin: "Pisiforme", insertion: "V dito", innervation: "N. ulnare", blood: "A. ulnare", daily: "Suonare il pianoforte", movements: ["Abduzione V dito"] },
-            { id: 138, district: "Mano", title: "Flessore Breve V Dito", origin: "Uncinato", insertion: "V dito", innervation: "N. ulnare", blood: "A. ulnare", daily: "Chiudere il pugno", movements: ["Flessione V dito"] },
-            { id: 139, district: "Mano", title: "Opponente V Dito", origin: "Uncinato", insertion: "V metacarpo", innervation: "N. ulnare", blood: "A. ulnare", daily: "Mano a coppa", movements: ["Opposizione mignolo"] },
-            { id: 140, district: "Mano", title: "Lombricale I", origin: "Flessore profondo", insertion: "Indice", innervation: "N. mediano", blood: "Arcata superficiale", daily: "Scrivere", movements: ["Flessione MTF e stasi IF"] },
-            { id: 141, district: "Mano", title: "Lombricale II", origin: "Flessore profondo", insertion: "Medio", innervation: "N. mediano", blood: "Arcata superficiale", daily: "Movimenti fini", movements: ["Flessione MTF"] },
-            { id: 142, district: "Mano", title: "Lombricale III", origin: "Flessore profondo", insertion: "Anulare", innervation: "N. ulnare", blood: "Arcata superficiale", daily: "Digitare", movements: ["Flessione MTF"] },
-            { id: 143, district: "Mano", title: "Lombricale IV", origin: "Flessore profondo", insertion: "Mignolo", innervation: "N. ulnare", blood: "Arcata superficiale", daily: "Aprire la mano", movements: ["Flessione MTF"] },
-            { id: 144, district: "Mano", title: "Interosseo Dorsale I", origin: "Metacarpi I-II", insertion: "Indice", innervation: "N. ulnare", blood: "A. radiale", daily: "Presa di pinza", movements: ["Abduzione indice"] },
-            { id: 145, district: "Mano", title: "Interosseo Dorsale II", origin: "Metacarpi II-III", insertion: "Medio", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Allargare le dita", movements: ["Abduzione medio"] },
-            { id: 146, district: "Mano", title: "Interosseo Dorsale III", origin: "Metacarpi III-IV", insertion: "Medio", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Allargare le dita", movements: ["Abduzione medio"] },
-            { id: 147, district: "Mano", title: "Interosseo Dorsale IV", origin: "Metacarpi IV-V", insertion: "Anulare", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Allontanare l'anulare", movements: ["Abduzione anulare"] },
-            { id: 148, district: "Mano", title: "Interosseo Palmare I", origin: "II metacarpo", insertion: "Indice", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Tenere una moneta", movements: ["Adduzione indice"] },
-            { id: 149, district: "Mano", title: "Interosseo Palmare II", origin: "IV metacarpo", insertion: "Anulare", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Stringere l'anulare", movements: ["Adduzione anulare"] },
-            { id: 150, district: "Mano", title: "Interosseo Palmare III", origin: "V metacarpo", insertion: "Mignolo", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Saluto militare", movements: ["Adduzione mignolo"] },
-            { id: 151, district: "Mano", title: "Interosseo Palmare Pollice", origin: "I metacarpo", insertion: "Pollice", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Presa di precisione", movements: ["Adduzione pollice"] }
+            { id: 114, district: "Piede", title: "Quadrato della Pianta", origin: "Calcagno", insertion: "Tendine flessore lungo dita", innervation: "N. plantare laterale", blood: "A. plantare laterale", daily: "Allineare la trazione delle dita", movements: ["Flessione dita II-V"] },
+            { id: 115, district: "Anca", title: "Quadrato del Femore", origin: "Tuberosità ischiatica", insertion: "Cresta intertrocanterica", innervation: "N. quadrato femore", blood: "A. circonflessa mediale", daily: "Calciare o ruotare con forza", movements: ["Rotazione esterna e adduzione"] },
+            { id: 116, district: "Lombare", title: "Quadrato dei Lombi", origin: "Cresta iliaca", insertion: "XII costa e L1-L4", innervation: "N. sottocostale", blood: "A. subcostale", daily: "Piegarsi di lato con una valigia", movements: ["Inclinazione laterale lombare"] },
+            { id: 117, district: "Lombare", title: "Retto dell'Addome", origin: "Pube", insertion: "Cartilagini costali V-VII", innervation: "Nervi intercostali", blood: "A. epigastrica", daily: "Alzarsi dal letto", movements: ["Flessione tronco"] },
+            { id: 118, district: "Coscia", title: "Retto Femorale", origin: "SIAI", insertion: "Tuberosità tibiale", innervation: "N. femorale", blood: "A. circonflessa laterale", daily: "Calciare", movements: ["Estensione ginocchio e flessione anca"] },
+            { id: 119, district: "Lombare", title: "Rotatori dei Lombi", origin: "Processi mammillari", insertion: "Processo spinoso superiore", innervation: "Rami posteriori", blood: "A. lombari", daily: "Propriocezione lombare", movements: ["Rotazione controlaterale"] },
+            { id: 120, district: "Coscia", title: "Sartorio", origin: "SIAS", insertion: "Tibia mediale (zampa d'oca)", innervation: "N. femorale", blood: "A. femorale", daily: "Accavallare le gambe", movements: ["Flessione e rotazione anca"] },
+            { id: 121, district: "Cervicale", title: "Scaleno Anteriore", origin: "C3-C6", insertion: "Prima costa", innervation: "Rami anteriori C4-C6", blood: "A. cervicale ascendente", daily: "Respiro affannoso", movements: ["Inclinazione laterale collo"] },
+            { id: 122, district: "Cervicale", title: "Scaleno Medio", origin: "C2-C7", insertion: "Prima costa", innervation: "Rami anteriori", blood: "A. cervicale ascendente", daily: "Piegare l'orecchio alla spalla", movements: ["Inclinazione laterale"] },
+            { id: 123, district: "Cervicale", title: "Scaleno Posteriore", origin: "C4-C6", insertion: "Seconda costa", innervation: "Rami anteriori", blood: "A. cervicale ascendente", daily: "Respirazione alta", movements: ["Inclinazione laterale"] },
+            { id: 124, district: "Gamba", title: "Soleo", origin: "Fibula e linea solea", insertion: "Calcagno", innervation: "N. tibiale", blood: "A. tibiale posteriore", daily: "Stazione eretta prolungata", movements: ["Flessione plantare"] },
+            { id: 125, district: "Spalla", title: "Sottoscapolare", origin: "Fossa sottoscapolare", insertion: "Tubercolo minore", innervation: "Nervi sottoscapolari", blood: "A. sottoscapolare", daily: "Chiudere una porta", movements: ["Rotazione interna"] },
+            { id: 126, district: "Torace", title: "Sottocostali", origin: "Coste inferiori", insertion: "Costa sottostante", innervation: "Nervi intercostali", blood: "A. intercostali", daily: "Abbassamento torace", movements: ["Depressione coste"] },
+            { id: 127, district: "Spalla", title: "Sovraspinato", origin: "Fossa sopraspinata", insertion: "Tubercolo maggiore", innervation: "N. soprascapolare", blood: "A. soprascapolare", daily: "Iniziare ad alzare il braccio", movements: ["Abduzione iniziale"] },
+            { id: 128, district: "Torace", title: "Spinale del Torace", origin: "T11-L2", insertion: "T1-T8", innervation: "Rami posteriori", blood: "A. intercostali", daily: "Estendere la schiena", movements: ["Estensione toracica"] },
+            { id: 129, district: "Cervicale", title: "Splenio della Testa", origin: "C7-T6", insertion: "Processo mastoideo", innervation: "Rami posteriori", blood: "A. occipitale", daily: "Guardare in alto", movements: ["Estensione capo"] },
+            { id: 130, district: "Cervicale", title: "Sternocleidomastoideo", origin: "Sterno e clavicola", insertion: "Processo mastoideo", innervation: "N. accessorio", blood: "A. occipitale", daily: "Girare la testa per attraversare", movements: ["Rotazione controlaterale testa"] },
+            { id: 131, district: "Cervicale", title: "Sternotiroideo", origin: "Sterno", insertion: "Cartilagine tiroidea", innervation: "Ansa cervicale", blood: "A. tiroidea", daily: "Abbassare il pomo d'Adamo", movements: ["Depressione laringe"] },
+            { id: 132, district: "Cervicale", title: "Sternoioideo", origin: "Sterno", insertion: "Osso ioide", innervation: "Ansa cervicale", blood: "A. tiroidea", daily: "Abbassare la laringe", movements: ["Depressione ioide"] },
+            { id: 133, district: "Cervicale", title: "Stiloioideo", origin: "Processo stiloideo", insertion: "Osso ioide", innervation: "N. facciale", blood: "A. facciale", daily: "Deglutizione", movements: ["Elevazione ioide"] },
+            { id: 134, district: "Cervicale", title: "Suboccipitali", origin: "C1-C2", insertion: "Occipitale", innervation: "N. sottoccipitale", blood: "A. vertebrale", daily: "Micro-movimenti della testa", movements: ["Estensione e rotazione fine"] },
+            { id: 135, district: "Torace", title: "Succlavio", origin: "Prima costa", insertion: "Clavicola", innervation: "N. succlavio", blood: "A. toracoacromiale", daily: "Portare uno zaino", movements: ["Depressione clavicola"] },
+            { id: 136, district: "Avambraccio", title: "Supinatore", origin: "Omero e ulna", insertion: "Radio", innervation: "N. radiale", blood: "A. ricorrente radiale", daily: "Girare una chiave", movements: ["Supinazione"] },
+            { id: 137, district: "Coscia", title: "Tensore Fascia Lata", origin: "SIAS", insertion: "Tubercolo di Gerdy", innervation: "N. gluteo superiore", blood: "A. circonflessa laterale", daily: "Equilibrio monopodalico", movements: ["Abduzione anca"] },
+            { id: 138, district: "Cervicale", title: "Tiroioideo", origin: "Cartilagine tiroidea", insertion: "Osso ioide", innervation: "C1", blood: "A. tiroidea", daily: "Proteggere le vie aeree", movements: ["Elevazione laringe"] },
+            { id: 139, district: "Torace", title: "Trapezio", origin: "Occipite e C7-T12", insertion: "Clavicola e spina scapola", innervation: "N. accessorio", blood: "A. trasversa collo", daily: "Scrollare le spalle", movements: ["Elevazione, adduzione scapola"] },
+            { id: 140, district: "Braccio", title: "Tricipite Brachiale", origin: "Scapola e omero", insertion: "Olecrano", innervation: "N. radiale", blood: "A. brachiale profonda", daily: "Alzarsi da una poltrona", movements: ["Estensione gomito"] },
+            { id: 141, district: "Lombare", title: "Trasverso dell'Addome", origin: "Coste VII-XII", insertion: "Linea alba", innervation: "Nervi intercostali", blood: "A. epigastrica", daily: "Tossire o proteggere la schiena", movements: ["Compressione viscerale e core"] },
+            { id: 142, district: "Torace", title: "Trasverso del Torace", origin: "Sterno", insertion: "Cartilagini costali II-VI", innervation: "Nervi intercostali", blood: "A. toracica interna", daily: "Tossire", movements: ["Depressione cartilagini"] },
+            { id: 143, district: "Gamba", title: "Tibiale Anteriore", origin: "Tibia laterale", insertion: "I metatarso", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", daily: "Guidare l'auto (acceleratore-freno)", movements: ["Flessione dorsale e inversione"] },
+            { id: 144, district: "Gamba", title: "Tibiale Posteriore", origin: "Tibia e fibula", insertion: "Navicolare", innervation: "N. tibiale", blood: "A. fibulare", daily: "Evitare il piede piatto", movements: ["Inversione"] },
+            { id: 145, district: "Coscia", title: "Vasto Intermedio", origin: "Femore anteriore", insertion: "Rotula", innervation: "N. femorale", blood: "A. circonflessa laterale", daily: "Raddrizzare la gamba", movements: ["Estensione ginocchio"] },
+            { id: 146, district: "Coscia", title: "Vasto Laterale", origin: "Femore laterale", insertion: "Rotula", innervation: "N. femorale", blood: "A. circonflessa laterale", daily: "Alzarsi da una sedia", movements: ["Estensione ginocchio"] },
+            { id: 147, district: "Coscia", title: "Vasto Mediale", origin: "Linea aspra", insertion: "Rotula mediale", innervation: "N. femorale", blood: "A. femorale", daily: "Camminare in discesa", movements: ["Estensione ginocchio (VMO)"] }
         ];
 
-        // 42 Esercizi Clinici - Mantenuti intatti
         const eserciziData = [
-            { id: 1, title: "Clamshell per Gluteo Medio", category: "Rinforzo", district: "Anca", target: "Gluteo medio e piccolo", indications: ["Borsite trocanterica", "Pubalgia"], dosage: "3 serie da 12-15 rip", execution: "1. Decubito laterale con ginocchia a 90°.\n2. Mantenere i piedi uniti.\n3. Sollevare il ginocchio superiore.\n4. Ritorno controllato." },
-            { id: 2, title: "Ponte Gluteo", category: "Rinforzo", district: "Anca", target: "Grande gluteo e ischiocrurali", indications: ["Lombalgia cronica", "Sindrome femoro-rotulea"], dosage: "3 serie da 15 rip", execution: "1. Supino con ginocchia flesse.\n2. Contrarre i glutei.\n3. Sollevare il bacino formando una linea retta.\n4. Tenuta di 2 secondi." },
-            { id: 3, title: "Abduzione Anca in Decubito", category: "Isolamento", district: "Anca", target: "Medio gluteo", indications: ["Coxartrosi lieve"], dosage: "3 serie da 15 rip", execution: "1. Decubito laterale.\n2. Arto superiore teso.\n3. Sollevamento controllato." },
-            { id: 4, title: "Abduzione Monopodalica", category: "Core", district: "Anca", target: "Controllo pelvico", indications: ["Instabilità d'anca"], dosage: "3 serie da 12 rip", execution: "1. In piedi su un arto.\n2. Bacino orizzontale.\n3. Sollevare l'arto controlaterale." },
-            { id: 5, title: "Copenhagen Plank", category: "Eccentrici", district: "Anca", target: "Adduttori", indications: ["Pubalgia"], dosage: "3 serie da 8 rip", execution: "1. Plank laterale con arto su sedia.\n2. Sollevare e abbassare il bacino." },
-            { id: 6, title: "Squat Isometrico a Parete", category: "Rinforzo", district: "Coscia", target: "Quadricipite", indications: ["Sindrome femoro-rotulea"], dosage: "4 serie da 45s", execution: "1. Schiena a parete.\n2. Ginocchia a 90°.\n3. Tenuta isometrica." },
-            { id: 7, title: "Decline Squat", category: "Eccentrici", district: "Coscia", target: "Tendine rotuleo", indications: ["Tendinopatia rotulea"], dosage: "3 serie da 10 rip", execution: "1. Piano inclinato.\n2. Discesa lenta in 4 secondi." },
-            { id: 8, title: "Isometrico Vasto Mediale", category: "Isolamento", district: "Coscia", target: "VMO", indications: ["Condromalacia"], dosage: "10 rip da 10s", execution: "1. Rullo sotto il ginocchio.\n2. Estendere contraendo il VMO." },
-            { id: 9, title: "Heel Slide in Scarico", category: "Chinesiterapia", district: "Coscia", target: "ROM flessione ginocchio", indications: ["Post LCA"], dosage: "3 serie da 15 rip", execution: "1. Supino, scivolamento tallone." },
-            { id: 10, title: "Calf Raise Monopodalico", category: "Rinforzo", district: "Gamba", target: "Gastrocnemio e soleo", indications: ["Tendinopatia d'Achille"], dosage: "3 serie da 15 rip", execution: "1. Su gradino, salita e discesa lenta." },
-            { id: 11, title: "Protocollo Alfredson", category: "Eccentrici", district: "Gamba", target: "Tendine d'Achille", indications: ["Tendinopatia achillea"], dosage: "3 serie da 15 rip", execution: "1. Salita con sano, discesa lenta di 5s con infortunato." },
-            { id: 12, title: "Flessione Dorsale Elastico", category: "Isolamento", district: "Gamba", target: "Tibiale anteriore", indications: ["Shin splints"], dosage: "3 serie da 15 rip", execution: "1. Elastico all'avampiede, tirare verso di sé." },
-            { id: 13, title: "Circonduzioni Caviglia", category: "Chinesiterapia", district: "Piede", target: "Mobilità tibio-tarsica", indications: ["Distorsione caviglia"], dosage: "2 serie da 15 cerchi", execution: "1. Cerchi ampi in senso orario e antiorario." },
-            { id: 14, title: "Short Foot su Tavoletta", category: "Core", district: "Piede", target: "Intrinseci del piede", indications: ["Instabilità cronica"], dosage: "3 serie da 45s", execution: "1. Attivazione arco plantare su tavoletta." },
-            { id: 15, title: "Rieducazione Passo", category: "Neurodinamica", district: "Gamba", target: "Schema del cammino", indications: ["Post LCA"], dosage: "2 serie da 2 min", execution: "1. Cammino sopra piccoli ostacoli." },
-            { id: 16, title: "Plank Frontale", category: "Core", district: "Lombare", target: "Trasverso addominale", indications: ["Lombalgia cronica"], dosage: "3 serie da 45s", execution: "1. Appoggio su avambracci e punte piedi." },
-            { id: 17, title: "Bird-Dog", category: "Core", district: "Lombare", target: "Multifido e catena crociata", indications: ["Disfunzione sacro-iliaca"], dosage: "3 serie da 10 rip", execution: "1. Quadrupedia, braccio e gamba opposta." },
-            { id: 18, title: "Side Plank", category: "Core", district: "Lombare", target: "Obliqui e quadrato dei lombi", indications: ["Scoliosi"], dosage: "3 serie da 30s", execution: "1. Plank laterale." },
-            { id: 19, title: "Dead Bug", category: "Core", district: "Lombare", target: "Controllo lombo-pelvico", indications: ["Lombalgia acuta"], dosage: "3 serie da 12 rip", execution: "1. Supino, discesa controlaterale arti." },
-            { id: 20, title: "Ginocchio al Petto", category: "Chinesiterapia", district: "Lombare", target: "Estensori lombari", indications: ["Lombalgia miotensiva"], dosage: "2 serie da 30s", execution: "1. Tirare il ginocchio al petto." },
-            { id: 21, title: "Cat-Cow", category: "Chinesiterapia", district: "Lombare", target: "Mobilità colonna", indications: ["Rigidità mattutina"], dosage: "2 serie da 10 cicli", execution: "1. Inarcare e flettere la schiena." },
-            { id: 22, title: "Slump Test Dinamico", category: "Neurodinamica", district: "Lombare", target: "Nervo sciatico", indications: ["Sciatalgia"], dosage: "2 serie da 8 cicli", execution: "1. Mobilitazione neurodinamica sciatico." },
-            { id: 23, title: "Rotazioni Collo", category: "Chinesiterapia", district: "Cervicale", target: "Articolazioni cervicali", indications: ["Cervicalgia"], dosage: "2 serie da 5 rip", execution: "1. Rotazioni lenti laterali." },
-            { id: 24, title: "Chin Tuck", category: "Isolamento", district: "Cervicale", target: "Flessori profondi collo", indications: ["Text neck"], dosage: "3 serie da 10 rip", execution: "1. Retrazione del mento." },
-            { id: 25, title: "Hollow Body Hold", category: "Core", district: "Torace", target: "Core anteriore", indications: ["Instabilità tronco"], dosage: "3 serie da 30s", execution: "1. Posizione a barchetta." },
-            { id: 26, title: "Scivolamenti Radiale", category: "Neurodinamica", district: "Torace", target: "Nervo radiale", indications: ["Opercolo toracico"], dosage: "2 serie da 10 rip", execution: "1. Mobilitazione radiale." },
-            { id: 27, title: "Controllo Scapolare", category: "Neurodinamica", district: "Torace", target: "Dentato anteriore", indications: ["Discinesia scapolare"], dosage: "3 serie da 10 rip", execution: "1. Controllo allo specchio." },
-            { id: 28, title: "Alzate Laterali Spalla", category: "Rinforzo", district: "Spalla", target: "Deltoide medio", indications: ["Impingement"], dosage: "3 serie da 12 rip", execution: "1. Manubri sul piano scapolare." },
-            { id: 29, title: "Esercizi di Codman", category: "Chinesiterapia", district: "Spalla", target: "Capsula spalla", indications: ["Capsulite adesiva"], dosage: "3 serie da 2 min", execution: "1. Oscillazioni passive a busto flesso." },
-            { id: 30, title: "Mobilizzazione Flessione Spalla", category: "Chinesiterapia", district: "Spalla", target: "ROM flessione", indications: ["Omartrosi"], dosage: "2 serie da 10 rip", execution: "1. Con bastone, aiuto del braccio sano." },
-            { id: 31, title: "Jobe Test (Empty Can)", category: "Isolamento", district: "Spalla", target: "Sovraspinato", indications: ["Lesione sovraspinato"], dosage: "3 serie da 12 rip", execution: "1. Sollevare a 45° con pollici in basso." },
-            { id: 32, title: "Eccentrici Extrarotatori", category: "Eccentrici", district: "Spalla", target: "Infraspinato", indications: ["Instabilità spalla"], dosage: "3 serie da 12 rip", execution: "1. Frenare la rotazione esterna." },
-            { id: 33, title: "Curl Bicipiti", category: "Rinforzo", district: "Braccio", target: "Bicipite", indications: ["Tendinopatia CLB"], dosage: "3 serie da 12 rip", execution: "1. Flessione con supinazione." },
-            { id: 34, title: "French Press Tricipiti", category: "Rinforzo", district: "Braccio", target: "Tricipite", indications: ["Debolezza tricipitale"], dosage: "3 serie da 10 rip", execution: "1. Estensione gomito supini." },
-            { id: 35, title: "Eccentrici Bicipite", category: "Eccentrici", district: "Braccio", target: "Bicipite eccentrico", indications: ["Tendinite distale bicipite"], dosage: "3 serie da 10 rip", execution: "1. Frenare la discesa del peso." },
-            { id: 36, title: "Eccentrici Estensori Polso", category: "Eccentrici", district: "Avambraccio", target: "Estensori avambraccio", indications: ["Epicondilite"], dosage: "3 serie da 15 rip", execution: "1. Frenare la flessione del polso." },
-            { id: 37, title: "Curl di Polso Flessori", category: "Isolamento", district: "Avambraccio", target: "Flessori polso", indications: ["Epitrocleite"], dosage: "3 serie da 15 rip", execution: "1. Flessione polso con manubri." },
-            { id: 38, title: "Scivolamenti Mediano", category: "Neurodinamica", district: "Mano", target: "Nervo mediano", indications: ["Tunnel carpale"], dosage: "2 serie da 10 rip", execution: "1. Mobilitazione mediano." },
-            { id: 39, title: "Scivolamenti Ulnare", category: "Neurodinamica", district: "Mano", target: "Nervo ulnare", indications: ["Tunnel cubitale"], dosage: "2 serie da 10 rip", execution: "1. Mobilitazione ulnare." },
-            { id: 40, title: "Rinforzo Interossei con Pallina", category: "Isolamento", district: "Mano", target: "Muscoli intrinseci", indications: ["Rizoartrosi"], dosage: "3 serie da 1 min", execution: "1. Stringere pallina o elastico." },
-            { id: 41, title: "Coordinazione Occhio-Mano", category: "Neurodinamica", district: "Mano", target: "Sensomotorio", indications: ["Post Colles"], dosage: "3 serie da 1 min", execution: "1. Lancio e presa pallina." },
-            { id: 42, title: "Eccentrici Tricipiti", category: "Eccentrici", district: "Braccio", target: "Tendine tricipite", indications: ["Tendinopatia tricipite"], dosage: "3 serie da 10 rip", execution: "1. Frenare estensione gomito." }
+            { id: 1, title: "Abduzione Anca in Decubito", category: "Isolamento", district: "Anca", target: "Medio gluteo", indications: ["Coxartrosi lieve"], dosage: "3 serie da 15 rip", execution: "1. Decubito laterale.\n2. Arto superiore teso.\n3. Sollevamento controllato." },
+            { id: 2, title: "Abduzione Monopodalica", category: "Core", district: "Anca", target: "Controllo pelvico", indications: ["Instabilità d'anca"], dosage: "3 serie da 12 rip", execution: "1. In piedi su un arto.\n2. Bacino orizzontale.\n3. Sollevare l'arto controlaterale." },
+            { id: 3, title: "Calf Raise Monopodalico", category: "Rinforzo", district: "Gamba", target: "Gastrocnemio e soleo", indications: ["Tendinopatia d'Achille"], dosage: "3 serie da 15 rip", execution: "1. Su gradino, salita e discesa lenta." },
+            { id: 4, title: "Cat-Cow", category: "Chinesiterapia", district: "Lombare", target: "Mobilità colonna", indications: ["Rigidità mattutina"], dosage: "2 serie da 10 cicli", execution: "1. Inarcare e flettere la schiena." },
+            { id: 5, title: "Chin Tuck", category: "Isolamento", district: "Cervicale", target: "Flessori profondi collo", indications: ["Text neck"], dosage: "3 serie da 10 rip", execution: "1. Retrazione del mento." },
+            { id: 6, title: "Circonduzioni Caviglia", category: "Chinesiterapia", district: "Piede", target: "Mobilità tibio-tarsica", indications: ["Distorsione caviglia"], dosage: "2 serie da 15 cerchi", execution: "1. Cerchi ampi in senso orario e antiorario." },
+            { id: 7, title: "Clamshell per Gluteo Medio", category: "Rinforzo", district: "Anca", target: "Gluteo medio e piccolo", indications: ["Borsite trocanterica", "Pubalgia"], dosage: "3 serie da 12-15 rip", execution: "1. Decubito laterale con ginocchia a 90°.\n2. Mantenere i piedi uniti.\n3. Sollevare il ginocchio superiore.\n4. Ritorno controllato." },
+            { id: 8, title: "Controllo Scapolare", category: "Neurodinamica", district: "Torace", target: "Dentato anteriore", indications: ["Discinesia scapolare"], dosage: "3 serie da 10 rip", execution: "1. Controllo allo specchio." },
+            { id: 9, title: "Copenhagen Plank", category: "Eccentrici", district: "Anca", target: "Adduttori", indications: ["Pubalgia"], dosage: "3 serie da 8 rip", execution: "1. Plank laterale con arto su sedia.\n2. Sollevare e abbassare il bacino." },
+            { id: 10, title: "Curl Bicipiti", category: "Rinforzo", district: "Braccio", target: "Bicipite", indications: ["Tendinopatia CLB"], dosage: "3 serie da 12 rip", execution: "1. Flessione con supinazione." },
+            { id: 11, title: "Curl di Polso Flessori", category: "Isolamento", district: "Avambraccio", target: "Flessori polso", indications: ["Epitrocleite"], dosage: "3 serie da 15 rip", execution: "1. Flessione polso con manubri." },
+            { id: 12, title: "Dead Bug", category: "Core", district: "Lombare", target: "Controllo lombo-pelvico", indications: ["Lombalgia acuta"], dosage: "3 serie da 12 rip", execution: "1. Supino, discesa controlaterale arti." },
+            { id: 13, title: "Decline Squat", category: "Eccentrici", district: "Coscia", target: "Tendine rotuleo", indications: ["Tendinopatia rotulea"], dosage: "3 serie da 10 rip", execution: "1. Piano inclinato.\n2. Discesa lenta in 4 secondi." },
+            { id: 14, title: "Eccentrici Bicipite", category: "Eccentrici", district: "Braccio", target: "Bicipite eccentrico", indications: ["Tendinite distale bicipite"], dosage: "3 serie da 10 rip", execution: "1. Frenare la discesa del peso." },
+            { id: 15, title: "Eccentrici Estensori Polso", category: "Eccentrici", district: "Avambraccio", target: "Estensori avambraccio", indications: ["Epicondilite"], dosage: "3 serie da 15 rip", execution: "1. Frenare la flessione del polso." },
+            { id: 16, title: "Eccentrici Extrarotatori", category: "Eccentrici", district: "Spalla", target: "Infraspinato", indications: ["Instabilità spalla"], dosage: "3 serie da 12 rip", execution: "1. Frenare la rotazione esterna." },
+            { id: 17, title: "Eccentrici Tricipiti", category: "Eccentrici", district: "Braccio", target: "Tendine tricipite", indications: ["Tendinopatia tricipite"], dosage: "3 serie da 10 rip", execution: "1. Frenare estensione gomito." },
+            { id: 18, title: "Esercizi di Codman", category: "Chinesiterapia", district: "Spalla", target: "Capsula spalla", indications: ["Capsulite adesiva"], dosage: "3 serie da 2 min", execution: "1. Oscillazioni passive a busto flesso." },
+            { id: 19, title: "Flessione Dorsale Elastico", category: "Isolamento", district: "Gamba", target: "Tibiale anteriore", indications: ["Shin splints"], dosage: "3 serie da 15 rip", execution: "1. Elastico all'avampiede, tirare verso di sé." },
+            { id: 20, title: "French Press Tricipiti", category: "Rinforzo", district: "Braccio", target: "Tricipite", indications: ["Debolezza tricipitale"], dosage: "3 serie da 10 rip", execution: "1. Estensione gomito supini." },
+            { id: 21, title: "Ginocchio al Petto", category: "Chinesiterapia", district: "Lombare", target: "Estensori lombari", indications: ["Lombalgia miotensiva"], dosage: "2 serie da 30s", execution: "1. Tirare il ginocchio al petto." },
+            { id: 22, title: "Heel Slide in Scarico", category: "Chinesiterapia", district: "Coscia", target: "ROM flessione ginocchio", indications: ["Post LCA"], dosage: "3 serie da 15 rip", execution: "1. Supino, scivolamento tallone." },
+            { id: 23, title: "Hollow Body Hold", category: "Core", district: "Torace", target: "Core anteriore", indications: ["Instabilità tronco"], dosage: "3 serie da 30s", execution: "1. Posizione a barchetta." },
+            { id: 24, title: "Isometrico Vasto Mediale", category: "Isolamento", district: "Coscia", target: "VMO", indications: ["Condromalacia"], dosage: "10 rip da 10s", execution: "1. Rullo sotto il ginocchio.\n2. Estendere contraendo il VMO." },
+            { id: 25, title: "Jobe Test (Empty Can)", category: "Isolamento", district: "Spalla", target: "Sovraspinato", indications: ["Lesione sovraspinato"], dosage: "3 serie da 12 rip", execution: "1. Sollevare a 45° con pollici in basso." },
+            { id: 26, title: "Mobilizzazione Flessione Spalla", category: "Chinesiterapia", district: "Spalla", target: "ROM flessione", indications: ["Omartrosi"], dosage: "2 serie da 10 rip", execution: "1. Con bastone, aiuto del braccio sano." },
+            { id: 27, title: "Plank Frontale", category: "Core", district: "Lombare", target: "Trasverso addominale", indications: ["Lombalgia cronica"], dosage: "3 serie da 45s", execution: "1. Appoggio su avambracci e punte piedi." },
+            { id: 28, title: "Ponte Gluteo", category: "Rinforzo", district: "Anca", target: "Grande gluteo e ischiocrurali", indications: ["Lombalgia cronica", "Sindrome femoro-rotulea"], dosage: "3 serie da 15 rip", execution: "1. Supino con ginocchia flesse.\n2. Contrarre i glutei.\n3. Sollevare il bacino formando una linea retta.\n4. Tenuta di 2 secondi." },
+            { id: 29, title: "Protocollo Alfredson", category: "Eccentrici", district: "Gamba", target: "Tendine d'Achille", indications: ["Tendinopatia achillea"], dosage: "3 serie da 15 rip", execution: "1. Salita con sano, discesa lenta di 5s con infortunato." },
+            { id: 30, title: "Rieducazione Passo", category: "Neurodinamica", district: "Gamba", target: "Schema del cammino", indications: ["Post LCA"], dosage: "2 serie da 2 min", execution: "1. Cammino sopra piccoli ostacoli." },
+            { id: 31, title: "Rinforzo Interossei con Pallina", category: "Isolamento", district: "Mano", target: "Muscoli intrinseci", indications: ["Rizoartrosi"], dosage: "3 serie da 1 min", execution: "1. Stringere pallina o elastico." },
+            { id: 32, title: "Rotazioni Collo", category: "Chinesiterapia", district: "Cervicale", target: "Articolazioni cervicali", indications: ["Cervicalgia"], dosage: "2 serie da 5 rip", execution: "1. Rotazioni lenti laterali." },
+            { id: 33, title: "Scivolamenti Mediano", category: "Neurodinamica", district: "Mano", target: "Nervo mediano", indications: ["Tunnel carpale"], dosage: "2 serie da 10 rip", execution: "1. Mobilitazione mediano." },
+            { id: 34, title: "Scivolamenti Radiale", category: "Neurodinamica", district: "Torace", target: "Nervo radiale", indications: ["Opercolo toracico"], dosage: "2 serie da 10 rip", execution: "1. Mobilitazione radiale." },
+            { id: 35, title: "Scivolamenti Ulnare", category: "Neurodinamica", district: "Mano", target: "Nervo ulnare", indications: ["Tunnel cubitale"], dosage: "2 serie da 10 rip", execution: "1. Mobilitazione ulnare." },
+            { id: 36, title: "Short Foot su Tavoletta", category: "Core", district: "Piede", target: "Intrinseci del piede", indications: ["Instabilità cronica"], dosage: "3 serie da 45s", execution: "1. Attivazione arco plantare su tavoletta." },
+            { id: 37, title: "Side Plank", category: "Core", district: "Lombare", target: "Obliqui e quadrato dei lombi", indications: ["Scoliosi"], dosage: "3 serie da 30s", execution: "1. Plank laterale." },
+            { id: 38, title: "Slump Test Dinamico", category: "Neurodinamica", district: "Lombare", target: "Nervo sciatico", indications: ["Sciatalgia"], dosage: "2 serie da 8 cicli", execution: "1. Mobilitazione neurodinamica sciatico." },
+            { id: 39, title: "Squat Isometrico a Parete", category: "Rinforzo", district: "Coscia", target: "Quadricipite", indications: ["Sindrome femoro-rotulea"], dosage: "4 serie da 45s", execution: "1. Schiena a parete.\n2. Ginocchia a 90°.\n3. Tenuta isometrica." },
+            { id: 40, title: "Alzate Laterali Spalla", category: "Rinforzo", district: "Spalla", target: "Deltoide medio", indications: ["Impingement"], dosage: "3 serie da 12 rip", execution: "1. Manubri sul piano scapolare." },
+            { id: 41, title: "Bird-Dog", category: "Core", district: "Lombare", target: "Multifido e catena crociata", indications: ["Disfunzione sacro-iliaca"], dosage: "3 serie da 10 rip", execution: "1. Quadrupedia, braccio e gamba opposta." },
+            { id: 42, title: "Coordinazione Occhio-Mano", category: "Neurodinamica", district: "Mano", target: "Sensomotorio", indications: ["Post Colles"], dosage: "3 serie da 1 min", execution: "1. Lancio e presa pallina." }
         ];
 
-        // 50 PROTOCOLLI RIABILITATIVI POST-OPERATORI COMPLETI (GUIDE CLINICHE INTEGRALI)
         const protocolliData = [
             { 
-                id: 1, title: "Sutura della Cuffia dei Rotatori", district: "Spalla", severity: "Post-Op", 
-                surgery: "Riparazione artroscopica o a cielo aperto dei tendini del sovraspinato, infraspinato e/o sottoscapolare con ancorette suture.",
-                phases: "Fase 1 (0-6 sett): Immobilizzazione in tutore con cuscino di abduzione a 30°. ROM passivo assistito protetto (evitare rotazione esterna oltre 30° e flessione oltre 90°). No contrazione attiva. \nFase 2 (6-12 sett): Svezzamento dal tutore. Inizio ROM attivo-assistito e poi attivo. Rinforzo isometrico iniziale di deltoide e cuffia.\nFase 3 (12-24 sett): Rinforzo progressivo contro resistenza, pliometria leggera e recupero della funzione completa.",
-                daily: "Indossare il tutore giorno e notte per le prime 6 settimane. Autonomia nel vestirsi con camicie aperte davanti dal 45° giorno.",
-                rtp: "Ritorno a lavori pesanti o sport overhead (pallavolo, nuoto) consentito non prima di 6-9 mesi, previa test isocinetici con deficit <15% rispetto all'arto sano." 
-            },
-            { 
-                id: 2, title: "Ricostruzione Legamento Crociato Anteriore (LCA)", district: "Coscia", severity: "Post-Op", 
-                surgery: "Plastica del LCA in artroscopia utilizzando graft autologo (tendini flessori gracile/semitendinoso o tendine rotuleo).",
-                phases: "Fase 1 (0-4 sett): Controllo edema e dolore. Estensione completa obbligatoria fin dal giorno 1 (0°). Flessione progressiva fino a 90°-120°. Carico parziale con le canadesi.\nFase 2 (4-12 sett): Svezzamento dalle stampelle. Recupero completo del ROM. Rinforzo quadricipite (leg extension in catena chiusa, squat leggeri) e propriocezione.\nFase 3 (3-6 mesi): Corsa in linea retta, potenziamento avanzato, esercizi pliometrici e cambi di direzione controllati.",
-                daily: "Deambulazione con stampelle per le prime 3-4 settimane. Guida dell'auto consentita intorno alla 6°-8° settimana se l'arto operato è il destro e c'è pieno controllo.",
-                rtp: "Ritorno in campo per sport di contatto (calcio, sci, basket) a 9-12 mesi, subordinato al superamento dei test di forza isocinetica (LSI > 90%) e test di salto (Hop test)." 
-            },
-            { 
-                id: 3, title: "Sutura Meniscale", district: "Coscia", severity: "Post-Op", 
-                surgery: "Riparazione artroscopica del menisco mediale o laterale mediante tecnica all-inside o inside-out per preservare il tessuto.",
-                phases: "Fase 1 (0-4 sett): Tutore bloccato in estensione durante il cammino. Flessione limitata a 90° per proteggere la linea di sutura. Carico protetto al 30-50%.\nFase 2 (4-8 sett): Sblocco del tutore e recupero graduale del ROM completo oltre i 90° a 6 settimane. Inizio rinforzo in catena cinetica chiusa.\nFase 3 (8-16 sett): Progressione del carico completo, esercizi propriocettivi avanzati, cyclette e corsa leggera.",
-                daily: "Evitare accuratamente flessioni profonde del ginocchio e accovacciamenti (squat profondi) per i primi 2 mesi.",
-                rtp: "Ritorno all'attività sportiva agonistica a 4-6 mesi dall'intervento, previa assenza di dolore alla linea di interlinea articolare e test di stabilità negativi." 
-            },
-            { 
-                id: 4, title: "Protesi Totale d'Anca (PTA)", district: "Anca", severity: "Post-Op", 
-                surgery: "Sostituzione protesica totale dell'articolazione coxo-femorale (componente acetabolare e stelo femorale con testina).",
-                phases: "Fase 1 (0-3 sett): Mobilizzazione precoce in prima giornata. Deambulazione con deambulatore o due bastoni canadesi. Controllo del dolore ed esercizi di contrazione isometrica dei glutei.\nFase 2 (3-6 sett): Passaggio a un solo bastone o abbandono degli ausili. Rinforzo dei muscoli abduttori (medio gluteo) e flessori.\nFase 3 (6-12 sett): Recupero della normale biomeccanica del passo, rinforzo funzionale e autonomia completa.",
-                daily: "Rispetto delle precauzioni anti-lussazione per via chirurgica (evitare flessione d'anca oltre 90°, adduzione e rotazione interna esagerate nei primi 2 mesi).",
-                rtp: "Ritorno a camminate prolungate, nuoto e ciclismo a 3 mesi. Sport a basso impatto consentiti; sconsigliati sport di contatto o corsa pesante." 
-            },
-            { 
-                id: 5, title: "Protesi Totale di Ginocchio (PTG)", district: "Coscia", severity: "Post-Op", 
-                surgery: "Sostituzione protesica bicompartimentale o tricompartimentale delle superfici articolari femoro-tibiali e rotulee.",
-                phases: "Fase 1 (0-3 sett): Controllo dell'edema severo. Estensione completa obbligatoria (0°) e flessione target a 90°-100° (ausilio di Kinetec). Carico con deambulatore.\nFase 2 (3-6 sett): Raggiungimento di 110°-120° di flessione. Rinforzo del quadricipite in scarico e carico, cyclette senza resistenza.\nFase 3 (6-12 sett): Deambulazione autonoma senza bastoni, rinforzo muscolare avanzato, propriocezione ed equilibrio.",
-                daily: "Salire le scale un gradino alla volta (prima il sano in salita, prima l'operato in discesa) per le prime settimane.",
-                rtp: "Ritorno a vita attiva, camminate libere e bicicletta a 3 mesi. Evitare corsa e salti ad alto impatto per preservare i componenti protesici." 
-            },
-            { 
-                id: 6, title: "Stabilizzazione di Spalla (Latarjet / Bankart)", district: "Spalla", severity: "Post-Op", 
-                surgery: "Intervento di stabilizzazione anteriore per recidive di lussazione (tecnica artroscopica di Bankart o trasposizione ossea di Latarjet).",
-                phases: "Fase 1 (0-4 sett): Tutore antirotazionale per 4 settimane. ROM passivo limitato in flessione ed evitare assolutamente rotazione esterna oltre 0°.\nFase 2 (4-8 sett): Svezzamento dal tutore. Inizio ROM attivo-assistito e recupero della rotazione esterna graduale fino a 45°.\nFase 3 (8-16 sett): Rinforzo muscolare della cuffia e deltoide, stabilizzazione scapolare e riatletizzazione.",
-                daily: "Evitare movimenti bruschi di abduzione e rotazione esterna combinata (es. prendere qualcosa dal sedile posteriore dell'auto).",
-                rtp: "Ritorno a sport di contatto o con sbracciate (rugby, pallamano, lotta) a 6 mesi, previa certificazione di stabilità clinica." 
-            },
-            { 
-                id: 7, title: "Discectomia Lombare (Ernia del Disco)", district: "Lombare", severity: "Post-Op", 
-                surgery: "Microdiscectomia mininvasiva per la rimozione del frammento erniato e decompressione della radice nervosa.",
-                phases: "Fase 1 (0-2 sett): Riposo funzionale, deambulazione controllata. Divieto assoluto di flessione della colonna e di sollevare pesi > 2 kg.\nFase 2 (2-6 sett): Inizio della chinesiterapia dolce, esercizi di core stability profonda (trasverso dell'addome) e camminate in piano crescenti.\nFase 3 (6-12 sett): Rinforzo globale della catena posteriore, educazione posturale ed ergonomia lavorativa.",
-                daily: "Non sedersi per più di 30 minuti consecutivi nelle prime 3 settimane. Mantenere sempre la schiena dritta nell'alzarsi.",
-                rtp: "Ritorno all'attività lavorativa sedentaria a 3-4 settimane, lavori pesanti o sport a 3 mesi con gradualità." 
-            },
-            { 
-                id: 8, title: "Artrodesi Lombare (Stabilizzazione Vertebrale)", district: "Lombare", severity: "Post-Op", 
-                surgery: "Fissazione chirurgica e fusione di due o più vertebre lombari mediante viti peduncolari e cage somatica intersomatica.",
-                phases: "Fase 1 (0-6 sett): Deambulazione protetta (eventuale corsetto ortopedico se prescritto). Divieto assoluto di torsioni e flessioni del tronco.\nFase 2 (6-12 sett): Inizio di esercizi isometrici di stabilizzazione in scarico, camminate all'aperto su terreno piano.\nFase 3 (3-6 mesi): Progressione del rinforzo muscolare globale, recupero della flessibilità di anche e arti inferiori.",
-                daily: "Vietato guidare per le prime 6-8 settimane. Utilizzare tecniche corrette per raccogliere oggetti (piegare le ginocchia, non la schiena).",
-                rtp: "Ritorno ad attività lavorative leggere a 2 mesi, lavori pesanti o sport a 6-9 mesi dopo conferma radiografica di avvenuta fusione ossea." 
-            },
-            { 
-                id: 9, title: "Frattura di Polso (Sintesi con Placca Volare)", district: "Avambraccio", severity: "Post-Op", 
-                surgery: "Riduzione aperta e fissazione interna della frattura distale del radio mediante placca e viti bloccate volari.",
-                phases: "Fase 1 (0-2 sett): Controllo dell'edema della mano e delle dita. Mobilizzazione attiva immediata delle dita per evitare aderenze tendinee.\nFase 2 (2-6 sett): Rimozione dei punti. Inizio ROM attivo e passivo di flesso-estensione e prono-supinazione del polso.\nFase 3 (6-12 sett): Rinforzo progressivo della presa con palline e manubri leggeri, recupero della forza funzionale.",
-                daily: "Tenere la mano sollevata sopra il livello del cuore nei primi giorni per ridurre il gonfiore. Evitare sollevamento pesi.",
-                rtp: "Ritorno a sport e lavori manuali pesanti a 3 mesi, subordinato al consolidamento osseo radiografico." 
-            },
-            { 
-                id: 10, title: "Riparazione del Tendine d'Achille", district: "Gamba", severity: "Post-Op", 
-                surgery: "Riparazione chirurgica a cielo aperto o percutanea della rottura completa del tendine d'Achille.",
-                phases: "Fase 1 (0-4 sett): Stivale ortopedico con rialzi (equino) per detendere il tendine. Carico zero o parziale con stampelle.\nFase 2 (4-8 sett): Rimozione progressiva dei rialzi nello stivale per riportare il piede a 90°. Inizio carico parziale e mobilità attiva di caviglia.\nFase 3 (8-16 sett): Svezzamento dallo stivale. Inizio rinforzo muscolare del polpaccio e protocollo eccentrico (Alfredson).",
-                daily: "Massima attenzione a non flettere dorsalmente il piede oltre la posizione di sicurezza stabilita dal chirurgo nelle prime settimane.",
-                rtp: "Ritorno alla corsa leggera a 5-6 mesi e sport ad alto impatto a 8-12 mesi, previa verifica della simmetria di forza del polpaccio." 
-            },
-            { 
-                id: 11, title: "Intervento di Decompressione del Tunnel Carpale", district: "Mano", severity: "Post-Op", 
-                surgery: "Rilascio chirurgico a cielo aperto o endoscopico del legamento trasverso del carpo per decomprimere il nervo mediano.",
-                phases: "Fase 1 (0-2 sett): Medicazione protettiva. Mobilizzazione precoce delle dita e del polso per prevenire aderenze cicatriziali.\nFase 2 (2-4 sett): Rimozione dei punti di sutura. Inizio massaggio della cicatrice con creme emollienti e scivolamenti neurali del mediano.\nFase 3 (4-8 sett): Rinforzo progressivo della presa della mano e ripresa delle attività manuali complete.",
-                daily: "Evitare di appoggiare il peso sul palmo della mano operata o sollevare pesi superiori a 2-3 kg per il primo mese.",
-                rtp: "Ritorno a sport e lavori pesanti a 6-8 settimane, non appena scompare la dolorabilità locale alla pressione sulla cicatrice." 
-            },
-            { 
-                id: 12, title: "Protesi Totale di Spalla (Anatomica / Inversa)", district: "Spalla", severity: "Post-Op", 
-                surgery: "Sostituzione protesica dell'articolazione gleno-omerale (protesi anatomica o inversa in base all'integrità della cuffia).",
-                phases: "Fase 1 (0-4 sett): Tutore di braccio. Esercizi pendolari di Codman e mobilità passiva assistita dal terapista. No rotazione attiva.\nFase 2 (4-8 sett): Svezzamento graduale dal tutore. Inizio ROM attivo-assistito e rinforzo dei muscoli scapolari.\nFase 3 (8-12 sett): Recupero della mobilità attiva in flessione ed elevazione, rinforzo progressivo della spalla.",
-                daily: "Nessun sollevamento di pesi o trazione con il braccio operato per almeno 2 mesi.",
-                rtp: "Ritorno a vita attiva, nuoto leggero e attività quotidiane senza restrizioni a 4-6 mesi." 
-            },
-            { 
-                id: 13, title: "Osteotomia Tibiale Mediale (Valgizzante)", district: "Coscia", severity: "Post-Op", 
-                surgery: "Osteotomia di apertura della tibia prossimale per correggere l'asse del ginocchio varo in pazienti con gonartrosi monocompartimentale.",
-                phases: "Fase 1 (0-6 sett): Carico protetto al 20-30% con stampelle. Tutore flesso-estensione e mobilizzazione precoce per prevenire rigidità.\nFase 2 (6-12 sett): Incremento graduale del carico fino al 100% (dopo controllo radiografico a 6-8 settimane). Rinforzo quadricipite.\nFase 3 (3-6 mesi): Recupero completo del tono muscolare, propriocettività e ripresa della deambulazione normale senza zoppia.",
-                daily: "Utilizzo delle stampelle obbligatorio fino a quando il chirurgo ortopedico conferma l'avvenuta guarigione ossea (callo osseo).",
-                rtp: "Ritorno a ciclismo, nuoto e camminate a 4 mesi. Attività sportive a medio impatto a 6 mesi." 
-            },
-            { 
-                id: 14, title: "Riparazione del Legamento Crociato Posteriore (LCP)", district: "Coscia", severity: "Post-Op", 
-                surgery: "Ricostruzione artroscopica del legamento crociato posteriore con innesto autologo o da donatore (tessuto da banco).",
-                phases: "Fase 1 (0-6 sett): Tutore bloccato in estensione. Carico nullo o minimo. Evitare assolutamente la gravità o contrazioni del quadricipite che spingono la tibia all'indietro (effetto cassetto posteriore).\nFase 2 (6-12 sett): Sblocco del tutore, recupero della flessione graduale (fino a 90° a 6 settimane, oltre a 10 settimane).\nFase 3 (3-6 mesi): Rinforzo mirato degli ischiocrurali (fondamentali protettori del LCP) e rieducazione neuromuscolare.",
-                daily: "Particolare attenzione nel sedersi e nel posizionare la gamba a letto per evitare lo spostamento posteriore della tibia.",
-                rtp: "Ritorno in campo e sport di contatto a 9-12 mesi, previa stabilità antero-posteriore strumentale." 
-            },
-            { 
-                id: 15, title: "Frattura del Piatto Tibiale (Osteosintesi con Placca)", district: "Coscia", severity: "Post-Op", 
-                surgery: "Riduzione cruenta e fissazione interna con placche e viti del piatto tibiale fratturato (con eventuale innesto osseo).",
-                phases: "Fase 1 (0-6 sett): Carico zero o sfiorante per consentire la guarigione della superficie articolare. Utilizzo di Kinetec per ROM passivo precoce.\nFase 2 (6-12 sett): Passaggio a carico parziale (50%) e poi incrementale in base ai controlli radiografici. Rinforzo in scarico.\nFase 3 (3-6 mesi): Carico completo, recupero della propriocezione e della forza muscolare globale dell'arto.",
-                daily: "Divieto assoluto di carico sull'arto operato per le prime 6 settimane per non scomporre la cartilagine articolare ricostruita.",
-                rtp: "Ritorno a sport a basso impatto a 6 mesi, sport di contatto a 9 mesi." 
-            },
-            { 
-                id: 16, title: "Intervento di Tenodesi del Capo Lungo del Bicipite", district: "Braccio", severity: "Post-Op", 
-                surgery: "Fissazione chirurgica del tendine del capo lungo del bicipite brachiale all'omero per tendinopatia severa o lesione SLAP.",
-                phases: "Fase 1 (0-3 sett): Tutore di braccio. Divieto assoluto di flessione attiva del gomito contro resistenza e supinazione forzata.\nFase 2 (3-6 sett): Svezzamento dal tutore. Inizio ROM attivo e passivo di gomito e spalla.\nFase 3 (6-12 sett): Rinforzo progressivo di bicipite e cuffia dei rotatori.",
-                daily: "Evitare di sollevare pesi con il braccio operato per le prime 6 settimane.",
-                rtp: "Ritorno a sport e attività lavorative pesanti a 3 mesi." 
-            },
-            { 
-                id: 17, title: "Protesi Totale di Gomito", district: "Braccio", severity: "Post-Op", 
-                surgery: "Sostituzione protesica dell'articolazione omero-ulnare in gravi forme artrosiche o fratture complesse dell'anziano.",
-                phases: "Fase 1 (0-3 sett): Tutore di posizionamento. Esercizi delicati di flesso-estensione assistita.\nFase 2 (3-6 sett): Rimozione del tutore nei momenti di riposo, recupero del ROM attivo e passivo.\nFase 3 (6-12 sett): Rinforzo muscolare leggero e stabilità articolare.",
-                daily: "Divieto assoluto di sollevare pesi superiori a 2 kg con il braccio operato per tutta la vita (o secondo indicazione chirurgica specifica).",
-                rtp: "Ritorno a vita quotidiana autonoma a 3 mesi. Esclusi sport di contatto o sollevamento pesi." 
-            },
-            { 
-                id: 18, title: "Frattura della Clavicola (Sintesi con Placca)", district: "Spalla", severity: "Post-Op", 
-                surgery: "Riduzione e osteosintesi rigida con placca e viti sagomate per fratture scomposte della clavicola.",
-                phases: "Fase 1 (0-3 sett): Tutore semplice di supporto. Mobilità passiva della spalla limitata a 90° di flessione. No abduzione oltre 60°.\nFase 2 (3-6 sett): Inizio ROM attivo-assistito, esercizi scapolari.\nFase 3 (6-12 sett): Recupero completo del ROM e rinforzo progressivo della spalla e del cingolo scapolare.",
-                daily: "Evitare di dormire sul lato operato per almeno 6 settimane.",
-                rtp: "Ritorno a sport di contatto e sollevamento pesi a 3 mesi dopo avvenuta guarigione ossea radiografica." 
-            },
-            { 
-                id: 19, title: "Artrodesi della Subtalare / Triplice Artrodesi", district: "Piede", severity: "Post-Op", 
-                surgery: "Fusione chirurgica delle articolazioni del retropiede (subtalare, talonavicolare e calcaneocuboidea) per artrosi grave o instabilità.",
-                phases: "Fase 1 (0-6 sett): Gesso o stivale rigido senza carico assoluto. Elevazione costante del piede per ridurre l'edema.\nFase 2 (6-12 sett): Passaggio a stivale rimovibile, inizio carico parziale progressivo e mobilizzazione delle dita.\nFase 3 (3-6 mesi): Carico completo con scarpa confortevole, plantare ortopedico e recupero della deambulazione.",
-                daily: "Utilizzo rigoroso delle stampelle senza appoggiare il piede per le prime 6 settimane.",
-                rtp: "Ritorno a camminate e attività a basso impatto a 4-6 mesi." 
-            },
-            { 
-                id: 20, title: "Intervento per Sindrome del Compartimento", district: "Gamba", severity: "Post-Op", 
-                surgery: "Fasciotomia d'urgenza dei compartimenti della gamba (anteriore, laterale, posteriore) per decompressione della pressione tissutale.",
-                phases: "Fase 1 (0-3 sett): Gestione della ferita chirurgica (spesso lasciata aperta o chiusa per seconda intenzione). Controllo edema e mobilizzazione dita.\nFase 2 (3-6 sett): Inizio del carico progressivo, ciclotrainer e recupero elastico del polpaccio e tibiale anteriore.\nFase 3 (6-12 sett): Riatletizzazione, recupero della forza e della resistenza muscolare.",
-                daily: "Cura quotidiana delle medicazioni e controllo della sensibilità cutanea della gamba.",
-                rtp: "Ritorno alla corsa e agli sport a 3-4 mesi." 
-            },
-            { 
-                id: 21, title: "Sostituzione Legamentosa della Diga (Caviglia)", district: "Piede", severity: "Post-Op", 
-                surgery: "Plastica legamentosa di Broström-Gould per instabilità cronica laterale di caviglia.",
-                phases: "Fase 1 (0-3 sett): Tutore rigido o gesso senza carico. Evitare assolutamente inversioni di caviglia.\nFase 2 (3-6 sett): Passaggio a tutorino bivalve, carico parziale e inizio ROM in flesso-estensione.\nFase 3 (6-12 sett): Carico completo, esercizi propriocettivi su tavoletta e rinforzo dei muscoli peronieri.",
-                daily: "Utilizzo del tutore protettivo durante gli spostamenti esterni per le prime 6 settimane.",
-                rtp: "Ritorno alla corsa e sport multidirezionali a 3-4 mesi." 
-            },
-            { 
-                id: 22, title: "Chirurgia per Alluce Valgo (Scarf / Chevron)", district: "Piede", severity: "Post-Op", 
-                surgery: "Osteotomie correttive del primo metatarso e della falange con fissazione a mezzo di viti.",
-                phases: "Fase 1 (0-4 sett): Utilizzo di scarpa post-operatoria con appoggio esclusivo sul tallone (scarico dell'avampiede).\nFase 2 (4-8 sett): Rimozione dei punti e passaggio a calzatura comoda a pianta larga. Mobilizzazione passiva dell'alluce.\nFase 3 (8-12 sett): Recupero della spinta dell'alluce e della flessibilità articolare metatarso-falangea.",
-                daily: "Divieto assoluto di appoggiare l'avampiede per il primo mese. Deambulazione con scarpa apposita con suola inclinata.",
-                rtp: "Ritorno a calzature normali e attività fisica leggera a 2-3 mesi." 
-            },
-            { 
-                id: 23, title: "Intervento per Neuroma di Morton", district: "Piede", severity: "Post-Op", 
-                surgery: "Neurectomia (asportazione del neuroma) del nervo interdigitale plantare.",
-                phases: "Fase 1 (0-2 sett): Medicazione compressiva e scarico dell'avampiede con scarpa post-op.\nFase 2 (2-6 sett): Rimozione punti, riduzione dell'edema e mobilizzazione delle dita.\nFase 3 (6-10 sett): Ripresa graduale dell'appoggio completo e utilizzo di plantari con scarico metatarsale.",
-                daily: "Indossare scarpe a punta larga ed evitare calzature strette o con tacco alto.",
-                rtp: "Ritorno a camminate e sport a 2 mesi." 
-            },
-            { 
-                id: 24, title: "Artrodesi dell'Alluce (Rigidità / Alluce Rigido)", district: "Piede", severity: "Post-Op", 
-                surgery: "Fusione chirurgica dell'articolazione metatarso-falangea dell'alluce con viti o placca.",
-                phases: "Fase 1 (0-6 sett): Scarico dell'avampiede con scarpa apposita o stivale rigido per garantire la fusione ossea.\nFase 2 (6-10 sett): Controllo radiografico, inizio del carico progressivo con scarpa a suola rigida.\nFase 3 (10-14 sett): Transizione a calzature normali con suola rigida ammortizzata.",
-                daily: "La rigidità dell'alluce è l'obiettivo chirurgico; il passo futuro avverrà sfruttando la rullata laterale del piede.",
-                rtp: "Ritorno a camminate e attività a 3 mesi." 
-            },
-            { 
-                id: 25, title: "Frattura del Calcagno (Sintesi con Placca)", district: "Piede", severity: "Grave", 
-                surgery: "Riduzione aperta e fissazione interna con placca dedicata per fratture articolari scomposte del calcagno.",
-                phases: "Fase 1 (0-6 sett): Carico zero assoluto. Elevazione costante per controllare il grave edema del retropiede.\nFase 2 (6-12 sett): Inizio carico parziale protetto (25-50%) e mobilità dolce di caviglia.\nFase 3 (3-6 mesi): Carico completo, rinforzo muscolare della gamba e rieducazione propriocettiva.",
-                daily: "Gestione rigorosa dell'assenza di carico per evitare cedimenti della superficie articolare della subtalare.",
-                rtp: "Ritorno a lavori pesanti o sport a 6-9 mesi." 
-            },
-            { 
-                id: 26, title: "Intervento di Decompressione Spinale (Laminectomia)", district: "Lombare", severity: "Grave", 
-                surgery: "Asportazione di lamine vertebrali e legamento giallo per stenosi del canale lombare.",
-                phases: "Fase 1 (0-3 sett): Deambulazione precoce in autonomia. Evitare flessioni e rotazioni della colonna.\nFase 2 (3-6 sett): Esercizi di core stability in scarico e camminate su terreno piano.\nFase 3 (6-12 sett): Rinforzo globale e ripresa dell'autonomia funzionale.",
-                daily: "Non sollevare pesi superiori a 3-5 kg per i primi 2 mesi.",
-                rtp: "Ritorno ad attività quotidiane e camminate a 2 mesi." 
-            },
-            { 
-                id: 27, title: "Stabilizzazione Odontoidea / C1-C2 (Collo)", district: "Cervicale", severity: "Grave", 
-                surgery: "Artrodesi posteriore C1-C2 o fissazione per instabilità atlanto-assiale.",
-                phases: "Fase 1 (0-6 sett): Utilizzo di collare rigido o Minerva in base alle indicazioni del chirurgo. Carico e mobilità protetti.\nFase 2 (6-12 sett): Svezzamento graduale dal collare (se approvato), esercizi isometrici cervicali molto leggeri.\nFase 3 (3-6 mesi): Recupero della stabilità e della propriocezione cervicale.",
-                daily: "Divieto assoluto di guidare con il collare rigido. Attenzione ai movimenti bruschi della testa.",
-                rtp: "Ritorno ad attività lavorative a 3 mesi, no sport di contatto." 
-            },
-            { 
-                id: 28, title: "Artroplastica Discoidale Cervicale", district: "Cervicale", severity: "Moderata", 
-                surgery: "Discectomia cervicale con inserimento di protesi discale mobile per ernia o discopatia.",
-                phases: "Fase 1 (0-2 sett): Collare morbido di supporto opzionale. Mobilizzazione attiva dolce del collo.\nFase 2 (2-6 sett): Sospensione del collare, esercizi di mobilità e posture correttive.\nFase 3 (6-12 sett): Rinforzo muscolare della muscolatura cervicale e scapolare.",
-                daily: "Correzione ergonomica della postazione di lavoro al computer.",
-                rtp: "Ritorno alle attività a 6-8 settimane." 
-            },
-            { 
-                id: 29, title: "Sostituzione Protesica Totale di Polso", district: "Avambraccio", severity: "Post-Op", 
-                surgery: "Impianto di protesi totale di polso in forme gravi di artrite reumatoide o artrosi post-traumatica.",
-                phases: "Fase 1 (0-4 sett): Tutore di polso. Mobilità attiva delle dita e flesso-estensione passiva controllata.\nFase 2 (4-8 sett): Rimozione del tutore protettivo, inizio ROM attivo del polso.\nFase 3 (8-12 sett): Rinforzo leggero della presa e ripresa delle attività quotidiane.",
-                daily: "Divieto di sollevare pesi superiori a 1-2 kg con la mano operata.",
-                rtp: "Ritorno a vita quotidiana autonoma a 3 mesi." 
-            },
-            { 
-                id: 30, title: "Intervento di Rimodellamento Acetabolare (FAI)", district: "Anca", severity: "Grave", 
-                surgery: "Artroscopia d'anca per correzione della deformità Cam/Pincer e sutura/riparazione del labbro acetabolare.",
-                phases: "Fase 1 (0-3 sett): Carico parziale con stampelle (20-30%). Limitazione della flessione d'anca a 90° e rotazione esterna.\nFase 2 (3-6 sett): Abbandono delle stampelle, recupero del ROM completo e rinforzo degli abduttori.\nFase 3 (6-12 sett): Rinforzo muscolare avanzato, cyclette e ripresa della corsa leggera.",
-                daily: "Evitare posizioni sedute basse o incrociare le gambe per le prime 4 settimane.",
-                rtp: "Ritorno alla corsa a 3 mesi e sport di contatto a 4-5 mesi." 
-            },
-            { 
-                id: 31, title: "Sintesi Frattura Omero Prossimale (Placca)", district: "Spalla", severity: "Grave", 
-                surgery: "Riduzione e osteosintesi con placca bloccata per fratture della testa omerale.",
-                phases: "Fase 1 (0-3 sett): Tutore di braccio. Esercizi pendolari di Codman e mobilità passiva della spalla.\nFase 2 (3-6 sett): Inizio ROM attivo-assistito ed esercizi di rinforzo isometrico.\nFase 3 (6-12 sett): Recupero del ROM attivo completo e rinforzo della cuffia dei rotatori.",
-                daily: "Non caricare alcun peso sul braccio per le prime 6 settimane.",
-                rtp: "Ritorno a sport leggeri a 4 mesi." 
-            },
-            { 
-                id: 32, title: "Ricostruzione Legamentosa Ginocchio Multilegamento", district: "Coscia", severity: "Grave", 
-                surgery: "Chirurgia complessa per ricostruzione simultanea di LCA, LCP e legamenti collaterali.",
-                phases: "Fase 1 (0-6 sett): Tutore bloccato, carico zero. Flessione controllata secondo rigidi protocolli chirurgici.\nFase 2 (6-12 sett): Svezzamento graduale, carico parziale e recupero della flessione oltre 90°.\nFase 3 (3-6 mesi): Carico completo, rinforzo muscolare globale e propriocezione.",
-                daily: "Massima cautela e rispetto dei tempi di guarigione legamentosa multipla.",
-                rtp: "Ritorno in campo a 12 mesi." 
-            },
-            { 
-                id: 33, title: "Intervento per Tenosinovite di De Quervain", district: "Mano", severity: "Post-Op", 
-                surgery: "Decompressione chirurgica del primo compartimento estensore del polso.",
-                phases: "Fase 1 (0-2 sett): Medicazione protettiva e tutore pollice-polso.\nFase 2 (2-4 sett): Rimozione punti, inizio ROM attivo del pollice e massaggio cicatrice.\nFase 3 (4-8 sett): Rinforzo della pinza e ripresa delle attività manuali.",
-                daily: "Evitare sforzi di presa a pinza forzata per un mese.",
-                rtp: "Ritorno a sport e lavori a 6 settimane." 
-            },
-            { 
-                id: 34, title: "Intervento di Trasferimento Tendineo (Spalla / Mano)", district: "Spalla", severity: "Grave", 
-                surgery: "Trasferimento del gran dorsale o del pettorale maggiore per lesioni irreparabili della cuffia dei rotatori.",
-                phases: "Fase 1 (0-6 sett): Tutore in abduzione. Solo mobilità passiva protetta.\nFase 2 (6-12 sett): Inizio educazione neuromuscolare del tendine trasferito.\nFase 3 (3-6 mesi): Rinforzo progressivo e integrazione funzionale.",
-                daily: "Richiede alta concentrazione del paziente nel rieducare il muscolo trasferito alla nuova funzione.",
-                rtp: "Ritorno a vita attiva a 6 mesi." 
-            },
-            { 
-                id: 35, title: "Sintesi Frattura Sovracondiloidea del Femore", district: "Coscia", severity: "Grave", 
-                surgery: "Osteosintesi con chiodo endomidollare o placca retrograda per frattura distale del femore.",
-                phases: "Fase 1 (0-6 sett): Carico parziale protetto, mobilizzazione precoce del ginocchio.\nFase 2 (6-12 sett): Incremento del carico al 100%, rinforzo del quadricipite.\nFase 3 (3-6 mesi): Recupero completo della forza e della deambulazione.",
-                daily: "Utilizzo stampelle fino a consolidamento osseo.",
-                rtp: "Ritorno a sport a 6 mesi." 
-            },
-            { 
-                id: 36, title: "Artrodesi della Caviglia (Tibio-Tarsica)", district: "Gamba", severity: "Grave", 
+                id: 1, title: "Artrodesi della Caviglia (Tibio-Tarsica)", district: "Gamba", severity: "Post-Op", 
                 surgery: "Fusione chirurgica dell'articolazione della caviglia per artrosi severa.",
                 phases: "Fase 1 (0-6 sett): Gesso o stivale senza carico.\nFase 2 (6-12 sett): Carico parziale in stivale rigido, mobilità delle dita.\nFase 3 (3-12 mesi): Carico completo con scarpa ammortizzata e adattamento del passo.",
                 daily: "Il movimento di flesso-estensione della caviglia sarà azzerato; il passo sfrutterà le articolazioni del piede.",
                 rtp: "Ritorno a camminate a 4-6 mesi." 
             },
             { 
-                id: 37, title: "Intervento per Sindrome dello Stretto Toracico", district: "Torace", severity: "Moderata", 
-                surgery: "Resezione della prima costa o scalenectomia per decompressione vascol nervoso.",
-                phases: "Fase 1 (0-3 sett): Riposo, controllo dolore e respirazione diaframmatica.\nFase 2 (3-6 sett): Stretching dei muscoli scaleni e pettorali, postura.\nFase 3 (6-12 sett): Rinforzo del cingolo scapolare e ritorno alle attività.",
-                daily: "Correzione della postura delle spalle in chiusura.",
-                rtp: "Ritorno a sport a 3 mesi." 
+                id: 2, title: "Artrodesi della Subtalare / Triplice Artrodesi", district: "Piede", severity: "Post-Op", 
+                surgery: "Fusione chirurgica delle articolazioni del retropiede (subtalare, talonavicolare e calcaneocuboidea) per artrosi grave o instabilità.",
+                phases: "Fase 1 (0-6 sett): Gesso o stivale rigido senza carico assoluto. Elevazione costante del piede per ridurre l'edema.\nFase 2 (6-12 sett): Passaggio a stivale rimovibile, inizio carico parziale progressivo e mobilizzazione delle dita.\nFase 3 (3-6 mesi): Carico completo con scarpa confortevole, plantare ortopedico e recupero della deambulazione.",
+                daily: "Utilizzo rigoroso delle stampelle senza appoggiare il piede per le prime 6 settimane.",
+                rtp: "Ritorno a camminate e attività a basso impatto a 4-6 mesi." 
             },
             { 
-                id: 38, title: "Sintesi Frattura Diafisaria di Tibia", district: "Gamba", severity: "Grave", 
-                surgery: "Inchiodamento endomidollare bloccato per frattura della diafisi tibiale.",
-                phases: "Fase 1 (0-4 sett): Carico parziale immediato tollerato, mobilità caviglia e ginocchio.\nFase 2 (4-8 sett): Carico completo progressivo, rinforzo muscolare.\nFase 3 (2-4 mesi): Riatletizzazione e ripresa della corsa.",
-                daily: "Deambulazione con un bastone fino a sicurezza.",
-                rtp: "Ritorno a sport a 5-6 mesi." 
+                id: 3, title: "Artrodesi Lombare (Stabilizzazione Vertebrale)", district: "Lombare", severity: "Post-Op", 
+                surgery: "Fissazione chirurgica e fusione di due o più vertebre lombari mediante viti peduncolari e cage somatica intersomatica.",
+                phases: "Fase 1 (0-6 sett): Deambulazione protetta (eventuale corsetto ortopedico se prescritto). Divieto assoluto di torsioni e flessioni del tronco.\nFase 2 (6-12 sett): Inizio di esercizi isometrici di stabilizzazione in scarico, camminate all'aperto su terreno piano.\nFase 3 (3-6 mesi): Progressione del rinforzo muscolare globale, recupero della flessibilità di anche e arti inferiori.",
+                daily: "Vietato guidare per le prime 6-8 settimane. Utilizzare tecniche corrette per raccogliere oggetti (piegare le ginocchia, non la schiena).",
+                rtp: "Ritorno ad attività lavorative leggere a 2 mesi, lavori pesanti o sport a 6-9 mesi dopo conferma radiografica di avvenuta fusione ossea." 
             },
             { 
-                id: 39, title: "Intervento di Asportazione Cisti di Baker", district: "Coscia", severity: "Lieve", 
-                surgery: "Exeresi chirurgica della ciste poplitea e trattamento della patologia intra-articolare associata.",
-                phases: "Fase 1 (0-2 sett): Controllo edema, recupero estensione completa.\nFase 2 (2-4 sett): Inizio flessione completa e rinforzo quadricipite.\nFase 3 (4-6 sett): Ripresa completa delle attività.",
-                daily: "Ghiaccio locale e compressione.",
-                rtp: "Ritorno a sport a 6 settimane." 
-            },
-            { 
-                id: 40, title: "Artrodesi Trapezio-Metacarpale (Rizoartrosi)", district: "Mano", severity: "Cronica", 
+                id: 4, title: "Artrodesi Trapezio-Metacarpale (Rizoartrosi)", district: "Mano", severity: "Post-Op", 
                 surgery: "Fusione dell'articolazione alla base del pollice per artrosi dolorosa.",
-                phases: "Fase 1 (0-4 sett): Tutore gessato o termoplastico rigido per il pollice.\nFase 2 (4-8 sett): Rimozione gesso, inizio mobilità delle dita e polso.\nFase 3 (2-3 mesi): Rinforzo della presa e della pinza.",
-                daily: "Evitare di fare forza con il pollice per 2 mesi.",
-                rtp: "Ritorno a attività a 3 mesi." 
+                phases: "Fase 1 (0-6 sett): Scarico dell'avampiede con scarpa apposita o stivale rigido per garantire la fusione ossea.\nFase 2 (6-10 sett): Controllo radiografico, inizio del carico progressivo con scarpa a suola rigida.\nFase 3 (10-14 sett): Transizione a calzature normali con suola rigida ammortizzata.",
+                daily: "La rigidità dell'alluce è l'obiettivo chirurgico; il passo futuro avverrà sfruttando la rullata laterale del piede.",
+                rtp: "Ritorno a camminate e attività a 3 mesi." 
             },
             { 
-                id: 41, title: "Sintesi Frattura del V Metatarso (Jones)", district: "Piede", severity: "Grave", 
-                surgery: "Fissazione intramidollare con vite per frattura diafisaria prossimale del V metatarso.",
-                phases: "Fase 1 (0-4 sett): Scarico con stampelle e stivale rigido.\nFase 2 (4-8 sett): Carico parziale progressivo, magnetoterapia.\nFase 3 (2-3 mesi): Carico completo e ripresa graduale della corsa.",
-                daily: "Attenzione a non appoggiare il bordo esterno del piede.",
-                rtp: "Ritorno in campo a 3 mesi." 
+                id: 5, title: "Artroplastica Discoidale Cervicale", district: "Cervicale", severity: "Moderata", 
+                surgery: "Discectomia cervicale con inserimento di protesi discale mobile per ernia o discopatia.",
+                phases: "Fase 1 (0-2 sett): Collare morbido di supporto opzionale. Mobilizzazione attiva dolce del collo.\nFase 2 (2-6 sett): Sospensione del collare, esercizi di mobilità e posture correttive.\nFase 3 (6-12 sett): Rinforzo muscolare della muscolatura cervicale e scapolare.",
+                daily: "Correzione ergonomica della postazione di lavoro al computer.",
+                rtp: "Ritorno alle attività a 6-8 settimane." 
             },
             { 
-                id: 42, title: "Chirurgia per Sindrome del Tunnel Cubitale", district: "Braccio", severity: "Moderata", 
-                surgery: "Decompressione o trasposizione sottocutanea del nervo ulnare al gomito.",
-                phases: "Fase 1 (0-2 sett): Tutore flesso del gomito.\nFase 2 (2-6 sett): Rimozione punti, scivolamenti neurali ulnari e ROM.\nFase 3 (6-10 sett): Rinforzo e ritorno alle attività.",
-                daily: "Evitare di appoggiare il gomito su superfici rigide.",
-                rtp: "Ritorno a sport e lavori a 2 mesi." 
-            },
-            { 
-                id: 43, title: "Intervento di Capsulotomia per Spalla Congelata", district: "Spalla", severity: "Grave", 
-                surgery: "Liberazione artroscopica della capsula articolare retratta.",
-                phases: "Fase 1 (0-2 sett): ROM passivo immediato e continuo per mantenere il guadagno chirurgico.\nFase 2 (2-6 sett): Esercizi di allungamento costante e rinforzo attivo.\nFase 3 (6-12 mesi): Recupero completo della forza e della funzione.",
-                daily: "Esercizi di stretching domiciliari ripetuti più volte al giorno.",
-                rtp: "Ritorno a sport a 3 mesi." 
-            },
-            { 
-                id: 44, title: "Sintesi Frattura del radio distale (Fissatore)", district: "Avambraccio", severity: "Grave", 
-                surgery: "Applicazione di fissatore esterno per fratture esposte o complesse del polso.",
-                phases: "Fase 1 (0-4 sett): Medicazione quotidiana dei fori dei fili di Kirschner, mobilità dita.\nFase 2 (4-6 sett): Rimozione del fissatore e inizio rieducazione funzionale del polso.\nFase 3 (6-12 sett): Rinforzo progressivo.",
-                daily: "Pulizia meticolosa dei pin cutanei con disinfettante per prevenire infezioni.",
-                rtp: "Ritorno a sport a 3-4 mesi." 
-            },
-            { 
-                id: 45, title: "Artroplastica di Resezione del Trapezio", district: "Mano", severity: "Cronica", 
+                id: 6, title: "Artroplastica di Resezione del Trapezio", district: "Mano", severity: "Cronica", 
                 surgery: "Asportazione dell'osso trapezio con interposizione tendinea (Epping) per rizoartrosi.",
                 phases: "Fase 1 (0-3 sett): Tutore rigido per pollice.\nFase 2 (3-6 sett): Inizio mobilizzazione attiva e controllo della cicatrice.\nFase 3 (6-12 sett): Rinforzo della presa e della pinza.",
                 daily: "Evitare prese di forza per le prime 6 settimane.",
                 rtp: "Ritorno ad attività a 3 mesi." 
             },
             { 
-                id: 46, title: "Sintesi Frattura del Collo del Femore (Viti)", district: "Anca", severity: "Grave", 
-                surgery: "Osteosintesi con tre viti cannulate parallele per frattura mediale del collo femorale in giovane o anziano selezionato.",
-                phases: "Fase 1 (0-4 sett): Carico parziale o sfiorante in base alla stabilità della sintesi.\nFase 2 (4-8 sett): Incremento del carico al 100% dopo controllo radiografico.\nFase 3 (2-3 mesi): Recupero muscolare globale.",
-                daily: "Utilizzo di ausili per la deambulazione nelle prime settimane.",
-                rtp: "Ritorno a camminate a 3 mesi." 
+                id: 7, title: "Chirurgia per Alluce Valgo (Scarf / Chevron)", district: "Piede", severity: "Post-Op", 
+                surgery: "Osteotomie correttive del primo metatarso e della falange con fissazione a mezzo di viti.",
+                phases: "Fase 1 (0-4 sett): Utilizzo di scarpa post-operatoria con appoggio esclusivo sul tallone (scarico dell'avampiede).\nFase 2 (4-8 sett): Rimozione dei punti e passaggio a calzatura comoda a pianta larga. Mobilizzazione passiva dell'alluce.\nFase 3 (8-12 sett): Recupero della spinta dell'alluce e della flessibilità articolare metatarso-falangea.",
+                daily: "Divieto assoluto di appoggiare l'avampiede per il primo mese. Deambulazione con scarpa apposita con suola inclinata.",
+                rtp: "Ritorno a calzature normali e attività fisica leggera a 2-3 mesi." 
             },
             { 
-                id: 47, title: "Intervento di Tenotomia degli Adduttori", district: "Anca", severity: "Moderata", 
+                id: 8, title: "Chirurgia per Sindrome del Tunnel Cubitale", district: "Braccio", severity: "Moderata", 
+                surgery: "Decompressione o trasposizione sottocutanea del nervo ulnare al gomito.",
+                phases: "Fase 1 (0-2 sett): Tutore flesso del gomito.\nFase 2 (2-6 sett): Rimozione punti, scivolamenti neurali ulnari e ROM.\nFase 3 (6-10 sett): Rinforzo e ritorno alle attività.",
+                daily: "Evitare di appoggiare il gomito su superfici rigide.",
+                rtp: "Ritorno a sport e lavori a 2 mesi." 
+            },
+            { 
+                id: 9, title: "Discectomia Lombare (Ernia del Disco)", district: "Lombare", severity: "Post-Op", 
+                surgery: "Microdiscectomia mininvasiva per la rimozione del frammento erniato e decompressione della radice nervosa.",
+                phases: "Fase 1 (0-2 sett): Riposo funzionale, deambulazione controllata. Divieto assoluto di flessione della colonna e di sollevare pesi > 2 kg.\nFase 2 (2-6 sett): Inizio della chinesiterapia dolce, esercizi di core stability profonda (trasverso dell'addome) e camminate in piano crescenti.\nFase 3 (6-12 sett): Rinforzo globale della catena posteriore, educazione posturale ed ergonomia lavorativa.",
+                daily: "Non sedersi per più di 30 minuti consecutivi nelle prime 3 settimane. Mantenere sempre la schiena dritta nell'alzarsi.",
+                rtp: "Ritorno all'attività lavorativa sedentaria a 3-4 settimane, lavori pesanti o sport a 3 mesi con gradualità." 
+            },
+            { 
+                id: 10, title: "Frattura della Clavicola (Sintesi con Placca)", district: "Spalla", severity: "Grave", 
+                surgery: "Riduzione e osteosintesi rigida con placca e viti sagomate per fratture scomposte della clavicola.",
+                phases: "Fase 1 (0-3 sett): Tutore semplice di supporto. Mobilità passiva della spalla limitata a 90° di flessione. No abduzione oltre 60°.\nFase 2 (3-6 sett): Inizio ROM attivo-assistito, esercizi scapolari.\nFase 3 (6-12 sett): Recupero completo del ROM e rinforzo progressivo della spalla e del cingolo scapolare.",
+                daily: "Evitare di dormire sul lato operato per almeno 6 settimane.",
+                rtp: "Ritorno a sport di contatto e sollevamento pesi a 3 mesi dopo avvenuta guarigione ossea radiografica." 
+            },
+            { 
+                id: 11, title: "Frattura del Calcagno (Sintesi con Placca)", district: "Piede", severity: "Grave", 
+                surgery: "Riduzione aperta e fissazione interna con placca dedicata per fratture articolari scomposte del calcagno.",
+                phases: "Fase 1 (0-6 sett): Carico zero assoluto. Elevazione costante per controllare il grave edema del retropiede.\nFase 2 (6-12 sett): Inizio carico parziale protetto (25-50%) e mobilità dolce di caviglia.\nFase 3 (3-6 mesi): Carico completo, rinforzo muscolare della gamba e rieducazione propriocettiva.",
+                daily: "Gestione rigorosa dell'assenza di carico per evitare cedimenti della superficie articolare della subtalare.",
+                rtp: "Ritorno a lavori pesanti o sport a 6-9 mesi." 
+            },
+            { 
+                id: 12, title: "Frattura del Piatto Tibiale (Osteosintesi con Placca)", district: "Coscia", severity: "Grave", 
+                surgery: "Riduzione cruenta e fissazione interna con placche e viti del piatto tibiale fratturato (con eventuale innesto osseo).",
+                phases: "Fase 1 (0-6 sett): Carico zero o sfiorante per consentire la guarigione della superficie articolare. Utilizzo di Kinetec per ROM passivo precoce.\nFase 2 (6-12 sett): Passaggio a carico parziale (50%) e poi incrementale in base ai controlli radiografici. Rinforzo in scarico.\nFase 3 (3-6 mesi): Carico completo, recupero della propriocezione e della forza muscolare globale dell'arto.",
+                daily: "Divieto assoluto di carico sull'arto operato per le prime 6 settimane per non scomporre la cartilagine articolare ricostruita.",
+                rtp: "Ritorno a sport a basso impatto a 6 mesi, sport di contatto a 9 mesi." 
+            },
+            { 
+                id: 13, title: "Frattura del V Metatarso (Jones)", district: "Piede", severity: "Grave", 
+                surgery: "Fissazione intramidollare con vite per frattura diafisaria prossimale del V metatarso.",
+                phases: "Fase 1 (0-4 sett): Scarico con stampelle e stivale rigido.\nFase 2 (4-8 sett): Carico parziale progressivo, magnetoterapia.\nFase 3 (2-3 mesi): Carico completo e ripresa graduale della corsa.",
+                daily: "Attenzione a non appoggiare il bordo esterno del piede.",
+                rtp: "Ritorno in campo a 3 mesi." 
+            },
+            { 
+                id: 14, title: "Frattura di Polso (Sintesi con Placca Volare)", district: "Avambraccio", severity: "Post-Op", 
+                surgery: "Riduzione aperta e fissazione interna della frattura distale del radio mediante placca e viti bloccate volari.",
+                phases: "Fase 1 (0-2 sett): Controllo dell'edema della mano e delle dita. Mobilizzazione attiva immediata delle dita per evitare aderenze tendinee.\nFase 2 (2-6 sett): Rimozione dei punti. Inizio ROM attivo e passivo di flesso-estensione e prono-supinazione del polso.\nFase 3 (6-12 sett): Rinforzo progressivo della presa con palline e manubri leggeri, recupero della forza funzionale.",
+                daily: "Tenere la mano sollevata sopra il livello del cuore nei primi giorni per ridurre il gonfiore. Evitare sollevamento pesi.",
+                rtp: "Ritorno a sport e lavori manuali pesanti a 3 mesi, subordinato al consolidamento osseo radiografico." 
+            },
+            { 
+                id: 15, title: "Intervento di Asportazione Cisti di Baker", district: "Coscia", severity: "Lieve", 
+                surgery: "Exeresi chirurgica della ciste poplitea e trattamento della patologia intra-articolare associata.",
+                phases: "Fase 1 (0-2 sett): Controllo edema, recupero estensione completa.\nFase 2 (2-4 sett): Inizio flessione completa e rinforzo quadricipite.\nFase 3 (4-6 sett): Ripresa completa delle attività.",
+                daily: "Ghiaccio locale e compressione.",
+                rtp: "Ritorno a sport a 6 settimane." 
+            },
+            { 
+                id: 16, title: "Intervento di Capsulotomia per Spalla Congelata", district: "Spalla", severity: "Grave", 
+                surgery: "Liberazione artroscopica della capsula articolare retratta.",
+                phases: "Fase 1 (0-2 sett): ROM passivo immediato e continuo per mantenere il guadagno chirurgico.\nFase 2 (2-6 sett): Esercizi di allungamento costante e rinforzo attivo.\nFase 3 (6-12 mesi): Recupero completo della forza e della funzione.",
+                daily: "Esercizi di stretching domiciliari ripetuti più volte al giorno.",
+                rtp: "Ritorno a sport a 3 mesi." 
+            },
+            { 
+                id: 17, title: "Intervento di Decompressione Spinale (Laminectomia)", district: "Lombare", severity: "Grave", 
+                surgery: "Asportazione di lamine vertebrali e legamento giallo per stenosi del canale lombare.",
+                phases: "Fase 1 (0-3 sett): Deambulazione precoce in autonomia. Evitare flessioni e rotazioni della colonna.\nFase 2 (3-6 sett): Esercizi di core stability in scarico e camminate su terreno piano.\nFase 3 (6-12 sett): Rinforzo globale e ripresa dell'autonomia funzionale.",
+                daily: "Non sollevare pesi superiori a 3-5 kg per i primi 2 mesi.",
+                rtp: "Ritorno ad attività quotidiane e camminate a 2 mesi." 
+            },
+            { 
+                id: 18, title: "Intervento di Decompressione del Tunnel Tarsale", district: "Piede", severity: "Moderata", 
+                surgery: "Rilascio del retinacolo dei flessori al retropiede per sindrome compressiva del nervo tibiale posteriore.",
+                phases: "Fase 1 (0-2 sett): Medicazione protettiva, scarico parziale.\nFase 2 (2-6 sett): Rimozione punti, scivolamenti neurali tibiali e ripresa del carico.\nFase 3 (6-10 sett): Plantari di scarico e ritorno all'attività.",
+                daily: "Cura della cicatrice mediale alla caviglia.",
+                rtp: "Ritorno a sport a 2 mesi." 
+            },
+            { 
+                id: 19, title: "Intervento di Decompressione del Tunnel Carpale", district: "Mano", severity: "Post-Op", 
+                surgery: "Rilascio chirurgico a cielo aperto o endoscopico del legamento trasverso del carpo per decomprimere il nervo mediano.",
+                phases: "Fase 1 (0-2 sett): Medicazione protettiva. Mobilizzazione precoce delle dita e del polso per prevenire aderenze cicatriziali.\nFase 2 (2-4 sett): Rimozione dei punti di sutura. Inizio massaggio della cicatrice con creme emollienti e scivolamenti neurali del mediano.\nFase 3 (4-8 sett): Rinforzo progressivo della presa della mano e ripresa delle attività manuali complete.",
+                daily: "Evitare di appoggiare il peso sul palmo della mano operata o sollevare pesi superiori a 2-3 kg per il primo mese.",
+                rtp: "Ritorno a sport e lavori pesanti a 6-8 settimane, non appena scompare la dolorabilità locale alla pressione sulla cicatrice." 
+            },
+            { 
+                id: 20, title: "Intervento di Rimodellamento Acetabolare (FAI)", district: "Anca", severity: "Grave", 
+                surgery: "Artroscopia d'anca per correzione della deformità Cam/Pincer e sutura/riparazione del labbro acetabolare.",
+                phases: "Fase 1 (0-3 sett): Carico parziale con stampelle (20-30%). Limitazione della flessione d'anca a 90° e rotazione esterna.\nFase 2 (3-6 sett): Abbandono delle stampelle, recupero del ROM completo e rinforzo degli abduttori.\nFase 3 (6-12 sett): Rinforzo muscolare avanzato, cyclette e ripresa della corsa leggera.",
+                daily: "Evitare posizioni sedute basse o incrociare le gambe per le prime 4 settimane.",
+                rtp: "Ritorno alla corsa a 3 mesi e sport di contatto a 4-5 mesi." 
+            },
+            { 
+                id: 21, title: "Intervento di Tenodesi del Capo Lungo del Bicipite", district: "Braccio", severity: "Post-Op", 
+                surgery: "Fissazione chirurgica del tendine del capo lungo del bicipite brachiale all'omero per tendinopatia severa o lesione SLAP.",
+                phases: "Fase 1 (0-3 sett): Tutore di braccio. Divieto assoluto di flessione attiva del gomito contro resistenza e supinazione forzata.\nFase 2 (3-6 sett): Svezzamento dal tutore. Inizio ROM attivo e passivo di gomito e spalla.\nFase 3 (6-12 sett): Rinforzo progressivo di bicipite e cuffia dei rotatori.",
+                daily: "Evitare di sollevare pesi con il braccio operato per le prime 6 settimane.",
+                rtp: "Ritorno a sport e attività lavorative pesanti a 3 mesi." 
+            },
+            { 
+                id: 22, title: "Intervento di Tenotomia degli Adduttori", district: "Anca", severity: "Moderata", 
                 surgery: "Rilascio chirurgico dei tendini adduttori per pubalgia cronica ribattezzata.",
                 phases: "Fase 1 (0-2 sett): Deambulazione con stampelle, esercizi di attivazione isometrica.\nFase 2 (2-6 sett): Stretching controllato e rinforzo concentrico/eccentrico progressivo.\nFase 3 (6-10 sett): Riatletizzazione e ripresa della corsa.",
                 daily: "Evitare movimenti di apertura forzata delle cosce all'inizio.",
                 rtp: "Ritorno in campo a 2-3 mesi." 
             },
             { 
-                id: 48, title: "Sintesi Frattura Astragalus / Calcagno", district: "Piede", severity: "Grave", 
-                surgery: "Riduzione cruenta e sintesi con viti per fratture del corpo o collo dell'astragalo.",
-                phases: "Fase 1 (0-6 sett): Carico zero assoluto in gesso o stivale.\nFase 2 (6-12 sett): Carico parziale protetto, mobilizzazione di caviglia.\nFase 3 (3-6 mesi): Carico completo e propriocezione.",
-                daily: "Rischio elevato di necrosi; rispetto rigoroso dello scarico.",
-                rtp: "Ritorno a sport a 6-9 mesi." 
+                id: 23, title: "Intervento di Trasferimento Tendineo (Spalla / Mano)", district: "Spalla", severity: "Grave", 
+                surgery: "Trasferimento del gran dorsale o del pettorale maggiore per lesioni irreparabili della cuffia dei rotatori.",
+                phases: "Fase 1 (0-6 sett): Tutore in abduzione. Solo mobilità passiva protetta.\nFase 2 (6-12 sett): Inizio educazione neuromuscolare del tendine trasferito.\nFase 3 (3-6 mesi): Rinforzo progressivo e integrazione funzionale.",
+                daily: "Richiede alta concentrazione del paziente nel rieducare il muscolo trasferito alla nuova funzione.",
+                rtp: "Ritorno a vita attiva a 6 mesi." 
             },
             { 
-                id: 49, title: "Riparazione Lesione SLAP di Spalla", district: "Spalla", severity: "Grave", 
+                id: 24, title: "Intervento per Neuroma di Morton", district: "Piede", severity: "Post-Op", 
+                surgery: "Neurectomia (asportazione del neuroma) del nervo interdigitale plantare.",
+                phases: "Fase 1 (0-2 sett): Medicazione compressiva e scarico dell'avampiede con scarpa post-op.\nFase 2 (2-6 sett): Rimozione punti, riduzione dell'edema e mobilizzazione delle dita.\nFase 3 (6-10 sett): Ripresa graduale dell'appoggio completo e utilizzo di plantari con scarico metatarsale.",
+                daily: "Indossare scarpe a punta larga ed evitare calzature strette o con tacco alto.",
+                rtp: "Ritorno a camminate e sport a 2 mesi." 
+            },
+            { 
+                id: 25, title: "Intervento per Sindrome dello Stretto Toracico", district: "Torace", severity: "Moderata", 
+                surgery: "Resezione della prima costa o scalenectomia per decompressione vascol nervoso.",
+                phases: "Fase 1 (0-3 sett): Riposo, controllo dolore e respirazione diaframmatica.\nFase 2 (3-6 sett): Stretching dei muscoli scaleni e pettorali, postura.\nFase 3 (6-12 sett): Rinforzo del cingolo scapolare e ritorno alle attività.",
+                daily: "Correzione della postura delle spalle in chiusura.",
+                rtp: "Ritorno a sport a 3 mesi." 
+            },
+            { 
+                id: 26, title: "Intervento per Sindrome dello Stretto Toracico (Cubitale)", district: "Braccio", severity: "Moderata", 
+                surgery: "Decompressione o trasposizione sottocutanea del nervo ulnare al gomito.",
+                phases: "Fase 1 (0-2 sett): Tutore flesso del gomito.\nFase 2 (2-6 sett): Rimozione punti, scivolamenti neurali ulnari e ROM.\nFase 3 (6-10 sett): Rinforzo e ritorno alle attività.",
+                daily: "Evitare di appoggiare il gomito su superfici rigide.",
+                rtp: "Ritorno a sport e lavori a 2 mesi." 
+            },
+            { 
+                id: 27, title: "Intervento per Sindrome dello Stretto Toracico (De Quervain)", district: "Mano", severity: "Post-Op", 
+                surgery: "Decompressione chirurgica del primo compartimento estensore del polso.",
+                phases: "Fase 1 (0-2 sett): Medicazione protettiva e tutore pollice-polso.\nFase 2 (2-4 sett): Rimozione punti, inizio ROM attivo del pollice e massaggio cicatrice.\nFase 3 (4-8 sett): Rinforzo della pinza e ripresa delle attività manuali.",
+                daily: "Evitare sforzi di presa a pinza forzata per un mese.",
+                rtp: "Ritorno a sport e lavori a 6 settimane." 
+            },
+            { 
+                id: 28, title: "Intervento per Sindrome dello Stretto Toracico (Compartimento)", district: "Gamba", severity: "Post-Op", 
+                surgery: "Fasciotomia d'urgenza dei compartimenti della gamba (anteriore, laterale, posteriore) per decompressione della pressione tissutale.",
+                phases: "Fase 1 (0-3 sett): Gestione della ferita chirurgica (spesso lasciata aperta o chiusa per seconda intenzione). Controllo edema e mobilizzazione dita.\nFase 2 (3-6 sett): Inizio del carico progressivo, ciclotrainer e recupero elastico del polpaccio e tibiale anteriore.\nFase 3 (6-12 sett): Riatletizzazione, recupero della forza e della resistenza muscolare.",
+                daily: "Cura quotidiana delle medicazioni e controllo della sensibilità cutanea della gamba.",
+                rtp: "Ritorno alla corsa e agli sport a 3-4 mesi." 
+            },
+            { 
+                id: 29, title: "Osteotomia Tibiale Mediale (Valgizzante)", district: "Coscia", severity: "Post-Op", 
+                surgery: "Osteotomia di apertura della tibia prossimale per correggere l'asse del ginocchio varo in pazienti con gonartrosi monocompartimentale.",
+                phases: "Fase 1 (0-6 sett): Carico protetto al 20-30% con stampelle. Tutore flesso-estensione e mobilizzazione precoce per prevenire rigidità.\nFase 2 (6-12 sett): Incremento graduale del carico fino al 100% (dopo controllo radiografico a 6-8 settimane). Rinforzo quadricipite.\nFase 3 (3-6 mesi): Recupero completo del tono muscolare, propriocettività e ripresa della deambulazione normale senza zoppia.",
+                daily: "Utilizzo delle stampelle obbligatorio fino a quando il chirurgo ortopedico conferma l'avvenuta guarigione ossea (callo osseo).",
+                rtp: "Ritorno a ciclismo, nuoto e camminate a 4 mesi. Attività sportive a medio impatto a 6 mesi." 
+            },
+            { 
+                id: 30, title: "Protesi Totale d'Anca (PTA)", district: "Anca", severity: "Post-Op", 
+                surgery: "Sostituzione protesica totale dell'articolazione coxo-femorale (componente acetabolare e stelo femorale con testina).",
+                phases: "Fase 1 (0-3 sett): Mobilizzazione precoce in prima giornata. Deambulazione con deambulatore o due bastoni canadesi. Controllo del dolore ed esercizi di contrazione isometrica dei glutei.\nFase 2 (3-6 sett): Passaggio a un solo bastone o abbandono degli ausili. Rinforzo dei muscoli abduttori (medio gluteo) e flessori.\nFase 3 (6-12 sett): Recupero della normale biomeccanica del passo, rinforzo funzionale e autonomia completa.",
+                daily: "Rispetto delle precauzioni anti-lussazione per via chirurgica (evitare flessione d'anca oltre 90°, adduzione e rotazione interna esagerate nei primi 2 mesi).",
+                rtp: "Ritorno a camminate prolungate, nuoto e ciclismo a 3 mesi. Sport a basso impatto consentiti; sconsigliati sport di contatto o corsa pesante." 
+            },
+            { 
+                id: 31, title: "Protesi Totale di Gomito", district: "Braccio", severity: "Post-Op", 
+                surgery: "Sostituzione protesica dell'articolazione omero-ulnare in gravi forme artrosiche o fratture complesse dell'anziano.",
+                phases: "Fase 1 (0-3 sett): Tutore di posizionamento. Esercizi delicati di flesso-estensione assistita.\nFase 2 (3-6 sett): Rimozione del tutore nei momenti di riposo, recupero del ROM attivo e passivo.\nFase 3 (6-12 sett): Rinforzo muscolare leggero e stabilità articolare.",
+                daily: "Divieto assoluto di sollevare pesi superiori a 2 kg con il braccio operato per tutta la vita (o secondo indicazione chirurgica specifica).",
+                rtp: "Ritorno a vita quotidiana autonoma a 3 mesi. Esclusi sport di contatto o sollevamento pesi." 
+            },
+            { 
+                id: 32, title: "Protesi Totale di Ginocchio (PTG)", district: "Coscia", severity: "Post-Op", 
+                surgery: "Sostituzione protesica bicompartimentale o tricompartimentale delle superfici articolari femoro-tibiali e rotulee.",
+                phases: "Fase 1 (0-3 sett): Controllo dell'edema severo. Estensione completa obbligatoria (0°) e flessione target a 90°-100° (ausilio di Kinetec). Carico con deambulatore.\nFase 2 (3-6 sett): Raggiungimento di 110°-120° di flessione. Rinforzo del quadricipite in scarico e carico, cyclette senza resistenza.\nFase 3 (6-12 sett): Deambulazione autonoma senza bastoni, rinforzo muscolare avanzato, propriocezione ed equilibrio.",
+                daily: "Salire le scale un gradino alla volta (prima il sano in salita, prima l'operato in discesa) per le prime settimane.",
+                rtp: "Ritorno a vita attiva, camminate libere e bicicletta a 3 mesi. Evitare corsa e salti ad alto impatto per preservare i componenti protesici." 
+            },
+            { 
+                id: 33, title: "Protesi Totale di Spalla (Anatomica / Inversa)", district: "Spalla", severity: "Post-Op", 
+                surgery: "Sostituzione protesica dell'articolazione gleno-omerale (protesi anatomica o inversa in base all'integrità della cuffia).",
+                phases: "Fase 1 (0-4 sett): Tutore di braccio. Esercizi pendolari di Codman e mobilità passiva assistita dal terapista. No rotazione attiva.\nFase 2 (4-8 sett): Svezzamento graduale dal tutore. Inizio ROM attivo-assistito e rinforzo dei muscoli scapolari.\nFase 3 (8-12 sett): Recupero della mobilità attiva in flessione ed elevazione, rinforzo progressivo della spalla.",
+                daily: "Nessun sollevamento di pesi o trazione con il braccio operato per almeno 2 mesi.",
+                rtp: "Ritorno a vita attiva, nuoto leggero e attività quotidiane senza restrizioni a 4-6 mesi." 
+            },
+            { 
+                id: 34, title: "Ricostruzione Legamento Crociato Anteriore (LCA)", district: "Coscia", severity: "Post-Op", 
+                surgery: "Plastica del LCA in artroscopia utilizzando graft autologo (tendini flessori gracile/semitendinoso o tendine rotuleo).",
+                phases: "Fase 1 (0-4 sett): Controllo edema e dolore. Estensione completa obbligatoria fin dal giorno 1 (0°). Flessione progressiva fino a 90°-120°. Carico parziale con le canadesi.\nFase 2 (4-12 sett): Svezzamento dalle stampelle. Recupero completo del ROM. Rinforzo quadricipite (leg extension in catena chiusa, squat leggeri) e propriocezione.\nFase 3 (3-6 mesi): Corsa in linea retta, potenziamento avanzato, esercizi pliometrici e cambi di direzione controllati.",
+                daily: "Deambulazione con stampelle per le prime 3-4 settimane. Guida dell'auto consentita intorno alla 6°-8° settimana se l'arto operato è il destro e c'è pieno controllo.",
+                rtp: "Ritorno in campo per sport di contatto (calcio, sci, basket) a 9-12 mesi, subordinato al superamento dei test di forza isocinetica (LSI > 90%) e test di salto (Hop test)." 
+            },
+            { 
+                id: 35, title: "Ricostruzione Legamentosa Ginocchio Multilegamento", district: "Coscia", severity: "Grave", 
+                surgery: "Chirurgia complessa per ricostruzione simultanea di LCA, LCP e legamenti collaterali.",
+                phases: "Fase 1 (0-6 sett): Tutore bloccato, carico zero. Flessione controllata secondo rigidi protocolli chirurgici.\nFase 2 (6-12 sett): Svezzamento graduale, carico parziale e recupero della flessione oltre 90°.\nFase 3 (3-6 mesi): Carico completo, rinforzo muscolare globale e propriocezione.",
+                daily: "Massima cautela e rispetto dei tempi di guarigione legamentosa multipla.",
+                rtp: "Ritorno in campo a 12 mesi." 
+            },
+            { 
+                id: 36, title: "Riparazione del Legamento Crociato Posteriore (LCP)", district: "Coscia", severity: "Post-Op", 
+                surgery: "Ricostruzione artroscopica del legamento crociato posteriore con innesto autologo o da donatore (tessuto da banco).",
+                phases: "Fase 1 (0-6 sett): Tutore bloccato in estensione. Carico nullo o minimo. Evitare assolutamente la gravità o contrazioni del quadricipite che spingono la tibia all'indietro (effetto cassetto posteriore).\nFase 2 (6-12 sett): Sblocco del tutore, recupero della flessione graduale (fino a 90° a 6 settimane, oltre a 10 settimane).\nFase 3 (3-6 mesi): Rinforzo mirato degli ischiocrurali (fondamentali protettori del LCP) e rieducazione neuromuscolare.",
+                daily: "Particolare attenzione nel sedersi e nel posizionare la gamba a letto per evitare lo spostamento posteriore della tibia.",
+                rtp: "Ritorno in campo e sport di contatto a 9-12 mesi, previa stabilità antero-posteriore strumentale." 
+            },
+            { 
+                id: 37, title: "Riparazione del Tendine d'Achille", district: "Gamba", severity: "Post-Op", 
+                surgery: "Riparazione chirurgica a cielo aperto o percutanea della rottura completa del tendine d'Achille.",
+                phases: "Fase 1 (0-4 sett): Stivale ortopedico con rialzi (equino) per detendere il tendine. Carico zero o parziale con stampelle.\nFase 2 (4-8 sett): Rimozione progressiva dei rialzi nello stivale per riportare il piede a 90°. Inizio carico parziale e mobilità attiva di caviglia.\nFase 3 (8-16 sett): Svezzamento dallo stivale. Inizio rinforzo muscolare del polpaccio e protocollo eccentrico (Alfredson).",
+                daily: "Massima attenzione a non flettere dorsalmente il piede oltre la posizione di sicurezza stabilita dal chirurgo nelle prime settimane.",
+                rtp: "Ritorno alla corsa leggera a 5-6 mesi e sport ad alto impatto a 8-12 mesi, previa verifica della simmetria di forza del polpaccio." 
+            },
+            { 
+                id: 38, title: "Riparazione Lesione SLAP di Spalla", district: "Spalla", severity: "Grave", 
                 surgery: "Ancoraggio artroscopico del cercine glenoideo superiore.",
                 phases: "Fase 1 (0-4 sett): Tutore di braccio. Evitare flessione bicipitale attiva e rotazione esterna oltre 45°.\nFase 2 (4-8 sett): Inizio ROM attivo-assistito e rinforzo scapolare.\nFase 3 (2-4 mesi): Rinforzo muscolare completo.",
                 daily: "Evitare sollevamento pesi o trazioni per 8 settimane.",
                 rtp: "Ritorno a sport overhead a 4-6 mesi." 
             },
             { 
-                id: 50, title: "Intervento di Decompressione del Tunnel Tarsale", district: "Piede", severity: "Moderata", 
-                surgery: "Rilascio del retinacolo dei flessori al retropiede per sindrome compressiva del nervo tibiale posteriore.",
-                phases: "Fase 1 (0-2 sett): Medicazione protettiva, scarico parziale.\nFase 2 (2-6 sett): Rimozione punti, scivolamenti neurali tibiali e ripresa del carico.\nFase 3 (6-10 sett): Plantari di scarico e ritorno all'attività.",
-                daily: "Cura della cicatrice mediale alla caviglia.",
-                rtp: "Ritorno a sport a 2 mesi." 
+                id: 39, title: "Sintesi Frattura Astragalus / Calcagno", district: "Piede", severity: "Grave", 
+                surgery: "Riduzione cruenta e sintesi con viti per fratture del corpo o collo dell'astragalo.",
+                phases: "Fase 1 (0-6 sett): Carico zero assoluto in gesso o stivale.\nFase 2 (6-12 sett): Carico parziale protetto, mobilizzazione di caviglia.\nFase 3 (3-6 mesi): Carico completo e propriocezione.",
+                daily: "Rischio elevato di necrosi; rispetto rigoroso dello scarico.",
+                rtp: "Ritorno a sport a 6-9 mesi." 
+            },
+            { 
+                id: 40, title: "Sintesi Frattura del Collo del Femore (Viti)", district: "Anca", severity: "Grave", 
+                surgery: "Osteosintesi con tre viti cannulate parallele per frattura mediale del collo femorale in giovane o anziano selezionato.",
+                phases: "Fase 1 (0-4 sett): Carico parziale o sfiorante in base alla stabilità della sintesi.\nFase 2 (4-8 sett): Incremento del carico al 100% dopo controllo radiografico.\nFase 3 (2-3 mesi): Recupero muscolare globale.",
+                daily: "Utilizzo di ausili per la deambulazione nelle prime settimane.",
+                rtp: "Ritorno a camminate a 3 mesi." 
+            },
+            { 
+                id: 41, title: "Sintesi Frattura del radio distale (Fissatore)", district: "Avambraccio", severity: "Grave", 
+                surgery: "Applicazione di fissatore esterno per fratture esposte o complesse del polso.",
+                phases: "Fase 1 (0-4 sett): Medicazione quotidiana dei fori dei fili di Kirschner, mobilità dita.\nFase 2 (4-6 sett): Rimozione del fissatore e inizio rieducazione funzionale del polso.\nFase 3 (6-12 sett): Rinforzo progressivo.",
+                daily: "Pulizia meticolosa dei pin cutanei con disinfettante per prevenire infezioni.",
+                rtp: "Ritorno a sport a 3-4 mesi." 
+            },
+            { 
+                id: 42, title: "Sintesi Frattura Diafisaria di Tibia", district: "Gamba", severity: "Grave", 
+                surgery: "Inchiodamento endomidollare bloccato per frattura della diafisi tibiale.",
+                phases: "Fase 1 (0-4 sett): Carico parziale immediato tollerato, mobilità caviglia e ginocchio.\nFase 2 (4-8 sett): Carico completo progressivo, rinforzo muscolare.\nFase 3 (2-4 mesi): Riatletizzazione e ripresa della corsa.",
+                daily: "Deambulazione con un bastone fino a sicurezza.",
+                rtp: "Ritorno a sport a 5-6 mesi." 
+            },
+            { 
+                id: 43, title: "Sintesi Frattura Omero Prossimale (Placca)", district: "Spalla", severity: "Grave", 
+                surgery: "Riduzione e osteosintesi con placca bloccata per fratture della testa omerale.",
+                phases: "Fase 1 (0-3 sett): Tutore di braccio. Esercizi pendolari di Codman e mobilità passiva della spalla.\nFase 2 (3-6 sett): Inizio ROM attivo-assistito ed esercizi di rinforzo isometrico.\nFase 3 (6-12 sett): Recupero del ROM attivo completo e rinforzo della cuffia dei rotatori.",
+                daily: "Non caricare alcun peso sul braccio per le prime 6 settimane.",
+                rtp: "Ritorno a sport leggeri a 4 mesi." 
+            },
+            { 
+                id: 44, title: "Sintesi Frattura Sovracondiloidea del Femore", district: "Coscia", severity: "Grave", 
+                surgery: "Osteosintesi con chiodo endomidollare o placca retrograda per frattura distale del femore.",
+                phases: "Fase 1 (0-6 sett): Carico parziale protetto, mobilizzazione precoce del ginocchio.\nFase 2 (6-12 sett): Incremento del carico al 100%, rinforzo del quadricipite.\nFase 3 (3-6 mesi): Recupero completo della forza e della deambulazione.",
+                daily: "Utilizzo stampelle fino a consolidamento osseo.",
+                rtp: "Ritorno a sport a 6 mesi." 
+            },
+            { 
+                id: 45, title: "Sostituzione Legamentosa della Diga (Caviglia)", district: "Piede", severity: "Post-Op", 
+                surgery: "Plastica legamentosa di Broström-Gould per instabilità cronica laterale di caviglia.",
+                phases: "Fase 1 (0-3 sett): Tutore rigido o gesso senza carico. Evitare assolutamente inversioni di caviglia.\nFase 2 (3-6 sett): Passaggio a tutorino bivalve, carico parziale e inizio ROM in flesso-estensione.\nFase 3 (6-12 sett): Carico completo, esercizi propriocettivi su tavoletta e rinforzo dei muscoli peronieri.",
+                daily: "Utilizzo del tutore protettivo durante gli spostamenti esterni per le prime 6 settimane.",
+                rtp: "Ritorno alla corsa e sport multidirezionali a 3-4 mesi." 
+            },
+            { 
+                id: 46, title: "Stabilizzazione Odontoidea / C1-C2 (Collo)", district: "Cervicale", severity: "Grave", 
+                surgery: "Artrodesi posteriore C1-C2 o fissazione per instabilità atlanto-assiale.",
+                phases: "Fase 1 (0-6 sett): Utilizzo di collare rigido o Minerva in base alle indicazioni del chirurgo. Carico e mobilità protetti.\nFase 2 (6-12 sett): Svezzamento graduale dal collare (se approvato), esercizi isometrici cervicali molto leggeri.\nFase 3 (3-6 mesi): Recupero della stabilità e della propriocezione cervicale.",
+                daily: "Divieto assoluto di guidare con il collare rigido. Attenzione ai movimenti bruschi della testa.",
+                rtp: "Ritorno ad attività lavorative a 3 mesi, no sport di contatto." 
+            },
+            { 
+                id: 47, title: "Stabilizzazione di Spalla (Latarjet / Bankart)", district: "Spalla", severity: "Post-Op", 
+                surgery: "Intervento di stabilizzazione anteriore per recidive di lussazione (tecnica artroscopica di Bankart o trasposizione ossea di Latarjet).",
+                phases: "Fase 1 (0-4 sett): Tutore antirotazionale per 4 settimane. ROM passivo limitato in flessione ed evitare assolutamente rotazione esterna oltre 0°.\nFase 2 (4-8 sett): Svezzamento dal tutore. Inizio ROM attivo-assistito e recupero della rotazione esterna graduale fino a 45°.\nFase 3 (8-16 sett): Rinforzo muscolare della cuffia e deltoide, stabilizzazione scapolare e riatletizzazione.",
+                daily: "Evitare movimenti bruschi di abduzione e rotazione esterna combinata (es. prendere qualcosa dal sedile posteriore dell'auto).",
+                rtp: "Ritorno a sport di contatto o con sbracciate (rugby, pallamano, lotta) a 6 mesi, previa certificazione di stabilità clinica." 
+            },
+            { 
+                id: 48, title: "Sostituzione Protesica Totale di Polso", district: "Avambraccio", severity: "Post-Op", 
+                surgery: "Impianto di protesi totale di polso in forme gravi di artrite reumatoide o artrosi post-traumatica.",
+                phases: "Fase 1 (0-4 sett): Tutore di polso. Mobilità attiva delle dita e flesso-estensione passiva controllata.\nFase 2 (4-8 sett): Rimozione del tutore protettivo, inizio ROM attivo del polso.\nFase 3 (8-12 sett): Rinforzo leggero della presa e ripresa delle attività quotidiane.",
+                daily: "Divieto di sollevare pesi superiori a 1-2 kg con la mano operata.",
+                rtp: "Ritorno a vita quotidiana autonoma a 3 mesi." 
+            },
+            { 
+                id: 49, title: "Sutura Meniscale", district: "Coscia", severity: "Post-Op", 
+                surgery: "Riparazione artroscopica del menisco mediale o laterale mediante tecnica all-inside o inside-out per preservare il tessuto.",
+                phases: "Fase 1 (0-4 sett): Tutore bloccato in estensione durante il cammino. Flessione limitata a 90° per proteggere la linea di sutura. Carico protetto al 30-50%.\nFase 2 (4-8 sett): Sblocco del tutore e recupero graduale del ROM completo oltre i 90° a 6 settimane. Inizio rinforzo in catena cinetica chiusa.\nFase 3 (8-16 sett): Progressione del carico completo, esercizi propriocettivi avanzati, cyclette e corsa leggera.",
+                daily: "Evitare accuratamente flessioni profonde del ginocchio e accovacciamenti (squat profondi) per i primi 2 mesi.",
+                rtp: "Ritorno all'attività sportiva agonistica a 4-6 mesi dall'intervento, previa assenza di dolore alla linea di interlinea articolare e test di stabilità negativi." 
+            },
+            { 
+                id: 50, title: "Sutura della Cuffia dei Rotatori", district: "Spalla", severity: "Post-Op", 
+                surgery: "Riparazione artroscopica o a cielo aperto dei tendini del sovraspinato, infraspinato e/o sottoscapolare con ancorette suture.",
+                phases: "Fase 1 (0-6 sett): Immobilizzazione in tutore con cuscino di abduzione a 30°. ROM passivo assistito protetto (evitare rotazione esterna oltre 30° e flessione oltre 90°). No contrazione attiva. \nFase 2 (6-12 sett): Svezzamento dal tutore. Inizio ROM attivo-assistito e poi attivo. Rinforzo isometrico iniziale di deltoide e cuffia.\nFase 3 (12-24 sett): Rinforzo progressivo contro resistenza, pliometria leggera e recupero della funzione completa.",
+                daily: "Indossare il tutore giorno e notte per le prime 6 settimane. Autonomia nel vestirsi con camicie aperte davanti dal 45° giorno.",
+                rtp: "Ritorno a lavori pesanti o sport overhead (pallavolo, nuoto) consentito non prima di 6-9 mesi, previa test isocinetici con deficit <15% rispetto all'arto sano." 
             }
         ];
+
+        // Funzione di ordinamento alfabetico rigoroso (A-Z) per sicurezza
+        function sortAlphabetically(arr) {
+            return arr.sort((a, b) => a.title.localeCompare(b.title, 'it', { sensitivity: 'base' }));
+        }
+
+        // Ordinamento automatico di tutte le sezioni in A-Z
+        sortAlphabetically(ortopedicheData);
+        sortAlphabetically(neurologicheData);
+        sortAlphabetically(trattamentiData);
+        sortAlphabetically(strumentaleData);
+        sortAlphabetically(anatomiaData);
+        sortAlphabetically(eserciziData);
+        sortAlphabetically(protocolliData);
 
         let currentSection = 'patologie-ortopediche';
         let currentDistrictFilter = 'all';
