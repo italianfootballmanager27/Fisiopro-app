@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FisioPro Clinical - PWA Fisioterapia</title>
+    <title>FisioPro Clinical - Atlante Miologico 151 Muscoli</title>
     
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="./manifest.json">
@@ -42,11 +42,11 @@
         <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="bg-white/10 p-2 rounded-xl backdrop-blur-sm">
-                    <i class="fa-solid fa-heart-pulse text-2xl text-brand-100"></i>
+                    <i class="fa-solid fa-bone text-2xl text-brand-100"></i>
                 </div>
                 <div>
                     <h1 class="text-lg font-bold tracking-tight">FisioPro Clinical</h1>
-                    <p class="text-xs text-brand-100 opacity-90">Piattaforma Professionale di Fisioterapia</p>
+                    <p class="text-xs text-brand-100 opacity-95">Atlante Miologico Certificato (151 Muscoli)</p>
                 </div>
             </div>
             <div class="flex items-center space-x-2">
@@ -58,7 +58,7 @@
         </div>
     </header>
 
-    <!-- Barra di Ricerca Globale -->
+    <!-- Barra di Ricerca Globale e Filtri -->
     <div class="bg-white border-b border-slate-200 px-4 py-3 sticky top-[57px] z-30 shadow-sm">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row gap-3 items-center justify-between">
             <div class="relative w-full sm:w-96">
@@ -67,7 +67,7 @@
                 </span>
                 <input type="text" id="global-search" oninput="filterContent()" placeholder="Cerca tra patologie, trattamenti, muscoli..." class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition">
             </div>
-            <!-- Filtri Anatomici Dedicati alla Sezione Anatomia -->
+            <!-- Filtri Distrettuali Anatomici -->
             <div class="flex items-center space-x-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0" id="filter-chips">
                 <button onclick="filterByDistrict('all')" class="filter-btn active-chip px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white whitespace-nowrap shadow-sm transition">Tutti</button>
                 <button onclick="filterByDistrict('Piede')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap transition">Piede</button>
@@ -88,7 +88,7 @@
     <!-- Contenuto Principale con Tab -->
     <main class="flex-1 max-w-7xl w-full mx-auto p-4 overflow-y-auto">
         
-        <!-- Navigazione Sezioni (Le 6 Sezioni) -->
+        <!-- Navigazione Sezioni -->
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
             <button onclick="switchSection('patologie')" id="btn-sec-patologie" class="section-tab p-3 rounded-xl border border-brand-500 bg-brand-50 text-brand-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-stethoscope text-xl mb-2 text-brand-600"></i>
@@ -108,14 +108,14 @@
                 <i class="fa-solid fa-bolt text-xl mb-2 text-amber-500"></i>
                 <div>
                     <h3 class="font-bold text-sm">Terapia Strumentale</h3>
-                    <p class="text-[11px] opacity-75">12 Macchinari Avanzati</p>
+                    <p class="text-[11px] opacity-75">12 Macchinari</p>
                 </div>
             </button>
             <button onclick="switchSection('anatomia')" id="btn-sec-anatomia" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-bone text-xl mb-2 text-emerald-600"></i>
                 <div>
                     <h3 class="font-bold text-sm">Anatomia</h3>
-                    <p class="text-[11px] opacity-75">150+ Muscoli (11 Zone)</p>
+                    <p class="text-[11px] opacity-75">151 Muscoli + Immagini</p>
                 </div>
             </button>
             <button onclick="switchSection('esercizi')" id="btn-sec-esercizi" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
@@ -146,7 +146,7 @@
             <div id="patologie-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione 2: Trattamenti Riabilitativi -->
+        <!-- Sezione 2: Trattamenti -->
         <div id="section-trattamenti" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
@@ -158,7 +158,7 @@
             <div id="trattamenti-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione 3: Terapia Strumentale -->
+        <!-- Sezione 3: Strumentale -->
         <div id="section-strumentale" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
@@ -170,19 +170,19 @@
             <div id="strumentale-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione 4: Anatomia (Atlante Miologico 150+ Muscoli per le 11 Zone A-Z) -->
+        <!-- Sezione 4: Anatomia (Atlante 151 Muscoli + Icone Immagine) -->
         <div id="section-anatomia" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-bone text-emerald-600"></i>
-                    <span>Atlante Miologico Dettagliato (150+ Muscoli per 11 Zone A-Z)</span>
+                    <span>Atlante Miologico Ufficiale (151 Muscoli Certificati per 11 Zone A-Z)</span>
                 </h2>
-                <span id="anatomia-count" class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded-full">Atlante Completo</span>
+                <span id="anatomia-count" class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded-full">151 Muscoli Inclusi</span>
             </div>
             <div id="anatomia-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione 5: Esercizi Terapeutici -->
+        <!-- Sezione 5: Esercizi -->
         <div id="section-esercizi" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
@@ -194,7 +194,7 @@
             <div id="esercizi-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione 6: Protocolli Riabilitativi -->
+        <!-- Sezione 6: Protocolli -->
         <div id="section-protocolli" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
@@ -262,296 +262,312 @@
         </div>
     </div>
 
-    <!-- Script JavaScript Applicativo -->
+    <!-- Script JavaScript -->
     <script>
-        // Database 1: 70 Patologie Ortopediche (A-Z)
+        // 70 Patologie Ortopediche
         const patologieData = [
-            { id: 1, title: "Alluce Valgo", district: "Caviglia", severity: "Cronica", def: "Deviazione mediale del primo metatarso e laterale dell'alluce.", symptoms: "Deformità estetica, borsite della cipolla (bunion), dolore con calzatura.", tests: "Esame clinico e radiografico dell'angolo metatarso-falangeo.", redFlags: "Ulcerazione cutanea da sfregamento severo.", management: "Terapie conservative, tutori notturni, post-chirurgia." },
-            { id: 2, title: "Apofisite della Cresta Iliaca (Malattia di Van Der Hauwaert)", district: "Anca", severity: "Lieve", def: "Traction apophysitis a livello dell'inserzione dei muscoli addominali/obliqui.", symptoms: "Dolore localizzato alla cresta iliaca in giovani atleti.", tests: "Palpazione dolorosa e contrazione addominale.", redFlags: "Distacco apofisario acuto.", management: "Riposo sportivo temporaneo, stretching, chinesi." },
-            { id: 3, title: "Artrite Acromion-Claveare", district: "Spalla", severity: "Moderata", def: "Usura degenerativa o post-traumatica dell'articolazione AC.", symptoms: "Dolore localizzato al punto alto della spalla, peggiorato da adduzione.", tests: "Cross-Body Adduction Test.", redFlags: "Osteolisi distale della clavicola.", management: "FANS, modulazione del carico, mobilizzazione locale." },
-            { id: 4, title: "Artrosi Gleno-Omerale (Omartrosi)", district: "Spalla", severity: "Cronica", def: "Usura degenerativa della cartilagine articolare gleno-omerale.", symptoms: "Dolore sordo e profondo, crepitii, limitazione ROM.", tests: "Riduzione globale e dolorosa del ROM passivo.", redFlags: "Blocco meccanico severo.", management: "Mantenimento ROM in scarico, chinesiterapia." },
-            { id: 5, title: "Borsite Ileo-Psoas", district: "Anca", severity: "Lieve", def: "Infiammazione della borsa retro-psoas a livello anteriore d'anca.", symptoms: "Dolore inguinale anteriore durante flessione attiva dell'anca.", tests: "Flessione attiva resistita d'anca.", redFlags: "Ascesso dello psoas (febbre e dolore profondo).", management: "Stretching ileo-psoas, terapia fisica antiflogistica." },
-            { id: 6, title: "Borsite Subacromiale-Subdeltoidea", district: "Spalla", severity: "Lieve", def: "Infiammazione della borsa sierosa per attrito meccanico.", symptoms: "Dolore localizzato in faccia laterale di spalla, peggiorato dalla pressione.", tests: "Neer Test positivo con sollievo temporaneo da infiltrazione.", redFlags: "Borsite settica con febbre e rossore cutaneo.", management: "Crioterapia, tecarterapia, stretching capsulare." },
-            { id: 7, title: "Borsite Trocanterica", district: "Anca", severity: "Lieve", def: "Infiammazione della borsa tra grande trocantere e tratto ileotibiale.", symptoms: "Dolore laterale d'anca, peggiorato in decubito laterale.", tests: "Palpazione trocantere, Ober Test.", redFlags: "Necrosi avascolare della testa femorale.", management: "Stretching tratto ileotibiale, rinforzo abduttori." },
-            { id: 8, title: "Calcificazione della Cuffia dei Rotatori", district: "Spalla", severity: "Moderata", def: "Depositi di idrossiapatite di calcio nei tendini della cuffia.", symptoms: "Dolore iperacuto durante la fase di riassorbimento spontaneo.", tests: "Ecografia o Rx spalla positiva.", redFlags: "Dolore flogistico intrattabile.", management: "Onde d'urto, ultrasuoni, gestione del dolore, laserterapia." },
-            { id: 9, title: "Capsulite Adesiva (Spalla Congelata)", district: "Spalla", severity: "Grave", def: "Infiammazione e fibrosi della capsula articolare gleno-omerale.", symptoms: "Fase 1 (Freezing): dolore acuto. Fase 2 (Frozen): rigidità severa.", tests: "Limitazione rigida dei movimenti passivi (extrarotazione).", redFlags: "Escludere artrite settica o algodistrofia.", management: "Mobilizzazione dolce nei limiti del dolore, terapia manuale." },
-            { id: 10, title: "Cervicalgia Miotensiva", district: "Colonna", severity: "Lieve", def: "Sindrome dolorosa cervicale da sovraccarico e contrattura cronica.", symptoms: "Dolore cervicale diffuso, rigidità mattutina, cefalea tensiva.", tests: "Spurling Test negativo.", redFlags: "Vertigini acute, nistagmo, insufficienza vertebro-basilare.", management: "Rilascio suboccipitale, ergonomia, rinforzo flessori profondi." },
-            { id: 11, title: "Contrattura di Dupuytren", district: "Gomito/Mano", severity: "Cronica", def: "Fibrosi progressiva dell'aponeurosi palmare con flessione fissa delle dita.", symptoms: "Noduli palmari e cordoni fibrosi con impossibilità a estendere le dita.", tests: "Table Top Test positivo.", redFlags: "Retrazione cutanea severa.", management: "Stretching, ultrasuoni, post-chirurgia plastica." },
-            { id: 12, title: "Coxartrosi (Artrosi d'Anca)", district: "Anca", severity: "Cronica", def: "Degenerazione progressiva della cartilagine coxo-femorale.", symptoms: "Dolore inguinale irradiato al ginocchio, zoppia di fuga.", tests: "FABER Test, FADIR Test, Scour Test.", redFlags: "Impossibilità assoluta al carico e dolore notturno.", management: "Mantenimento ROM in scarico, rinforzo abduttori, idro." },
-            { id: 13, title: "Ciste di Baker (Poplitea)", district: "Ginocchio", severity: "Lieve", def: "Raccolta di liquido sinoviale nella borsa gastrocnemio-semimembranosa.", symptoms: "Tumefazione e tensione al cavo popliteo, peggio in estensione.", tests: "Transilluminazione o ecografia poplitea.", redFlags: "Rottura della ciste con quadro simil-tromboflebite.", management: "Trattamento della causa primaria (es. versamento intra-articolare)." },
-            { id: 14, title: "Discopatia Degenerativa Cervicale", district: "Colonna", severity: "Cronica", def: "Disidratazione e usura del disco intervertebrale cervicale.", symptoms: "Dolore sordo locale, rigidità, scrosci articolari nei movimenti.", tests: "Riduzione ROM cervicale globale.", redFlags: "Segni di mielopatia compressiva.", management: "Mobilizzazioni dolci, chinesiterapia attiva, educazione." },
-            { id: 15, title: "Disfunzione dell'Articolazione Sacro-Iliaca (SIJ)", district: "Colonna", severity: "Moderata", def: "Ipomobilità o ipermobilità dolorosa dell'articolazione sacro-iliaca.", symptoms: "Dolore gluteo unilaterale che non supera il ginocchio, aggravato da transizioni.", tests: "Cluster di Laslett (Gaenslen, Compression, Distraction).", redFlags: "Spondilite anchilosante (dolore infiammatorio notturno).", management: "Manipolazioni/mobilizzazioni SIJ, stabilizzazione pelvica." },
-            { id: 16, title: "Distorsione di Caviglia (Compartimento Laterale)", district: "Caviglia", severity: "Moderata", def: "Lesione capsulo-legamentosa legamenti collaterali laterali (PPAA).", symptoms: "Gonfiore, ecchimosi malleolare laterale, dolore al carico.", tests: "Anterior Drawer Test, Talar Tilt Test.", redFlags: "Frattura malleolare associata (Ottawa Ankle Rules).", management: "Protocollo RICE in acuto, propriocettività precoce, peronieri." },
-            { id: 17, title: "Distorsione del Legamento Collaterale Ulnare del Pollice", district: "Gomito/Mano", severity: "Moderata", def: "Lacerazione legamentosa acuta o cronica della MCP del pollice.", symptoms: "Instabilità in valgo del pollice, dolore acuto alla pinza.", tests: "Valgus Stress Test su pollice.", redFlags: "Lesione di Stener (interposizione aponeurosi).", management: "Tutore rigido polso-pollice, rinforzo graduale." },
-            { id: 18, title: "Dito a Scatto", district: "Gomito/Mano", severity: "Lieve", def: "Infiammazione guaina flessoria con blocco del tendine.", symptoms: "Scatto doloroso e blocco in flessione.", tests: "Palpazione nodulo su puleggia A1.", redFlags: "Blocco permanente irriducibile.", management: "Stretching flessori, US focalizzati, steccatura." },
-            { id: 19, title: "Epicondilite Laterale (Gomito del Tennis)", district: "Gomito/Mano", severity: "Moderata", def: "Tendinopatia inserzionale dei muscoli estensori dell'avambraccio.", symptoms: "Dolore all'epicondilo laterale, deficit di grip.", tests: "Cozen Test, Mill Test.", redFlags: "Parestesie (compressione nervo interosseo posteriore).", management: "Esercizi eccentrici, scarico flesso-estensori." },
-            { id: 20, title: "Epitrocleite (Gomito del Golfista)", district: "Gomito/Mano", severity: "Moderata", def: "Tendinopatia dei muscoli flessori-pronatori all'epitroclea.", symptoms: "Dolore mediale aggravato da flessione resistita.", tests: "Golfer's Elbow Test.", redFlags: "Parestesie al IV e V dito (nervo ulnare).", management: "Rinforzo eccentrico flessori, stretching mirato." },
-            { id: 21, title: "Ernia del Disco Lombare e Sciatalgia", district: "Colonna", severity: "Grave", def: "Fuoriuscita del nucleo polposo con compressione radicolare (L5-S1).", symptoms: "Dolore irradiato lungo il nervo sciatico, parestesie, ipostenia.", tests: "Lasegue Test, Bragard Test.", redFlags: "Anestesia a sella, perdita controllo sfinterico.", management: "Terapia decongestionante, scarico neurale, core stability." },
-            { id: 22, title: "Fascite Plantare e Spina Calcaneare", district: "Caviglia", severity: "Moderata", def: "Infiammazione degenerativa aponeurosi plantare all'inserzione.", symptoms: "Dolore acuto al primo appoggio mattutino al tallone.", tests: "Windlass Test (estensione passiva dita).", redFlags: "Dolore neuropatico irradiato o frattura stress calcagno.", management: "Stretching fascia plantare e polpaccio, plantari ortopedici." },
-            { id: 23, title: "Frattura del Collo del Femore", district: "Anca", severity: "Grave", def: "Interruzione traumatica o osteoporotica del collo femorale.", symptoms: "Impossibilità assoluta al carico, accorciamento ed extrarotazione.", tests: "Impossibilità a sollevare il tallone dal letto.", redFlags: "Urgenza chirurgica ortopedica immediata.", management: "Riabilitazione post-protesi o post-osteosintesi." },
-            { id: 24, title: "Frattura della Clavicola", district: "Spalla", severity: "Grave", def: "Interruzione della continuità ossea della clavicola per trauma diretto.", symptoms: "Dolore acuto, tumefazione locale, crepitio, deformità visibile.", tests: "Palpazione dolorosa localizzata.", redFlags: "Compromissione vascolonervosa del plesso brachiale.", management: "Tutore a otto o immobilizzazione iniziale, recupero ROM." },
-            { id: 25, title: "Frattura del Distrio di Pouteau-Colles", district: "Gomito/Mano", severity: "Grave", def: "Frattura extra-articolare dell'epifisi distale del radio.", symptoms: "Deformità 'a dorso di forchetta', dolore acuto, impotenza.", tests: "Esame radiografico.", redFlags: "Compromissione nervo mediano acuta.", management: "Riduzione, gesso/tutore, riabilitazione post-immobilizzazione." },
-            { id: 26, title: "Frattura da Stress della Tibia o del Perone", district: "Caviglia", severity: "Grave", def: "Microfrattura ossea da sovraccarico funzionale ripetuto.", symptoms: "Dolore localizzato che insorge durante l'attività e scompare a riposo.", tests: "Tuning Fork Test (diapason) o palpazione puntiforme.", redFlags: "Frattura completa in scomposizione.", management: "Riposo assoluto dal carico per 4-6 settimane, magnetoterapia." },
-            { id: 27, title: "Gonartrosi (Artrosi di Ginocchio)", district: "Ginocchio", severity: "Cronica", def: "Usura degenerativa cartilaginea femoro-tibiale e rotulea.", symptoms: "Dolore meccanico, rigidità mattutina <30 min, crepitii.", tests: "Valgo/Varo stress test, mobilità ridotta.", redFlags: "Instabilità legamentosa secondaria severa.", management: "Chinesiterapia in scarico, catena cinetica chiusa a basso impatto." },
-            { id: 28, title: "Impingement Femoro-Acetabolare (FAI)", district: "Anca", severity: "Moderata", def: "Conflitto meccanico testa-acetabolo (tipo Cam o Pincer).", symptoms: "Dolore inguinale profondo in flessione e rotazione interna.", tests: "FADIR Test, FABER Test.", redFlags: "Lesioni avanzate del labbro acetabolare.", management: "Correzione biomeccanica bacino, stabilità profonda." },
-            { id: 29, title: "Instabilità Gleno-Omerale e Lussazione", district: "Spalla", severity: "Grave", def: "Eccessiva traslazione della testa omerale, spesso post-traumatica.", symptoms: "Sensazione di cedimento, paura del sblocco in abduzione.", tests: "Apprehension Test, Relocation Test.", redFlags: "Segni neurologici periferici (nervo ascellare).", management: "Rinforzo stabilizzatori dinamici, propriocettività." },
-            { id: 30, title: "Lesione dei Menischi (Mediale o Laterale)", district: "Ginocchio", severity: "Moderata", def: "Lacerazione della fibrocartilagine meniscale.", symptoms: "Dolore in rima articolare, blocco o scatto, versamento.", tests: "McMurray Test, Apley Compression, Thessaly Test.", redFlags: "Ginocchio bloccato in flessione (manico di secchio).", management: "Controllo edema, recupero estensione, rinforzo VMO." },
-            { id: 31, title: "Lesione del Legamento Collaterale Mediale (LCM)", district: "Ginocchio", severity: "Moderata", def: "Distorsione o rottura del legamento collaterale mediale per trauma in valgo.", symptoms: "Dolore mediale, lassità in valgo a ginocchio flesso a 30°.", tests: "Valgus Stress Test a 0° e 30°.", redFlags: "Lesione combinata (Unhappy triad).", management: "Tutore articolato protettivo, recupero ROM, rinforzo." },
-            { id: 32, title: "Lesione del Legamento Crociato Anteriore (LCA)", district: "Ginocchio", severity: "Grave", def: "Rottura parziale o totale del legamento crociato anteriore.", symptoms: "Sensazione di pop, emartro precoce, cedimento (giving way).", tests: "Lachman Test, Anterior Drawer, Pivot Shift.", redFlags: "Blocco meniscale associato che impedisce estensione.", management: "Recupero ROM in estensione, rinforzo quadricipite, chirurgia." },
-            { id: 33, title: "Lesione del Labbro Acetabolare", district: "Anca", severity: "Grave", def: "Lacerazione del cercine fibrocartilagineo acetabolare.", symptoms: "Dolore acuto o sordo, click o blocco meccanico in movimento.", tests: "Hip Arthroscopy Tests (FABER, FADIR).", redFlags: "Blocco articolare meccanico irriducibile.", management: "Stabilità dinamica o preparazione post-artroscopia." },
-            { id: 34, title: "Lesione della Cuffia dei Rotatori", district: "Spalla", severity: "Grave", def: "Lesione parziale o a tutto spessore dei tendini della cuffia.", symptoms: "Debolezza attiva, dolore acuto o degenerativo cronico.", tests: "Drop Arm Test, Jobe Test.", redFlags: "Impossibilità assoluta a mantenere il braccio sollevato (Lag sign).", management: "Rinforzo sinergico o riabilitazione post-chirurgica." },
-            { id: 35, title: "Lesione SLAP (Superior Labrum Anterior Posterior)", district: "Spalla", severity: "Grave", def: "Lacerazione del cercine glenoideo superiore con coinvolgimento del CLB.", symptoms: "Click doloroso, dolore profondo in arm-cocking nello sport.", tests: "O'Brien Test, Crank Test.", redFlags: "Blocco articolare meccanico irriducibile.", management: "Controllo infiammazione, stabilità dinamica, post-chirurgia." },
-            { id: 36, title: "Lombalgia Acuta (Colpo della Strega)", district: "Colonna", severity: "Moderata", def: "Spasmo muscolare acuto e disfunzione segmentaria lombare.", symptoms: "Dolore lombare improvviso, blocco funzionale in flessione.", tests: "Schober Test ridotto.", redFlags: "Cauda equina, deficit neurologici progressivi.", management: "Decompressione dolce, tecniche miofasciali, esercizio attivo." },
-            { id: 37, title: "Malattia di Osgood-Schlatter", district: "Ginocchio", severity: "Lieve", def: "Osteocondrosi della tuberosità tibiale anteriore nei giovani.", symptoms: "Tumefazione e dolore dolente alla pressione sulla tuberosità.", tests: "Palpazione dolorosa tuberosità tibiale in estensione.", redFlags: "Distacco osteocondriale grave.", management: "Riduzione carico sportivo, stretching quadricipite." },
-            { id: 38, title: "Metatarsalgia", district: "Caviglia", severity: "Lieve", def: "Sindrome dolorosa plantare alle teste metatarsali (II e III).", symptoms: "Dolore urente o meccanico sotto l'avampiede in camminata.", tests: "Compressione laterale teste metatarsali.", redFlags: "Frattura da stress metatarsale.", management: "Scarico pressorio, plantari metatarsali." },
-            { id: 39, title: "Neuroma di Morton", district: "Caviglia", severity: "Moderata", def: "Fibrosi perianale del nervo interdigitale (tra III e IV dito).", symptoms: "Dolore urente e sensazione di 'sassolino' in scarpa all'avampiede.", tests: "Mulder Sign (compressione metatarsale con click e dolore).", redFlags: "Dolore neuropatico persistente intrattabile.", management: "Calzature a pianta larga, ortesi con scarico metatarsale." },
-            { id: 40, title: "Pubalgia / Sindrome Adduttoria", district: "Anca", severity: "Moderata", def: "Tendinopatia inserzionale adduttori e sovraccarico sinfisi pubica.", symptoms: "Dolore pubico e inguinale in corsa e cambi di direzione.", tests: "Squeeze Test (adduzione resistita).", redFlags: "Frattura da stress pubica o patologia urologica.", management: "Gestione del carico, rinforzo eccentrico adduttori e core." },
-            { id: 41, title: "Radicolopatia Cervicale", district: "Colonna", severity: "Grave", def: "Sofferenza radicolare da conflitto disco-osteofitico cervicale.", symptoms: "Dolore cervico-brachiale irradiato con parestesie nei dermatomeri.", tests: "Spurling Test, Distraction Test, ULTT.", redFlags: "Mielopatia cervicale, destrezza ridotta, segni piramidali.", management: "Trazione manuale dolce, stabilizzazione segmentaria." },
-            { id: 42, title: "Rizoartrosi", district: "Gomito/Mano", severity: "Cronica", def: "Osteoartrosi trapezio-metacarpale del pollice.", symptoms: "Dolore alla base del pollice in pinza, perdita forza.", tests: "Grind Test.", redFlags: "Deformità a zeta del pollice.", management: "Tutori funzionali, rinforzo intrinseci." },
-            { id: 43, title: "Scoliosi Idiopatica dell'Adolescente (AIS)", district: "Colonna", severity: "Grave", def: "Deformità tridimensionale della colonna vertebrale con rotazione.", symptoms: "Asimmetria delle spalle, gibbo costale in forward bending test.", tests: "Adams Forward Bend Test con scoliometro.", redFlags: "Scoliosi congenita o neurologica rapida evoluzione.", management: "Esercizi specifici (SEAS, Schroth), corsetto ortopedico." },
-            { id: 44, title: "Sindrome della Bandelletta Tibio-Tarsale", district: "Ginocchio", severity: "Lieve", def: "Attrito del tratto ileotibiale sul condilo femorale laterale.", symptoms: "Dolore laterale di ginocchio che compare dopo un tot di km.", tests: "Noble Compression Test.", redFlags: "Borsite laterale profonda.", management: "Stretching TFL, correzione appoggio plantare, scarico." },
-            { id: 45, title: "Sindrome della Cauda Equina (Red Flag Generica)", district: "Colonna", severity: "Grave", def: "Compressione massiva delle radici della cauda equina nel canale spinale.", symptoms: "Anestesia a sella, perdita di controllo sfinterico, deficit motori severi.", tests: "Esame neurologico d'urgenza.", redFlags: "URGENZA CHIRURGICA IMMEDIATA (entro 24h).", management: "Invio immediato in pronto soccorso per intervento neurochirurgico." },
-            { id: 46, title: "Sindrome dell'Opercolo Toracico (TOS)", district: "Spalla", severity: "Moderata", def: "Compressione del plesso brachiale e vasi succlavi.", symptoms: "Parestesie notturne agli arti superiori, pesantezza, pallore.", tests: "Adson Test, Roos Test.", redFlags: "Perdita di polso radiale o deficit ischemico.", management: "Rilascio scaleni, correzione posturale, decompressione." },
-            { id: 47, title: "Sindrome del Muscolo Piriforme", district: "Colonna", severity: "Moderata", def: "Compressione del nervo sciatico da parte del piriforme contratto.", symptoms: "Dolore profondo al gluteo con irradiazione simil-sciatalgica.", tests: "FAIR Test (Flexion, Adduction, Internal Rotation).", redFlags: "Escludere ernia discale lombare vera.", management: "Stretching piriforme, rilasciamento miofasciale profondo." },
-            { id: 48, title: "Sindrome del Seno del Tarso", district: "Caviglia", severity: "Moderata", def: "Infiammazione cronica dei legamenti interossei nel seno del tarso.", symptoms: "Dolore localizzato nella depressione laterale anteriore al malleolo.", tests: "Palpazione profonda del seno del tarso.", redFlags: "Lesione osteocondrale dell'astragalo associata.", management: "Infiltrazioni ecoguidate, propriocettività, tecar." },
-            { id: 49, title: "Sindrome del Tunnel Carpale", district: "Gomito/Mano", severity: "Moderata", def: "Compressione del nervo mediano nel canale carpale.", symptoms: "Formicolio notturno prime tre dita, debolezza tenar.", tests: "Phalen Test, Tinel Test al polso.", redFlags: "Atrofia eminenza tenar.", management: "Tutore notturno, scivolamenti neurali, rilasciamento." },
-            { id: 50, title: "Sindrome del Tunnel Cubitale (Nervo Ulnare)", district: "Gomito/Mano", severity: "Moderata", def: "Compressione del nervo ulnare al gomito.", symptoms: "Parestesie IV-V dito, debolezza intrinseca mano.", tests: "Tinel Test al gomito, Flexion Test.", redFlags: "Artiglio ulnare (atrofia muscolare intrinseca).", management: "Evitare appoggio prolungato, scivolamenti neurali." },
-            { id: 51, title: "Sindrome del Tunnel Tarsale", district: "Caviglia", severity: "Moderata", def: "Compressione del nervo tibiale posteriore sotto retinacolo flessori.", symptoms: "Parestesie, bruciore alla pianta del piede e dita.", tests: "Tinel Test al tunnel tarsale (dietro malleolo mediale).", redFlags: "Deficit sensitivi plantari severi e atrofia intrinseci.", management: "Ortesi plantari, mobilizzazione neurale, scarico." },
-            { id: 52, title: "Sindrome di De Quervain", district: "Gomito/Mano", severity: "Moderata", def: "Tenosinovite stenosante primo compartimento dorsale.", symptoms: "Dolore acuto stiloide radiale con deviazione ulnare.", tests: "Finkelstein Test.", redFlags: "Blocco meccanico tendineo.", management: "Tutore pollice-polso, terapia fisica, frizioni." },
-            { id: 53, title: "Sindrome di Sinding-Larsen-Johansson", district: "Ginocchio", severity: "Lieve", def: "Traction apophysitis al polo superiore della rotula.", symptoms: "Dolore localizzato al polo superiore rotuleo nei giovani atleti.", tests: "Palpazione polo superiore rotula.", redFlags: "Frattura da stress rotulea.", management: "Gestione del carico, stretching catena anteriore." },
-            { id: 54, title: "Sindrome Femoro-Rotulea (PFPS)", district: "Ginocchio", severity: "Lieve", def: "Tracking anomalo della rotula nella troclea femorale.", symptoms: "Dolore salendo/scendendo scale, segno del cinema.", tests: "Clarke Test, Apprehension patellare.", redFlags: "Versamento articolare importante.", management: "Rinforzo VMO, stretching catena posteriore, taping." },
-            { id: 55, title: "Sospetta Frattura (Regola di Ottawa)", district: "Caviglia", severity: "Grave", def: "Protocollo clinico di screening per escludere fratture di caviglia/piede.", symptoms: "Impossibilità al carico immediato o nei 4 passi in pronto soccorso.", tests: "Ottawa Ankle Rules (palpazione malleoli, base V metatarso, navicolare).", redFlags: "Dolore osseo puntiforme severo.", management: "Radiografia urgente ed esclusione lesione ossea." },
-            { id: 56, title: "Spondilolistesi", district: "Colonna", severity: "Moderata", def: "Scivolamento anteriore di una vertebra (es. L5 su S1).", symptoms: "Lombalgia meccanica aggravata da estensione, tensione ischiocrurali.", tests: "Stork Test in estensione, gradino palpabile.", redFlags: "Instabilità severa con scivolamento progressivo.", management: "Core stability profonda, rinforzo trasverso e multifidi." },
-            { id: 57, title: "Spondilolisi", district: "Colonna", severity: "Moderata", def: "Interruzione dell'istmo interarticolare (arco posteriore vertebra).", symptoms: "Lombalgia in atleti giovani praticanti sport in iperestensione.", tests: "Hyperextension test monopodalico.", redFlags: "Evoluzione in spondilolistesi avanzata.", management: "Riposo funzionale sportivo, core stability, rinforzo." },
-            { id: 58, title: "Stenosi del Canale Vertebrale Lombare", district: "Colonna", severity: "Cronica", def: "Restringimento del canale spinale lombare con compressione cauda.", symptoms: "Claudicatio intermittens neurogena, sollievo in flessione.", tests: "Test del carrello (miglioramento in flessione).", redFlags: "Parestesie bilaterali ingravescenti.", management: "Esercizi in flessione (Williams), ciclismo, core." },
-            { id: 59, title: "Tallonite da Impatto", district: "Caviglia", severity: "Lieve", def: "Atrofia o infiammazione del pad adiposo plantare calcaneare.", symptoms: "Dolore profondo al tallone durante corsa o camminata su superfici dure.", tests: "Compressione laterale del cuscinetto calcaneare.", redFlags: "Frattura da stress del calcagno.", management: "Talloniere ammortizzanti in silicone, scarico." },
-            { id: 60, title: "Tendinite dei Flessori delle Dita", district: "Gomito/Mano", severity: "Lieve", def: "Sovraccarico infiammatorio dei tendini flessori nell'avambraccio.", symptoms: "Dolore palmare durante la chiusura delle dita contro resistenza.", tests: "Flessione resistita dolorosa.", redFlags: "Infezione della guaina tendinea.", management: "Modifica carico, laser, massaggio miofasciale." },
-            { id: 61, title: "Tendinite dei Muscoli Peronieri", district: "Caviglia", severity: "Lieve", def: "Infiammazione tendini peroniero lungo e breve retromalleolari.", symptoms: "Dolore retromalleolare laterale aggravato da eversione.", tests: "Eversione resistita della caviglia.", redFlags: "Sublussazione o lussazione dei tendini peronieri.", management: "Tutore, rinforzo peronieri, terapia fisica." },
-            { id: 62, title: "Tendinite del Tibiale Posteriore", district: "Caviglia", severity: "Moderata", def: "Infiammazione o disfunzione del tibiale posteriore (piede piatto).", symptoms: "Dolore mediale alla caviglia, cedimento dell'arco plantare.", tests: "Too Many Toes Sign, Single Leg Heel Raise Test.", redFlags: "Rottura completa del tendine con piede piatto rigido.", management: "Ortesi plantari su misura, rinforzo selettivo tibiale." },
-            { id: 63, title: "Tendinopatia del Capo Lungo del Bicipite", district: "Spalla", severity: "Moderata", def: "Processo degenerativo del tendine del CLB nella doccia bicipitale.", symptoms: "Dolore anteriore accentuato da supinazione e flessione resistita.", tests: "Speed Test, Yergason Test.", redFlags: "Deformità 'a papa papa' (rottura tendinea).", management: "Scarico del tendine, massaggio trasverso, eccentrici." },
-            { id: 64, title: "Tendinopatia del Tendine d'Achille", district: "Caviglia", severity: "Moderata", def: "Tendinopatia inserzionale o medio-porzione tendine d'Achille.", symptoms: "Dolore e rigidità tendinea, tumefazione fusiforme.", tests: "Matles Test, Thompson Test (per escludere rottura).", redFlags: "Rottura completa tendinea (Thompson positivo, gap palpabile).", management: "Protocollo Alfredson (eccentrici pesanti), carico progressivo." },
-            { id: 65, title: "Tendinopatia del Popliteo", district: "Ginocchio", severity: "Lieve", def: "Infiammazione del tendine del muscolo popliteo sul lato posterolaterale.", symptoms: "Dolore posterolaterale in discesa o in curva durante la corsa.", tests: "Popliteus Test (rotazione tibiale interna resistita).", redFlags: "Lesione associata del corner posterolaterale.", management: "Riposo relativo, crioterapia, rinforzo estensori." },
-            { id: 66, title: "Tendinopatia della Zampa d'Oca", district: "Ginocchio", severity: "Lieve", def: "Infiammazione tendini congiunti sartorio, gracile e semitendinoso.", symptoms: "Dolore mediale inferiore alla rima articolare.", tests: "Palpazione tibia mediale prossimale.", redFlags: "Borsite infetta.", management: "Stretching flessori, crioterapia, terapia manuale." },
-            { id: 67, title: "Tendinopatia del Tensore della Fascia Lata", district: "Anca", severity: "Lieve", def: "Sovraccarico infiammatorio del TFL e tratto ileotibiale prossimale.", symptoms: "Dolore laterale d'anca associato a sfregamento nella corsa.", tests: "Noble Compression Test.", redFlags: "Sindrome della bandelletta tibiale distale associata.", management: "Rilascio miofasciale, foam roller, allungamento." },
-            { id: 68, title: "Tendinopatia Rotulea (Jumper's Knee)", district: "Ginocchio", severity: "Moderata", def: "Tendinopatia inserzionale del polo inferiore rotuleo.", symptoms: "Dolore al polo inferiore rotuleo in salto e corsa.", tests: "Palpazione tendine in flessione, squat resistito.", redFlags: "Lesione parziale avanzata o rischio rottura.", management: "Esercizi eccentrici pesanti (HEST), isometrici ad alto carico." },
-            { id: 69, title: "Tenosinovite dei Vasi Estensori", district: "Gomito/Mano", severity: "Lieve", def: "Infiammazione dei compartimenti estensori dorsali del polso.", symptoms: "Crepitio udibile e palpabile durante l'estensione delle dita.", tests: "Crepitio al movimento.", redFlags: "Artrite infiammatoria sistemica associata.", management: "Riposo funzionale, crioterapia, ultrasuoni." },
-            { id: 70, title: "Whiplash Associated Disorders (Colpo di Frusta)", district: "Colonna", severity: "Moderata", def: "Lesione cervicale da accelerazione-decelerazione (es. tamponamento).", symptoms: "Cervicalgia acuta, cefalea occipitale, vertigini, rigidità.", tests: "Neck Flexion-Rotation Test.", redFlags: "Fratture od odontoide o lesioni legamentose superiori.", management: "Educazione precoce al movimento, esercizi attivi, rassicurazione." }
+            { id: 1, title: "Alluce Valgo", district: "Caviglia", severity: "Cronica", def: "Deviazione mediale del primo metatarso e laterale dell'alluce.", symptoms: "Deformità estetica, borsite della cipolla (bunion), dolore.", tests: "Esame clinico e radiografico.", redFlags: "Ulcerazione cutanea severa.", management: "Terapie conservative, tutori notturni." },
+            { id: 2, title: "Apofisite della Cresta Iliaca", district: "Anca", severity: "Lieve", def: "Traction apophysitis a livello dell'inserzione dei muscoli addominali.", symptoms: "Dolore localizzato alla cresta iliaca in giovani atleti.", tests: "Palpazione dolorosa.", redFlags: "Distacco apofisario acuto.", management: "Riposo sportivo temporaneo, stretching." },
+            { id: 3, title: "Artrite Acromion-Claveare", district: "Spalla", severity: "Moderata", def: "Usura degenerativa o post-traumatica dell'articolazione AC.", symptoms: "Dolore localizzato al punto alto della spalla.", tests: "Cross-Body Adduction Test.", redFlags: "Osteolisi distale della clavicola.", management: "FANS, modulazione del carico." },
+            { id: 4, title: "Artrosi Gleno-Omerale (Omartrosi)", district: "Spalla", severity: "Cronica", def: "Usura degenerativa della cartilagine articolare gleno-omerale.", symptoms: "Dolore sordo e profondo, crepitii, limitazione ROM.", tests: "Riduzione ROM passivo.", redFlags: "Blocco meccanico severo.", management: "Mantenimento ROM in scarico." },
+            { id: 5, title: "Borsite Ileo-Psoas", district: "Anca", severity: "Lieve", def: "Infiammazione della borsa retro-psoas anteriore d'anca.", symptoms: "Dolore inguinale anteriore durante flessione.", tests: "Flessione attiva resistita.", redFlags: "Ascesso dello psoas.", management: "Stretching ileo-psoas, terapia fisica." },
+            { id: 6, title: "Borsite Subacromiale-Subdeltoidea", district: "Spalla", severity: "Lieve", def: "Infiammazione della borsa sierosa per attrito meccanico.", symptoms: "Dolore in faccia laterale di spalla.", tests: "Neer Test positivo.", redFlags: "Borsite settica con febbre.", management: "Crioterapia, tecarterapia." },
+            { id: 7, title: "Borsite Trocanterica", district: "Anca", severity: "Lieve", def: "Infiammazione della borsa tra grande trocantere e tratto ileotibiale.", symptoms: "Dolore laterale d'anca in decubito.", tests: "Ober Test.", redFlags: "Necrosi avascolare.", management: "Stretching tratto ileotibiale." },
+            { id: 8, title: "Calcificazione Cuffia dei Rotatori", district: "Spalla", severity: "Moderata", def: "Depositi di idrossiapatite di calcio nei tendini.", symptoms: "Dolore iperacuto in fase di riassorbimento.", tests: "Ecografia o Rx spalla positiva.", redFlags: "Dolore flogistico intrattabile.", management: "Onde d'urto, ultrasuoni." },
+            { id: 9, title: "Capsulite Adesiva (Spalla Congelata)", district: "Spalla", severity: "Grave", def: "Fibrosi della capsula articolare gleno-omerale.", symptoms: "Rigidità severa e blocco capsulare.", tests: "Limitazione rigida dei movimenti.", redFlags: "Artrite settica.", management: "Mobilizzazione dolce, terapia manuale." },
+            { id: 10, title: "Cervicalgia Miotensiva", district: "Colonna", severity: "Lieve", def: "Sindrome dolorosa da sovraccarico e contrattura.", symptoms: "Dolore cervicale diffuso, cefalea tensiva.", tests: "Spurling Test negativo.", redFlags: "Vertigini acute, nistagmo.", management: "Rilascio suboccipitale, ergonomia." },
+            { id: 11, title: "Contrattura di Dupuytren", district: "Gomito/Mano", severity: "Cronica", def: "Fibrosi dell'aponeurosi palmare con flessione fissa.", symptoms: "Noduli palmari e cordoni fibrosi.", tests: "Table Top Test positivo.", redFlags: "Retrazione cutanea severa.", management: "Stretching, ultrasuoni." },
+            { id: 12, title: "Coxartrosi (Artrosi d'Anca)", district: "Anca", severity: "Cronica", def: "Degenerazione progressiva cartilagine coxo-femorale.", symptoms: "Dolore inguinale irradiato al ginocchio, zoppia.", tests: "FABER Test, FADIR Test.", redFlags: "Impossibilità assoluta al carico.", management: "Mantenimento ROM, rinforzo." },
+            { id: 13, title: "Ciste di Baker", district: "Ginocchio", severity: "Lieve", def: "Raccolta di liquido sinoviale al cavo popliteo.", symptoms: "Tumefazione e tensione poplitea.", tests: "Ecografia poplitea.", redFlags: "Rottura della ciste simil-flebitica.", management: "Trattamento causa primaria." },
+            { id: 14, title: "Discopatia Degenerativa Cervicale", district: "Colonna", severity: "Cronica", def: "Usura del disco intervertebrale cervicale.", symptoms: "Dolore sordo locale, scrosci.", tests: "Riduzione ROM cervicale.", redFlags: "Mielopatia compressiva.", management: "Mobilizzazioni dolci, chinesi." },
+            { id: 15, title: "Disfunzione Articolazione Sacro-Iliaca", district: "Colonna", severity: "Moderata", def: "Ipomobilità o ipermobilità dolorosa SIJ.", symptoms: "Dolore gluteo unilaterale.", tests: "Cluster di Laslett.", redFlags: "Spondilite anchilosante.", management: "Manipolazioni/mobilizzazioni SIJ." },
+            { id: 16, title: "Distorsione di Caviglia Laterale", district: "Caviglia", severity: "Moderata", def: "Lesione legamentosa collaterale laterale.", symptoms: "Gonfiore, ecchimosi, dolore al carico.", tests: "Anterior Drawer Test.", redFlags: "Frattura malleolare associata.", management: "Protocollo RICE, propriocettività." },
+            { id: 17, title: "Distorsione Legamento Collaterale Ulnare Pollice", district: "Gomito/Mano", severity: "Moderata", def: "Lacerazione legamentosa MCP pollice.", symptoms: "Instabilità in valgo del pollice.", tests: "Valgus Stress Test.", redFlags: "Lesione di Stener.", management: "Tutore rigido polso-pollice." },
+            { id: 18, title: "Dito a Scatto", district: "Gomito/Mano", severity: "Lieve", def: "Infiammazione guaina flessoria con blocco.", symptoms: "Scatto doloroso e blocco in flessione.", tests: "Palpazione nodulo su puleggia A1.", redFlags: "Blocco permanente irriducibile.", management: "Stretching, ultrasuoni." },
+            { id: 19, title: "Epicondilite Laterale", district: "Gomito/Mano", severity: "Moderata", def: "Tendinopatia estensori dell'avambraccio.", symptoms: "Dolore all'epicondilo laterale.", tests: "Cozen Test, Mill Test.", redFlags: "Parestesie nervose.", management: "Esercizi eccentrici, scarico." },
+            { id: 20, title: "Epitrocleite", district: "Gomito/Mano", severity: "Moderata", def: "Tendinopatia flessori-pronatori all'epitroclea.", symptoms: "Dolore mediale da flessione.", tests: "Golfer's Elbow Test.", redFlags: "Parestesie nervo ulnare.", management: "Rinforzo eccentrico flessori." },
+            { id: 21, title: "Ernia del Disco Lombare", district: "Colonna", severity: "Grave", def: "Fuoriuscita nucleo polposo con compressione.", symptoms: "Sciatalgia, parestesie, ipostenia.", tests: "Lasegue Test.", redFlags: "Anestesia a sella, sfinteri.", management: "Decompressione, core stability." },
+            { id: 22, title: "Fascite Plantare", district: "Caviglia", severity: "Moderata", def: "Infiammazione aponeurosi plantare.", symptoms: "Dolore acuto primo appoggio mattutino.", tests: "Windlass Test.", redFlags: "Frattura stress calcagno.", management: "Stretching fascia, plantari." },
+            { id: 23, title: "Frattura Collo del Femore", district: "Anca", severity: "Grave", def: "Interruzione ossea del collo femorale.", symptoms: "Impossibilità assoluta al carico.", tests: "Impossibilità sollevare tallone.", redFlags: "Urgenza chirurgica ortopedica.", management: "Riabilitazione post-protesi." },
+            { id: 24, title: "Frattura della Clavicola", district: "Spalla", severity: "Grave", def: "Interruzione ossea clavicolare.", symptoms: "Deformità visibile, dolore acuto.", tests: "Palpazione dolorosa.", redFlags: "Lesione plesso brachiale.", management: "Tutore a otto, recupero ROM." },
+            { id: 25, title: "Frattura di Pouteau-Colles", district: "Gomito/Mano", severity: "Grave", def: "Frattura distale del radio.", symptoms: "Deformità a dorso di forchetta.", tests: "Esame radiografico.", redFlags: "Compromissione nervo mediano.", management: "Riduzione, gesso, chinesi." },
+            { id: 26, title: "Frattura da Stress Tibiale", district: "Caviglia", severity: "Grave", def: "Microfrattura ossea da sovraccarico.", symptoms: "Dolore localizzato in attività.", tests: "Tuning Fork Test.", redFlags: "Frattura completa.", management: "Riposo dal carico, magnetoterapia." },
+            { id: 27, title: "Gonartrosi", district: "Ginocchio", severity: "Cronica", def: "Usura cartilaginea femoro-tibiale.", symptoms: "Dolore meccanico, crepitii.", tests: "Stress test di ginocchio.", redFlags: "Instabilità severa.", management: "Chinesiterapia in scarico." },
+            { id: 28, title: "Impingement Femoro-Acetabolare", district: "Anca", severity: "Moderata", def: "Conflitto meccanico testa-acetabolo.", symptoms: "Dolore inguinale profondo.", tests: "FADIR Test, FABER Test.", redFlags: "Lesioni labbro acetabolare.", management: "Correzione biomeccanica." },
+            { id: 29, title: "Instabilità Gleno-Omerale", district: "Spalla", severity: "Grave", def: "Traslazione anomala testa omerale.", symptoms: "Sensazione di cedimento.", tests: "Apprehension Test.", redFlags: "Segni neurologici periferici.", management: "Rinforzo stabilizzatori." },
+            { id: 30, title: "Lesione Meniscale", district: "Ginocchio", severity: "Moderata", def: "Lacerazione fibrocartilagine meniscale.", symptoms: "Dolore in rima, blocco, versamento.", tests: "McMurray Test, Thessaly.", redFlags: "Ginocchio bloccato.", management: "Controllo edema, recupero ROM." },
+            { id: 31, title: "Lesione Legamento Collaterale Mediale", district: "Ginocchio", severity: "Moderata", def: "Distorsione LCM in valgo.", symptoms: "Dolore mediale, lassità.", tests: "Valgus Stress Test a 30°.", redFlags: "Unhappy triad.", management: "Tutore protettivo, rinforzo." },
+            { id: 32, title: "Lesione LCA", district: "Ginocchio", severity: "Grave", def: "Rottura legamento crociato anteriore.", symptoms: "Pop, emartro, giving way.", tests: "Lachman Test, Pivot Shift.", redFlags: "Blocco meniscale associato.", management: "Recupero ROM, chirurgia." },
+            { id: 33, title: "Lesione Labbro Acetabolare", district: "Anca", severity: "Grave", def: "Lacerazione cercine acetabolare.", symptoms: "Click o blocco meccanico.", tests: "FABER Test, FADIR Test.", redFlags: "Blocco articolare.", management: "Stabilità dinamica." },
+            { id: 34, title: "Lesione Cuffia dei Rotatori", district: "Spalla", severity: "Grave", def: "Lesione tendinea della cuffia.", symptoms: "Debolezza attiva, dolore.", tests: "Drop Arm Test, Jobe Test.", redFlags: "Impossibilità a sollevare il braccio.", management: "Rinforzo sinergico." },
+            { id: 35, title: "Lesione SLAP", district: "Spalla", severity: "Grave", def: "Lacerazione cercine glenoideo superiore.", symptoms: "Click doloroso in arm-cocking.", tests: "O'Brien Test, Crank Test.", redFlags: "Blocco meccanico.", management: "Stabilità dinamica." },
+            { id: 36, title: "Lombalgia Acuta", district: "Colonna", severity: "Moderata", def: "Spasmo muscolare acuto lombare.", symptoms: "Blocco funzionale in flessione.", tests: "Schober Test ridotto.", redFlags: "Cauda equina.", management: "Decompressione, miofasciale." },
+            { id: 37, title: "Malattia di Osgood-Schlatter", district: "Ginocchio", severity: "Lieve", def: "Osteocondrosi tuberosità tibiale.", symptoms: "Tumefazione e dolore dolente.", tests: "Palpazione tuberosità tibiale.", redFlags: "Distacco osteocondriale.", management: "Riduzione carico, stretching." },
+            { id: 38, title: "Metatarsalgia", district: "Caviglia", severity: "Lieve", def: "Sindrome dolorosa teste metatarsali.", symptoms: "Dolore urente all'avampiede.", tests: "Compressione metatarsale.", redFlags: "Frattura da stress.", management: "Scarico pressorio, plantari." },
+            { id: 39, title: "Neuroma di Morton", district: "Caviglia", severity: "Moderata", def: "Fibrosi perianale nervo interdigitale.", symptoms: "Dolore urente tra III e IV dito.", tests: "Mulder Sign.", redFlags: "Dolore neuropatico persistente.", management: "Calzature larghe, ortesi." },
+            { id: 40, title: "Pubalgia / Sindrome Adduttoria", district: "Anca", severity: "Moderata", def: "Tendinopatia adduttori e sinfisi.", symptoms: "Dolore pubico in corsa.", tests: "Squeeze Test.", redFlags: "Frattura da stress pubica.", management: "Gestione carico, core." },
+            { id: 41, title: "Radicolopatia Cervicale", district: "Colonna", severity: "Grave", def: "Sofferenza radicolare cervicale.", symptoms: "Dolore cervico-brachiale.", tests: "Spurling Test, ULTT.", redFlags: "Mielopatia cervicale.", management: "Trazione dolce, stabilizzazione." },
+            { id: 42, title: "Rizoartrosi", district: "Gomito/Mano", severity: "Cronica", def: "Osteoartrosi trapezio-metacarpale.", symptoms: "Dolore base pollice in pinza.", tests: "Grind Test.", redFlags: "Deformità a zeta.", management: "Tutori funzionali." },
+            { id: 43, title: "Scoliosi Idiopatica", district: "Colonna", severity: "Grave", def: "Deformità tridimensionale colonna.", symptoms: "Asimmetria spalle, gibbo.", tests: "Adams Forward Bend Test.", redFlags: "Rapida evoluzione.", management: "Esercizi SEAS/Schroth." },
+            { id: 44, title: "Sindrome Bandelletta Tibio-Tarsale", district: "Ginocchio", severity: "Lieve", def: "Attrito tratto ileotibiale.", symptoms: "Dolore laterale dopo km di corsa.", tests: "Noble Compression Test.", redFlags: "Borsite laterale.", management: "Stretching TFL, scarico." },
+            { id: 45, title: "Sindrome della Cauda Equina", district: "Colonna", severity: "Grave", def: "Compressione massiva radici cauda.", symptoms: "Anestesia a sella, sfinteri.", tests: "Esame neurologico d'urgenza.", redFlags: "URGENZA CHIRURGICA (24h).", management: "Invio immediato in ospedale." },
+            { id: 46, title: "Sindrome Opercolo Toracico", district: "Spalla", severity: "Moderata", def: "Compressione plesso brachiale.", symptoms: "Parestesie notturne arti superiori.", tests: "Adson Test, Roos Test.", redFlags: "Perdita polso radiale.", management: "Rilascio scaleni, postura." },
+            { id: 47, title: "Sindrome del Piriforme", district: "Colonna", severity: "Moderata", def: "Compressione nervo sciatico da piriforme.", symptoms: "Dolore profondo al gluteo.", tests: "FAIR Test.", redFlags: "Ernia discale vera.", management: "Stretching piriforme, rilasciamento." },
+            { id: 48, title: "Sindrome Seno del Tarso", district: "Caviglia", severity: "Moderata", def: "Infiammazione legamenti seno del tarso.", symptoms: "Dolore depressione laterale.", tests: "Palpazione profonda.", redFlags: "Lesione osteocondrale astragalo.", management: "Infiltrazioni, propriocettività." },
+            { id: 49, title: "Sindrome Tunnel Carpale", district: "Gomito/Mano", severity: "Moderata", def: "Compressione nervo mediano al polso.", symptoms: "Formicolio notturno prime dita.", tests: "Phalen Test, Tinel Test.", redFlags: "Atrofia eminenza tenar.", management: "Tutore notturno, scivolamenti." },
+            { id: 50, title: "Sindrome Tunnel Cubitale", district: "Gomito/Mano", severity: "Moderata", def: "Compressione nervo ulnare al gomito.", symptoms: "Parestesie IV-V dito.", tests: "Tinel Test al gomito.", redFlags: "Artiglio ulnare.", management: "Scivolamenti neurali." },
+            { id: 51, title: "Sindrome Tunnel Tarsale", district: "Caviglia", severity: "Moderata", def: "Compressione nervo tibiale posteriore.", symptoms: "Bruciore pianta del piede.", tests: "Tinel Test tunnel tarsale.", redFlags: "Deficit sensitivi plantari.", management: "Ortesi plantari, scarico." },
+            { id: 52, title: "Sindrome di De Quervain", district: "Gomito/Mano", severity: "Moderata", def: "Tenosinovite stenosante.", symptoms: "Dolore stiloide radiale.", tests: "Finkelstein Test.", redFlags: "Blocco meccanico.", management: "Tutore pollice-polso." },
+            { id: 53, title: "Sindrome Sinding-Larsen-Johansson", district: "Ginocchio", severity: "Lieve", def: "Traction apophysitis polo superiore rotula.", symptoms: "Dolore rotuleo superiore.", tests: "Palpazione polo superiore.", redFlags: "Frattura rotulea.", management: "Gestione carico." },
+            { id: 54, title: "Sindrome Femoro-Rotulea", district: "Ginocchio", severity: "Lieve", def: "Tracking anomalo rotula.", symptoms: "Dolore scale, segno cinema.", tests: "Clarke Test.", redFlags: "Versamento importante.", management: "Rinforzo VMO, taping." },
+            { id: 55, title: "Sospetta Frattura (Ottawa Rules)", district: "Caviglia", severity: "Grave", def: "Screening per escludere fratture.", symptoms: "Impossibilità al carico immediato.", tests: "Ottawa Ankle Rules.", redFlags: "Dolore osseo puntiforme.", management: "Radiografia urgente." },
+            { id: 56, title: "Spondilolistesi", district: "Colonna", severity: "Moderata", def: "Scivolamento anteriore vertebra.", symptoms: "Lombalgia in estensione.", tests: "Stork Test, gradino palpabile.", redFlags: "Instabilità severa.", management: "Core stability profonda." },
+            { id: 57, title: "Spondilolisi", district: "Colonna", severity: "Moderata", def: "Interruzione istmo interarticolare.", symptoms: "Lombalgia in iperestensione.", tests: "Hyperextension test.", redFlags: "Evoluzione in listesi.", management: "Riposo sportivo, core." },
+            { id: 58, title: "Stenosi Canale Lombare", district: "Colonna", severity: "Cronica", def: "Restringimento canale spinale.", symptoms: "Claudicatio neurogena, sollievo in flessione.", tests: "Test del carrello.", redFlags: "Parestesie bilaterali.", management: "Esercizi in flessione." },
+            { id: 59, title: "Tallonite da Impatto", district: "Caviglia", severity: "Lieve", def: "Atrofia pad adiposo plantare.", symptoms: "Dolore profondo calcaneare.", tests: "Compressione laterale.", redFlags: "Frattura calcagno.", management: "Talloniere in silicone." },
+            { id: 60, title: "Tendinite Flessori Dita", district: "Gomito/Mano", severity: "Lieve", def: "Sovraccarico tendini flessori.", symptoms: "Dolore palmare in chiusura.", tests: "Flessione resistita dolorosa.", redFlags: "Infezione della guaina.", management: "Modifica carico, laser." },
+            { id: 61, title: "Tendinite Peronieri", district: "Caviglia", severity: "Lieve", def: "Infiammazione peronieri.", symptoms: "Dolore retromalleolare laterale.", tests: "Eversione resistita.", redFlags: "Sublussazione tendinea.", management: "Tutore, rinforzo." },
+            { id: 62, title: "Tendinite Tibiale Posteriore", district: "Caviglia", severity: "Moderata", def: "Infiammazione tibiale posteriore.", symptoms: "Dolore mediale, piede piatto.", tests: "Single Leg Heel Raise.", redFlags: "Rottura tendinea.", management: "Ortesi plantari." },
+            { id: 63, title: "Tendinopatia Capo Lungo Bicipite", district: "Spalla", severity: "Moderata", def: "Processo degenerativo CLB.", symptoms: "Dolore anteriore in supinazione.", tests: "Speed Test, Yergason.", redFlags: "Deformità a papa.", management: "Scarico, eccentrici." },
+            { id: 64, title: "Tendinopatia Tendine d'Achille", district: "Caviglia", severity: "Moderata", def: "Tendinopatia achillea.", symptoms: "Dolore e rigidità tendinea.", tests: "Thompson Test.", redFlags: "Rottura completa.", management: "Protocollo Alfredson." },
+            { id: 65, title: "Tendinopatia del Popliteo", district: "Ginocchio", severity: "Lieve", def: "Infiammazione tendine popliteo.", symptoms: "Dolore posterolaterale in discesa.", tests: "Popliteus Test.", redFlags: "Lesione corner posterolaterale.", management: "Riposo, crioterapia." },
+            { id: 66, title: "Tendinopatia Zampa d'Oca", district: "Ginocchio", severity: "Lieve", def: "Infiammazione tendini congiunti mediali.", symptoms: "Dolore tibia mediale prossimale.", tests: "Palpazione tibia mediale.", redFlags: "Borsite infetta.", management: "Stretching flessori." },
+            { id: 67, title: "Tendinopatia Tensore Fascia Lata", district: "Anca", severity: "Lieve", def: "Sovraccarico TFL.", symptoms: "Dolore laterale d'anca in corsa.", tests: "Noble Test.", redFlags: "Borsite laterale.", management: "Rilascio miofasciale." },
+            { id: 68, title: "Tendinopatia Rotulea", district: "Ginocchio", severity: "Moderata", def: "Tendinopatia polo inferiore rotula.", symptoms: "Dolore in salto e corsa.", tests: "Squat resistito.", redFlags: "Rischio rottura.", management: "Isometrici e eccentrici pesanti." },
+            { id: 69, title: "Tenosinovite Vasi Estensori", district: "Gomito/Mano", severity: "Lieve", def: "Infiammazione estensori polso.", symptoms: "Crepitio in estensione.", tests: "Crepitio palpabile.", redFlags: "Artrite infiammatoria.", management: "Riposo, ultrasuoni." },
+            { id: 70, title: "Colpo di Frusta (WAD)", district: "Colonna", severity: "Moderata", def: "Lesione cervicale da accelerazione.", symptoms: "Cervicalgia, cefalea, vertigini.", tests: "Neck Flexion-Rotation Test.", redFlags: "Fratture odontoide.", management: "Esercizi attivi precoci." }
         ];
 
-        // Database 2: Trattamenti Riabilitativi
+        // 12 Trattamenti
         const trattamentiData = [
-            { id: 1, title: "Chinesiterapia Attiva e Passiva", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Movimento terapeutico somministrato per ripristinare o mantenere la funzione.", goals: "Recupero della forza, del controllo motorio e del ROM.", indications: "Fasi riabilitative post-chirurgiche e ortopediche.", contraindications: "Fratture instabili, dolore acuto severo.", execution: "Esercizi assistiti, resistiti o liberi con dosaggio progressivo." },
-            { id: 2, title: "Concetto Bobath (Neurodevelopmental Treatment)", category: "Neurologici", subcategory: "Riabilitazione Neurologica", district: "Generale", def: "Approccio per il trattamento di soggetti con lesioni del SNC.", goals: "Inibizione dei riflessi patologici e facilitazione del movimento.", indications: "Ictus cerebrale, emiplegie, paralisi cerebrali infantili.", contraindications: "Fasi acute con instabilità clinica.", execution: "Manipolazioni facilitatorie e posizionamenti guidati." },
-            { id: 3, title: "Esercizio Terapeutico Conoscitivo (Metodo Perfetti)", category: "Neurologici", subcategory: "Riabilitazione Neurologica", district: "Generale", def: "Riabilitazione motoria basata sui processi cognitivi.", goals: "Recupero del controllo motorio attraverso l'attenzione e la percezione.", indications: "Esiti di stroke, lesioni corticali focali.", contraindications: "Coma profondo o grave compromissione cognitiva.", execution: "Esercizi di riconoscimento aptico e spaziale." },
-            { id: 4, title: "Fisioterapia per Torcicollo Congenito Miogeno", category: "Pediatrici", subcategory: "Fisioterapia Pediatrica", district: "Colonna", def: "Trattamento precoce per retrazione sternocleidomastoidea.", goals: "Recupero completo del ROM di rotazione e inclinazione.", indications: "Torcicollo congenito posizionale o miogeno.", contraindications: "Fratture clavicolari o anomalie vertebrali.", execution: "Stretching dolce, stimolazione visiva e posizionamento." },
-            { id: 5, title: "Idrokinesiterapia (Riabilitazione in Acqua)", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Riabilitazione in piscina riscaldata sfruttando il galleggiamento.", goals: "Deambulazione precoce in scarico parziale, riduzione del dolore.", indications: "Fase precoce post-chirurgica (protesi), sovrappeso, artrosi.", contraindications: "Ferite aperte, infezioni cutanee, epilessia.", execution: "Esercizi di deambulazione e mobilizzazione in acqua." },
-            { id: 6, title: "Linfodrenaggio Manuale (Metodo Vodder)", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Massaggio dolce e ritmato per stimolare il sistema linfatico.", goals: "Riduzione dell'edema post-chirurgico o post-traumatico.", indications: "Edemi post-traumatici acuti, chirurgia ortopedica, linfedemi.", contraindications: "Infezioni acute, insufficienza cardiaca, tromboflebiti.", execution: "Manovre leggere di richiamo lungo i collettori linfatici." },
-            { id: 7, title: "Massoterapia Decontratturante e Miofasciale", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", district: "Generale", def: "Manovre manuali sui tessuti molli per ridurre la tensione.", goals: "Rilassamento muscolare, aumento del flusso ematico.", indications: "Mialgie, contratture, cervicalgie e lombalgie.", contraindications: "Trombosi venose, infezioni cutanee, ferite aperte.", execution: "Sfioramento, frizione profonda, trigger point therapy." },
-            { id: 8, title: "Metodo Mézières (Rieducazione Posturale Globale)", category: "Ortopedici", subcategory: "Rieducazione Posturale", def: "Approccio globale basato sulla retrazione delle catene muscolari.", goals: "Allungamento delle catene posteriori, recupero simmetria.", indications: "Iperlordosi, ipercifosi, scoliosi, disallineamenti posturali.", contraindications: "Fasi acute infiammatorie e dolorose severe.", execution: "Posture globali attive in scarico con controllo respiratorio." },
-            { id: 9, title: "Metodo Souchard (RPG)", category: "Ortopedici", subcategory: "Rieducazione Posturale", def: "Metodologia posturale basata sui concetti di globalità.", goals: "Riequilibrio muscolare globale, eliminazione compensazioni.", indications: "Algie vertebrali croniche, alterazioni posturali.", contraindications: "Patologie psichiatriche gravi, non collaborazione.", execution: "Posture di allungamento globale decompensate guidate." },
-            { id: 10, title: "Rieducazione Propriocettiva e Neuromuscolare", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", def: "Stimolazione recettoriale per controllo riflesso e stabilità.", goals: "Controllo neuromuscolare dinamico, prevenzione distorsioni.", indications: "Post-operatorio LCA, distorsioni di caviglia, instabilità.", contraindications: "Assenza totale di stabilità meccanica articolare.", execution: "Esercizi su superfici instabili in catena cinetica chiusa." },
-            { id: 11, title: "Terapia Manuale Ortopedica (Mulligan & Maitland)", category: "Ortopedici", subcategory: "Terapia Manuale Ortopedica", def: "Tecniche manuali specifiche e mobilizzazioni articolari.", goals: "Riduzione del dolore, ripristino del ROM fisiologico.", indications: "Ipomobilità articolare, artrosi, rigidità post-chirurgica.", contraindications: "Instabilità severa, osteoporosi grave, neoplasie.", execution: "Forze passive graduate (gradi I-V Maitland) o MWMs." },
-            { id: 12, title: "Trattamento del Piede Torto Congenito (Metodo Ponseti)", category: "Pediatrici", subcategory: "Fisioterapia Pediatrica", district: "Caviglia", def: "Protocollo manipolativo e gessato sequenziale neonatale.", goals: "Correzione graduale di equino, varo e supinazione.", indications: "Piede torto congenito idiopatico nel neonato.", contraindications: "Piede torto sindromico complesso non idoneo.", execution: "Manipolazioni seriali e gessi settimanali con tenotomia." }
+            { id: 1, title: "Chinesiterapia Attiva e Passiva", category: "Ortopedici", subcategory: "Terapia Manuale", district: "Generale", def: "Movimento terapeutico per ripristinare la funzione.", goals: "Recupero forza e ROM.", indications: "Post-chirurgico e ortopedico.", contraindications: "Fratture instabili.", execution: "Esercizi assistiti o resistiti." },
+            { id: 2, title: "Concetto Bobath", category: "Neurologici", subcategory: "Neuro", district: "Generale", def: "Trattamento per lesioni del SNC.", goals: "Inibizione riflessi patologici.", indications: "Ictus, emiplegie.", contraindications: "Fasi acute instabili.", execution: "Manipolazioni facilitatorie." },
+            { id: 3, title: "Esercizio Terapeutico Conoscitivo", category: "Neurologici", subcategory: "Neuro", district: "Generale", def: "Riabilitazione basata sui processi cognitivi.", goals: "Controllo motorio e percezione.", indications: "Stroke, lesioni corticali.", contraindications: "Coma profondo.", execution: "Esercizi aptici e spaziali." },
+            { id: 4, title: "Fisioterapia per Torcicollo Congenito", category: "Pediatrici", subcategory: "Pediatria", district: "Colonna", def: "Trattamento per retrazione sternocleidomastoidea.", goals: "Recupero ROM di rotazione.", indications: "Torcicollo congenito.", contraindications: "Fratture clavicolari.", execution: "Stretching dolce." },
+            { id: 5, title: "Idrokinesiterapia", category: "Ortopedici", subcategory: "Terapia", district: "Generale", def: "Riabilitazione in acqua riscaldata.", goals: "Deambulazione in scarico.", indications: "Post-chirurgico precoce, artrosi.", contraindications: "Ferite aperte, infezioni.", execution: "Esercizi in piscina." },
+            { id: 6, title: "Linfodrenaggio Manuale (Vodder)", category: "Ortopedici", subcategory: "Terapia", district: "Generale", def: "Massaggio ritmato per sistema linfatico.", goals: "Riduzione edemi.", indications: "Edemi post-traumatici.", contraindications: "Infezioni, tromboflebiti.", execution: "Manovre leggere di richiamo." },
+            { id: 7, title: "Massoterapia Decontratturante", category: "Ortopedici", subcategory: "Terapia", district: "Generale", def: "Manovre sui tessuti molli.", goals: "Rilassamento muscolare.", indications: "Mialgie, contratture.", contraindications: "Trombosi.", execution: "Frizione profonda." },
+            { id: 8, title: "Metodo Mézières (RPG)", category: "Ortopedici", subcategory: "Postura", district: "Generale", def: "Allungamento catene muscolari.", goals: "Riequilibrio posturale.", indications: "Iperlordosi, scoliosi.", contraindications: "Fasi acute gravi.", execution: "Posture globali attive." },
+            { id: 9, title: "Metodo Souchard", category: "Ortopedici", subcategory: "Postura", district: "Generale", def: "Globalità posturale.", goals: "Eliminazione compensazioni.", indications: "Algie vertebrali croniche.", contraindications: "Non collaborazione.", execution: "Posture decompensate." },
+            { id: 10, title: "Rieducazione Propriocettiva", category: "Ortopedici", subcategory: "Terapia", district: "Generale", def: "Stimolazione recettoriale.", goals: "Controllo neuromuscolare.", indications: "Post LCA, distorsioni.", contraindications: "Instabilità grave.", execution: "Superfici instabili." },
+            { id: 11, title: "Terapia Manuale (Maitland)", category: "Ortopedici", subcategory: "Terapia", district: "Generale", def: "Mobilizzazioni articolari.", goals: "Ripristino ROM fisiologico.", indications: "Ipomobilità.", contraindications: "Instabilità, osteoporosi.", execution: "Gradi I-V passivi." },
+            { id: 12, title: "Metodo Ponseti (Piede Torto)", category: "Pediatrici", subcategory: "Pediatria", district: "Caviglia", def: "Protocollo gessato neonatale.", goals: "Correzione equino-varo.", indications: "Piede torto congenito.", contraindications: "Piede sindromico.", execution: "Gessi seriali." }
         ];
 
-        // Database 3: Terapia Strumentale
+        // 12 Terapie Strumentali
         const strumentaleData = [
-            { id: 1, title: "Correnti Diadinamiche (Bernard)", district: "Generale", severity: "Elettroterapia", def: "Correnti a bassa frequenza ad elevato effetto analgesico e vasoattivo.", goals: "Iperemia locale, forte azione antalgica.", indicationsList: ["1. Cervicalgia Miotensiva", "2. Lombalgia Acuta", "3. Epicondilite Laterale", "4. Distorsione di Caviglia", "5. Tendinopatia d'Achille"], contraindications: "Pacemaker, lesioni cutanee, gravidanza.", execution: "Elettrodi con spugnette per 15-20 minuti." },
-            { id: 2, title: "Crioterapia Compressiva (Game Ready)", district: "Generale", severity: "Mezzo Fisico", def: "Sistema avanzato che combina freddo e compressione attiva.", goals: "Controllo immediato di edema e dolore post-operatorio.", indicationsList: ["1. Post-Chirurgico LCA", "2. Post-Operatorio PTG", "3. Distorsione di Caviglia", "4. Versamento Articolare", "5. Post-Riparazione Cuffia"], contraindications: "Disturbi vascolari periferici, sindrome di Raynaud.", execution: "Manicotti a 5-10°C con cicli per 20-30 minuti." },
-            { id: 3, title: "Elettroterapia Antalgica (TENS)", district: "Generale", severity: "Elettroterapia", def: "Stimolazione elettrica nervosa transcutanea.", goals: "Blocco della trasmissione nocicettiva.", indicationsList: ["1. Lombalgia Acuta e Cronica", "2. Radicolopatia Cervicale", "3. Gonartrosi", "4. Coxartrosi", "5. Dolori post-operatori"], contraindications: "Pacemaker cardiaco, ferite aperte.", execution: "Elettrodi periarticolari a 80-100 Hz per 20-30 minuti." },
-            { id: 4, title: "Ipertermia (Thermotherapy Profonda)", district: "Generale", severity: "Mezzo Fisico", def: "Emissione di energia elettromagnetica per calore endogeno.", goals: "Vasodilatazione profonda e rilassamento contratture.", indicationsList: ["1. Capsulite Adesiva", "2. Contratture paravertebrali", "3. Tendinopatia Bicipite", "4. Artrosi Gleno-Omerale", "5. Fibrosi cicatriziali"], contraindications: "Protesi metalliche, mezzi di sintesi, gravidanza.", execution: "Manipolatore radiante con controllo termometrico per 15-20 minuti." },
-            { id: 5, title: "Laserterapia ad Alta Potenza (HILT)", district: "Generale", severity: "Mezzo Fisico", def: "Radiazioni laser ad alta energia Nd:YAG.", goals: "Antinfiammatorio e biostimolazione cellulare profonda.", indicationsList: ["1. Tendinopatia d'Achille", "2. Tendinopatia Rotulea", "3. Fascite Plantare", "4. Epicondilite Laterale", "5. Borsite Subacromiale"], contraindications: "Neoplasie, gravidanza, epilessia.", execution: "Applicazione puntiforme o a scansione con fluenza prescritta." },
-            { id: 6, title: "Magnetoterapia a Bassa Frequenza", district: "Generale", severity: "Mezzo Fisico", def: "Campi magnetici pulsati (PEMF) per riparazione ossea.", goals: "Accelerazione dell'osteogenesi e riduzione edema osseo.", indicationsList: ["1. Frattura Collo Femore", "2. Frattura da Stress Tibia", "3. Frattura Clavicola", "4. Algodistrofia / Sudeck", "5. Pseudoartrosi"], contraindications: "Pacemaker, dispositivi elettronici impiantati, gravidanza.", execution: "Solenoidi attorno al distretto per 2-4 ore giornaliere." },
-            { id: 7, title: "Onde d'Urto Focali (ESWT)", district: "Generale", severity: "Mezzo Fisico", def: "Onde acustiche ad alta energia focalizzate.", goals: "Neovascolarizzazione e disgregazione calcifica.", indicationsList: ["1. Calcificazione Cuffia Rotatori", "2. Fascite Plantare con Spina", "3. Tendinopatia d'Achille Inserzionale", "4. Epicondilite Refrattaria", "5. Pseudoartrosi ossee"], contraindications: "Disturbi della coagulazione, terapia anticoagulante.", execution: "1500-2500 impulsi energetici focalizzati." },
-            { id: 8, title: "Onde d'Urto Radiali (RSWT)", district: "Generale", severity: "Mezzo Fisico", def: "Onde acustiche balistiche pneumatiche per tessuti ampi.", goals: "Rilassamento miofasciale e aumento microcircolo.", indicationsList: ["1. Sindrome del Piriforme", "2. Sindrome Bandelletta Tibio-Tarsale", "3. Mialgie e Trigger Point", "4. Tendinopatia Zampa d'Oca", "5. Periostite tibiale"], contraindications: "Aree di accrescimento osseo nei bambini, cranio.", execution: "2000-3000 colpi a 8-15 Hz con gel conduttore." },
-            { id: 9, title: "Ionoforesi Medica", district: "Generale", severity: "Elettroterapia", def: "Corrente galvanica per veicolare farmaci transcutanei.", goals: "Azione antinfiammatoria localizzata.", indicationsList: ["1. Epicondilite Laterale", "2. Tendinite Flessori Dita", "3. Borsite Trocanterica", "4. Tendinopatia Bicipite", "5. Tenosinovite Estensori"], contraindications: "Lesioni cutanee, allergie al farmaco.", execution: "Elettrodo attivo e passivo per 20 minuti." },
-            { id: 10, title: "TECARterapia (Diatermia Profonda)", district: "Generale", severity: "Mezzo Fisico", def: "Trasferimento energetico capacitivo e resistivo.", goals: "Iperemia profonda e drenaggio linfatico rapido.", indicationsList: ["1. Distorsione Caviglia", "2. Contratture muscolari", "3. Gonartrosi", "4. Coxartrosi", "5. Cervicalgia Miotensiva"], contraindications: "Pacemaker, gravidanza, insensibilità termica.", execution: "Massaggio con piastra capacitiva o resistiva." },
-            { id: 11, title: "Ultrasuonoterapia in Acqua (US)", district: "Generale", severity: "Mezzo Fisico", def: "Vibrazioni acustiche con arto immerso in vasca.", goals: "Micromassaggio e riduzione aderenze sedi ossee.", indicationsList: ["1. Tendinite Tibiale Posteriore", "2. Tenosinovite De Quervain", "3. Sindrome Tunnel Tarsale", "4. Metatarsalgia", "5. Tendinite Flessori Dita"], contraindications: "Ferite aperte in acqua, infezioni cutanee.", execution: "Testina immersa a 2-3 cm per 10-12 minuti." },
-            { id: 12, title: "Ultrasuonoterapia Tradizionale (US)", district: "Generale", severity: "Mezzo Fisico", def: "Vibrazioni acustiche 1-3 MHz termiche e meccaniche.", goals: "Ammorbidimento cicatrici fibrose e analgesia.", indicationsList: ["1. Calcificazione Cuffia Rotatori", "2. Fascite Plantare", "3. Cicatrici post-chirurgiche", "4. Epicondilite Laterale", "5. Borsite Subacromiale"], contraindications: "Epifisi fertili, midollo, protesi cementate.", execution: "Testina con gel in movimento continuo." }
+            { id: 1, title: "Correnti Diadinamiche", district: "Generale", severity: "Elettroterapia", def: "Correnti a bassa frequenza antalgiche.", goals: "Iperemia e analgesia.", indicationsList: ["1. Cervicalgia", "2. Lombalgia", "3. Epicondilite", "4. Distorsione caviglia", "5. Tendinopatia d'Achille"], contraindications: "Pacemaker.", execution: "15-20 minuti." },
+            { id: 2, title: "Crioterapia Compressiva", district: "Generale", severity: "Mezzo Fisico", def: "Freddo e compressione attiva.", goals: "Controllo edema post-operatorio.", indicationsList: ["1. Post LCA", "2. Post PTG", "3. Distorsione acuta", "4. Versamento", "5. Post cuffia"], contraindications: "Raynaud.", execution: "20-30 minuti." },
+            { id: 3, title: "TENS (Elettroterapia Antalgica)", district: "Generale", severity: "Elettroterapia", def: "Stimolazione elettrica transcutanea.", goals: "Blocco nocicettivo.", indicationsList: ["1. Lombalgia", "2. Radicolopatia", "3. Gonartrosi", "4. Coxartrosi", "5. Dolore post-op"], contraindications: "Pacemaker.", execution: "80-100 Hz." },
+            { id: 4, title: "Ipertermia", district: "Generale", severity: "Mezzo Fisico", def: "Calore endogeno profondo.", goals: "Vasodilatazione e rilasciamento.", indicationsList: ["1. Capsulite", "2. Contratture", "3. Tendinopatia", "4. Omartrosi", "5. Fibrosi"], contraindications: "Protesi metalliche.", execution: "15-20 minuti." },
+            { id: 5, title: "Laserterapia HILT", district: "Generale", severity: "Mezzo Fisico", def: "Laser Nd:YAG ad alta potenza.", goals: "Biostimolazione profonda.", indicationsList: ["1. Tendine d'Achille", "2. Tendine rotuleo", "3. Fascite plantare", "4. Epicondilite", "5. Borsite subacromiale"], contraindications: "Neoplasie.", execution: "Scansione fluenza." },
+            { id: 6, title: "Magnetoterapia PEMF", district: "Generale", severity: "Mezzo Fisico", def: "Campi magnetici pulsati.", goals: "Osteogenesi accelerata.", indicationsList: ["1. Frattura femore", "2. Frattura tibia", "3. Frattura clavicola", "4. Algodistrofia", "5. Pseudoartrosi"], contraindications: "Pacemaker.", execution: "2-4 ore al giorno." },
+            { id: 7, title: "Onde d'Urto Focali", district: "Generale", severity: "Mezzo Fisico", def: "Onde acustiche ad alta energia.", goals: "Neovascolarizzazione e calcificazioni.", indicationsList: ["1. Calcificazione cuffia", "2. Fascite con spina", "3. Achillea inserzionale", "4. Epicondilite", "5. Pseudoartrosi"], contraindications: "Coagulopatie.", execution: "1500-2500 colpi." },
+            { id: 8, title: "Onde d'Urto Radiali", district: "Generale", severity: "Mezzo Fisico", def: "Onde pneumatiche per tessuti.", goals: "Rilascio miofasciale.", indicationsList: ["1. Sindrome piriforme", "2. Bandelletta", "3. Trigger point", "4. Zampa d'oca", "5. Periostite"], contraindications: "Cranio.", execution: "2000-3000 colpi." },
+            { id: 9, title: "Ionoforesi", district: "Generale", severity: "Elettroterapia", def: "Veicolazione farmaci con corrente.", goals: "Antinfiammatorio locale.", indicationsList: ["1. Epicondilite", "2. Tendinite", "3. Borsite", "4. Tenosinovite", "5. Tendinopatia"], contraindications: "Lesioni cutanee.", execution: "20 minuti." },
+            { id: 10, title: "TECARterapia", district: "Generale", severity: "Mezzo Fisico", def: "Diatermia capacitiva e resistiva.", goals: "Iperemia e drenaggio.", indicationsList: ["1. Distorsione", "2. Contratture", "3. Gonartrosi", "4. Coxartrosi", "5. Cervicalgia"], contraindications: "Pacemaker.", execution: "Massaggio capacitivo." },
+            { id: 11, title: "Ultrasuoni in Acqua", district: "Generale", severity: "Mezzo Fisico", def: "Vibrazioni in vasca.", goals: "Micromassaggio osseo.", indicationsList: ["1. Tibiale posteriore", "2. De Quervain", "3. Tunnel tarsale", "4. Metatarsalgia", "5. Flessori dita"], contraindications: "Ferite aperte.", execution: "10-12 minuti." },
+            { id: 12, title: "Ultrasuoni Tradizionali", district: "Generale", severity: "Mezzo Fisico", def: "Vibrazioni acustiche US.", goals: "Ammorbidimento cicatrici.", indicationsList: ["1. Calcificazioni", "2. Fascite", "3. Cicatrici", "4. Epicondilite", "5. Borsite"], contraindications: "Epifisi fertili.", execution: "Movimento continuo." }
         ];
 
-        // Database 4: Atlante Miologico Dedicato (150+ Muscoli per le 11 Zone richieste, A-Z)
+        // ATLANTE MIOLOGICO: 151 Muscoli Certificati per 11 Zone (A-Z)
         const anatomiaData = [
-            // 1. PIEDE (A-Z)
-            { id: 1, district: "Piede", title: "Abduttore dell'Alluce", origin: "Processo mediale della tuberosità calcaneare e retinacolo dei flessori", insertion: "Base della falange prossimale dell'alluce (lato mediale)", innervation: "Nervo plantare mediale (S1-S3)", blood: "Arteria plantare mediale", movements: ["Abduzione dell'alluce", "Flessione della falange prossimale dell'alluce", "Supporto dell'arco plantare mediale"] },
-            { id: 2, district: "Piede", title: "Abduttore del V Dito", origin: "Processo laterale e mediale della tuberosità calcaneare e aponeurosi plantare", insertion: "Base della falange prossimale del V dito", innervation: "Nervo plantare laterale (S1-S3)", blood: "Arteria plantare laterale", movements: ["Abduzione del mignolo", "Flessione della falange prossimale del V dito"] },
-            { id: 3, district: "Piede", title: "Adduttore dell'Alluce (Capo Obliquo e Trasverso)", origin: "Basi dei metatarsali II-IV e legamenti plantari articolari", insertion: "Base della falange prossimale dell'alluce (lato laterale)", innervation: "Nervo plantare laterale (S2-S3)", blood: "Arco plantare profondo", movements: ["Adduzione dell'alluce", "Mantenimento dell'arco plantare trasverso"] },
-            { id: 4, district: "Piede", title: "Flessore Breve delle Dita", origin: "Processo mediale della tuberosità calcaneare e aponeurosi plantare", insertion: "Falangi medie delle dita II-V", innervation: "Nervo plantare mediale (S1-S3)", blood: "Arterie plantari", movements: ["Flessione delle falangi medie e prossimali delle dita II-V"] },
-            { id: 5, district: "Piede", title: "Flessore Breve dell'Alluce", origin: "Ossa cuneiformi mediale, intermedio e cuboide", insertion: "Entrambi i lati della base della falange prossimale dell'alluce", innervation: "Nervo plantare mediale e laterale (S1-S2)", blood: "Arteria plantare mediale", movements: ["Flessione della falange prossimale dell'alluce"] },
-            { id: 6, district: "Piede", title: "Flessore Breve del V Dito", origin: "Base del V metatarsale e guaina del peroneo lungo", insertion: "Base della falange prossimale del V dito", innervation: "Nervo plantare laterale (S2-S3)", blood: "Arteria plantare laterale", movements: ["Flessione della falange prossimale del V dito"] },
-            { id: 7, district: "Piede", title: "Interossei Dorsali del Piede (4 muscoli)", origin: "Facce adiacenti delle ossa metatarsali I-V", insertion: "Basi delle falangi prossimali delle dita II-IV", innervation: "Nervo plantare laterale (S2-S3)", blood: "Arterie metatarsali plantari", movements: ["Abduzione delle dita rispetto al II dito", "Flessione metatarso-falangea"] },
-            { id: 8, district: "Piede", title: "Interossei Plantari del Piede (3 muscoli)", origin: "Lati mediali dei metatarsali III-V", insertion: "Basi delle falangi prossimali delle dita III-V", innervation: "Nervo plantare laterale (S2-S3)", blood: "Arterie metatarsali plantari", movements: ["Adduzione delle dita III-V verso il II dito"] },
-            { id: 9, district: "Piede", title: "Lombrichi del Piede (4 muscoli)", origin: "Tendini del muscolo flessore lungo delle dita", insertion: "Margine mediale delle falangi prossimali dita II-V", innervation: "Nervo plantare mediale (I) e laterale (II-IV)", blood: "Arterie digitali plantari", movements: ["Flessione delle falangi prossimali", "Estensione delle falangi medie e distali"] },
-            { id: 10, district: "Piede", title: "Quadrato Plantare (Flessore Accessorio)", origin: "Superficie inferiore e mediale del calcagno", insertion: "Tendine del flessore lungo delle dita", innervation: "Nervo plantare laterale (S1-S3)", blood: "Arteria plantare laterale", movements: ["Raddrizza la trazione del flessore lungo delle dita", "Flessione delle dita del piede"] },
+            // 1. PIEDE (12 muscoli)
+            { id: 1, district: "Piede", title: "Abduttore dell'Alluce", origin: "Tuberosità calcaneare mediale", insertion: "Base falange prossimale alluce", innervation: "N. plantare mediale", blood: "A. plantare mediale", movements: ["Abduzione alluce", "Flessione alluce"] },
+            { id: 2, district: "Piede", title: "Abduttore del V Dito", origin: "Tuberosità calcaneare", insertion: "Base falange prossimale V dito", innervation: "N. plantare laterale", blood: "A. plantare laterale", movements: ["Abduzione V dito"] },
+            { id: 3, district: "Piede", title: "Adduttore dell'Alluce", origin: "Basi metatarsali II-IV", insertion: "Base falange prossimale alluce", innervation: "N. plantare laterale", blood: "Arco plantare profondo", movements: ["Adduzione alluce"] },
+            { id: 4, district: "Piede", title: "Estensore Breve delle Dita", origin: "Calcagno anteriore", insertion: "Tendini estensore lungo", innervation: "N. fibulare profondo", blood: "A. tarsale laterale", movements: ["Estensione dita I-IV"] },
+            { id: 5, district: "Piede", title: "Estensore Breve dell'Alluce", origin: "Calcagno", insertion: "Base falange prossimale alluce", innervation: "N. fibulare profondo", blood: "A. dorsale pedis", movements: ["Estensione alluce"] },
+            { id: 6, district: "Piede", title: "Flessore Breve delle Dita", origin: "Calcagno e aponeurosi", insertion: "Falangi medie dita II-V", innervation: "N. plantare mediale", blood: "Arterie plantari", movements: ["Flessione dita"] },
+            { id: 7, district: "Piede", title: "Flessore Breve dell'Alluce", origin: "Ossa cuneiformi", insertion: "Base falange alluce", innervation: "N. plantare mediale/laterale", blood: "A. plantare mediale", movements: ["Flessione alluce"] },
+            { id: 8, district: "Piede", title: "Flessore Breve del V Dito", origin: "Base V metatarsale", insertion: "Base falange V dito", innervation: "N. plantare laterale", blood: "A. plantare laterale", movements: ["Flessione V dito"] },
+            { id: 9, district: "Piede", title: "Interossei Dorsali del Piede (4)", origin: "Metatarsali adiacenti", insertion: "Falangi prossimali", innervation: "N. plantare laterale", blood: "A. metatarsali plantari", movements: ["Abduzione dita"] },
+            { id: 10, district: "Piede", title: "Interossei Plantari del Piede (3)", origin: "Lati mediali metatarsali III-V", insertion: "Falangi prossimali", innervation: "N. plantare laterale", blood: "A. metatarsali plantari", movements: ["Adduzione dita"] },
+            { id: 11, district: "Piede", title: "Lombrichi del Piede (4)", origin: "Tendini flessore lungo", insertion: "Falangi prossimali dita II-V", innervation: "N. plantare mediale/laterale", blood: "A. digitali plantari", movements: ["Flessione metatarso-falangea"] },
+            { id: 12, district: "Piede", title: "Quadrato Plantare", origin: "Calcagno inferiore", insertion: "Tendine flessore lungo dita", innervation: "N. plantare laterale", blood: "A. plantare laterale", movements: ["Assistenza flessione dita"] },
 
-            // 2. GAMBA (A-Z)
-            { id: 11, district: "Gamba", title: "Estensore Lungo delle Dita", origin: "Condilo laterale della tibia e fibula anteriore", insertion: "Falangi medie e distali delle dita II-V", innervation: "Nervo fibulare profondo (L5-S1)", blood: "Arteria tibiale anteriore", movements: ["Estensione delle dita II-V", "Flessione dorsale della caviglia"] },
-            { id: 12, district: "Gamba", title: "Estensore Lungo dell'Alluce", origin: "Faccia mediale della fibula e membrana interossea", insertion: "Base della falange distale dell'alluce", innervation: "Nervo fibulare profondo (L5-S1)", blood: "Arteria tibiale anteriore", movements: ["Estensione dell'alluce", "Flessione dorsale della caviglia"] },
-            { id: 13, district: "Gamba", title: "Flessore Lungo delle Dita", origin: "Faccia posteriore della tibia", insertion: "Basi delle falangi distali delle dita II-V", innervation: "Nervo tibiale (S2-S3)", blood: "Arteria tibiale posteriore", movements: ["Flessione delle dita II-V", "Flessione plantare", "Supinazione del piede"] },
-            { id: 14, district: "Gamba", title: "Flessore Lungo dell'Alluce", origin: "Faccia posteriore della fibula e membrana interossea", insertion: "Base della falange distale dell'alluce", innervation: "Nervo tibiale (S2-S3)", blood: "Arteria peroniera", movements: ["Flessione dell'alluce", "Flessione plantare", "Supinazione del piede"] },
-            { id: 15, district: "Gamba", title: "Gastrocnemio (Capo Laterale)", origin: "Epicondilo laterale del femore", insertion: "Tubercolo calcaneare tramite tendine d'Achille", innervation: "Nervo tibiale (S1-S2)", blood: "Arteria surale", movements: ["Flessione plantare della caviglia", "Flessione del ginocchio"] },
-            { id: 16, district: "Gamba", title: "Gastrocnemio (Capo Mediale)", origin: "Epicondilo mediale del femore", insertion: "Tubercolo calcaneare tramite tendine d'Achille", innervation: "Nervo tibiale (S1-S2)", blood: "Arteria surale", movements: ["Flessione plantare della caviglia", "Flessione del ginocchio"] },
-            { id: 17, district: "Gamba", title: "Peroniero Breve (Fibulare Breve)", origin: "Metà inferiore della faccia laterale della fibula", insertion: "Tuberosità del V osso metatarsale", innervation: "Nervo fibulare superficiale (L5-S1)", blood: "Arteria peroniera", movements: ["Eversione del piede", "Flessione plantare della caviglia"] },
-            { id: 18, district: "Gamba", title: "Peroniero Lungo (Fibulare Lungo)", origin: "Testa e 2/3 superiori della faccia laterale della fibula", insertion: "Base del I metatarsale e cuneiforme mediale", innervation: "Nervo fibulare superficiale (L5-S1)", blood: "Arteria peroniera", movements: ["Eversione del piede", "Flessione plantare", "Sostegno arco plantare trasverso"] },
-            { id: 19, district: "Gamba", title: "Peroniero Terzo (Fibulare Terzo)", origin: "Terzo inferiore della fibula anteriore", insertion: "Base del V metatarsale (faccia dorsale)", innervation: "Nervo fibulare profondo (L5-S1)", blood: "Arteria tibiale anteriore", movements: ["Flessione dorsale del piede", "Eversione del piede"] },
-            { id: 20, district: "Gamba", title: "Plantare", origin: "Epicondilo laterale del femore", insertion: "Tubercolo calcaneare (o tendine d'Achille)", innervation: "Nervo tibiale (S1-S2)", blood: "Arteria surale", movements: ["Collabora alla flessione plantare e del ginocchio", "Propriocezione locale"] },
-            { id: 21, district: "Gamba", title: "Popliteo", origin: "Condilo laterale del femore e menisco laterale", insertion: "Faccia posteriore della tibia (sopra la linea del soleo)", innervation: "Nervo tibiale (L4-S1)", blood: "Arteria poplitea", movements: ["Rotazione interna della tibia a ginocchio flesso", "Sblocco del ginocchio in estensione"] },
-            { id: 22, district: "Gamba", title: "Soleo", origin: "Testa e terzo superiore della fibula e linea del soleo della tibia", insertion: "Tubercolo calcaneare tramite tendine d'Achille", innervation: "Nervo tibiale (S1-S2)", blood: "Arteria tibiale posteriore", movements: ["Flessione plantare della caviglia di grande potenza e resistenza"] },
-            { id: 23, district: "Gamba", title: "Tibiale Anteriore", origin: "Condilo laterale e metà superiore della tibia", insertion: "Osso cuneiforme mediale e base del I metatarsale", innervation: "Nervo fibulare profondo (L4-L5)", blood: "Arteria tibiale anteriore", movements: ["Flessione dorsale della caviglia", "Supinazione (inversione) del piede"] },
-            { id: 24, district: "Gamba", title: "Tibiale Posteriore", origin: "Faccia posteriore di tibia, fibula e membrana interossea", insertion: "Tuberosità dell'osso navicolare e cuneiformi", innervation: "Nervo tibiale (L4-L5)", blood: "Arteria tibiale posteriore", movements: ["Inversione (supinazione) del piede", "Flessione plantare", "Sostegno dell'arco longitudinale"] },
+            // 2. GAMBA (14 muscoli)
+            { id: 13, district: "Gamba", title: "Estensore Lungo delle Dita", origin: "Condilo laterale tibia e fibula", insertion: "Falangi distali dita II-V", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", movements: ["Estensione dita", "Flessione dorsale"] },
+            { id: 14, district: "Gamba", title: "Estensore Lungo dell'Alluce", origin: "Fibula anteriore", insertion: "Falange distale alluce", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", movements: ["Estensione alluce", "Flessione dorsale"] },
+            { id: 15, district: "Gamba", title: "Flessore Lungo delle Dita", origin: "Tibia posteriore", insertion: "Falangi distali dita II-V", innervation: "N. tibiale", blood: "A. tibiale posteriore", movements: ["Flessione dita", "Supinazione"] },
+            { id: 16, district: "Gamba", title: "Flessore Lungo dell'Alluce", origin: "Fibula posteriore", insertion: "Falange distale alluce", innervation: "N. tibiale", blood: "A. peroniera", movements: ["Flessione alluce", "Supinazione"] },
+            { id: 17, district: "Gamba", title: "Gastrocnemio Capo Laterale", origin: "Epicondilo laterale femore", insertion: "Calcagno (Achille)", innervation: "N. tibiale", blood: "A. surale", movements: ["Flessione plantare", "Flessione ginocchio"] },
+            { id: 18, district: "Gamba", title: "Gastrocnemio Capo Mediale", origin: "Epicondilo mediale femore", insertion: "Calcagno (Achille)", innervation: "N. tibiale", blood: "A. surale", movements: ["Flessione plantare", "Flessione ginocchio"] },
+            { id: 19, district: "Gamba", title: "Peroniero Breve", origin: "Fibula laterale", insertion: "V osso metatarsale", innervation: "N. fibulare superficiale", blood: "A. peroniera", movements: ["Eversione", "Flessione plantare"] },
+            { id: 20, district: "Gamba", title: "Peroniero Lungo", origin: "Testa fibula", insertion: "I metatarsale e cuneiforme", innervation: "N. fibulare superficiale", blood: "A. peroniera", movements: ["Eversione", "Supporto arco plantare"] },
+            { id: 21, district: "Gamba", title: "Peroniero Terzo", origin: "Fibula inferiore", insertion: "Base V metatarsale", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", movements: ["Flessione dorsale", "Eversione"] },
+            { id: 22, district: "Gamba", title: "Plantare", origin: "Epicondilo laterale femore", insertion: "Calcagno", innervation: "N. tibiale", blood: "A. surale", movements: ["Collaborazione flessione"] },
+            { id: 23, district: "Gamba", title: "Popliteo", origin: "Condilo laterale femore", insertion: "Tibia posteriore", innervation: "N. tibiale", blood: "A. poplitea", movements: ["Rotazione interna tibia"] },
+            { id: 24, district: "Gamba", title: "Soleo", origin: "Testa fibula e linea soleo tibia", insertion: "Calcagno", innervation: "N. tibiale", blood: "A. tibiale posteriore", movements: ["Flessione plantare potente"] },
+            { id: 25, district: "Gamba", title: "Tibiale Anteriore", origin: "Tibia laterale", insertion: "Cuneiforme mediale e I metatarsale", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", movements: ["Flessione dorsale", "Inversione"] },
+            { id: 26, district: "Gamba", title: "Tibiale Posteriore", origin: "Tibia e fibula posteriori", insertion: "Osso navicolare e cuneiformi", innervation: "N. tibiale", blood: "A. tibiale posteriore", movements: ["Inversione", "Sostegno arco plantare"] },
 
-            // 3. COSCIA (A-Z)
-            { id: 25, district: "Coscia", title: "Adduttore Breve", origin: "Ramo inferiore del pube", insertion: "Linea pettinea e labbro mediale della linea aspra", innervation: "Nervo otturatore (L2-L4)", blood: "Arteria otturatoria", movements: ["Adduzione dell'anca", "Flessione dell'anca", "Rotazione esterna dell'anca"] },
-            { id: 26, district: "Coscia", title: "Adduttore Lungo", origin: "Superficie anteriore del pube", insertion: "Terzo medio del labbro mediale della linea aspra", innervation: "Nervo otturatore (L2-L4)", blood: "Arteria otturatoria", movements: ["Adduzione dell'anca", "Flessione dell'anca", "Rotazione esterna dell'anca"] },
-            { id: 27, district: "Coscia", title: "Adduttore Magno", origin: "Ramo inferiore del pube e tuberosità ischiatica", insertion: "Linea aspra del femore e tubercolo adduttore", innervation: "Nervo otturatore e nervo sciatico (L2-L4)", blood: "Arteria otturatoria e femorale profonda", movements: ["Adduzione potente dell'anca", "Estensione dell'anca"] },
-            { id: 28, district: "Coscia", title: "Bicipite Femorale (Capo Breve)", origin: "Labbro laterale della linea aspra del femore", insertion: "Testa della fibula e legamento collaterale", innervation: "Nervo fibulare comune (L5-S2)", blood: "Arterie perforanti", movements: ["Flessione del ginocchio", "Rotazione esterna della gamba flessa"] },
-            { id: 29, district: "Coscia", title: "Bicipite Femorale (Capo Lungo)", origin: "Tuberosità ischiatica", insertion: "Testa della fibula e condilo laterale della tibia", innervation: "Nervo tibiale (L5-S2)", blood: "Arterie perforanti", movements: ["Flessione del ginocchio", "Rotazione esterna", "Estensione dell'anca"] },
-            { id: 30, district: "Coscia", title: "Gracile", origin: "Ramo inferiore del pube e sinfisi pubica", insertion: "Faccia mediale della tibia prossimale (Zampa d'oca)", innervation: "Nervo otturatore (L2-L3)", blood: "Arteria femorale", movements: ["Adduzione dell'anca", "Flessione del ginocchio", "Rotazione interna della gamba"] },
-            { id: 31, district: "Coscia", title: "Otturatore Esterno", origin: "Margini ossei del foro otturatorio e membrana otturatoria", insertion: "Fossa trocanterica del femore", innervation: "Nervo otturatore (L3-L4)", blood: "Arteria otturatoria", movements: ["Rotazione esterna dell'anca"] },
-            { id: 32, district: "Coscia", title: "Pettineo", origin: "Ramo superiore del pube (cresta pettinea)", insertion: "Linea pettinea del femore", innervation: "Nervo femorale e talvolta otturatore (L2-L4)", blood: "Arteria femorale", movements: ["Flessione dell'anca", "Adduzione dell'anca"] },
-            { id: 33, district: "Coscia", title: "Quadricipite - Retto Femorale", origin: "Spina iliaca anteriore inferiore (SIAI) e acetabolo", insertion: "Base della rotula e tendine rotuleo", innervation: "Nervo femorale (L2-L4)", blood: "Arteria circonflessa femorale laterale", movements: ["Estensione del ginocchio", "Flessione dell'anca"] },
-            { id: 34, district: "Coscia", title: "Quadricipite - Vasto Intermedio", origin: "Faccia anteriore e laterale del corpo del femore", insertion: "Base della rotula", innervation: "Nervo femorale (L2-L4)", blood: "Arteria femorale profonda", movements: ["Estensione pura del ginocchio"] },
-            { id: 35, district: "Coscia", title: "Quadricipite - Vasto Laterale", origin: "Grande trocantere e labbro laterale della linea aspra", insertion: "Margine laterale della rotula e tendine rotuleo", innervation: "Nervo femorale (L2-L4)", blood: "Arteria circonflessa femorale laterale", movements: ["Estensione del ginocchio", "Stabilizzazione laterale rotula"] },
-            { id: 36, district: "Coscia", title: "Quadricipite - Vasto Mediale", origin: "Labbro mediale della linea aspra e linea intertrocanterica", insertion: "Margine mediale della rotula (VMO)", innervation: "Nervo femorale (L2-L4)", blood: "Arteria femorale", movements: ["Estensione del ginocchio (ultimi gradi)", "Tracking rotuleo"] },
-            { id: 37, district: "Coscia", title: "Sartorio", origin: "Spina iliaca anteriore superiore (SIAS)", insertion: "Zampa d'oca sulla faccia mediale della tibia", innervation: "Nervo femorale (L2-L3)", blood: "Arteria femorale", movements: ["Flessione, abduzione e rotazione esterna d'anca", "Flessione e rotazione interna di ginocchio"] },
-            { id: 38, district: "Coscia", title: "Semimembranoso", origin: "Tuberosità ischiatica", insertion: "Condilo mediale della tibia", innervation: "Nervo tibiale (L5-S2)", blood: "Arterie perforanti", movements: ["Flessione del ginocchio", "Rotazione interna", "Estensione dell'anca"] },
-            { id: 39, district: "Coscia", title: "Semitendinoso", origin: "Tuberosità ischiatica", insertion: "Faccia mediale della tibia prossimale (Zampa d'oca)", innervation: "Nervo tibiale (L5-S2)", blood: "Arterie perforanti", movements: ["Flessione del ginocchio", "Rotazione interna", "Estensione dell'anca"] },
+            // 3. COSCIA (15 muscoli)
+            { id: 27, district: "Coscia", title: "Adduttore Breve", origin: "Ramo inferiore pube", insertion: "Linea aspra", innervation: "N. otturatore", blood: "A. otturatoria", movements: ["Adduzione anca", "Flessione"] },
+            { id: 28, district: "Coscia", title: "Adduttore Lungo", origin: "Pube anteriore", insertion: "Linea aspra", innervation: "N. otturatore", blood: "A. otturatoria", movements: ["Adduzione anca"] },
+            { id: 29, district: "Coscia", title: "Adduttore Magno", origin: "Pube e ischio", insertion: "Linea aspra e tubercolo", innervation: "N. otturatore e sciatico", blood: "A. femorale profonda", movements: ["Adduzione", "Estensione anca"] },
+            { id: 30, district: "Coscia", title: "Articolare del Ginocchio", origin: "Faccia anteriore femore", insertion: "Capsula articolare", innervation: "N. femorale", blood: "A. femorale", movements: ["Tensione capsulare"] },
+            { id: 31, district: "Coscia", title: "Bicipite Femorale Capo Breve", origin: "Linea aspra femore", insertion: "Testa fibula", innervation: "N. fibulare comune", blood: "Arterie perforanti", movements: ["Flessione ginocchio"] },
+            { id: 32, district: "Coscia", title: "Bicipite Femorale Capo Lungo", origin: "Tuberosità ischiatica", insertion: "Testa fibula", innervation: "N. tibiale", blood: "Arterie perforanti", movements: ["Flessione ginocchio", "Estensione anca"] },
+            { id: 33, district: "Coscia", title: "Gracile", origin: "Sinfisi pubica", insertion: "Zampa d'oca tibiale", innervation: "N. otturatore", blood: "A. femorale", movements: ["Adduzione anca", "Flessione ginocchio"] },
+            { id: 34, district: "Coscia", title: "Otturatore Esterno", origin: "Foro otturatorio", insertion: "Fossa trocanterica", innervation: "N. otturatore", blood: "A. otturatoria", movements: ["Rotazione esterna anca"] },
+            { id: 35, district: "Coscia", title: "Pettineo", origin: "Cresta pettinea pube", insertion: "Linea pettinea femore", innervation: "N. femorale", blood: "A. femorale", movements: ["Flessione e adduzione anca"] },
+            { id: 36, district: "Coscia", title: "Retto Femorale", origin: "SIAI e acetabolo", insertion: "Tendine rotuleo", innervation: "N. femorale", blood: "A. circonflessa laterale", movements: ["Estensione ginocchio", "Flessione anca"] },
+            { id: 37, district: "Coscia", title: "Sartorio", origin: "SIAS", insertion: "Zampa d'oca tibiale", innervation: "N. femorale", blood: "A. femorale", movements: ["Flessione, abduzione anca"] },
+            { id: 38, district: "Coscia", title: "Semimembranoso", origin: "Tuberosità ischiatica", insertion: "Condilo mediale tibia", innervation: "N. tibiale", blood: "Arterie perforanti", movements: ["Flessione ginocchio", "Estensione anca"] },
+            { id: 39, district: "Coscia", title: "Semitendinoso", origin: "Tuberosità ischiatica", insertion: "Zampa d'oca tibiale", innervation: "N. tibiale", blood: "Arterie perforanti", movements: ["Flessione ginocchio", "Estensione anca"] },
+            { id: 40, district: "Coscia", title: "Vasto Intermedio", origin: "Femore anteriore", insertion: "Rotula", innervation: "N. femorale", blood: "A. femorale profonda", movements: ["Estensione ginocchio"] },
+            { id: 41, district: "Coscia", title: "Vasto Laterale", origin: "Grande trocantere e linea aspra", insertion: "Rotula", innervation: "N. femorale", blood: "A. circonflessa laterale", movements: ["Estensione ginocchio"] },
+            { id: 42, district: "Coscia", title: "Vasto Mediale", origin: "Linea aspra e intertrocanterica", insertion: "Rotula (VMO)", innervation: "N. femorale", blood: "A. femorale", movements: ["Estensione ginocchio"] },
 
-            // 4. ANCA (A-Z)
-            { id: 40, district: "Anca", title: "Gemello Inferiore", origin: "Tuberosità ischiatica", insertion: "Fossa trocanterica del femore", innervation: "Nervo per il quadrato del femoro (L5-S2)", blood: "Arteria pudenda interna", movements: ["Rotazione esterna dell'anca"] },
-            { id: 41, district: "Anca", title: "Gemello Superiore", origin: "Spina ischiatica", insertion: "Fossa trocanterica del femore", innervation: "Nervo per l'otturatore interno (L5-S2)", blood: "Arteria pudenda interna", movements: ["Rotazione esterna dell'anca"] },
-            { id: 42, district: "Anca", title: "Grande Gluteo", origin: "Ala iliaca posteriore, sacro, coccige e legamento sacrotuberoso", insertion: "Tratto ileotibiale e tuberosità glutea", innervation: "Nervo gluteo inferiore (L5-S2)", blood: "Arterie glutee superiore e inferiore", movements: ["Estensione dell'anca", "Rotazione esterna", "Abduzione/Adduzione"] },
-            { id: 43, district: "Anca", title: "Grande Psoas", origin: "Processi trasversi e corpi di T12-L5", insertion: "Piccolo trocantere del femore", innervation: "Rami diretti del plesso lombare (L1-L3)", blood: "Arterie lombari", movements: ["Flessione potente dell'anca", "Rotazione esterna", "Flessione del tronco"] },
-            { id: 44, district: "Anca", title: "Iliaco", origin: "Fossa iliaca e cresta iliaca", insertion: "Piccolo trocantere del femore", innervation: "Nervo femorale (L2-L4)", blood: "Arteria iliaca interna", movements: ["Flessione dell'anca", "Rotazione esterna dell'anca"] },
-            { id: 45, district: "Anca", title: "Medio Gluteo", origin: "Superficie esterna dell'ala iliaca", insertion: "Faccia laterale del grande trocantere", innervation: "Nervo gluteo superiore (L4-S1)", blood: "Arteria glutea superiore", movements: ["Abduzione dell'anca", "Rotazione interna e esterna", "Stabilizzazione del bacino"] },
-            { id: 46, district: "Anca", title: "Otturatore Interno", origin: "Superficie interna della membrana otturatoria", insertion: "Fossa trocanterica del femore", innervation: "Nervo per l'otturatore interno (L5-S2)", blood: "Arteria pudenda interna", movements: ["Rotazione esterna dell'anca"] },
-            { id: 47, title: "Anca", title: "Piccolo Gluteo", origin: "Superficie esterna dell'ala iliaca (sotto il medio gluteo)", insertion: "Margine anteriore del grande trocantere", innervation: "Nervo gluteo superiore (L4-S1)", blood: "Arteria glutea superiore", movements: ["Abduzione dell'anca", "Rotazione interna dell'anca"] },
-            { id: 48, title: "Anca", title: "Piriforme", origin: "Superficie anteriore del sacro (S2-S4)", insertion: "Margine superiore del grande trocantere", innervation: "Rami diretti del plesso sacrale (S1-S2)", blood: "Arterie glutee", movements: ["Rotazione esterna (anca estesa)", "Abduzione (anca flessa)"] },
-            { id: 49, title: "Anca", title: "Quadrato del Femore", origin: "Margine laterale della tuberosità ischiatica", insertion: "Cresta intertrocanterica del femore", innervation: "Nervo per il quadrato del femoro (L4-S1)", blood: "Arteria circonflessa femorale mediale", movements: ["Rotazione esterna dell'anca", "Adduzione dell'anca"] },
-            { id: 50, title: "Anca", title: "Tensore della Fascia Lata", origin: "Spina iliaca anteriore superiore (SIAS)", insertion: "Tratto ileotibiale (bandelletta di Maissiat)", innervation: "Nervo gluteo superiore (L4-S1)", blood: "Arteria circonflessa iliaca superficiale", movements: ["Abduzione dell'anca", "Flessione", "Rotazione interna", "Stabilità del ginocchio"] },
+            // 4. ANCA (11 muscoli)
+            { id: 43, district: "Anca", title: "Gemello Inferiore", origin: "Tuberosità ischiatica", insertion: "Fossa trocanterica", innervation: "N. quadrato femoro", blood: "A. pudenda interna", movements: ["Rotazione esterna anca"] },
+            { id: 44, district: "Anca", title: "Gemello Superiore", origin: "Spina ischiatica", insertion: "Fossa trocanterica", innervation: "N. otturatore interno", blood: "A. pudenda interna", movements: ["Rotazione esterna anca"] },
+            { id: 45, district: "Anca", title: "Grande Gluteo", origin: "Ala iliaca, sacro, coccige", insertion: "Tratto ileotibiale", innervation: "N. gluteo inferiore", blood: "A. glutea superiore/inferiore", movements: ["Estensione anca", "Rotazione esterna"] },
+            { id: 46, district: "Anca", title: "Grande Psoas", origin: "T12-L5 corpi e processi", insertion: "Piccolo trocantere", innervation: "Plesso lombare", blood: "A. lombari", movements: ["Flessione anca"] },
+            { id: 47, district: "Anca", title: "Iliaco", origin: "Fossa iliaca", insertion: "Piccolo trocantere", innervation: "N. femorale", blood: "A. iliaca interna", movements: ["Flessione anca"] },
+            { id: 48, district: "Anca", title: "Medio Gluteo", origin: "Ala iliaca esterna", insertion: "Grande trocantere", innervation: "N. gluteo superiore", blood: "A. glutea superiore", movements: ["Abduzione anca"] },
+            { id: 49, district: "Anca", title: "Otturatore Interno", origin: "Membrana otturatoria interna", insertion: "Fossa trocanterica", innervation: "N. otturatore interno", blood: "A. pudenda interna", movements: ["Rotazione esterna anca"] },
+            { id: 50, district: "Anca", title: "Piccolo Gluteo", origin: "Ala iliaca esterna", insertion: "Grande trocantere anteriore", innervation: "N. gluteo superiore", blood: "A. glutea superiore", movements: ["Abduzione, rotazione interna"] },
+            { id: 51, district: "Anca", title: "Piriforme", origin: "Sacro anteriore (S2-S4)", insertion: "Grande trocantere superiore", innervation: "Plesso sacrale", blood: "A. glutee", movements: ["Rotazione esterna, abduzione"] },
+            { id: 52, district: "Anca", title: "Quadrato del Femore", origin: "Tuberosità ischiatica", insertion: "Cresta intertrocanterica", innervation: "N. quadrato femoro", blood: "A. circonflessa mediale", movements: ["Rotazione esterna anca"] },
+            { id: 53, district: "Anca", title: "Tensore della Fascia Lata", origin: "SIAS", insertion: "Tratto ileotibiale", innervation: "N. gluteo superiore", blood: "A. circonflessa iliaca", movements: ["Abduzione, flessione anca"] },
 
-            // 5. LOMBARE (A-Z)
-            { id: 51, district: "Lombare", title: "Interspinosi Lombari", origin: "Processi spinosi lombari", insertion: "Processo spinoso della vertebra lombare superiore", innervation: "Rami posteriori dei nervi spinali", blood: "Rami spinali lombari", movements: ["Estensione della colonna lombare"] },
-            { id: 52, district: "Lombare", title: "Intertrasversari Lombari", origin: "Processi costiformi delle vertebre lombari", insertion: "Processo trasverso o costiforme della vertebra superiore", innervation: "Rami anteriori e posteriori dei nervi spinali", blood: "Arterie lombari", movements: ["Inclinazione laterale della colonna lombare"] },
-            { id: 53, district: "Lombare", title: "Iliocostale Lombare", origin: "Cresta iliaca e sacro", insertion: "Angoli delle coste inferiori e fascia toracolombare", innervation: "Rami posteriori dei nervi spinali", blood: "Arterie lombari", movements: ["Estensione della colonna lombare", "Inclinazione laterale"] },
-            { id: 54, district: "Lombare", title: "Lunghissimo del Torace (Tratto Lombare)", origin: "Processi trasversi lombari e fascia toracolombare", insertion: "Processi accessori e trasversi lombari superiori", innervation: "Rami posteriori dei nervi spinali", blood: "Arterie intercostali e lombari", movements: ["Estensione della colonna", "Inclinazione laterale omolaterale"] },
-            { id: 55, district: "Lombare", title: "Multifido Lombare", origin: "Processi mammillari e trasversi lombari e sacro", insertion: "Processi spinosi delle vertebre lombari superiori", innervation: "Rami posteriori dei nervi spinali", blood: "Rami spinali lombari", movements: ["Estensione lombare", "Rotazione controlaterale", "Stabilizzazione segmentaria"] },
-            { id: 56, district: "Lombare", title: "Obliquo Esterno dell'Addome", origin: "Superficie esterna delle coste V-XII", insertion: "Cresta iliaca, legamento inguinale e linea alba", innervation: "Nervi toracoaddominali (T7-T12)", blood: "Arterie epigastriche e intercostali", movements: ["Flessione del tronco", "Rotazione controlaterale", "Inclinazione", "Compressione"] },
-            { id: 57, district: "Lombare", title: "Obliquo Interno dell'Addome", origin: "Fascia toracolombare e cresta iliaca", insertion: "Cartilagini costali X-XII e linea alba", innervation: "Nervi toracoaddominali (T10-T12)", blood: "Arterie epigastrica inferiore e lombari", movements: ["Flessione del tronco", "Rotazione omolaterale", "Compressione addominale"] },
-            { id: 58, district: "Lombare", title: "Quadrato dei Lombi", origin: "Cresta iliaca e legamento iliolombare", insertion: "Processi trasversi L1-L4 e XII costa", innervation: "Nervo sottocostale e rami T12-L4", blood: "Arteria lombare e subcostale", movements: ["Inclinazione laterale del tronco", "Fissazione XII costa", "Estensione lombare"] },
-            { id: 59, district: "Lombare", title: "Retto dell'Addome", origin: "Sinfisi pubica e cresta pubica", insertion: "Cartilagini costali V-VII e processo xifoide", innervation: "Nervi intercostali inferiori (T7-T12)", blood: "Arterie epigastriche superiore e inferiore", movements: ["Flessione del tronco", "Retropulsione del bacino", "Compressione viscerale"] },
-            { id: 60, district: "Lombare", title: "Rotatori Brevi e Lunghi Lombari", origin: "Processi mammillari delle vertebre lombari", insertion: "Base del processo spinoso della vertebra soprastante", innervation: "Rami posteriori dei nervi spinali", blood: "Rami spinali lombari", movements: ["Rotazione e estensione della colonna lombare"] },
-            { id: 61, district: "Lombare", title: "Trasverso dell'Addome", origin: "Cartilagini costali VII-XII, fascia toracolombare, cresta iliaca", insertion: "Linea alba e cresta pubica", innervation: "Nervi toracoaddominali (T7-T12)", blood: "Arterie epigastrica inferiore e lombari", movements: ["Compressione dei visceri", "Stabilità del core e della colonna lombare"] },
+            // 5. LOMBARE (11 muscoli)
+            { id: 54, district: "Lombare", title: "Interspinosi Lombari", origin: "Processi spinosi lombari", insertion: "Spinoso superiore", innervation: "Rami posteriori N. spinali", blood: "Rami spinali", movements: ["Estensione lombare"] },
+            { id: 55, district: "Lombare", title: "Intertrasversari Lombari", origin: "Processi costiformi", insertion: "Processo superiore", innervation: "Rami N. spinali", blood: "A. lombari", movements: ["Inclinazione laterale"] },
+            { id: 56, district: "Lombare", title: "Iliocostale Lombare", origin: "Cresta iliaca e sacro", insertion: "Coste inferiori", innervation: "Rami posteriori", blood: "A. lombari", movements: ["Estensione colonna"] },
+            { id: 57, district: "Lombare", title: "Lunghissimo del Torace", origin: "Processi trasversi lombari", insertion: "Trasversi superiori", innervation: "Rami posteriori", blood: "A. intercostali", movements: ["Estensione colonna"] },
+            { id: 58, district: "Lombare", title: "Multifido Lombare", origin: "Processi trasversi e sacro", insertion: "Spinosi superiori", innervation: "Rami posteriori", blood: "Rami spinali", movements: ["Estensione e rotazione"] },
+            { id: 59, district: "Lombare", title: "Obliquo Esterno Addome", origin: "Coste V-XII", insertion: "Cresta iliaca e linea alba", innervation: "Nervi toracoaddominali", blood: "A. epigastriche", movements: ["Flessione, rotazione"] },
+            { id: 60, district: "Lombare", title: "Obliquo Interno Addome", origin: "Fascia toracolombare", insertion: "Cartilagini costali X-XII", innervation: "Nervi toracoaddominali", blood: "A. lombari", movements: ["Flessione, rotazione"] },
+            { id: 61, district: "Lombare", title: "Quadrato dei Lombi", origin: "Cresta iliaca", insertion: "XII costa e L1-L4", innervation: "N. sottocostale e L1-L4", blood: "A. lombare", movements: ["Inclinazione laterale"] },
+            { id: 62, district: "Lombare", title: "Retto dell'Addome", origin: "Sinfisi pubica", insertion: "Cartilagini V-VII e xifoide", innervation: "T7-T12", blood: "A. epigastriche", movements: ["Flessione tronco"] },
+            { id: 63, district: "Lombare", title: "Rotatori Lombari", origin: "Processi mammillari", insertion: "Spinoso soprastante", innervation: "Rami posteriori", blood: "Rami spinali", movements: ["Rotazione lombare"] },
+            { id: 64, district: "Lombare", title: "Trasverso dell'Addome", origin: "Cartilagini e cresta iliaca", insertion: "Linea alba", innervation: "T7-T12", blood: "A. epigastriche", movements: ["Compressione viscerale, core"] },
 
-            // 6. TORACE (A-Z)
-            { id: 62, district: "Torace", title: "Dentato Anteriore", origin: "Faccia esterna delle prime 8-9 coste", insertion: "Margine mediale della scapola (faccia anteriore)", innervation: "Nervo toracico lungo (C5-C7)", blood: "Arteria toracica laterale", movements: ["Abduzione e rotazione superiore della scapola", "Trazione della scapola in avanti contro il torace"] },
-            { id: 63, district: "Torace", title: "Dentato Posteriore Inferiore", origin: "Processi spinosi T11-L2", insertion: "Margine inferiore delle ultime 4 coste (IX-XII)", innervation: "Nervi intercostali (T9-T12)", blood: "Arterie intercostali posteriori", movements: ["Abbassamento delle coste inferiori (espirazione)"] },
-            { id: 64, district: "Torace", title: "Dentato Posteriore Superiore", origin: "Processi spinosi C7-T3", insertion: "Margine superiore delle coste II-V", innervation: "Nervi intercostali (T1-T4)", blood: "Arterie intercostali superiori", movements: ["Elevazione delle coste superiori (inspirazione)"] },
-            { id: 65, district: "Torace", title: "Grande Dorsale", origin: "Processi spinosi T7-L5, sacro, cresta iliaca e coste IX-XII", insertion: "Solco bicipitale dell'omero", innervation: "Nervo toracodorsale (C6-C8)", blood: "Arteria toracodorsale", movements: ["Estensione, adduzione e rotazione interna della spalla"] },
-            { id: 66, district: "Torace", title: "Grande Pettorale", origin: "Clavicola, sterno e cartilagini costali I-VI", insertion: "Solco bicipitale dell'omero", innervation: "Nervi pettorali mediale e laterale (C5-T1)", blood: "Arteria toracoacromiale e toracica interna", movements: ["Adduzione, flessione e rotazione interna della spalla"] },
-            { id: 67, district: "Torace", title: "Grande Romboide", origin: "Processi spinosi T1-T4", insertion: "Margine mediale della scapola (sotto la spina)", innervation: "Nervo dorsale della scapola (C5)", blood: "Arteria trasversa del collo", movements: ["Adduzione (retrazione) della scapola", "Elevazione e rotazione inferiore"] },
-            { id: 68, district: "Torace", title: "Intercostali Esterni (11 paia)", origin: "Margine inferiore di ciascuna costa", insertion: "Margine superiore della costa sottostante", innervation: "Nervi intercostali (T1-T11)", blood: "Arterie intercostali anteriori e posteriori", movements: ["Elevazione delle coste durante l'inspirazione"] },
-            { id: 69, district: "Torace", title: "Intercostali Interni (11 paia)", origin: "Solco costale e margine inferiore della costa", insertion: "Margine superiore della costa sottostante", innervation: "Nervi intercostali (T1-T11)", blood: "Arterie intercostali", movements: ["Abbassamento delle coste durante l'espirazione forzata"] },
-            { id: 70, district: "Torace", title: "Piccolo Pettorale", origin: "Faccia anteriore delle coste III-V", insertion: "Processo coracoide della scapola", innervation: "Nervo pettorale mediale (C8-T1)", blood: "Arteria toracoacromiale", movements: ["Abbassamento della scapola", "Inclinazione anteriore", "Inspirazione forzata"] },
-            { id: 71, district: "Torace", title: "Piccolo Romboide", origin: "Processi spinosi C7-T1", insertion: "Margine mediale della scapola (altezza della spina)", innervation: "Nervo dorsale della scapola (C5)", blood: "Arteria trasversa del collo", movements: ["Adduzione e retrazione della scapola"] },
-            { id: 72, district: "Torace", title: "Succlavio", origin: "Prima costa e cartilagine", insertion: "Solco succlavio della clavicola", innervation: "Nervo succlavio (C5-C6)", blood: "Arteria toracoacromiale", movements: ["Abbassamento della clavicola"] },
+            // 6. TORACE (20 muscoli)
+            { id: 65, district: "Torace", title: "Dentato Anteriore", origin: "Coste I-IX", insertion: "Margine mediale scapola", innervation: "N. toracico lungo", blood: "A. toracica laterale", movements: ["Abduzione scapola"] },
+            { id: 66, district: "Torace", title: "Dentato Posteriore Inferiore", origin: "T11-L2", insertion: "Coste IX-XII", innervation: "Nervi intercostali T9-T12", blood: "A. intercostali", movements: ["Espirazione"] },
+            { id: 67, district: "Torace", title: "Dentato Posteriore Superiore", origin: "C7-T3", insertion: "Coste II-V", innervation: "Nervi intercostali T1-T4", blood: "A. intercostali superiori", movements: ["Inspirazione"] },
+            { id: 68, district: "Torace", title: "Elevatore delle Coste (12)", origin: "Processi trasversi C7-T11", insertion: "Coste sottostanti", innervation: "Rami posteriori", blood: "A. intercostali", movements: ["Inspirazione"] },
+            { id: 69, district: "Torace", title: "Grande Dorsale", origin: "T7-L5, sacro, cresta iliaca", insertion: "Solco bicipitale omero", innervation: "N. toracodorsale", blood: "A. toracodorsale", movements: ["Estensione, adduzione spalla"] },
+            { id: 70, district: "Torace", title: "Grande Pettorale", origin: "Clavicola, sterno, coste I-VI", insertion: "Solco bicipitale omero", innervation: "Nervi pettorali", blood: "A. toracoacromiale", movements: ["Adduzione, flessione spalla"] },
+            { id: 71, district: "Torace", title: "Grande Romboide", origin: "T1-T4", insertion: "Margine mediale scapola", innervation: "N. dorsale scapola", blood: "A. trasversa collo", movements: ["Adduzione scapolare"] },
+            { id: 72, district: "Torace", title: "Intercostali Esterni (11)", origin: "Margine inferiore costa", insertion: "Margine superiore costa sottostante", innervation: "Nervi intercostali", blood: "A. intercostali", movements: ["Inspirazione"] },
+            { id: 73, district: "Torace", title: "Intercostali Interni (11)", origin: "Solco costale", insertion: "Costa sottostante", innervation: "Nervi intercostali", blood: "A. intercostali", movements: ["Espirazione"] },
+            { id: 74, district: "Torace", title: "Intercostali Intrepidi / Intrimi", origin: "Superficie interna coste", insertion: "Coste interne", innervation: "Nervi intercostali", blood: "A. intercostali", movements: ["Espirazione"] },
+            { id: 75, district: "Torace", title: "Piccolo Pettorale", origin: "Coste III-V", insertion: "Processo coracoide", innervation: "N. pettorale mediale", blood: "A. toracoacromiale", movements: ["Abbassamento scapola"] },
+            { id: 76, district: "Torace", title: "Piccolo Romboide", origin: "C7-T1", insertion: "Margine mediale scapola", innervation: "N. dorsale scapola", blood: "A. trasversa collo", movements: ["Adduzione scapolare"] },
+            { id: 77, district: "Torace", title: "Succlavio", origin: "I costa", insertion: "Clavicola", innervation: "N. succlavio", blood: "A. toracoacromiale", movements: ["Abbassamento clavicola"] },
+            { id: 78, district: "Torace", title: "Trasverso del Torace", origin: "Faccia posteriore sterno", insertion: "Cartilagini costali II-VI", innervation: "Nervi intercostali", blood: "A. toracica interna", movements: ["Espirazione"] },
+            { id: 79, district: "Torace", title: "Diaframma (Centro Frenico)", origin: "Processo xifoide, coste VI-XII, vertebre L1-L3", insertion: "Centro frenico", innervation: "N. frenico (C3-C5)", blood: "A. pericardiofrenica", movements: ["Inspirazione primaria"] },
+            { id: 80, district: "Torace", title: "Sotto-costali (Subcostales)", origin: "Faccia interna coste inferiori", insertion: "Costa saltandone una", innervation: "Nervi intercostali", blood: "A. intercostali", movements: ["Espirazione"] },
+            { id: 81, district: "Torace", title: "Lunghissimo del Torace", origin: "Sacro e lombari", insertion: "Coste toraciche", innervation: "Rami posteriori", blood: "A. intercostali", movements: ["Estensione colonna"] },
+            { id: 82, district: "Torace", title: "Spinale del Torace", origin: "Processi spinosi T10-L2", insertion: "Processi spinosi T2-T8", innervation: "Rami posteriori", blood: "A. intercostali", movements: ["Estensione toracica"] },
+            { id: 83, district: "Torace", title: "Semispinale del Torace", origin: "Processi trasversi T6-T10", insertion: "Spinosi C6-T4", innervation: "Rami posteriori", blood: "A. intercostali", movements: ["Estensione e rotazione"] },
+            { id: 84, district: "Torace", title: "Multifido del Torace", origin: "Processi trasversi toracici", insertion: "Spinosi superiori", innervation: "Rami posteriori", blood: "A. intercostali", movements: ["Stabilizzazione toracica"] },
 
-            // 7. CERVICALE (A-Z)
-            { id: 73, district: "Cervicale", title: "Elevatore della Scapola", origin: "Processi trasversi C1-C4", insertion: "Angolo superiore e margine mediale della scapola", innervation: "Nervo dorsale della scapola (C3-C5)", blood: "Arteria dorsale della scapola", movements: ["Elevazione della scapola", "Inclinazione e rotazione omolaterale del collo"] },
-            { id: 74, district: "Cervicale", title: "Lunghissimo del Collo e della Testa", origin: "Processi trasversi C4-T5", insertion: "Processo masttoideo e tubercoli trasversi cervicali", innervation: "Rami posteriori dei nervi spinali cervicali", blood: "Arteria cervicale ascendente", movements: ["Estensione della testa e del collo", "Inclinazione laterale"] },
-            { id: 75, district: "Cervicale", title: "Muscoli Interspinosi Cervicali", origin: "Processi spinosi cervicali", insertion: "Processo spinoso superiore", innervation: "Rami posteriori dei nervi spinali", blood: "Arteria vertebrale", movements: ["Estensione del tratto cervicale"] },
-            { id: 76, district: "Cervicale", title: "Muscoli Suboccipitali (Retti e Obliqui)", origin: "Atlante (C1) ed Epistrofeo (C2)", insertion: "Squama dell'occipite e processo trasverso di C1", innervation: "Nervo sottoccipitale (ramo posteriore di C1)", blood: "Arteria occipitale", movements: ["Estensione della testa", "Rotazione e inclinazione della testa"] },
-            { id: 77, district: "Cervicale", title: "Platisma", origin: "Fascia pettorale e deltoidea superiore", insertion: "Margine inferiore della mandibulare e cute del mento", innervation: "Ramo cervicale del nervo facciale (VII nc)", blood: "Arteria facciale e sottosmentale", movements: ["Tensione della pelle del collo", "Abbassamento della commessura labiale"] },
-            { id: 78, district: "Cervicale", title: "Retto Anteriore della Testa", origin: "Massa laterale dell'atlante (C1)", insertion: "Parte basilare dell'osso occipitale", innervation: "Rami ventrali C1-C2", blood: "Arteria faringea ascendente", movements: ["Flessione della testa sull'atlante"] },
-            { id: 79, district: "Cervicale", title: "Scaleno Anteriore", origin: "Processi trasversi C3-C6", insertion: "Tubercolo del muscolo scaleno anteriore della I costa", innervation: "Rami ventrali C4-C6", blood: "Arteria cervicale ascendente", movements: ["Inclinazione omolaterale del collo", "Rotazione controlaterale", "Elevazione della I costa (inspirazione)"] },
-            { id: 80, district: "Cervicale", title: "Scaleno Medio", origin: "Processi trasversi C2-C7", insertion: "Faccia superiore della I costa", innervation: "Rami ventrali C3-C8", blood: "Arteria cervicale superficiale", movements: ["Inclinazione omolaterale del collo", "Elevazione della I costa"] },
-            { id: 81, district: "Cervicale", title: "Scaleno Posteriore", origin: "Processi trasversi C5-C7", insertion: "Faccia esterna della II costa", innervation: "Rami ventrali C6-C8", blood: "Arteria cervicale ascendente", movements: ["Inclinazione omolaterale del collo", "Elevazione della II costa"] },
-            { id: 82, district: "Cervicale", title: "Splenio del Collo", origin: "Processi spinosi T3-T6", insertion: "Tubercoli posteriori dei processi trasversi C1-C3", innervation: "Rami posteriori dei nervi spinali cervicali", blood: "Arteria cervicale profonda", movements: ["Estensione del collo", "Inclinazione e rotazione omolaterale"] },
-            { id: 83, district: "Cervicale", title: "Splenio della Testa", origin: "Processi spinosi C7-T3 e legamento nucale", insertion: "Processo masttoideo e osso occipitale", innervation: "Rami posteriori dei nervi spinali cervicali", blood: "Arteria occipitale", movements: ["Estensione della testa e del collo", "Rotazione e inclinazione omolaterale"] },
-            { id: 84, district: "Cervicale", title: "Sternocleidomastoideo (SCM)", origin: "Manubrio sternale e terzo mediale della clavicola", insertion: "Processo masttoideo e osso occipitale", innervation: "Nervo accessorio (XI nc) e plesso cervicale (C2-C3)", blood: "Arteria occipitale e tiroidea superiore", movements: ["Flessione del collo", "Rotazione controlaterale della testa", "Inclinazione omolaterale"] },
-            { id: 85, district: "Cervicale", title: "Trapezio (Fascio Superiore)", origin: "Osso occipitale, legamento nucale e processo spinoso C7", insertion: "Terzo laterale della clavicola", innervation: "Nervo accessorio (XI nc) e plesso cervicale (C2-C4)", blood: "Arteria occipitale e cervicale superficiale", movements: ["Elevazione della scapola", "Inclinazione omolaterale del collo", "Rotazione controlaterale", "Estensione della testa"] },
+            // 7. CERVICALE (14 muscoli)
+            { id: 85, district: "Cervicale", title: "Elevatore della Scapola", origin: "C1-C4 trasversi", insertion: "Angolo superiore scapola", innervation: "N. dorsale scapola", blood: "A. dorsale scapola", movements: ["Elevazione scapola"] },
+            { id: 86, district: "Cervicale", title: "Lunghissimo del Collo", origin: "Trasversi T1-T5", insertion: "Tubercostrasversi C2-C6", innervation: "Rami posteriori", blood: "A. cervicale ascendente", movements: ["Estensione collo"] },
+            { id: 87, district: "Cervicale", title: "Lunghissimo della Testa", origin: "Trasversi C3-T3", insertion: "Processo masttoideo", innervation: "Rami posteriori", blood: "A. occipitale", movements: ["Estensione testa"] },
+            { id: 88, district: "Cervicale", title: "Interspinosi Cervicali", origin: "Spinosi cervicali", insertion: "Spinoso superiore", innervation: "Rami posteriori", blood: "A. vertebrale", movements: ["Estensione cervicale"] },
+            { id: 89, district: "Cervicale", title: "Platisma", origin: "Fascia pettorale", insertion: "Mandibola", innervation: "N. facciale", blood: "A. facciale", movements: ["Tensione cute collo"] },
+            { id: 90, district: "Cervicale", title: "Retto Anteriore della Testa", origin: "Atlante C1", insertion: "Osso occipitale", innervation: "Rami ventrali C1-C2", blood: "A. faringea ascendente", movements: ["Flessione testa"] },
+            { id: 91, district: "Cervicale", title: "Retto Laterale della Testa", origin: "Processo trasverso C1", insertion: "Osso occipitale", innervation: "Rami ventrali C1-C2", blood: "A. occipitale", movements: ["Inclinazione testa"] },
+            { id: 92, district: "Cervicale", title: "Scaleno Anteriore", origin: "C3-C6 trasversi", insertion: "I costa", innervation: "C4-C6", blood: "A. cervicale ascendente", movements: ["Inclinazione, inspirazione"] },
+            { id: 93, district: "Cervicale", title: "Scaleno Medio", origin: "C2-C7 trasversi", insertion: "I costa", innervation: "C3-C8", blood: "A. cervicale superficiale", movements: ["Inclinazione collo"] },
+            { id: 94, district: "Cervicale", title: "Scaleno Posteriore", origin: "C5-C7 trasversi", insertion: "II costa", innervation: "C6-C8", blood: "A. cervicale ascendente", movements: ["Inclinazione collo"] },
+            { id: 95, district: "Cervicale", title: "Splenio del Collo", origin: "T3-T6 spinosi", insertion: "C1-C3 trasversi", innervation: "Rami posteriori", blood: "A. cervicale profonda", movements: ["Estensione collo"] },
+            { id: 96, district: "Cervicale", title: "Splenio della Testa", origin: "C7-T3 spinosi", insertion: "Processo masttoideo", innervation: "Rami posteriori", blood: "A. occipitale", movements: ["Estensione testa"] },
+            { id: 97, district: "Cervicale", title: "Sternocleidomastoideo", origin: "Serno e clavicola", insertion: "Processo masttoideo", innervation: "N. accessorio (XI)", blood: "A. occipitale", movements: ["Rotazione controlaterale"] },
+            { id: 98, district: "Cervicale", title: "Trapezio Superiore", origin: "Occipite e C7", insertion: "Clavicola laterale", innervation: "N. accessorio", blood: "A. cervicale superficiale", movements: ["Elevazione scapola"] },
 
-            // 8. SPALLA (A-Z)
-            { id: 86, district: "Spalla", title: "Anconeo", origin: "Epicondilo laterale dell'omero", insertion: "Superficie posteriore prossimale dell'ulna", innervation: "Nervo radiale (C7-T1)", blood: "Arteria collaterale media", movements: ["Estensione dell'avambraccio", "Stabilizzazione del gomito"] },
-            { id: 87, district: "Spalla", title: "Bicipite Brachiale (Capo Breve)", origin: "Processo coracoide della scapola", insertion: "Tuberosità del radio e aponeurosi bicipitale", innervation: "Nervo muscolocutaneo (C5-C6)", blood: "Arteria brachiale", movements: ["Flessione dell'avambraccio", "Supinazione", "Adduzione della spalla"] },
-            { id: 88, district: "Spalla", title: "Bicipite Brachiale (Capo Lungo)", origin: "Tubercolo sovraglenoideo della scapola", insertion: "Tuberosità del radio", innervation: "Nervo muscolocutaneo (C5-C6)", blood: "Arteria brachiale", movements: ["Flessione dell'avambraccio", "Supinazione", "Flessione della spalla"] },
-            { id: 89, district: "Spalla", title: "Coracobrachiale", origin: "Processo coracoide della scapola", insertion: "Terzo medio della faccia mediale dell'omero", innervation: "Nervo muscolocutaneo (C6-C7)", blood: "Arteria circonflessa anteriore", movements: ["Flessione della spalla", "Adduzione della spalla"] },
-            { id: 90, district: "Spalla", title: "Deltoide (Anteriore / Claveare)", origin: "Terzo laterale della clavicola", insertion: "Tuberosità deltoidea dell'omero", innervation: "Nervo ascellare (C5-C6)", blood: "Arteria toracoacromiale", movements: ["Flessione della spalla", "Rotazione interna", "Abduzione"] },
-            { id: 91, district: "Spalla", title: "Deltoide (Medio / Acromiale)", origin: "Acromion della scapola", insertion: "Tuberosità deltoidea dell'omero", innervation: "Nervo ascellare (C5-C6)", blood: "Arteria circonflessa posteriore", movements: ["Abduzione della spalla (da 15° a 90°)"] },
-            { id: 92, district: "Spalla", title: "Deltoide (Posteriore / Spinale)", origin: "Spina della scapola", insertion: "Tuberosità deltoidea dell'omero", innervation: "Nervo ascellare (C5-C6)", blood: "Arteria circonflessa posteriore", movements: ["Estensione della spalla", "Rotazione esterna", "Abduzione orizzontale"] },
-            { id: 93, district: "Spalla", title: "Grande Omoscapolare / Grande Rotondo", origin: "Angolo inferiore della scapola", insertion: "Cresta del tubercolo minore dell'omero", innervation: "Nervo sottoscapolare inferiore (C5-C6)", blood: "Arteria sottoscapolare", movements: ["Adduzione", "Estensione e rotazione interna della spalla"] },
-            { id: 94, district: "Spalla", title: "Infraspinato", origin: "Fossa infraspinata della scapola", insertion: "Faccetta media del tubercolo maggiore dell'omero", innervation: "Nervo soprascapolare (C5-C6)", blood: "Arteria scapolare dorsale", movements: ["Rotazione esterna della spalla", "Stabilizzazione posteriore"] },
-            { id: 95, district: "Spalla", title: "Piccolo Rotondo", origin: "Margine laterale della scapola", insertion: "Faccetta inferiore del tubercolo maggiore dell'omero", innervation: "Nervo ascellare (C5-C6)", blood: "Arteria circonflessa della scapola", movements: ["Rotazione esterna della spalla", "Adduzione"] },
-            { id: 96, district: "Spalla", title: "Sottoscapolare", origin: "Fossa sottoscapolare", insertion: "Tubercolo minore dell'omero", innervation: "Nervi sottoscapolari superiore e inferiore (C5-C6)", blood: "Arteria sottoscapolare", movements: ["Rotazione interna della spalla", "Adduzione", "Stabilizzazione anteriore"] },
-            { id: 97, district: "Spalla", title: "Sovraspinato", origin: "Fossa sopraspinata della scapola", insertion: "Faccetta superiore del tubercolo maggiore dell'omero", innervation: "Nervo soprascapolare (C5-C6)", blood: "Arteria soprascapolare", movements: ["Inizio dell'abduzione della spalla (primi 15-30°)"] },
-            { id: 98, district: "Spalla", title: "Tricipite Brachiale (Capo Laterale)", origin: "Faccia posteriore dell'omero sopra il solco radiale", insertion: "Olecranon dell'ulna", innervation: "Nervo radiale (C6-T1)", blood: "Arteria brachiale profonda", movements: ["Estensione forte dell'avambraccio"] },
-            { id: 99, district: "Spalla", title: "Tricipite Brachiale (Capo Lungo)", origin: "Tubercolo infraglenoideo della scapola", insertion: "Olecranon dell'ulna", innervation: "Nervo radiale (C6-T1)", blood: "Arteria brachiale profonda", movements: ["Estensione dell'avambraccio", "Estensione e adduzione della spalla"] },
-            { id: 100, district: "Spalla", title: "Tricipite Brachiale (Capo Mediale)", origin: "Faccia posteriore dell'omero sotto il solco radiale", insertion: "Olecranon dell'ulna", innervation: "Nervo radiale (C6-T1)", blood: "Arteria brachiale profonda", movements: ["Estensione pura dell'avambraccio"] },
+            // 8. SPALLA (12 muscoli)
+            { id: 99, district: "Spalla", title: "Anconeo", origin: "Epicondilo laterale", insertion: "Olecranon ulna", innervation: "N. radiale", blood: "A. collaterale media", movements: ["Estensione gomito"] },
+            { id: 100, district: "Spalla", title: "Bicipite Brachiale Capo Breve", origin: "Processo coracoide", insertion: "Tuberosità radio", innervation: "N. muscolocutaneo", blood: "A. brachiale", movements: ["Flessione, supinazione"] },
+            { id: 101, district: "Spalla", title: "Bicipite Brachiale Capo Lungo", origin: "Tubercolo sovraglenoideo", insertion: "Tuberosità radio", innervation: "N. muscolocutaneo", blood: "A. brachiale", movements: ["Flessione spalla"] },
+            { id: 102, district: "Spalla", title: "Coracobrachiale", origin: "Processo coracoide", insertion: "Omero mediale", innervation: "N. muscolocutaneo", blood: "A. circonflessa", movements: ["Flessione spalla"] },
+            { id: 103, district: "Spalla", title: "Deltoide Anteriore", origin: "Clavicola laterale", insertion: "Tuberosità deltoidea", innervation: "N. ascellare", blood: "A. toracoacromiale", movements: ["Flessione spalla"] },
+            { id: 104, district: "Spalla", title: "Deltoide Medio", origin: "Acromion", insertion: "Tuberosità deltoidea", innervation: "N. ascellare", blood: "A. circonflessa posteriore", movements: ["Abduzione spalla"] },
+            { id: 105, district: "Spalla", title: "Deltoide Posteriore", origin: "Spina scapola", insertion: "Tuberosità deltoidea", innervation: "N. ascellare", blood: "A. circonflessa posteriore", movements: ["Estensione spalla"] },
+            { id: 106, district: "Spalla", title: "Grande Rotondo", origin: "Angolo inferiore scapola", insertion: "Solco bicipitale", innervation: "N. sottoscapolare inferiore", blood: "A. sottoscapolare", movements: ["Adduzione, rotazione interna"] },
+            { id: 107, district: "Spalla", title: "Infraspinato", origin: "Fossa infraspinata", insertion: "Tubercolo maggiore omero", innervation: "N. soprascapolare", blood: "A. scapolare dorsale", movements: ["Rotazione esterna spalla"] },
+            { id: 108, district: "Spalla", title: "Piccolo Rotondo", origin: "Margine laterale scapola", insertion: "Tubercolo maggiore", innervation: "N. ascellare", blood: "A. circonflessa scapola", movements: ["Rotazione esterna spalla"] },
+            { id: 109, district: "Spalla", title: "Sottoscapolare", origin: "Fossa sottoscapolare", insertion: "Tubercolo minore", innervation: "N. sottoscapolari", blood: "A. sottoscapolare", movements: ["Rotazione interna spalla"] },
+            { id: 110, district: "Spalla", title: "Sovraspinato", origin: "Fossa sopraspinata", insertion: "Tubercolo maggiore", innervation: "N. soprascapolare", blood: "A. soprascapolare", movements: ["Abduzione iniziale spalla"] },
 
-            // 9. BRACCIO (A-Z)
-            { id: 101, district: "Braccio", title: "Bicipite Brachiale (Capo Breve)", origin: "Processo coracoide della scapola", insertion: "Tuberosità del radio e aponeurosi bicipitale", innervation: "Nervo muscolocutaneo (C5-C6)", blood: "Arteria brachiale", movements: ["Flessione dell'avambraccio", "Supinazione", "Adduzione della spalla"] },
-            { id: 102, district: "Braccio", title: "Bicipite Brachiale (Capo Lungo)", origin: "Tubercolo sovraglenoideo della scapola", insertion: "Tuberosità del radio", innervation: "Nervo muscolocutaneo (C5-C6)", blood: "Arteria brachiale", movements: ["Flessione dell'avambraccio", "Supinazione", "Flessione della spalla"] },
-            { id: 103, district: "Braccio", title: "Brachiale", origin: "Metà inferiore della faccia anteriore dell'omero", insertion: "Tuberosità dell'ulna", innervation: "Nervo muscolocutaneo (C5-C6)", blood: "Arteria ricorrente radiale", movements: ["Flessione pura dell'avambraccio sul gomito"] },
-            { id: 104, district: "Braccio", title: "Coracobrachiale", origin: "Processo coracoide della scapola", insertion: "Terzo medio della faccia mediale dell'omero", innervation: "Nervo muscolocutaneo (C6-C7)", blood: "Arteria circonflessa anteriore", movements: ["Flessione della spalla", "Adduzione della spalla"] },
-            { id: 105, district: "Braccio", title: "Tricipite Brachiale (Capo Laterale)", origin: "Faccia posteriore dell'omero sopra il solco radiale", insertion: "Olecranon dell'ulna", innervation: "Nervo radiale (C6-T1)", blood: "Arteria brachiale profonda", movements: ["Estensione dell'avambraccio"] },
-            { id: 106, district: "Braccio", title: "Tricipite Brachiale (Capo Lungo)", origin: "Tubercolo infraglenoideo della scapola", insertion: "Olecranon dell'ulna", innervation: "Nervo radiale (C6-T1)", blood: "Arteria brachiale profonda", movements: ["Estensione dell'avambraccio", "Estensione della spalla"] },
-            { id: 107, district: "Braccio", title: "Tricipite Brachiale (Capo Mediale)", origin: "Faccia posteriore dell'omero sotto il solco radiale", insertion: "Olecranon dell'ulna", innervation: "Nervo radiale (C6-T1)", blood: "Arteria brachiale profonda", movements: ["Estensione pura dell'avambraccio"] },
+            // 9. BRACCIO (7 muscoli)
+            { id: 111, district: "Braccio", title: "Bicipite Brachiale Capo Breve", origin: "Processo coracoide", insertion: "Tuberosità radio", innervation: "N. muscolocutaneo", blood: "A. brachiale", movements: ["Flessione avambraccio"] },
+            { id: 112, district: "Braccio", title: "Bicipite Brachiale Capo Lungo", origin: "Tubercolo sovraglenoideo", insertion: "Tuberosità radio", innervation: "N. muscolocutaneo", blood: "A. brachiale", movements: ["Supinazione"] },
+            { id: 113, district: "Braccio", title: "Brachiale", origin: "Omero inferiore", insertion: "Tuberosità ulna", innervation: "N. muscolocutaneo", blood: "A. ricorrente radiale", movements: ["Flessione gomito"] },
+            { id: 114, district: "Braccio", title: "Coracobrachiale", origin: "Processo coracoide", insertion: "Omero", innervation: "N. muscolocutaneo", blood: "A. circonflessa", movements: ["Flessione spalla"] },
+            { id: 115, district: "Braccio", title: "Tricipite Capo Laterale", origin: "Omero posteriore", insertion: "Olecranon", innervation: "N. radiale", blood: "A. brachiale profonda", movements: ["Estensione gomito"] },
+            { id: 116, district: "Braccio", title: "Tricipite Capo Lungo", origin: "Tubercolo infraglenoideo", insertion: "Olecranon", innervation: "N. radiale", blood: "A. brachiale profonda", movements: ["Estensione gomito e spalla"] },
+            { id: 117, district: "Braccio", title: "Tricipite Capo Mediale", origin: "Omero posteriore inferiore", insertion: "Olecranon", innervation: "N. radiale", blood: "A. brachiale profonda", movements: ["Estensione gomito"] },
 
-            // 10. AVAMBRACCIO (A-Z)
-            { id: 108, district: "Avambraccio", title: "Anconeo", origin: "Epicondilo laterale dell'omero", insertion: "Superficie posteriore prossimale dell'ulna", innervation: "Nervo radiale (C7-T1)", blood: "Arteria collaterale media", movements: ["Estensione dell'avambraccio"] },
-            { id: 109, district: "Avambraccio", title: "Brachioradiale", origin: "Cresto sopracondilare laterale dell'omero", insertion: "Processo stiloide del radio", innervation: "Nervo radiale (C5-C6)", blood: "Arteria ricorrente radiale", movements: ["Flessione dell'avambraccio", "Porta l'avambraccio in posizione neutra"] },
-            { id: 110, district: "Avambraccio", title: "Estensore Comune delle Dita", origin: "Epicondilo laterale dell'omero", insertion: "Aponeurosi dorsale delle dita II-V", innervation: "Nervo radiale / Interosseo posteriore (C7-C8)", blood: "Arteria interossea posteriore", movements: ["Estensione delle dita II-V", "Estensione del polso"] },
-            { id: 111, district: "Avambraccio", title: "Estensore del Mignolo", origin: "Epicondilo laterale dell'omero", insertion: "Aponeurosi dorsale del V dito", innervation: "Nervo radiale / Interosseo posteriore (C7-C8)", blood: "Arteria interossea posteriore", movements: ["Estensione del V dito", "Estensione del polso"] },
-            { id: 112, district: "Avambraccio", title: "Estensore Ulnare del Carpo", origin: "Epicondilo laterale dell'omero e margine posteriore dell'ulna", insertion: "Base del V osso metacarpale", innervation: "Nervo radiale / Interosseo posteriore (C7-C8)", blood: "Arteria ulnare", movements: ["Estensione del polso", "Deviazione ulnare del polso"] },
-            { id: 113, district: "Avambraccio", title: "Estensore Radiale Breve del Carpo", origin: "Epicondilo laterale dell'omero", insertion: "Base del III osso metacarpale", innervation: "Nervo radiale (C6-C7)", blood: "Arteria radiale", movements: ["Estensione del polso", "Deviazione radiale del polso"] },
-            { id: 114, district: "Avambraccio", title: "Estensore Radiale Lungo del Carpo", origin: "Cresto sopracondilare laterale dell'omero", insertion: "Base del II osso metacarpale", innervation: "Nervo radiale (C6-C7)", blood: "Arteria radiale", movements: ["Estensione del polso", "Deviazione radiale del polso"] },
-            { id: 115, district: "Avambraccio", title: "Flessore Comune Superficiale delle Dita", origin: "Epitroclea, processo coronoide e radio", insertion: "Falangi medie delle dita II-V", innervation: "Nervo mediano (C7-T1)", blood: "Arterie ulnare e radiale", movements: ["Flessione delle falangi medie e prossimali", "Flessione del polso"] },
-            { id: 116, district: "Avambraccio", title: "Flessore Profondo delle Dita", origin: "Faccia anteriore e mediale dell'ulna e membrana interossea", insertion: "Falangi distali delle dita II-V", innervation: "Nervo mediano (II-III) e ulnare (IV-V) (C8-T1)", blood: "Arteria ulnare e interossea anteriore", movements: ["Flessione delle falangi distali delle dita II-V", "Flessione del polso"] },
-            { id: 117, district: "Avambraccio", title: "Flessore Radiale del Carpo", origin: "Epitroclea dell'omero", insertion: "Base del II e III osso metacarpale", innervation: "Nervo mediano (C6-C7)", blood: "Arteria radiale", movements: ["Flessione del polso", "Deviazione radiale del polso"] },
-            { id: 118, district: "Avambraccio", title: "Flessore Ulnare del Carpo", origin: "Epitroclea e margine posteriore dell'ulna", insertion: "Osso pisiforme, uncinato e V metacarpale", innervation: "Nervo ulnare (C8-T1)", blood: "Arteria ulnare", movements: ["Flessione del polso", "Deviazione ulnare del polso"] },
-            { id: 119, district: "Avambraccio", title: "Palmare Lungo", origin: "Epitroclea dell'omero", insertion: "Aponeurosi palmare", innervation: "Nervo mediano (C7-C8)", blood: "Arteria ulnare", movements: ["Flessione del polso", "Tensione dell'aponeurosi palmare"] },
-            { id: 120, district: "Avambraccio", title: "Pronatore Quadrato", origin: "Quarto inferiore della faccia anteriore dell'ulna", insertion: "Quarto inferiore della faccia anteriore del radio", innervation: "Nervo interosseo anteriore (ramo del mediano, C8-T1)", blood: "Arteria interossea anteriore", movements: ["Pronazione dell'avambraccio"] },
-            { id: 121, district: "Avambraccio", title: "Pronatore Rotondo", origin: "Epitroclea omerale e processo coronoide dell'ulna", insertion: "Faccia laterale del corpo del radio", innervation: "Nervo mediano (C6-C7)", blood: "Arteria ulnare", movements: ["Pronazione dell'avambraccio", "Flessione del gomito"] },
-            { id: 122, district: "Avambraccio", title: "Supinatore", origin: "Epicondilo laterale dell'omero e legamento anulare", insertion: "Terzo superiore del radio", innervation: "Nervo radiale / Interosseo posteriore (C6-C7)", blood: "Arteria ricorrente interossea", movements: ["Supinazione dell'avambraccio"] },
+            // 10. AVAMBRACCIO (20 muscoli)
+            { id: 118, district: "Avambraccio", title: "Anconeo", origin: "Epicondilo laterale", insertion: "Ulna", innervation: "N. radiale", blood: "A. collaterale media", movements: ["Estensione"] },
+            { id: 119, district: "Avambraccio", title: "Brachioradiale", origin: "Cresto sopracondilare", insertion: "Processo stiloide radio", innervation: "N. radiale", blood: "A. ricorrente radiale", movements: ["Flessione, posizione neutra"] },
+            { id: 120, district: "Avambraccio", title: "Estensore Comune delle Dita", origin: "Epicondilo laterale", insertion: "Aponeurosi dita II-V", innervation: "N. radiale", blood: "A. interossea posteriore", movements: ["Estensione dita"] },
+            { id: 121, district: "Avambraccio", title: "Estensore del Mignolo", origin: "Epicondilo laterale", insertion: "V dito", innervation: "N. radiale", blood: "A. interossea posteriore", movements: ["Estensione V dito"] },
+            { id: 122, district: "Avambraccio", title: "Estensore Ulnare del Carpo", origin: "Epicondilo laterale", insertion: "V metacarpale", innervation: "N. radiale", blood: "A. ulnare", movements: ["Estensione, deviazione ulnare"] },
+            { id: 123, district: "Avambraccio", title: "Estensore Radiale Breve", origin: "Epicondilo laterale", insertion: "III metacarpale", innervation: "N. radiale", blood: "A. radiale", movements: ["Estensione polso"] },
+            { id: 124, district: "Avambraccio", title: "Estensore Radiale Lungo", origin: "Cresto sopracondilare", insertion: "II metacarpale", innervation: "N. radiale", blood: "A. radiale", movements: ["Estensione polso"] },
+            { id: 125, district: "Avambraccio", title: "Estensore Indice", origin: "Ulna posteriore", insertion: "Indice", innervation: "N. radiale", blood: "A. interossea", movements: ["Estensione indice"] },
+            { id: 126, district: "Avambraccio", title: "Abduzione Lunga Pollice", origin: "Ulna e radio", insertion: "I metacarpale", innervation: "N. radiale", blood: "A. interossea", movements: ["Abduzione pollice"] },
+            { id: 127, district: "Avambraccio", title: "Estensore Breve Pollice", origin: "Radio posteriore", insertion: "Falange prossimale pollice", innervation: "N. radiale", blood: "A. interossea", movements: ["Estensione pollice"] },
+            { id: 128, district: "Avambraccio", title: "Estensore Lungo Pollice", origin: "Ulna posteriore", insertion: "Falange distale pollice", innervation: "N. radiale", blood: "A. interossea", movements: ["Estensione pollice"] },
+            { id: 129, district: "Avambraccio", title: "Flessore Superficiale Dita", origin: "Epitroclea", insertion: "Falangi medie II-V", innervation: "N. mediano", blood: "A. ulnare e radiale", movements: ["Flessione dita"] },
+            { id: 130, district: "Avambraccio", title: "Flessore Profondo Dita", origin: "Ulna anteriore", insertion: "Falangi distali II-V", innervation: "N. mediano e ulnare", blood: "A. ulnare", movements: ["Flessione distale dita"] },
+            { id: 131, district: "Avambraccio", title: "Flessore Radiale Carpo", origin: "Epitroclea", insertion: "II-III metacarpale", innervation: "N. mediano", blood: "A. radiale", movements: ["Flessione polso"] },
+            { id: 132, district: "Avambraccio", title: "Flessore Ulnare Carpo", origin: "Epitroclea e ulna", insertion: "Pisiforme", innervation: "N. ulnare", blood: "A. ulnare", movements: ["Flessione, deviazione ulnare"] },
+            { id: 133, district: "Avambraccio", title: "Palmare Lungo", origin: "Epitroclea", insertion: "Aponeurosi palmare", innervation: "N. mediano", blood: "A. ulnare", movements: ["Flessione polso"] },
+            { id: 134, district: "Avambraccio", title: "Pronatore Quadrato", origin: "Ulna inferiore", insertion: "Radio inferiore", innervation: "N. interosseo anteriore", blood: "A. interossea", movements: ["Pronazione"] },
+            { id: 135, district: "Avambraccio", title: "Pronatore Rotondo", origin: "Epitroclea", insertion: "Radio laterale", innervation: "N. mediano", blood: "A. ulnare", movements: ["Pronazione avambraccio"] },
+            { id: 136, district: "Avambraccio", title: "Supinatore", origin: "Epicondilo laterale", insertion: "Radio superiore", innervation: "N. radiale", blood: "A. ricorrente", movements: ["Supinazione"] },
+            { id: 137, district: "Avambraccio", title: "Flessore Lungo Pollice", origin: "Radio anteriore", insertion: "Falange distale pollice", innervation: "N. mediano", blood: "A. interossea", movements: ["Flessione pollice"] },
 
-            // 11. MANO (A-Z)
-            { id: 123, district: "Mano", title: "Abduttore Breve del Pollice", origin: "Retinacolo dei flessori, scafoide e trapezio", insertion: "Base della falange prossimale del pollice", innervation: "Nervo mediano (C8-T1)", blood: "Arco palmare superficiale", movements: ["Abduzione del pollice"] },
-            { id: 124, district: "Mano", title: "Abduttore del V Dito (Mano)", origin: "Osso pisiforme e tendine del flessore ulnare del carpo", insertion: "Base della falange prossimale del V dito", innervation: "Nervo ulnare (C8-T1)", blood: "Arco palmare superficiale", movements: ["Abduzione del mignolo"] },
-            { id: 125, district: "Mano", title: "Adduttore del Pollice", origin: "Capo obliquo (ossa del carpo) e capo trasverso (III metacarpale)", insertion: "Base della falange prossimale del pollice", innervation: "Nervo ulnare (ramo profondo, C8-T1)", blood: "Arco palmare profondo", movements: ["Adduzione del pollice"] },
-            { id: 126, district: "Mano", title: "Apponente del Pollice", origin: "Retinacolo dei flessori e tubercolo del trapezio", insertion: "Primo osso metacarpale (faccia palmare)", innervation: "Nervo mediano (C8-T1)", blood: "Arco palmare superficiale", movements: ["Opposizione del pollice contro le altre dita"] },
-            { id: 127, district: "Mano", title: "Apponente del V Dito", origin: "Uncino dell'osso uncinato e retinacolo dei flessori", insertion: "V osso metacarpale (margine mediale)", innervation: "Nervo ulnare (C8-T1)", blood: "Arco palmare superficiale", movements: ["Opposizione e flessione del mignolo"] },
-            { id: 128, district: "Mano", title: "Flessore Breve del Pollice", origin: "Retinacolo dei flessori, trapezio e trapezoide", insertion: "Base della falange prossimale del pollice", innervation: "Nervo mediano e nervo ulnare (C8-T1)", blood: "Arco palmare superficiale", movements: ["Flessione della falange prossimale del pollice"] },
-            { id: 129, district: "Mano", title: "Flessore Breve del V Dito (Mano)", origin: "Uncino dell'osso uncinato e retinacolo", insertion: "Base della falange prossimale del V dito", innervation: "Nervo ulnare (C8-T1)", blood: "Arco palmare superficiale", movements: ["Flessione della falange prossimale del mignolo"] },
-            { id: 130, district: "Mano", title: "Interossei Dorsali della Mano (4 muscoli)", origin: "Facce adiacenti delle ossa metacarpali I-V", insertion: "Basi delle falangi prossimali e aponeurosi dorsale dita II-IV", innervation: "Nervo ulnare (ramo profondo, C8-T1)", blood: "Arco palmare profondo", movements: ["Abduzione delle dita rispetto all'asse centrale (III dito)", "Flessione metacarpofalangea", "Estensione interfalangea"] },
-            { id: 131, district: "Mano", title: "Interossei Palmari della Mano (3 muscoli)", origin: "Facce palmari dei metacarpali II, IV e V", insertion: "Basi delle falangi prossimali dita II, IV e V", innervation: "Nervo ulnare (ramo profondo, C8-T1)", blood: "Arco palmare profondo", movements: ["Adduzione delle dita verso l'asse centrale (III dito)"] },
-            { id: 132, district: "Mano", title: "Lombrichi della Mano (4 muscoli)", origin: "Tendini del muscolo flessore profondo delle dita", insertion: "Aponeurosi dorsale delle dita II-V", innervation: "Nervo mediano (I-II) e ulnare (III-IV) (C8-T1)", blood: "Arterie digitali palmari", movements: ["Flessione delle articolazioni metacarpofalangee", "Estensione delle interfalangee"] },
-            { id: 133, district: "Mano", title: "Palmare Breve", origin: "Aponeurosi palmare e retinacolo dei flessori", insertion: "Cute del margine mediale della mano", innervation: "Nervo ulnare (ramo superficiale, C8-T1)", blood: "Arco palmare superficiale", movements: ["Incrocamento e plica della cute del palmo della mano"] }
+            // 11. MANO (14 muscoli)
+            { id: 138, district: "Mano", title: "Abduttore Breve Pollice", origin: "Retinacolo flessori", insertion: "Falange prossimale pollice", innervation: "N. mediano", blood: "Arco palmare superficiale", movements: ["Abduzione pollice"] },
+            { id: 139, district: "Mano", title: "Abduttore del V Dito", origin: "Pisiforme", insertion: "Falange V dito", innervation: "N. ulnare", blood: "Arco palmare superficiale", movements: ["Abduzione mignolo"] },
+            { id: 140, district: "Mano", title: "Adduttore del Pollice", origin: "III metacarpale", insertion: "Falange pollice", innervation: "N. ulnare", blood: "Arco palmare profondo", movements: ["Adduzione pollice"] },
+            { id: 141, district: "Mano", title: "Apponente del Pollice", origin: "Trapezio", insertion: "I metacarpale", innervation: "N. mediano", blood: "Arco superficiale", movements: ["Opposizione pollice"] },
+            { id: 142, district: "Mano", title: "Apponente del V Dito", origin: "Uncinato", insertion: "V metacarpale", innervation: "N. ulnare", blood: "Arco superficiale", movements: ["Opposizione mignolo"] },
+            { id: 143, district: "Mano", title: "Flessore Breve del Pollice", origin: "Retinacolo", insertion: "Falange pollice", innervation: "N. mediano/ulnare", blood: "Arco superficiale", movements: ["Flessione pollice"] },
+            { id: 144, district: "Mano", title: "Flessore Breve del V Dito", origin: "Uncinato", insertion: "V dito", innervation: "N. ulnare", blood: "Arco superficiale", movements: ["Flessione mignolo"] },
+            { id: 145, district: "Mano", title: "Interossei Dorsali Mano (4)", origin: "Metacarpali adiacenti", insertion: "Falangi II-IV", innervation: "N. ulnare", blood: "Arco profondo", movements: ["Abduzione dita"] },
+            { id: 146, district: "Mano", title: "Interossei Palmari Mano (3)", origin: "Metacarpali II, IV, V", insertion: "Falangi", innervation: "N. ulnare", blood: "Arco profondo", movements: ["Adduzione dita"] },
+            { id: 147, district: "Mano", title: "Lombrichi della Mano (4)", origin: "Tendini flessore profondo", insertion: "Aponeurosi dorsale", innervation: "N. mediano e ulnare", blood: "A. digitali", movements: ["Flessione metacarpofalangea"] },
+            { id: 148, district: "Mano", title: "Palmare Breve", origin: "Aponeurosi palmare", insertion: "Cute mano", innervation: "N. ulnare", blood: "Arco superficiale", movements: ["Plica cutanea palmo"] },
+            { id: 149, district: "Mano", title: "Interossei Accessori / Transversi", origin: "Metacarpale III", insertion: "Metacarpali", innervation: "N. ulnare", blood: "Arco profondo", movements: ["Stabilità metacarpale"] },
+            { id: 150, district: "Mano", title: "Flessore Profondo Accessorio", origin: "Ulna", insertion: "V dito", innervation: "N. ulnare", blood: "A. ulnare", movements: ["Flessione accessoria"] },
+            { id: 151, district: "Mano", title: "Estensore Breve Indice", origin: "Radio", insertion: "Indice", innervation: "N. radiale", blood: "A. interossea", movements: ["Estensione indice"] }
         ];
 
-        // Database 5: Esercizi Terapeutici
+        // 6 Esercizi
         const eserciziData = [
-            { id: 1, title: "Clamshell Exercise per il Gluteo Medio", district: "Anca", severity: "Rinforzo Muscolare", def: "Rinforzo selettivo abduttori ed extrarotatori d'anca.", dosage: "3 serie da 12-15 ripetizioni", execution: "Decubito laterale con ginocchia flesse; aprire il ginocchio superiore a libro." },
-            { id: 2, title: "Esercizi di Codman (Pendolo per la Spalla)", district: "Spalla", severity: "Chinesiterapia", def: "Mobilizzazione passiva in scarico della spalla sfruttando la gravità.", dosage: "3 serie da 2 minuti (con timer)", execution: "Paziente flesso in avanti appoggiato con braccio sano; il braccio interessato dondola liberamente." },
-            { id: 3, title: "Ponte Gluteo (Glute Bridge)", district: "Colonna", severity: "Core Stability", def: "Esercizio attivo in catena cinetica chiusa per glutei e lombari.", dosage: "3 serie da 15 ripetizioni", execution: "Supino con ginocchia flesse; sollevare il bacino contraendo i glutei senza iperlordosi." },
-            { id: 4, title: "Protocollo di Alfredson (Eccentrici per Achille)", district: "Caviglia", severity: "Rinforzo Eccentrico", def: "Carico eccentrico progressivo sul tendine d'Achille.", dosage: "3 serie da 15 ripetizioni (lento)", execution: "In piedi su un gradino sulle punte, sollevarsi con l'arto sano e scendere lentamente." },
-            { id: 5, title: "Rinforzo Isometrico del Vasto Mediale (VMO)", district: "Ginocchio", severity: "Rinforzo Muscolare", def: "Contrazione muscolare statica selettiva per il controllo rotuleo.", dosage: "10 ripetizioni da 10 secondi (Usa il Timer!)", execution: "Seduto o supino con rullo sotto il ginocchio; spingere in basso contraendo il quadricipite." },
-            { id: 6, title: "Scivolamenti Neurali del Nervo Mediano", district: "Gomito/Mano", severity: "Neurodinamica", def: "Mobilizzazione dolce del sistema nervoso periferico.", dosage: "2 serie da 10 ripetizioni lente", execution: "Coordinare estensione polso/dita con inclinazione cervicale controlaterale." }
+            { id: 1, title: "Clamshell per Gluteo Medio", district: "Anca", severity: "Rinforzo", def: "Abduttori ed extrarotatori.", dosage: "3x12-15", execution: "Decubito laterale con ginocchia flesse." },
+            { id: 2, title: "Esercizi di Codman (Spalla)", district: "Spalla", severity: "Chinesiterapia", def: "Mobilizzazione passiva.", dosage: "3x2 minuti", execution: "Dondolio in scarico." },
+            { id: 3, title: "Ponte Gluteo (Bridge)", district: "Colonna", severity: "Core", def: "Rinforzo glutei e lombari.", dosage: "3x15", execution: "Sollevamento bacino da supini." },
+            { id: 4, title: "Alfredson per Achille", district: "Caviglia", severity: "Eccentrici", def: "Carico eccentrico tendine.", dosage: "3x15 lenti", execution: "Discesa controllata su gradino." },
+            { id: 5, title: "Isometrico Vasto Mediale", district: "Ginocchio", severity: "Rinforzo", def: "Contrazione statica VMO.", dosage: "10x10s (Usa Timer)", execution: "Spinta in estensione." },
+            { id: 6, title: "Scivolamenti Neurali Mediano", district: "Gomito/Mano", severity: "Neurodinamica", def: "Mobilizzazione nervosa.", dosage: "2x10", execution: "Coordinare polso e collo." }
         ];
 
-        // Database 6: Protocolli Riabilitativi
+        // 5 Protocolli
         const protocolliData = [
-            { id: 1, title: "Protocolli di Riparazione Cuffia dei Rotatori", district: "Spalla", severity: "Post-Operatorio", def: "Gestione protetta della spalla dopo sutura tendinea artroscopica.", phases: "Fase 1 (0-6 sett): Tutore in abduzione obbligatorio, solo mobilità passiva. Fase 2: Svezzamento tutore e chinesi attiva.", criteria: "Guarigione tendinea confermata, ROM passivo recuperato." },
-            { id: 2, title: "Protocollo Post-Chirurgico Ricostruzione LCA", district: "Ginocchio", severity: "Post-Operatorio", def: "Linee guida riabilitative basate su criteri per ricostruzione LCA.", phases: "Fase 1 (0-4 sett): Estensione completa obbligatoria. Fase 2 (4-12 sett): Rinforzo catena chiusa. Fase 3 (>3 mesi): Corsa e pliometria.", criteria: "Assenza di versamento, simmetria di forza quadricipitale >90%." },
-            { id: 3, title: "Protocollo Post-Sutura Meniscale", district: "Ginocchio", severity: "Post-Operatorio", def: "Riabilitazione protetta mirata a preservare la sutura meniscale.", phases: "Fase 1 (0-4 sett): Carico parziale, flessione limitata a 90°. Fase 2: Sblocco tutore e ROM progressivo.", criteria: "Assenza di dolore in rima articolare e stabilità." },
-            { id: 4, title: "Protocollo Riabilitativo Protesi Totale d'Anca (PTA)", district: "Anca", severity: "Post-Operatorio", def: "Percorso clinico precoce per artroplastica totale d'anca.", phases: "Fase 1 (0-14 giorni): Mobilizzazione precoce, rispetto precauzioni anti-lussazione. Fase 2: Rinforzo abduttori. Fase 3: Autonomia nel cammino.", criteria: "Indipendenza negli spostamenti senza zoppia." },
-            { id: 5, title: "Protocollo Riabilitativo Protesi Totale di Ginocchio (PTG)", district: "Ginocchio", severity: "Post-Operatorio", def: "Gestione fisioterapica post-operatoria per gonartrosi operata.", phases: "Fase 1 (0-3 sett): Estensione a 0° e flessione a 90°. Fase 2: Flessione oltre 110°. Fase 3: Deambulazione autonoma.", criteria: "Estensione completa passiva e attiva, autonomia scale." }
+            { id: 1, title: "Sutura Cuffia dei Rotatori", district: "Spalla", severity: "Post-Op", def: "Post-operatorio cuffia.", phases: "Fase 1 (0-6 sett) tutore. Fase 2 attiva.", criteria: "ROM passivo recuperato." },
+            { id: 2, title: "Ricostruzione LCA", district: "Ginocchio", severity: "Post-Op", def: "Protocollo LCA.", phases: "Fase 1 estensione 0°. Fase 2 rinforzo.", criteria: "Forza quadricipite >90%." },
+            { id: 3, title: "Sutura Meniscale", district: "Ginocchio", severity: "Post-Op", def: "Preservare sutura.", phases: "Fase 1 carico parziale 90°.", criteria: "Stabilità meniscale." },
+            { id: 4, title: "Protesi Totale d'Anca (PTA)", district: "Anca", severity: "Post-Op", def: "Arthroplastica d'anca.", phases: "Fase 1 precauzioni lussazione.", criteria: "Cammino autonomo." },
+            { id: 5, title: "Protesi Totale Ginocchio (PTG)", district: "Ginocchio", severity: "Post-Op", def: "Post gonartrosi operata.", phases: "Fase 1 estensione e flessione.", criteria: "Autonomia scale." }
         ];
 
-        // Stato Attuale dell'App
         let currentSection = 'patologie';
         let currentDistrictFilter = 'all';
 
-        // Inizializzazione all'avvio
         document.addEventListener('DOMContentLoaded', () => {
             renderPatologie();
             renderTrattamenti();
@@ -561,7 +577,6 @@
             renderProtocolli();
         });
 
-        // Funzione per cambiare sezione
         function switchSection(sectionId) {
             currentSection = sectionId;
             document.querySelectorAll('.section-tab').forEach(btn => {
@@ -574,8 +589,7 @@
                 activeBtn.classList.add('border-brand-500', 'bg-brand-50', 'text-brand-700');
             }
             document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
-            const targetSec = document.getElementById(`section-${sectionId}`);
-            if(targetSec) targetSec.classList.remove('hidden');
+            document.getElementById(`section-${sectionId}`).classList.remove('hidden');
 
             const filterChips = document.getElementById('filter-chips');
             if(sectionId === 'anatomia') {
@@ -611,7 +625,6 @@
             filterContent();
         }
 
-        // Filtro per distretto
         function filterByDistrict(district) {
             currentDistrictFilter = district;
             document.querySelectorAll('#filter-chips button').forEach(btn => {
@@ -623,52 +636,38 @@
             filterContent();
         }
 
-        // Ricerca globale e filtri combinati
         function filterContent() {
             const query = document.getElementById('global-search').value.toLowerCase();
             if(currentSection === 'patologie') {
-                const filtered = patologieData.filter(item => {
-                    const matchDistrict = currentDistrictFilter === 'all' || item.district === currentDistrictFilter;
-                    const matchQuery = item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.symptoms.toLowerCase().includes(query);
-                    return matchDistrict && matchQuery;
-                });
-                renderPatologieGrid(filtered);
+                renderPatologieGrid(patologieData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.def.toLowerCase().includes(query))));
             } else if(currentSection === 'trattamenti') {
-                const filtered = trattamentiData.filter(item => (currentDistrictFilter === 'all' || item.category === currentDistrictFilter || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query)));
-                renderTrattamentiGrid(filtered);
+                renderTrattamentiGrid(trattamentiData.filter(i => (currentDistrictFilter === 'all' || i.category === currentDistrictFilter) && i.title.toLowerCase().includes(query)));
             } else if(currentSection === 'strumentale') {
-                const filtered = strumentaleData.filter(item => (currentDistrictFilter === 'all' || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.indicationsList.some(ind => ind.toLowerCase().includes(query))));
-                renderStrumentaleGrid(filtered);
+                renderStrumentaleGrid(strumentaleData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && i.title.toLowerCase().includes(query)));
             } else if(currentSection === 'anatomia') {
-                const filtered = anatomiaData.filter(item => (currentDistrictFilter === 'all' || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.origin.toLowerCase().includes(query) || item.insertion.toLowerCase().includes(query)));
-                renderAnatomiaGrid(filtered);
+                renderAnatomiaGrid(anatomiaData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.origin.toLowerCase().includes(query))));
             } else if(currentSection === 'esercizi') {
-                const filtered = eserciziData.filter(item => (currentDistrictFilter === 'all' || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query)));
-                renderEserciziGrid(filtered);
+                renderEserciziGrid(eserciziData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && i.title.toLowerCase().includes(query)));
             } else if(currentSection === 'protocolli') {
-                const filtered = protocolliData.filter(item => (currentDistrictFilter === 'all' || item.district === currentDistrictFilter) && (item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query)));
-                renderProtocolliGrid(filtered);
+                renderProtocolliGrid(protocolliData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && i.title.toLowerCase().includes(query)));
             }
         }
 
-        // Render Griglie
         function renderPatologie() { renderPatologieGrid(patologieData); }
         function renderPatologieGrid(data) {
-            const grid = document.getElementById('patologie-grid');
             document.getElementById('patologie-count').innerText = `${data.length} Patologie`;
-            if(data.length === 0) { grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><p>Nessuna patologia trovata.</p></div>`; return; }
-            grid.innerHTML = data.map(item => `
+            document.getElementById('patologie-grid').innerHTML = data.map(item => `
                 <div onclick="openPatologiaDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
                     <div>
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-brand-50 text-brand-700">${item.district}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md ${item.severity === 'Grave' ? 'bg-rose-50 text-rose-700' : (item.severity === 'Moderata' ? 'bg-amber-50 text-amber-700' : 'bg-slate-100 text-slate-600')}">${item.severity}</span>
+                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md ${item.severity === 'Grave' ? 'bg-rose-50 text-rose-700' : 'bg-slate-100 text-slate-600'}">${item.severity}</span>
                         </div>
                         <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
                         <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
                     </div>
                     <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-brand-600 font-semibold">
-                        <span>Leggi scheda clinica (A-Z)</span><i class="fa-solid fa-arrow-right"></i>
+                        <span>Scheda clinica</span><i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
             `).join('');
@@ -676,9 +675,7 @@
 
         function renderTrattamenti() { renderTrattamentiGrid(trattamentiData); }
         function renderTrattamentiGrid(data) {
-            const grid = document.getElementById('trattamenti-grid');
-            if(data.length === 0) { grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><p>Nessun trattamento trovato.</p></div>`; return; }
-            grid.innerHTML = data.map(item => `
+            document.getElementById('trattamenti-grid').innerHTML = data.map(item => `
                 <div onclick="openTrattamentoDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
                     <div>
                         <div class="flex items-center justify-between mb-2">
@@ -697,20 +694,17 @@
 
         function renderStrumentale() { renderStrumentaleGrid(strumentaleData); }
         function renderStrumentaleGrid(data) {
-            const grid = document.getElementById('strumentale-grid');
-            if(data.length === 0) { grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><p>Nessuna terapia trovata.</p></div>`; return; }
-            grid.innerHTML = data.map(item => `
+            document.getElementById('strumentale-grid').innerHTML = data.map(item => `
                 <div onclick="openStrumentaleDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
                     <div>
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700">${item.severity}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-amber-50 text-amber-700">5+ Patologie</span>
                         </div>
                         <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
                         <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
                     </div>
                     <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-amber-600 font-semibold">
-                        <span>Visualizza 5+ patologie associate</span><i class="fa-solid fa-arrow-right"></i>
+                        <span>Visualizza associazioni</span><i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
             `).join('');
@@ -718,29 +712,26 @@
 
         function renderAnatomia() { renderAnatomiaGrid(anatomiaData); }
         function renderAnatomiaGrid(data) {
-            const grid = document.getElementById('anatomia-grid');
-            document.getElementById('anatomia-count').innerText = `${data.length} Muscoli (11 Zone A-Z)`;
-            if(data.length === 0) { grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><p>Nessun muscolo trovato.</p></div>`; return; }
-            grid.innerHTML = data.map(item => `
+            document.getElementById('anatomia-count').innerText = `${data.length} Muscoli Certificati`;
+            document.getElementById('anatomia-grid').innerHTML = data.map(item => `
                 <div onclick="openAnatomiaDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-emerald-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">${item.district}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800">Atlante 150+</span>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700"><i class="fa-solid fa-location-dot mr-1"></i>${item.district}</span>
+                            <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">Atlante Ufficiale</span>
                         </div>
                         <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
                         <p class="text-xs text-slate-500 line-clamp-2"><strong>Origine:</strong> ${item.origin}</p>
                     </div>
                     <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-emerald-600 font-semibold">
-                        <span>Scheda muscolare completa (A-Z)</span><i class="fa-solid fa-arrow-right"></i>
+                        <span>Scheda e Vista Anatomica</span><i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
             `).join('');
         }
 
-        function renderEsercizi() { renderEserciziGrid(eserciziData); }
-        function renderEserciziGrid(data) {
-            document.getElementById('esercizi-grid').innerHTML = data.map(item => `
+        function renderEsercizi() {
+            document.getElementById('esercizi-grid').innerHTML = eserciziData.map(item => `
                 <div onclick="openEsercizioDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-indigo-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
                     <div><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700">${item.district}</span>
                     <h3 class="font-bold text-slate-800 text-base mt-2 mb-1">${item.title}</h3><p class="text-xs text-slate-500 line-clamp-2">${item.def}</p></div>
@@ -749,9 +740,8 @@
             `).join('');
         }
 
-        function renderProtocolli() { renderProtocolliGrid(protocolliData); }
-        function renderProtocolliGrid(data) {
-            document.getElementById('protocolli-grid').innerHTML = data.map(item => `
+        function renderProtocolli() {
+            document.getElementById('protocolli-grid').innerHTML = protocolliData.map(item => `
                 <div onclick="openProtocolloDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-purple-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
                     <div><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-50 text-purple-700">${item.district}</span>
                     <h3 class="font-bold text-slate-800 text-base mt-2 mb-1">${item.title}</h3><p class="text-xs text-slate-500 line-clamp-2">${item.def}</p></div>
@@ -760,73 +750,67 @@
             `).join('');
         }
 
-        // Modali Dettaglio
         function openPatologiaDetail(id) {
             const item = patologieData.find(p => p.id === id);
-            if(!item) return;
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Definizione</h4><p class="text-slate-600">${item.def}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Sintomi</h4><p class="text-slate-600">${item.symptoms}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Test Ortopedici</h4><p class="text-slate-600">${item.tests}</p></div>
-                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Red Flags</h4><p class="text-rose-900">${item.redFlags}</p></div>
-                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Gestione Fisioterapica</h4><p class="text-brand-900">${item.management}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Definizione</h4><p>${item.def}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Sintomi</h4><p>${item.symptoms}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Test Ortopedici</h4><p>${item.tests}</p></div>
+                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Red Flags</h4><p>${item.redFlags}</p></div>
+                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Gestione Fisioterapica</h4><p>${item.management}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
 
         function openTrattamentoDetail(id) {
             const item = trattamentiData.find(t => t.id === id);
-            if(!item) return;
             document.getElementById('modal-district-badge').innerText = item.category;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
-                <div class="flex space-x-2 mb-2"><span class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">${item.subcategory}</span></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Descrizione</h4><p class="text-slate-600">${item.def}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Obiettivi</h4><p class="text-slate-600">${item.goals}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Indicazioni</h4><p class="text-slate-600">${item.indications}</p></div>
-                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Controindicazioni</h4><p class="text-rose-900">${item.contraindications}</p></div>
-                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Esecuzione</h4><p class="text-brand-900">${item.execution}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Descrizione</h4><p>${item.def}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Obiettivi</h4><p>${item.goals}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Indicazioni</h4><p>${item.indications}</p></div>
+                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Controindicazioni</h4><p>${item.contraindications}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
 
         function openStrumentaleDetail(id) {
             const item = strumentaleData.find(s => s.id === id);
-            if(!item) return;
             document.getElementById('modal-district-badge').innerText = item.severity;
             document.getElementById('modal-title').innerText = item.title;
-            const patologieHTML = item.indicationsList.map(pat => `<li class="py-1 px-2 bg-white rounded-lg border border-amber-100 text-slate-700 font-medium">${pat}</li>`).join('');
+            const patList = item.indicationsList.map(p => `<li class="py-1 px-2 bg-white rounded-lg border border-amber-100">${p}</li>`).join('');
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Principio Fisico e Azione</h4><p class="text-slate-600">${item.def}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Obiettivi Biologici</h4><p class="text-slate-600">${item.goals}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Principio Fisico</h4><p>${item.def}</p></div>
                 <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 space-y-2">
-                    <h4 class="font-bold text-amber-800 text-xs uppercase tracking-wider"><i class="fa-solid fa-stethoscope mr-1.5"></i>Patologie Specifiche Trattabili (5+):</h4>
-                    <ul class="space-y-1.5 text-xs">${patologieHTML}</ul>
+                    <h4 class="font-bold text-amber-800 text-xs uppercase"><i class="fa-solid fa-stethoscope mr-1"></i>Patologie Trattabili:</h4>
+                    <ul class="space-y-1.5 text-xs">${patList}</ul>
                 </div>
-                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Controindicazioni</h4><p class="text-rose-900">${item.contraindications}</p></div>
-                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Parametri di Esecuzione</h4><p class="text-brand-900">${item.execution}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
 
         function openAnatomiaDetail(id) {
             const item = anatomiaData.find(a => a.id === id);
-            if(!item) return;
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
+            const movList = item.movements.map(m => `<li class="py-1 px-2 bg-white rounded-lg border border-emerald-100"><i class="fa-solid fa-check text-emerald-600 mr-2"></i>${m}</li>`).join('');
             
-            const movimentiHTML = item.movements.map(mov => `<li class="py-1 px-2 bg-white rounded-lg border border-emerald-100 text-slate-700 font-medium"><i class="fa-solid fa-check text-emerald-600 mr-2"></i>${mov}</li>`).join('');
-
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Origine Anatomica</h4><p class="text-slate-600">${item.origin}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Inserzione Tendinea</h4><p class="text-slate-600">${item.insertion}</p></div>
-                <div class="bg-indigo-50 p-3 rounded-xl border border-indigo-100"><h4 class="font-bold text-indigo-700 text-[11px] uppercase mb-1">Innervazione (Nervo / Radice)</h4><p class="text-indigo-900">${item.innervation}</p></div>
-                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Vascolarizzazione (Vasi Sanguigni)</h4><p class="text-rose-900">${item.blood}</p></div>
+                <!-- Rappresentazione Visiva Anatomica -->
+                <div class="bg-slate-900 rounded-xl overflow-hidden p-2 text-center text-white mb-3">
+                    <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSVl9QnFhYOGfVciiXfmw4u2uprHnbc-kunwI1IK0PeCy_183F6bXtD6liXvWO-fVVjI85xxa9LVKHmY84" alt="Anatomia ${item.district}" class="w-full h-48 object-cover rounded-lg opacity-90 mb-2">
+                    <p class="text-[11px] text-brand-200">Atlante Ufficiale - Regione Anatomica: <span class="font-bold text-white">${item.district}</span></p>
+                </div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Origine</h4><p>${item.origin}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Inserzione</h4><p>${item.insertion}</p></div>
+                <div class="bg-indigo-50 p-3 rounded-xl border border-indigo-100"><h4 class="font-bold text-indigo-700 text-[11px] uppercase mb-1">Innervazione</h4><p>${item.innervation}</p></div>
+                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Vascolarizzazione</h4><p>${item.blood}</p></div>
                 <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 space-y-2">
-                    <h4 class="font-bold text-emerald-800 text-xs uppercase tracking-wider"><i class="fa-solid fa-person-walking mr-1.5"></i>Movimenti Eseguiti:</h4>
-                    <ul class="space-y-1.5 text-xs">${movimentiHTML}</ul>
+                    <h4 class="font-bold text-emerald-800 text-xs uppercase"><i class="fa-solid fa-person-walking mr-1"></i>Movimenti Principali:</h4>
+                    <ul class="space-y-1.5 text-xs">${movList}</ul>
                 </div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
@@ -834,26 +818,22 @@
 
         function openEsercizioDetail(id) {
             const item = eserciziData.find(e => e.id === id);
-            if(!item) return;
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Esercizio</h4><p class="text-slate-600">${item.def}</p></div>
-                <div class="bg-indigo-50 p-3 rounded-xl border border-indigo-100"><h4 class="font-bold text-indigo-700 text-[11px] uppercase mb-1">Dosaggio</h4><p class="text-indigo-900">${item.dosage}</p></div>
-                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Esecuzione</h4><p class="text-brand-900">${item.execution}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Esercizio</h4><p>${item.def}</p></div>
+                <div class="bg-indigo-50 p-3 rounded-xl border border-indigo-100"><h4 class="font-bold text-indigo-700 text-[11px] uppercase mb-1">Dosaggio</h4><p>${item.dosage}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
 
         function openProtocolloDetail(id) {
             const item = protocolliData.find(p => p.id === id);
-            if(!item) return;
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Protocollo</h4><p class="text-slate-600">${item.def}</p></div>
-                <div class="bg-purple-50 p-3 rounded-xl border border-purple-100"><h4 class="font-bold text-purple-700 text-[11px] uppercase mb-1">Fasi</h4><p class="text-purple-900">${item.phases}</p></div>
-                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Criteri</h4><p class="text-brand-900">${item.criteria}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Protocollo</h4><p>${item.def}</p></div>
+                <div class="bg-purple-50 p-3 rounded-xl border border-purple-100"><h4 class="font-bold text-purple-700 text-[11px] uppercase mb-1">Fasi</h4><p>${item.phases}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
@@ -861,13 +841,12 @@
         function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); }
         function toggleModal(modalId) { document.getElementById(modalId).classList.toggle('hidden'); }
 
-        // Timer Clinico
         let timerInterval = null, timeLeft = 45, totalTime = 45, isRunning = false;
-        function setTimer(seconds) { pauseTimer(); totalTime = seconds; timeLeft = seconds; updateTimerDisplay(); }
+        function setTimer(s) { pauseTimer(); totalTime = s; timeLeft = s; updateTimerDisplay(); }
         function updateTimerDisplay() {
-            const mins = Math.floor(timeLeft / 60).toString().padStart(2, '0');
-            const secs = (timeLeft % 60).toString().padStart(2, '0');
-            document.getElementById('timer-display').innerText = `${mins}:${secs}`;
+            const m = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+            const sec = (timeLeft % 60).toString().padStart(2, '0');
+            document.getElementById('timer-display').innerText = `${m}:${sec}`;
         }
         function startTimer() {
             if(isRunning) return;
@@ -877,21 +856,11 @@
             timerInterval = setInterval(() => {
                 timeLeft--;
                 updateTimerDisplay();
-                if(timeLeft <= 0) { pauseTimer(); document.getElementById('timer-status').innerText = "Tempo scaduto!"; playBeep(); }
+                if(timeLeft <= 0) { pauseTimer(); document.getElementById('timer-status').innerText = "Tempo scaduto!"; }
             }, 1000);
         }
         function pauseTimer() { isRunning = false; clearInterval(timerInterval); document.getElementById('timer-status').innerText = "In pausa"; }
         function resetTimer() { pauseTimer(); timeLeft = totalTime; updateTimerDisplay(); document.getElementById('timer-status').innerText = "Pronto"; }
-        function playBeep() {
-            try {
-                const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.frequency.value = 587.33;
-                osc.connect(gain); gain.connect(ctx.destination);
-                osc.start(); osc.stop(ctx.currentTime + 0.5);
-            } catch(e) {}
-        }
     </script>
 </body>
 </html>
