@@ -65,7 +65,7 @@
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                     <i class="fa-solid fa-search"></i>
                 </span>
-                <input type="text" id="global-search" oninput="filterContent()" placeholder="Cerca patologia, trattamento, test..." class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition">
+                <input type="text" id="global-search" oninput="filterContent()" placeholder="Cerca patologia, trattamento, terapia..." class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition">
             </div>
             <!-- Filtro Distretto / Categoria -->
             <div class="flex items-center space-x-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0" id="filter-chips">
@@ -103,7 +103,7 @@
                 <i class="fa-solid fa-bolt text-xl mb-2 text-amber-500"></i>
                 <div>
                     <h3 class="font-bold text-sm">Terapia Strumentale</h3>
-                    <p class="text-[11px] opacity-75">Laser, Tecar, US</p>
+                    <p class="text-[11px] opacity-75">Laser, TECAR, US</p>
                 </div>
             </button>
             <button onclick="switchSection('anatomia')" id="btn-sec-anatomia" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
@@ -129,7 +129,7 @@
             </button>
         </div>
 
-        <!-- Sezione 1: Patologie (Attiva di default) -->
+        <!-- Sezione 1: Patologie -->
         <div id="section-patologie" class="content-section space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
@@ -138,10 +138,7 @@
                 </h2>
                 <span id="patologie-count" class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">35 Patologie</span>
             </div>
-            
-            <div id="patologie-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Verrà popolato dinamicamente via JavaScript -->
-            </div>
+            <div id="patologie-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
         <!-- Sezione 2: Trattamenti Riabilitativi -->
@@ -153,26 +150,27 @@
                 </h2>
                 <span class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">Tecniche Cliniche</span>
             </div>
-            <div id="trattamenti-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Verrà popolato dinamicamente -->
-            </div>
+            <div id="trattamenti-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezioni 3, 4, 5, 6 (Placeholder pronte per i prossimi step) -->
-        <div id="section-strumentale" class="content-section hidden py-16 text-center">
-            <div class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                <i class="fa-solid fa-bolt text-4xl text-amber-500 mb-3"></i>
-                <h3 class="text-lg font-bold text-slate-800">Terapia Strumentale</h3>
-                <p class="text-sm text-slate-500 mt-1 mb-4">Sezione pronta per Laserterapia, TECAR, Ultrasuoni, Magnetoterapia ed Elettroterapia.</p>
-                <button onclick="switchSection('patologie')" class="bg-brand-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-brand-700 transition">Torna alle Patologie</button>
+        <!-- Sezione 3: Terapia Strumentale (NUOVA) -->
+        <div id="section-strumentale" class="content-section hidden space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
+                    <i class="fa-solid fa-bolt text-amber-500"></i>
+                    <span>Terapia Strumentale e Mezzi Fisici</span>
+                </h2>
+                <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2.5 py-1 rounded-full">Elettroterapia & Fisica</span>
             </div>
+            <div id="strumentale-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
+        <!-- Sezioni 4, 5, 6 (Pronte per i prossimi step) -->
         <div id="section-anatomia" class="content-section hidden py-16 text-center">
             <div class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
                 <i class="fa-solid fa-bone text-4xl text-emerald-600 mb-3"></i>
                 <h3 class="text-lg font-bold text-slate-800">Anatomia Funzionale</h3>
-                <p class="text-sm text-slate-500 mt-1 mb-4">Sezione pronta per atlas anatomico e biomeccanica articolare.</p>
+                <p class="text-sm text-slate-500 mt-1 mb-4">Sezione pronta per il prossimo step.</p>
                 <button onclick="switchSection('patologie')" class="bg-brand-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-brand-700 transition">Torna alle Patologie</button>
             </div>
         </div>
@@ -181,7 +179,7 @@
             <div class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
                 <i class="fa-solid fa-dumbbell text-4xl text-indigo-600 mb-3"></i>
                 <h3 class="text-lg font-bold text-slate-800">Esercizi Terapeutici</h3>
-                <p class="text-sm text-slate-500 mt-1 mb-4">Sezione pronta per chinesiterapia e protocolli di rinforzo con timer integrato.</p>
+                <p class="text-sm text-slate-500 mt-1 mb-4">Sezione pronta per il prossimo step.</p>
                 <button onclick="switchSection('patologie')" class="bg-brand-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-brand-700 transition">Torna alle Patologie</button>
             </div>
         </div>
@@ -190,7 +188,7 @@
             <div class="max-w-md mx-auto bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
                 <i class="fa-solid fa-clipboard-list text-4xl text-purple-600 mb-3"></i>
                 <h3 class="text-lg font-bold text-slate-800">Protocolli Riabilitativi</h3>
-                <p class="text-sm text-slate-500 mt-1 mb-4">Sezione pronta per linee guida post-operatorie e cronoprogrammi di recupero.</p>
+                <p class="text-sm text-slate-500 mt-1 mb-4">Sezione pronta per il prossimo step.</p>
                 <button onclick="switchSection('patologie')" class="bg-brand-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-brand-700 transition">Torna alle Patologie</button>
             </div>
         </div>
@@ -209,9 +207,7 @@
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
-            <div id="modal-body" class="p-6 space-y-4 text-sm text-slate-600">
-                <!-- Contenuto dinamico -->
-            </div>
+            <div id="modal-body" class="p-6 space-y-4 text-sm text-slate-600"></div>
             <div class="p-4 border-t border-slate-100 bg-slate-50 flex justify-end">
                 <button onclick="closeModal('detail-modal')" class="bg-slate-800 hover:bg-slate-900 text-white px-4 py-2 rounded-xl text-sm font-medium transition">Chiudi</button>
             </div>
@@ -291,7 +287,7 @@
             { id: 35, title: "Metatarsalgia", district: "Caviglia", severity: "Lieve", def: "Sindrome dolorosa localizzata alla pianta del piede a livello delle teste metatarsali (spesso II e III).", symptoms: "Dolore urente o meccanico sotto l'avampiede durante la camminata, formazione di callosità plantari.", tests: "Compressione laterale delle teste metatarsali (Mulder Test per neuroma di Morton).", redFlags: "Frattura da stress metatarsale (marciapiede/runner).", management: "Scarico pressorio con plantari metatarsali, mobilizzazione delle articolazioni metatarso-falangee." }
         ];
 
-        // Database 2: Trattamenti Riabilitativi (Step 2)
+        // Database 2: Trattamenti Riabilitativi
         const trattamentiData = [
             { id: 1, title: "Terapia Manuale ortopedica (Mulligan & Maitland)", district: "Generale", severity: "Tecnica Clinica", def: "Approccio clinico basato sul ragionamento clinico, che utilizza tecniche manuali altamente specifiche, comprese manipolazioni e mobilizzazioni articolari.", goals: "Riduzione del dolore articolare, ripristino del ROM fisiologico, miglioramento dell'artrocinematica.", indications: "Ipomobilità articolare, artrosi, rigidità post-chirurgica o post-traumatica.", contraindications: "Instabilità articolare severa, osteoporosi grave, neoplasie ossee, segni di mielopatia.", execution: "Applicazione di forze passive accessorie o fisiologiche graduate (gradi da I a V di Maitland) associate a movimento attivo nel concetto Mulligan (MWMs)." },
             { id: 2, title: "Massoterapia Decontratturante e Miofasciale", district: "Generale", severity: "Tecnica Clinica", def: "Insieme di manovre manuali eseguite sui tessuti molli per ridurre la tensione muscolare, migliorare la vascolarizzazione e liberare i piani fasciali.", goals: "Rilassamento muscolare, aumento del flusso sanguigno locale, riduzione del dolore miofasciale.", indications: "Mialgie, contratture da sovraccarico, cervicalgie e lombalgie miotensive, preparazione all'esercizio.", contraindications: "Trombosi venose profonde, infezioni cutanee locali, ferite aperte, fratture recenti.", execution: "Sfioramento, frizione profonda, impastamento e percussione associati a tecniche di rilascio miofasciale (trigger point therapy)." },
@@ -299,6 +295,16 @@
             { id: 4, title: "Rieducazione Propriocettiva e Neuromuscolare", district: "Generale", severity: "Tecnica Clinica", def: "Stimolazione dei recettori propriocettivi (fusi neuromuscolari, organi del Golgi) per migliorare il controllo riflesso e la stabilità articolare.", goals: "Miglioramento del controllo neuromuscolare dinamico, prevenzione delle recidive distorsive.", indications: "Post-operatorio di ricostruzione ligamentosa (es. LCA), distorsioni di caviglia, instabilità articolari.", contraindications: "Assenza totale di stabilità meccanica articolare in fase acuta.", execution: "Esercizi su superfici instabili (tavole propriocettive, cuscini propriocettivi), stimoli destabilizzanti in catena cinetica chiusa." },
             { id: 5, title: "Linfodrenaggio Manuale (Metodo Vodder)", district: "Generale", severity: "Tecnica Clinica", def: "Tecnica di massaggio dolce e ritmato mirata a stimolare il sistema linfatico per favorire il riassorbimento dei liquidi interstiziali.", goals: "Riduzione dell'edema post-chirurgico o post-traumatico, stimolazione del sistema immunitario locale.", indications: "Edemi post-traumatici acuti, interventi di chirurgia ortopedica (es. protesi d'anca/ginocchio), linfedemi.", contraindications: "Infezioni acute, insufficienza cardiaca scompensata, tromboflebiti acute.", execution: "Manovre leggere di richiamo e pompaggio eseguite lungo i collettori linfatici verso i linfonodi regionali." },
             { id: 6, title: "Idrokinesiterapia (Riabilitazione in Acqua)", district: "Generale", severity: "Tecnica Clinica", def: "Riabilitazione motoria eseguita in piscina riscaldata sfruttando le proprietà fisiche dell'acqua (galleggiamento, idrostatica, resistenza).", goals: "Deambulazione precoce in scarico parziale del peso corporeo, riduzione del dolore e rilassamento.", indications: "Fase precoce post-chirurgica (protesi, ricostruzioni tendinee e legamentose), sovrappeso, artrosi severa.", contraindications: "Ferite chirurgiche non guarite, infezioni cutanee o urinarie, epilessia non controllata, febbre.", execution: "Esercizi di deambulazione in acqua ad altezza variabile, mobilizzazioni in galleggiamento e rinforzo con resistenze idrodinamiche." }
+        ];
+
+        // Database 3: Terapia Strumentale (Step 3)
+        const strumentaleData = [
+            { id: 1, title: "Laserterapia ad Alta Potenza (HILT)", district: "Generale", severity: "Mezzo Fisico", def: "Utilizzo di radiazioni laser ad alta energia in grado di penetrare in profondità nei tessuti biologici stimolando l'effetto fototermico e fotochimico.", goals: "Effetto antinfiammatorio, analgesico profondo e bio-stimolante sulla riparazione tissutale.", indications: "Tendinopatie croniche (Achille, rotulea), borsiti, lesioni muscolari, artrosi dolorosa.", contraindications: "Neoplasie nell'area di trattamento, gravidanza, epilessia, aree con emorragie attive.", execution: "Applicazione puntiforme o a scansione con manipolo erogatore in base ai J/cm² prescritti dal protocollo medico." },
+            { id: 2, title: "TECARterapia (Diatermia Profonda)", district: "Generale", severity: "Mezzo Fisico", def: "Elettroterapia a trasferimento energetico capacitivo e resistivo che stimola la produzione di energia endogena nei tessuti.", goals: "Iperemia profonda, aumento del metabolismo cellulare, drenaggio linfatico e rilassamento miofasciale.", indications: "Contratture muscolari, tendinopatie, edemi post-traumatici, distorsioni articolari in fase subacuta.", contraindications: "Portatori di pacemaker, donne in gravidanza, zone con insensibilità termica o infezioni cutanee.", execution: "Massaggio con piastra mobile capacitiva (tessuti molli) o resistiva (tessuti a elevata resistenza come ossa e tendini) abbinato a crema conduttiva." },
+            { id: 3, title: "Ultrasuonoterapia (US)", district: "Generale", severity: "Mezzo Fisico", def: "Vibrazioni acustiche ad alta frequenza (1-3 MHz) che generano effetti termici e meccanici (micromassaggio cellulare).", goals: "Riduzione delle aderenze fibrose, effetto antalgico, aumento della permeabilità di membrana.", indications: "Cicatrici tissutali fibrose, tendiniti calcifiche, contratture muscolari localizzate, fasciti plantari.", contraindications: "Epifisi fertili nei bambini, midollo spinale dopo laminectomia, protesi articolari cementate, trombosi.", execution: "Testina vibrante a contatto con gel conduttore con movimento circolare continuo (modalità continua o pulsata)." },
+            { id: 4, title: "Onde d'Urto Focali (ESWT)", district: "Generale", severity: "Mezzo Fisico", def: "Onde acustiche ad alta energia focalizzate su un punto specifico per stimolare la neovascolarizzazione e la rigenerazione tissutale.", goals: "Guarigione tendinea cronica, dissoluzione di calcificazioni, stimolazione dell'osteogenesi.", indications: "Tendinopatie inserzionali croniche refrattarie (es. fascite plantare con spina, epicondilite, tendine d'Achille), pseudoartrosi.", contraindications: "Disturbi della coagulazione, terapia anticoagulante in corso, infezioni locali, vicinanza a grandi vasi o nervi.", execution: "Erogazione di impulsi energetici focalizzati (es. 1500-2500 colpi) a frequenza controllata, con tolleranza del dolore del paziente." },
+            { id: 5, title: "Elettroterapia Antalgica (TENS)", district: "Generale", severity: "Mezzo Fisico", def: "Stimolazione elettrica nervosa transcutanea tramite impulsi a bassa frequenza per bloccare la trasmissione del dolore.", goals: "Controllo del dolore acuto e cronico attraverso la teoria del 'Gate Control' endorfinico.", indications: "Lombalgie, cervico-brachialgie, dolori post-operatori, fibromialgia, artrosi.", contraindications: "Portatori di pacemaker cardiaco, applicazione sul seno carotideo o su ferite aperte.", execution: "Posizionamento di elettrodi adesivi intorno o sopra l'area dolorosa con parametri di frequenza e intensità personalizzati." },
+            { id: 6, title: "Magnetoterapia a Bassa Frequenza", district: "Generale", severity: "Mezzo Fisico", def: "Applicazione di campi magnetici pulsati a bassa frequenza per stimolare i processi di rigenerazione ossea e vascolare.", goals: "Accelerazione della guarigione ossea, effetto antinfiammatorio e trofico generale.", indications: "Fratture ossee in ritardo di consolidamento, osteoporosi, edemi ossei, algodistrofia.", contraindications: "Pacemaker, dispositivi elettronici impiantati, gravidanza, neoplasie attive.", execution: "Applicazione tramite solenoidi posizionati attorno al distretto interessato per sedute prolungate (es. 2-4 ore al giorno)." }
         ];
 
         // Stato Attuale dell'App
@@ -309,6 +315,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderPatologie();
             renderTrattamenti();
+            renderStrumentale();
         });
 
         // Funzione per cambiare sezione
@@ -337,7 +344,7 @@
 
             // Mostra/Nascondi filtri distretto in base alla sezione
             const filterChips = document.getElementById('filter-chips');
-            if(sectionId === 'patologie' || sectionId === 'trattamenti') {
+            if(sectionId === 'patologie' || sectionId === 'trattamenti' || sectionId === 'strumentale') {
                 filterChips.style.display = 'flex';
             } else {
                 filterChips.style.display = 'none';
@@ -379,23 +386,25 @@
                     return matchDistrict && matchQuery;
                 });
                 renderTrattamentiGrid(filtered);
+            } else if(currentSection === 'strumentale') {
+                const filtered = strumentaleData.filter(item => {
+                    const matchDistrict = currentDistrictFilter === 'all' || item.district === currentDistrictFilter;
+                    const matchQuery = item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.goals.toLowerCase().includes(query);
+                    return matchDistrict && matchQuery;
+                });
+                renderStrumentaleGrid(filtered);
             }
         }
 
         // Render Patologie
-        function renderPatologie() {
-            renderPatologieGrid(patologieData);
-        }
-
+        function renderPatologie() { renderPatologieGrid(patologieData); }
         function renderPatologieGrid(data) {
             const grid = document.getElementById('patologie-grid');
             document.getElementById('patologie-count').innerText = `${data.length} Patologie`;
-            
             if(data.length === 0) {
                 grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><i class="fa-solid fa-folder-open text-3xl mb-2"></i><p>Nessuna patologia trovata.</p></div>`;
                 return;
             }
-
             grid.innerHTML = data.map(item => `
                 <div onclick="openPatologiaDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
                     <div>
@@ -407,26 +416,20 @@
                         <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
                     </div>
                     <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-brand-600 font-semibold">
-                        <span>Leggi scheda clinica</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>Leggi scheda clinica</span><i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
             `).join('');
         }
 
         // Render Trattamenti
-        function renderTrattamenti() {
-            renderTrattamentiGrid(trattamentiData);
-        }
-
+        function renderTrattamenti() { renderTrattamentiGrid(trattamentiData); }
         function renderTrattamentiGrid(data) {
             const grid = document.getElementById('trattamenti-grid');
-            
             if(data.length === 0) {
                 grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><i class="fa-solid fa-folder-open text-3xl mb-2"></i><p>Nessun trattamento trovato.</p></div>`;
                 return;
             }
-
             grid.innerHTML = data.map(item => `
                 <div onclick="openTrattamentoDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
                     <div>
@@ -438,86 +441,86 @@
                         <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
                     </div>
                     <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-brand-600 font-semibold">
-                        <span>Protocollo tecnica</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <span>Protocollo tecnica</span><i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
             `).join('');
         }
 
-        // Dettaglio Patologia Modal
+        // Render Terapia Strumentale
+        function renderStrumentale() { renderStrumentaleGrid(strumentaleData); }
+        function renderStrumentaleGrid(data) {
+            const grid = document.getElementById('strumentale-grid');
+            if(data.length === 0) {
+                grid.innerHTML = `<div class="col-span-full py-12 text-center text-slate-400"><i class="fa-solid fa-folder-open text-3xl mb-2"></i><p>Nessuna terapia trovata.</p></div>`;
+                return;
+            }
+            grid.innerHTML = data.map(item => `
+                <div onclick="openStrumentaleDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700">${item.district}</span>
+                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-amber-50 text-amber-700">${item.severity}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-amber-600 font-semibold">
+                        <span>Scheda tecnica fisica</span><i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Modali Dettaglio
         function openPatologiaDetail(id) {
             const item = patologieData.find(p => p.id === id);
             if(!item) return;
-
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
-            
             document.getElementById('modal-body').innerHTML = `
-                <div>
-                    <h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Definizione ed Eziopatogenesi</h4>
-                    <p class="text-slate-600">${item.def}</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Quadro Clinico e Sintomi</h4>
-                    <p class="text-slate-600">${item.symptoms}</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Test Ortopedici Specifici</h4>
-                    <p class="text-slate-600">${item.tests}</p>
-                </div>
-                <div class="bg-rose-50 border border-rose-100 p-3 rounded-xl">
-                    <h4 class="font-bold text-rose-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Red Flags / Diagnosi Differenziale</h4>
-                    <p class="text-rose-900">${item.redFlags}</p>
-                </div>
-                <div class="bg-brand-50 border border-brand-100 p-3 rounded-xl">
-                    <h4 class="font-bold text-brand-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-circle-check mr-1"></i>Gestione Fisioterapica</h4>
-                    <p class="text-brand-900">${item.management}</p>
-                </div>
+                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Definizione ed Eziopatogenesi</h4><p class="text-slate-600">${item.def}</p></div>
+                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Quadro Clinico e Sintomi</h4><p class="text-slate-600">${item.symptoms}</p></div>
+                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Test Ortopedici Specifici</h4><p class="text-slate-600">${item.tests}</p></div>
+                <div class="bg-rose-50 border border-rose-100 p-3 rounded-xl"><h4 class="font-bold text-rose-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Red Flags / Diagnosi Differenziale</h4><p class="text-rose-900">${item.redFlags}</p></div>
+                <div class="bg-brand-50 border border-brand-100 p-3 rounded-xl"><h4 class="font-bold text-brand-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-circle-check mr-1"></i>Gestione Fisioterapica</h4><p class="text-brand-900">${item.management}</p></div>
             `;
-
             document.getElementById('detail-modal').classList.remove('hidden');
         }
 
-        // Dettaglio Trattamento Modal
         function openTrattamentoDetail(id) {
             const item = trattamentiData.find(t => t.id === id);
             if(!item) return;
-
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
-            
             document.getElementById('modal-body').innerHTML = `
-                <div>
-                    <h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Descrizione Tecnica</h4>
-                    <p class="text-slate-600">${item.def}</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Obiettivi Terapeutici</h4>
-                    <p class="text-slate-600">${item.goals}</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Indicazioni Cliniche</h4>
-                    <p class="text-slate-600">${item.indications}</p>
-                </div>
-                <div class="bg-rose-50 border border-rose-100 p-3 rounded-xl">
-                    <h4 class="font-bold text-rose-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-ban mr-1"></i>Controindicazioni</h4>
-                    <p class="text-rose-900">${item.contraindications}</p>
-                </div>
-                <div class="bg-brand-50 border border-brand-100 p-3 rounded-xl">
-                    <h4 class="font-bold text-brand-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-list-check mr-1"></i>Modalità di Esecuzione</h4>
-                    <p class="text-brand-900">${item.execution}</p>
-                </div>
+                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Descrizione Tecnica</h4><p class="text-slate-600">${item.def}</p></div>
+                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Obiettivi Terapeutici</h4><p class="text-slate-600">${item.goals}</p></div>
+                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Indicazioni Cliniche</h4><p class="text-slate-600">${item.indications}</p></div>
+                <div class="bg-rose-50 border border-rose-100 p-3 rounded-xl"><h4 class="font-bold text-rose-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-ban mr-1"></i>Controindicazioni</h4><p class="text-rose-900">${item.contraindications}</p></div>
+                <div class="bg-brand-50 border border-brand-100 p-3 rounded-xl"><h4 class="font-bold text-brand-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-list-check mr-1"></i>Modalità di Esecuzione</h4><p class="text-brand-900">${item.execution}</p></div>
             `;
-
             document.getElementById('detail-modal').classList.remove('hidden');
         }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
+        function openStrumentaleDetail(id) {
+            const item = strumentaleData.find(s => s.id === id);
+            if(!item) return;
+            document.getElementById('modal-district-badge').innerText = item.district;
+            document.getElementById('modal-title').innerText = item.title;
+            document.getElementById('modal-body').innerHTML = `
+                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Principio Fisico e Descrizione</h4><p class="text-slate-600">${item.def}</p></div>
+                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Obiettivi Biologici</h4><p class="text-slate-600">${item.goals}</p></div>
+                <div><h4 class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Indicazioni Cliniche</h4><p class="text-slate-600">${item.indications}</p></div>
+                <div class="bg-rose-50 border border-rose-100 p-3 rounded-xl"><h4 class="font-bold text-rose-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-ban mr-1"></i>Controindicazioni Assolute/Relative</h4><p class="text-rose-900">${item.contraindications}</p></div>
+                <div class="bg-amber-50 border border-amber-100 p-3 rounded-xl"><h4 class="font-bold text-amber-700 uppercase tracking-wider text-[11px] mb-1"><i class="fa-solid fa-bolt mr-1"></i>Parametri di Esecuzione</h4><p class="text-amber-900">${item.execution}</p></div>
+            `;
+            document.getElementById('detail-modal').classList.remove('hidden');
         }
 
-        // Gestione Timer Clinico con Web Audio API
+        function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); }
+
+        // Gestione Timer Clinico
         let timerInterval = null;
         let timeLeft = 45;
         let totalTime = 45;
@@ -541,7 +544,6 @@
             if(timeLeft <= 0) timeLeft = totalTime;
             isRunning = true;
             document.getElementById('timer-status').innerText = "Esercizio in corso...";
-
             timerInterval = setInterval(() => {
                 timeLeft--;
                 updateTimerDisplay();
@@ -572,15 +574,13 @@
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
                 osc.type = 'sine';
-                osc.frequency.value = 587.33; // Nota D5
+                osc.frequency.value = 587.33;
                 gain.gain.setValueAtTime(0.1, ctx.currentTime);
                 osc.connect(gain);
                 gain.connect(ctx.destination);
                 osc.start();
                 osc.stop(ctx.currentTime + 0.6);
-            } catch(e) {
-                console.log("Audio non supportato automaticamente");
-            }
+            } catch(e) { console.log("Audio non supportato"); }
         }
     </script>
 </body>
