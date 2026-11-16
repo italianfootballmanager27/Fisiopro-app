@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FisioPro Clinical v1.0 - Atlante Miologico & Esercizio Terapeutico Clinico</title>
+    <title>FisioPro Clinical v1.2 - Atlante Miologico & Manuale Prescrittivo</title>
     
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="./manifest.json">
@@ -47,7 +47,7 @@
                 <div>
                     <div class="flex items-center space-x-2">
                         <h1 class="text-lg font-bold tracking-tight">FisioPro Clinical</h1>
-                        <span class="text-[10px] bg-brand-600 border border-brand-500 text-white font-semibold px-2 py-0.5 rounded-full">v1.0</span>
+                        <span class="text-[10px] bg-brand-600 border border-brand-500 text-white font-semibold px-2 py-0.5 rounded-full">v1.2</span>
                     </div>
                     <p class="text-xs text-brand-100 opacity-95">Atlante Miologico & Manuale Prescrittivo di Esercizio Terapeutico</p>
                 </div>
@@ -90,64 +90,84 @@
     <!-- Contenuto Principale con Tab -->
     <main class="flex-1 max-w-7xl w-full mx-auto p-4 overflow-y-auto">
         
-        <!-- Navigazione Sezioni -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
-            <button onclick="switchSection('patologie')" id="btn-sec-patologie" class="section-tab p-3 rounded-xl border border-brand-500 bg-brand-50 text-brand-700 text-left transition shadow-sm flex flex-col justify-between">
-                <i class="fa-solid fa-stethoscope text-xl mb-2 text-brand-600"></i>
+        <!-- Navigazione Sezioni (Tutte le 6 funzioni ripristinate) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-6">
+            <button onclick="switchSection('patologie-ortopediche')" id="btn-sec-patologie-ortopediche" class="section-tab p-3 rounded-xl border border-brand-500 bg-brand-50 text-brand-700 text-left transition shadow-sm flex flex-col justify-between">
+                <i class="fa-solid fa-bone text-xl mb-2 text-brand-600"></i>
                 <div>
-                    <h3 class="font-bold text-sm">Patologie</h3>
-                    <p class="text-[11px] opacity-75">70 Schede (A-Z)</p>
+                    <h3 class="font-bold text-xs">Patologie Ortopediche</h3>
+                    <p class="text-[10px] opacity-75">90 Schede (A-Z)</p>
+                </div>
+            </button>
+            <button onclick="switchSection('patologie-neurologiche')" id="btn-sec-patologie-neurologiche" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
+                <i class="fa-solid fa-brain text-xl mb-2 text-rose-600"></i>
+                <div>
+                    <h3 class="font-bold text-xs">Patologie Neurologiche</h3>
+                    <p class="text-[10px] opacity-75">30 Schede (A-Z)</p>
                 </div>
             </button>
             <button onclick="switchSection('trattamenti')" id="btn-sec-trattamenti" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-hands-holding-child text-xl mb-2 text-brand-600"></i>
                 <div>
-                    <h3 class="font-bold text-sm">Trattamenti</h3>
-                    <p class="text-[11px] opacity-75">Per Specialità</p>
+                    <h3 class="font-bold text-xs">Trattamenti</h3>
+                    <p class="text-[10px] opacity-75">Per Specialità</p>
                 </div>
             </button>
             <button onclick="switchSection('strumentale')" id="btn-sec-strumentale" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-bolt text-xl mb-2 text-amber-500"></i>
                 <div>
-                    <h3 class="font-bold text-sm">Terapia Strumentale</h3>
-                    <p class="text-[11px] opacity-75">12 Macchinari</p>
+                    <h3 class="font-bold text-xs">Terapia Strumentale</h3>
+                    <p class="text-[10px] opacity-75">12 Macchinari</p>
                 </div>
             </button>
             <button onclick="switchSection('anatomia')" id="btn-sec-anatomia" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
-                <i class="fa-solid fa-bone text-xl mb-2 text-emerald-600"></i>
+                <i class="fa-solid fa-person text-xl mb-2 text-emerald-600"></i>
                 <div>
-                    <h3 class="font-bold text-sm">Anatomia</h3>
-                    <p class="text-[11px] opacity-75">151 Muscoli + Funzione</p>
+                    <h3 class="font-bold text-xs">Anatomia</h3>
+                    <p class="text-[10px] opacity-75">151 Muscoli + Funzione</p>
                 </div>
             </button>
             <button onclick="switchSection('esercizi')" id="btn-sec-esercizi" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-dumbbell text-xl mb-2 text-indigo-600"></i>
                 <div>
-                    <h3 class="font-bold text-sm">Esercizi</h3>
-                    <p class="text-[11px] opacity-75">42 Schede Cliniche</p>
+                    <h3 class="font-bold text-xs">Esercizi</h3>
+                    <p class="text-[10px] opacity-75">42 Schede Cliniche</p>
                 </div>
             </button>
             <button onclick="switchSection('protocolli')" id="btn-sec-protocolli" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-clipboard-list text-xl mb-2 text-purple-600"></i>
                 <div>
-                    <h3 class="font-bold text-sm">Protocolli</h3>
-                    <p class="text-[11px] opacity-75">Post-Chirurgia</p>
+                    <h3 class="font-bold text-xs">Protocolli</h3>
+                    <p class="text-[10px] opacity-75">Post-Chirurgia</p>
                 </div>
             </button>
         </div>
 
-        <!-- Sezioni Contenuto -->
-        <div id="section-patologie" class="content-section space-y-4">
+        <!-- Sezione Patologie Ortopediche (90 Schede A-Z) -->
+        <div id="section-patologie-ortopediche" class="content-section space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
-                    <i class="fa-solid fa-stethoscope text-brand-600"></i>
+                    <i class="fa-solid fa-bone text-brand-600"></i>
                     <span>Archivio Patologie Ortopediche (Ordinamento Alfabetico A-Z)</span>
                 </h2>
-                <span id="patologie-count" class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">70 Patologie</span>
+                <span id="orto-count" class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">90 Patologie</span>
             </div>
-            <div id="patologie-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            <div id="orto-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
+        <!-- Sezione Patologie Neurologiche (30 Schede A-Z) -->
+        <div id="section-patologie-neurologiche" class="content-section hidden space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
+                    <i class="fa-solid fa-brain text-rose-600"></i>
+                    <span>Archivio Patologie Neurologiche (Ordinamento Alfabetico A-Z)</span>
+                </h2>
+                <span id="neuro-count" class="text-xs bg-rose-100 text-rose-800 font-semibold px-2.5 py-1 rounded-full">30 Patologie</span>
+            </div>
+            <div id="neuro-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        </div>
+
+        <!-- Sezione Trattamenti -->
         <div id="section-trattamenti" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
@@ -159,6 +179,7 @@
             <div id="trattamenti-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
+        <!-- Sezione Terapia Strumentale -->
         <div id="section-strumentale" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
@@ -170,10 +191,11 @@
             <div id="strumentale-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
+        <!-- Sezione Anatomia -->
         <div id="section-anatomia" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
-                    <i class="fa-solid fa-bone text-emerald-600"></i>
+                    <i class="fa-solid fa-person text-emerald-600"></i>
                     <span>Atlante Miologico Ufficiale (151 Muscoli Filtrati per Sezione Anatomica)</span>
                 </h2>
                 <span id="anatomia-count" class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded-full">151 Muscoli Certificati</span>
@@ -181,6 +203,7 @@
             <div id="anatomia-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
+        <!-- Sezione Esercizi -->
         <div id="section-esercizi" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
@@ -192,6 +215,7 @@
             <div id="esercizi-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
+        <!-- Sezione Protocolli -->
         <div id="section-protocolli" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
@@ -259,79 +283,134 @@
         </div>
     </div>
 
-    <!-- Script JavaScript (Versione 1.0) -->
+    <!-- Script JavaScript (Versione 1.2) -->
     <script>
-        const patologieData = [
-            { id: 1, title: "Alluce Valgo", district: "Piede", severity: "Cronica", def: "Deviazione mediale del primo metatarso e laterale dell'alluce.", symptoms: "Deformità estetica, borsite della cipolla (bunion), dolore.", tests: "Esame clinico e radiografico.", redFlags: "Ulcerazione cutanea severa.", management: "Terapie conservative, tutori notturni." },
-            { id: 2, title: "Apofisite della Cresta Iliaca", district: "Anca", severity: "Lieve", def: "Traction apophysitis a livello dell'inserzione dei muscoli addominali.", symptoms: "Dolore localizzato alla cresta iliaca in giovani atleti.", tests: "Palpazione dolorosa.", redFlags: "Distacco apofisario acuto.", management: "Riposo sportivo temporaneo, stretching." },
-            { id: 3, title: "Artrite Acromion-Claveare", district: "Spalla", severity: "Moderata", def: "Usura degenerativa o post-traumatica dell'articolazione AC.", symptoms: "Dolore localizzato al punto alto della spalla.", tests: "Cross-Body Adduction Test.", redFlags: "Osteolisi distale della clavicola.", management: "FANS, modulazione del carico." },
-            { id: 4, title: "Artrosi Gleno-Omerale (Omartrosi)", district: "Spalla", severity: "Cronica", def: "Usura degenerativa della cartilagine articolare gleno-omerale.", symptoms: "Dolore sordo e profondo, crepitii, limitazione ROM.", tests: "Riduzione ROM passivo.", redFlags: "Blocco meccanico severo.", management: "Mantenimento ROM in scarico." },
-            { id: 5, title: "Borsite Ileo-Psoas", district: "Anca", severity: "Lieve", def: "Infiammazione della borsa retro-psoas anteriore d'anca.", symptoms: "Dolore inguinale anteriore durante flessione.", tests: "Flessione attiva resistita.", redFlags: "Ascesso dello psoas.", management: "Stretching ileo-psoas, terapia fisica." },
-            { id: 6, title: "Borsite Subacromiale-Subdeltoidea", district: "Spalla", severity: "Lieve", def: "Infiammazione della borsa sierosa per attrito meccanico.", symptoms: "Dolore in faccia laterale di spalla.", tests: "Neer Test positivo.", redFlags: "Borsite settica con febbre.", management: "Crioterapia, tecarterapia." },
-            { id: 7, title: "Borsite Trocanterica", district: "Anca", severity: "Lieve", def: "Infiammazione della borsa tra grande trocantere e tratto ileotibiale.", symptoms: "Dolore laterale d'anca in decubito.", tests: "Ober Test.", redFlags: "Necrosi avascolare.", management: "Stretching tratto ileotibiale." },
-            { id: 8, title: "Calcificazione Cuffia dei Rotatori", district: "Spalla", severity: "Moderata", def: "Depositi di idrossiapatite di calcio nei tendini.", symptoms: "Dolore iperacuto in fase di riassorbimento.", tests: "Ecografia o Rx spalla positiva.", redFlags: "Dolore flogistico intrattabile.", management: "Onde d'urto, ultrasuoni." },
-            { id: 9, title: "Capsulite Adesiva (Spalla Congelata)", district: "Spalla", severity: "Grave", def: "Fibrosi della capsula articolare gleno-omerale.", symptoms: "Rigidità severa e blocco capsulare.", tests: "Limitazione rigida dei movimenti.", redFlags: "Artrite settica.", management: "Mobilizzazione dolce, terapia manuale." },
-            { id: 10, title: "Cervicalgia Miotensiva", district: "Cervicale", severity: "Lieve", def: "Sindrome dolorosa da sovraccarico e contrattura.", symptoms: "Dolore cervicale diffuso, cefalea tensiva.", tests: "Spurling Test negativo.", redFlags: "Vertigini acute, nistagmo.", management: "Rilascio suboccipitale, ergonomia." },
-            { id: 11, title: "Contrattura di Dupuytren", district: "Mano", severity: "Cronica", def: "Fibrosi dell'aponeurosi palmare con flessione fissa.", symptoms: "Noduli palmari e cordoni fibrosi.", tests: "Table Top Test positivo.", redFlags: "Retrazione cutanea severa.", management: "Stretching, ultrasuoni." },
-            { id: 12, title: "Coxartrosi (Artrosi d'Anca)", district: "Anca", severity: "Cronica", def: "Degenerazione progressiva cartilagine coxo-femorale.", symptoms: "Dolore inguinale irradiato al ginocchio, zoppia.", tests: "FABER Test, FADIR Test.", redFlags: "Impossibilità assoluta al carico.", management: "Mantenimento ROM, rinforzo." },
-            { id: 13, title: "Ciste di Baker", district: "Coscia", severity: "Lieve", def: "Raccolta di liquido sinoviale al cavo popliteo.", symptoms: "Tumefazione e tensione poplitea.", tests: "Ecografia poplitea.", redFlags: "Rottura della ciste simil-flebitica.", management: "Trattamento causa primaria." },
-            { id: 14, title: "Discopatia Degenerativa Cervicale", district: "Cervicale", severity: "Cronica", def: "Usura del disco intervertebrale cervicale.", symptoms: "Dolore sordo locale, scrosci.", tests: "Riduzione ROM cervicale.", redFlags: "Mielopatia compressiva.", management: "Mobilizzazioni dolci, chinesi." },
-            { id: 15, title: "Disfunzione Articolazione Sacro-Iliaca", district: "Lombare", severity: "Moderata", def: "Ipomobilità o ipermobilità dolorosa SIJ.", symptoms: "Dolore gluteo unilaterale.", tests: "Cluster di Laslett.", redFlags: "Spondilite anchilosante.", management: "Manipolazioni/mobilizzazioni SIJ." },
-            { id: 16, title: "Distorsione di Caviglia Laterale", district: "Piede", severity: "Moderata", def: "Lesione legamentosa collaterale laterale.", symptoms: "Gonfiore, ecchimosi, dolore al carico.", tests: "Anterior Drawer Test.", redFlags: "Frattura malleolare associata.", management: "Protocollo RICE, propriocettività." },
-            { id: 17, title: "Distorsione Legamento Collaterale Ulnare Pollice", district: "Mano", severity: "Moderata", def: "Lacerazione legamentosa MCP pollice.", symptoms: "Instabilità in valgo del pollice.", tests: "Valgus Stress Test.", redFlags: "Lesione di Stener.", management: "Tutore rigido polso-pollice." },
-            { id: 18, title: "Dito a Scatto", district: "Mano", severity: "Lieve", def: "Infiammazione guaina flessoria con blocco.", symptoms: "Scatto doloroso e blocco in flessione.", tests: "Palpazione nodulo su puleggia A1.", redFlags: "Blocco permanente irriducibile.", management: "Stretching, ultrasuoni." },
-            { id: 19, title: "Epicondilite Laterale", district: "Avambraccio", severity: "Moderata", def: "Tendinopatia estensori dell'avambraccio.", symptoms: "Dolore all'epicondilo laterale.", tests: "Cozen Test, Mill Test.", redFlags: "Parestesie nervose.", management: "Esercizi eccentrici, scarico." },
-            { id: 20, title: "Epitrocleite", district: "Avambraccio", severity: "Moderata", def: "Tendinopatia flessori-pronatori all'epitroclea.", symptoms: "Dolore mediale da flessione.", tests: "Golfer's Elbow Test.", redFlags: "Parestesie nervo ulnare.", management: "Rinforzo eccentrico flessori." },
-            { id: 21, title: "Ernia del Disco Lombare", district: "Lombare", severity: "Grave", def: "Fuoriuscita nucleo polposo con compressione.", symptoms: "Sciatalgia, parestesie, ipostenia.", tests: "Lasegue Test.", redFlags: "Anestesia a sella, sfinteri.", management: "Decompressione, core stability." },
-            { id: 22, title: "Fascite Plantare", district: "Piede", severity: "Moderata", def: "Infiammazione aponeurosi plantare.", symptoms: "Dolore acuto primo appoggio mattutino.", tests: "Windlass Test.", redFlags: "Frattura stress calcagno.", management: "Stretching fascia, plantari." },
-            { id: 23, title: "Frattura Collo del Femore", district: "Anca", severity: "Grave", def: "Interruzione ossea del collo femorale.", symptoms: "Impossibilità assoluta al carico.", tests: "Impossibilità sollevare tallone.", redFlags: "Urgenza chirurgica ortopedica.", management: "Riabilitazione post-protesi." },
-            { id: 24, title: "Frattura della Clavicola", district: "Spalla", severity: "Grave", def: "Interruzione ossea clavicolare.", symptoms: "Deformità visibile, dolore acuto.", tests: "Palpazione dolorosa.", redFlags: "Lesione plesso brachiale.", management: "Tutore a otto, recupero ROM." },
-            { id: 25, title: "Frattura di Pouteau-Colles", district: "Avambraccio", severity: "Grave", def: "Frattura distale del radio.", symptoms: "Deformità a dorso di forchetta.", tests: "Esame radiografico.", redFlags: "Compromissione nervo mediano.", management: "Riduzione, gesso, chinesi." },
-            { id: 26, title: "Frattura da Stress Tibiale", district: "Gamba", severity: "Grave", def: "Microfrattura ossea da sovraccarico.", symptoms: "Dolore localizzato in attività.", tests: "Tuning Fork Test.", redFlags: "Frattura completa.", management: "Riposo dal carico, magnetoterapia." },
-            { id: 27, title: "Gonartrosi", district: "Coscia", severity: "Cronica", def: "Usura cartilaginea femoro-tibiale.", symptoms: "Dolore meccanico, crepitii.", tests: "Stress test di ginocchio.", redFlags: "Instabilità severa.", management: "Chinesiterapia in scarico." },
-            { id: 28, title: "Impingement Femoro-Acetabolare", district: "Anca", severity: "Moderata", def: "Conflitto meccanico testa-acetabolo.", symptoms: "Dolore inguinale profondo.", tests: "FADIR Test, FABER Test.", redFlags: "Lesioni labbro acetabolare.", management: "Correzione biomeccanica." },
-            { id: 29, title: "Instabilità Gleno-Omerale", district: "Spalla", severity: "Grave", def: "Traslazione anomala testa omerale.", symptoms: "Sensazione di cedimento.", tests: "Apprehension Test.", redFlags: "Segni neurologici periferici.", management: "Rinforzo stabilizzatori." },
-            { id: 30, title: "Lesione Meniscale", district: "Coscia", severity: "Moderata", def: "Lacerazione fibrocartilagine meniscale.", symptoms: "Dolore in rima, blocco, versamento.", tests: "McMurray Test, Thessaly.", redFlags: "Ginocchio bloccato.", management: "Controllo edema, recupero ROM." },
-            { id: 31, title: "Lesione Legamento Collaterale Mediale", district: "Coscia", severity: "Moderata", def: "Distorsione LCM in valgo.", symptoms: "Dolore mediale, lassità.", tests: "Valgus Stress Test a 30°.", redFlags: "Unhappy triad.", management: "Tutore protettivo, rinforzo." },
-            { id: 32, title: "Lesione LCA", district: "Coscia", severity: "Grave", def: "Rottura legamento crociato anteriore.", symptoms: "Pop, emartro, giving way.", tests: "Lachman Test, Pivot Shift.", redFlags: "Blocco meniscale associato.", management: "Recupero ROM, chirurgia." },
-            { id: 33, title: "Lesione Labbro Acetabolare", district: "Anca", severity: "Grave", def: "Lacerazione cercine acetabolare.", symptoms: "Click o blocco meccanico.", tests: "FABER Test, FADIR Test.", redFlags: "Blocco articolare.", management: "Stabilità dinamica." },
-            { id: 34, title: "Lesione Cuffia dei Rotatori", district: "Spalla", severity: "Grave", def: "Lesione tendinea della cuffia.", symptoms: "Debolezza attiva, dolore.", tests: "Drop Arm Test, Jobe Test.", redFlags: "Impossibilità a sollevare il braccio.", management: "Rinforzo sinergico." },
-            { id: 35, title: "Lesione SLAP", district: "Spalla", severity: "Grave", def: "Lacerazione cercine glenoideo superiore.", symptoms: "Click doloroso in arm-cocking.", tests: "O'Brien Test, Crank Test.", redFlags: "Blocco meccanico.", management: "Stabilità dinamica." },
-            { id: 36, title: "Lombalgia Acuta", district: "Lombare", severity: "Moderata", def: "Spasmo muscolare acuto lombare.", symptoms: "Blocco funzionale in flessione.", tests: "Schober Test ridotto.", redFlags: "Cauda equina.", management: "Decompressione, miofasciale." },
-            { id: 37, title: "Malattia di Osgood-Schlatter", district: "Gamba", severity: "Lieve", def: "Osteocondrosi tuberosità tibiale.", symptoms: "Tumefazione e dolore dolente.", tests: "Palpazione tuberosità tibiale.", redFlags: "Distacco osteocondriale.", management: "Riduzione carico, stretching." },
-            { id: 38, title: "Metatarsalgia", district: "Piede", severity: "Lieve", def: "Sindrome dolorosa teste metatarsali.", symptoms: "Dolore urente all'avampiede.", tests: "Compressione metatarsale.", redFlags: "Frattura da stress.", management: "Scarico pressorio, plantari." },
-            { id: 39, title: "Neuroma di Morton", district: "Piede", severity: "Moderata", def: "Fibrosi perianale nervo interdigitale.", symptoms: "Dolore urente tra III e IV dito.", tests: "Mulder Sign.", redFlags: "Dolore neuropatico persistente.", management: "Calzature larghe, ortesi." },
-            { id: 40, title: "Pubalgia / Sindrome Adduttoria", district: "Anca", severity: "Moderata", def: "Tendinopatia adduttori e sinfisi.", symptoms: "Dolore pubico in corsa.", tests: "Squeeze Test.", redFlags: "Frattura da stress pubica.", management: "Gestione carico, core." },
-            { id: 41, title: "Radicolopatia Cervicale", district: "Cervicale", severity: "Grave", def: "Sofferenza radicolare cervicale.", symptoms: "Dolore cervico-brachiale.", tests: "Spurling Test, ULTT.", redFlags: "Mielopatia cervicale.", management: "Trazione dolce, stabilizzazione." },
-            { id: 42, title: "Rizoartrosi", district: "Mano", severity: "Cronica", def: "Osteoartrosi trapezio-metacarpale.", symptoms: "Dolore base pollice in pinza.", tests: "Grind Test.", redFlags: "Deformità a zeta.", management: "Tutori funzionali." },
-            { id: 43, title: "Scoliosi Idiopatica", district: "Torace", severity: "Grave", def: "Deformità tridimensionale colonna.", symptoms: "Asimmetria spalle, gibbo.", tests: "Adams Forward Bend Test.", redFlags: "Rapida evoluzione.", management: "Esercizi SEAS/Schroth." },
-            { id: 44, title: "Sindrome Bandelletta Tibio-Tarsale", district: "Coscia", severity: "Lieve", def: "Attrito tratto ileotibiale.", symptoms: "Dolore laterale dopo km di corsa.", tests: "Noble Compression Test.", redFlags: "Borsite laterale.", management: "Stretching TFL, scarico." },
-            { id: 45, title: "Sindrome della Cauda Equina", district: "Lombare", severity: "Grave", def: "Compressione massiva radici cauda.", symptoms: "Anestesia a sella, sfinteri.", tests: "Esame neurologico d'urgenza.", redFlags: "URGENZA CHIRURGICA (24h).", management: "Invio immediato in ospedale." },
-            { id: 46, title: "Sindrome Opercolo Toracico", district: "Torace", severity: "Moderata", def: "Compressione plesso brachiale.", symptoms: "Parestesie notturne arti superiori.", tests: "Adson Test, Roos Test.", redFlags: "Perdita polso radiale.", management: "Rilascio scaleni, postura." },
-            { id: 47, title: "Sindrome del Piriforme", district: "Anca", severity: "Moderata", def: "Compressione nervo sciatico da piriforme.", symptoms: "Dolore profondo al gluteo.", tests: "FAIR Test.", redFlags: "Ernia discale vera.", management: "Stretching piriforme, rilasciamento." },
-            { id: 48, title: "Sindrome Seno del Tarso", district: "Piede", severity: "Moderata", def: "Infiammazione legamenti seno del tarso.", symptoms: "Dolore depressione laterale.", tests: "Palpazione profonda.", redFlags: "Lesione osteocondrale astragalo.", management: "Infiltrazioni, propriocettività." },
-            { id: 49, title: "Sindrome Tunnel Carpale", district: "Mano", severity: "Moderata", def: "Compressione nervo mediano al polso.", symptoms: "Formicolio notturno prime dita.", tests: "Phalen Test, Tinel Test.", redFlags: "Atrofia eminenza tenar.", management: "Tutore notturno, scivolamenti." },
-            { id: 50, title: "Sindrome Tunnel Cubitale", district: "Braccio", severity: "Moderata", def: "Compressione nervo ulnare al gomito.", symptoms: "Parestesie IV-V dito.", tests: "Tinel Test al gomito.", redFlags: "Artiglio ulnare.", management: "Scivolamenti neurali." },
-            { id: 51, title: "Sindrome Tunnel Tarsale", district: "Piede", severity: "Moderata", def: "Compressione nervo tibiale posteriore.", symptoms: "Bruciore pianta del piede.", tests: "Tinel Test tunnel tarsale.", redFlags: "Deficit sensitivi plantari.", management: "Ortesi plantari, scarico." },
-            { id: 52, title: "Sindrome di De Quervain", district: "Mano", severity: "Moderata", def: "Tenosinovite stenosante.", symptoms: "Dolore stiloide radiale.", tests: "Finkelstein Test.", redFlags: "Blocco meccanico.", management: "Tutore pollice-polso." },
-            { id: 53, title: "Sindrome Sinding-Larsen-Johansson", district: "Coscia", severity: "Lieve", def: "Traction apophysitis polo superiore rotula.", symptoms: "Dolore rotuleo superiore.", tests: "Palpazione polo superiore.", redFlags: "Frattura rotulea.", management: "Gestione carico." },
-            { id: 54, title: "Sindrome Femoro-Rotulea", district: "Coscia", severity: "Lieve", def: "Tracking anomalo rotula.", symptoms: "Dolore scale, segno cinema.", tests: "Clarke Test.", redFlags: "Versamento importante.", management: "Rinforzo VMO, taping." },
-            { id: 55, title: "Sospetta Frattura (Ottawa Rules)", district: "Piede", severity: "Grave", def: "Screening per escludere fratture.", symptoms: "Impossibilità al carico immediato.", tests: "Ottawa Ankle Rules.", redFlags: "Dolore osseo puntiforme.", management: "Radiografia urgente." },
-            { id: 56, title: "Spondilolistesi", district: "Lombare", severity: "Moderata", def: "Scivolamento anteriore vertebra.", symptoms: "Lombalgia in estensione.", tests: "Stork Test, gradino palpabile.", redFlags: "Instabilità severa.", management: "Core stability profonda." },
-            { id: 57, title: "Spondilolisi", district: "Lombare", severity: "Moderata", def: "Interruzione istmo interarticolare.", symptoms: "Lombalgia in iperestensione.", tests: "Hyperextension test.", redFlags: "Evoluzione in listesi.", management: "Riposo sportivo, core." },
-            { id: 58, title: "Stenosi Canale Lombare", district: "Lombare", severity: "Cronica", def: "Restringimento canale spinale.", symptoms: "Claudicatio neurogena, sollievo in flessione.", tests: "Test del carrello.", redFlags: "Parestesie bilaterali.", management: "Esercizi in flessione." },
-            { id: 59, title: "Tallonite da Impatto", district: "Piede", severity: "Lieve", def: "Atrofia pad adiposo plantare.", symptoms: "Dolore profondo calcaneare.", tests: "Compressione laterale.", redFlags: "Frattura calcagno.", management: "Talloniere in silicone." },
-            { id: 60, title: "Tendinite Flessori Dita", district: "Mano", severity: "Lieve", def: "Sovraccarico tendini flessori.", symptoms: "Dolore palmare in chiusura.", tests: "Flessione resistita dolorosa.", redFlags: "Infezione della guaina.", management: "Modifica carico, laser." },
-            { id: 61, title: "Tendinite Peronieri", district: "Gamba", severity: "Lieve", def: "Infiammazione peronieri.", symptoms: "Dolore retromalleolare laterale.", tests: "Eversione resistita.", redFlags: "Sublussazione tendinea.", management: "Tutore, rinforzo." },
-            { id: 62, title: "Tendinite Tibiale Posteriore", district: "Gamba", severity: "Moderata", def: "Infiammazione tibiale posteriore.", symptoms: "Dolore mediale, piede piatto.", tests: "Single Leg Heel Raise.", redFlags: "Rottura tendinea.", management: "Ortesi plantari." },
-            { id: 63, title: "Tendinopatia Capo Lungo Bicipite", district: "Braccio", severity: "Moderata", def: "Processo degenerativo CLB.", symptoms: "Dolore anteriore in supinazione.", tests: "Speed Test, Yergason.", redFlags: "Deformità a papa.", management: "Scarico, eccentrici." },
-            { id: 64, title: "Tendinopatia Tendine d'Achille", district: "Gamba", severity: "Moderata", def: "Tendinopatia achillea.", symptoms: "Dolore e rigidità tendinea.", tests: "Thompson Test.", redFlags: "Rottura completa.", management: "Protocollo Alfredson." },
-            { id: 65, title: "Tendinopatia del Popliteo", district: "Gamba", severity: "Lieve", def: "Infiammazione tendine popliteo.", symptoms: "Dolore posterolaterale in discesa.", tests: "Popliteus Test.", redFlags: "Lesione corner posterolaterale.", management: "Riposo, crioterapia." },
-            { id: 66, title: "Tendinopatia Zampa d'Oca", district: "Coscia", severity: "Lieve", def: "Infiammazione tendini congiunti mediali.", symptoms: "Dolore tibia mediale prossimale.", tests: "Palpazione tibia mediale.", redFlags: "Borsite infetta.", management: "Stretching flessori." },
-            { id: 67, title: "Tendinopatia Tensore Fascia Lata", district: "Anca", severity: "Lieve", def: "Sovraccarico TFL.", symptoms: "Dolore laterale d'anca in corsa.", tests: "Noble Test.", redFlags: "Borsite laterale.", management: "Rilascio miofasciale." },
-            { id: 68, title: "Tendinopatia Rotulea", district: "Coscia", severity: "Moderata", def: "Tendinopatia polo inferiore rotula.", symptoms: "Dolore in salto e corsa.", tests: "Squat resistito.", redFlags: "Rischio rottura.", management: "Isometrici e eccentrici pesanti." },
-            { id: 69, title: "Tenosinovite Vasi Estensori", district: "Avambraccio", severity: "Lieve", def: "Infiammazione estensori polso.", symptoms: "Crepitio in estensione.", tests: "Crepitio palpabile.", redFlags: "Artrite infiammatoria.", management: "Riposo, ultrasuoni." },
-            { id: 70, title: "Colpo di Frusta (WAD)", district: "Cervicale", severity: "Moderata", def: "Lesione cervicale da accelerazione.", symptoms: "Cervicalgia, cefalea, vertigini.", tests: "Neck Flexion-Rotation Test.", redFlags: "Fratture odontoide.", management: "Esercizi attivi precoci." }
+        // 90 Patologie Ortopediche ordinate da A a Z
+        const ortopedicheData = [
+            { id: 1, title: "Alluce Valgo", district: "Piede", severity: "Cronica", def: "Deviazione mediale del primo metatarso e laterale dell'alluce con formazione di borsite esposta.", meds: "FANS topici, infiltrazioni di corticosteroidi in fase acuta.", surgery: "Osteotomie correttive metatarsali (es. Scarf/Chevron).", rehab: "Terapie conservative, tutori notturni, rieducazione della spinta." },
+            { id: 2, title: "Apofisite della Cresta Iliaca", district: "Anca", severity: "Lieve", def: "Traction apophysitis a livello dell'inserzione dei muscoli addominali nei giovani atleti.", meds: "Analgesici leggeri, antinfiammatori al bisogno.", surgery: "Non indicata (trattamento conservativo).", rehab: "Riposo sportivo temporaneo, stretching e rinforzo progressivo." },
+            { id: 3, title: "Artrite Acromion-Claveare", district: "Spalla", severity: "Moderata", def: "Usura degenerativa o post-traumatica dell'articolazione AC con dolore localizzato.", meds: "FANS, condroprotettori.", surgery: "Resezione artroscopica dell'estremità distale della clavicola nei casi refrattari.", rehab: "Modulation del carico, recupero ROM in scarico, rinforzo scapolare." },
+            { id: 4, title: "Artrosi Gleno-Omerale (Omartrosi)", district: "Spalla", severity: "Cronica", def: "Usura degenerativa della cartilagine articolare gleno-omerale con limitazione funzionale.", meds: "Infiltrazioni di acido ialuronico o PRP.", surgery: "Protesi di spalla (anatomica o inversa).", rehab: "Mantenimento ROM in scarico, idrokinesiterapia, esercizi di centratura." },
+            { id: 5, title: "Borsite Ileo-Psoas", district: "Anca", severity: "Lieve", def: "Infiammazione della borsa retro-psoas anteriore d'anca con dolore in flessione.", meds: "FANS orali.", surgery: "Raramente borsectomia in artroscopia.", rehab: "Stretching selettivo ileo-psoas, terapia fisica (TECAR/Laser)." },
+            { id: 6, title: "Borsite Subacromiale-Subdeltoidea", district: "Spalla", severity: "Lieve", def: "Infiammazione della borsa sierosa per attrito meccanico sotto l'arco coracoacromiale.", meds: "FANS, infiltrazioni eco-guidate di steroide.", surgery: "Decompressione subacromiale artroscopica.", rehab: "Crioterapia, TECAR, recupero spazio subacromiale." },
+            { id: 7, title: "Borsite Trocanterica", district: "Anca", severity: "Lieve", def: "Infiammazione della borsa tra grande trocantere e tratto ileotibiale.", meds: "FANS, infiltrazioni locali.", surgery: "Rilascio del tratto ileotibiale nei casi cronici gravi.", rehab: "Stretching del TFL, rinforzo abduttori, correzione biomeccanica." },
+            { id: 8, title: "Calcificazione Cuffia dei Rotatori", district: "Spalla", severity: "Moderata", def: "Depositi di idrossiapatite di calcio nei tendini della cuffia con dolore acuto.", meds: "FANS ad alto dosaggio in fase di riassorbimento.", surgery: "Rimozione artroscopica dei depositi calcifici.", rehab: "Onde d'urto focali, ultrasuoni, recupero ROM graduale." },
+            { id: 9, title: "Capsulite Adesiva (Spalla Congelata)", district: "Spalla", severity: "Grave", def: "Fibrosi progressiva della capsula articolare con rigidità severa e blocco.", meds: "Corticosteroidi sistemici brevi cicli, FANS.", surgery: "Sblocco in narcosi (manipolazione) o capsulotomia artroscopica.", rehab: "Mobilizzazione dolce passiva e attiva, terapia manuale Maitland." },
+            { id: 10, title: "Cervicalgia Miotensiva", district: "Cervicale", severity: "Lieve", def: "Sindrome dolorosa cervicale da sovraccarico e contrattura muscolare.", meds: "Miorilassanti, analgesici leggeri.", surgery: "Non indicata.", rehab: "Rilascio suboccipitale, massoterapia, correzione ergonomica." },
+            { id: 11, title: "Ciste di Baker", district: "Coscia", severity: "Lieve", def: "Raccolta di liquido sinoviale al cavo popliteo secondaria a patologie intra-articolari.", meds: "FANS, aspirazione eco-guidata del liquido.", surgery: "Asportazione chirurgica nei casi compressivi recidivanti.", rehab: "Trattamento della patologia primaria di ginocchio, controllo edema." },
+            { id: 12, title: "Colpo di Frusta (WAD)", district: "Cervicale", severity: "Moderata", def: "Lesione cervicale da accelerazione-decelerazione (whiplash associated disorder).", meds: "FANS, miorilassanti nelle prime settimane.", surgery: "Chirurgia solo in presenza di instabilità legamentosa severa o ernie acute.", rehab: "Esercizi attivi precoci, propriocezione cervicale, terapia manuale." },
+            { id: 13, title: "Contrattura di Dupuytren", district: "Mano", severity: "Cronica", def: "Fibrosi progressiva dell'aponeurosi palmare con flessione fissa delle dita.", meds: "Iniezioni di collagenasi (nei paesi autorizzati).", surgery: "Aponeurectomia chirurgica o fasciotomia.", rehab: "Stretching intensivo, tutori dinamici notturni, ultrasuoni." },
+            { id: 14, title: "Coxartrosi (Artrosi d'Anca)", district: "Anca", severity: "Cronica", def: "Degenerazione progressiva della cartilagine coxo-femorale con dolore e zoppia.", meds: "Analgesici, condroprotettori, infiltrazioni di acido ialuronico.", surgery: "Protesi Totale d'Anca (PTA).", rehab: "Mantenimento ROM, rinforzo muscolare in scarico, idrokinesiterapia." },
+            { id: 15, title: "Discopatia Degenerativa Cervicale", district: "Cervicale", severity: "Cronica", def: "Usura e disidratazione del disco intervertebrale cervicale con scrosci e dolore.", meds: "FANS, analgesici.", surgery: "Artrodesi cervicale o discectomia con protesi discale.", rehab: "Mobilizzazioni dolci, chinesiterapia attiva, trazioni cervicali leggere." },
+            { id: 16, title: "Disfunzione Articolazione Sacro-Iliaca", district: "Lombare", severity: "Moderata", def: "Ipomobilità o ipermobilità dolorosa dell'articolazione sacro-iliaca.", meds: "FANS, miorilassanti.", surgery: "Artrodesi sacro-iliaca in casi estremi refrattari.", rehab: "Manipolazioni/mobilizzazioni SIJ, stabilizzazione lombo-pelvica." },
+            { id: 17, title: "Distorsione di Caviglia Laterale", district: "Piede", severity: "Moderata", def: "Lesione parziale o totale dei legamenti collaterali laterali di caviglia.", meds: "FANS, crioterapia.", surgery: "Ricostruzione legamentosa chirurgica in instabilità croniche gravi.", rehab: "Protocollo RICE, recupero propriocezione, rinforzo peronieri." },
+            { id: 18, title: "Distorsione Legamento Collaterale Ulnare Pollice", district: "Mano", severity: "Moderata", def: "Lacerazione del legamento collaterale ulnare dell'articolazione MCP del pollice (pollice dello sciatore).", meds: "FANS.", surgery: "Riparazione chirurgica o reinserzione con ancoretta (Lesione di Stener).", rehab: "Tutore rigido polso-pollice, recupero graduale della pinza." },
+            { id: 19, title: "Dito a Scatto", district: "Mano", severity: "Lieve", def: "Infiammazione della guaina flessoria con scatto e blocco meccanico del dito.", meds: "Infiltrazione locale di corticosteroidi.", surgery: "Rilascio percutaneo o chirurgico della puleggia A1.", rehab: "Stretching dei flessori, ultrasuoni, mobilizzazione attiva." },
+            { id: 20, title: "Epicondilite Laterale", district: "Avambraccio", severity: "Moderata", def: "Tendinopatia inserzionale dei muscoli estensori dell'avambraccio (gomito del tennista).", meds: "FANS, infiltrazioni di PRP.", surgery: "Debridement chirurgico del tendine degenerato (fallimento conservativo).", rehab: "Esercizi eccentrici, scarico, onde d'urto." },
+            { id: 21, title: "Epitrocleite", district: "Avambraccio", severity: "Moderata", def: "Tendinopatia dei muscoli flessori-pronatori all'epitroclea (gomito del golfista).", meds: "FANS, terapie fisiche.", surgery: "Raramente intervento di pulizia tendinea.", rehab: "Rinforzo eccentrico dei flessori, stretching, TECAR." },
+            { id: 22, title: "Ernia del Disco Lombare", district: "Lombare", severity: "Grave", def: "Fuoriuscita del nucleo polposo con compressione delle radici nervose e sciatalgia.", meds: "Cortisonici sistemici, FANS, analgesici neuropatici (pregabalin).", surgery: "Discectomia lombare (microdiscectomia).", rehab: "Decompressione, core stability, educazione posturale." },
+            { id: 23, title: "Fascite Plantare", district: "Piede", severity: "Moderata", def: "Infiammazione degenerativa dell'aponeurosi plantare con dolore al primo appoggio.", meds: "FANS, infiltrazioni di steroide o PRP.", surgery: "Fasciotomia plantare parziale nei casi cronici intrattabili.", rehab: "Stretching della fascia e del polpaccio, plantari ortopedici, onde d'urto." },
+            { id: 24, title: "Frattura Canna di Fucile / Stress Tibiale", district: "Gamba", severity: "Grave", def: "Microfrattura ossea da stress a carico della tibia per sovraccarico ripetuto.", meds: "Analgesici, integrazione di Vitamina D e Calcio.", surgery: "Fissazione interna (inchiodamento) in caso di evoluzione in frattura completa.", rehab: "Riposo dal carico, magnetoterapia PEMF, riatletizzazione graduale." },
+            { id: 25, title: "Frattura Collo del Femore", district: "Anca", severity: "Grave", def: "Interruzione della continuità ossea del collo femorale, tipica dell'anziano osteoporotico.", meds: "Terapia antidolorifica e anticoagulante profilattica.", surgery: "Artroprotesi d'anca o osteosintesi con viti/chiodi endomidollari.", rehab: "Riabilitazione post-protesi precoce, recupero del carico e deambulazione." },
+            { id: 26, title: "Frattura della Clavicola", district: "Spalla", severity: "Grave", def: "Interruzione ossea della clavicola spesso da trauma diretto o caduta sulla spalla.", meds: "Analgesici.", surgery: "Riduzione e placca con viti in caso di scompenso severo o rischio cutaneo.", rehab: "Tutore a otto, recupero precoce del ROM protetto." },
+            { id: 27, title: "Frattura di Pouteau-Colles", district: "Avambraccio", severity: "Grave", def: "Frattura extra-articolare dell'estremità distale del radio con sformazione a dorso di forchetta.", meds: "Analgesici.", surgery: "Riduzione chiusa e gesso o fissaggio con placca volare.", rehab: "Recupero ROM di polso e dita, chinesiterapia post-immobilizzazione." },
+            { id: 28, title: "Gonartrosi", district: "Coscia", severity: "Cronica", def: "Usura degenerativa della cartilagine femoro-tibiale e rotulea con dolore e crepitii.", meds: "FANS, acido ialuronico intra-articolare, condroprotettori.", surgery: "Protesi Totale di Ginocchio (PTG) o Monocompartimentale.", rehab: "Chinesiterapia in scarico, rinforzo quadricipite, controllo peso." },
+            { id: 29, title: "Impingement Femoro-Acetabolare", district: "Anca", severity: "Moderata", def: "Conflitto meccanico tra testa femorale e acetabolo (tipo Pincer o Cam).", meds: "FANS, cicli di infiltrazioni ecoguidate.", surgery: "Artroscopia d'anca per correzione osteoplastica e riparazione labbrale.", rehab: "Correzione biomeccanica, rinforzo extrarotatori d'anca, core stability." },
+            { id: 30, title: "Instabilità Gleno-Omerale", district: "Spalla", severity: "Grave", def: "Traslazione anomala e ripetuta della testa omerale con sensazione di cedimento.", meds: "FANS in fase flogistica.", surgery: "Stabilizzazione artroscopica (Bankart) o intervento di Latarjet.", rehab: "Rinforzo mirato dei muscoli stabilizzatori della cuffia e deltoide." },
+            { id: 31, title: "Lesione Cuffia dei Rotatori", district: "Spalla", severity: "Grave", def: "Lacerazione parziale o transmurale dei tendini della cuffia dei rotatori.", meds: "FANS, infiltrazioni di cortisone.", surgery: "Riparazione artroscopica della cuffia dei rotatori.", rehab: "Protocollo post-chirurgico protetto, recupero passivo poi attivo." },
+            { id: 32, title: "Lesione Labbro Acetabolare", district: "Anca", severity: "Grave", def: "Lacerazione del cercine fibrocartilagineo acetabolare con click o blocco meccanico.", meds: "FANS, analgesici.", surgery: "Riparazione o regolarizzazione in artroscopia d'anca.", rehab: "Controllo del ROM in flessione, stabilità dinamica, rinforzo pelvico." },
+            { id: 33, title: "Lesione LCA", district: "Coscia", severity: "Grave", def: "Rottura del legamento crociato anteriore del ginocchio con instabilità (giving way).", meds: "Antidolorifici e crioterapia in fase acuta.", surgery: "Ricostruzione legamentosa in artroscopia (graft da flessori o rotuleo).", rehab: "Recupero completo del ROM, rinforzo muscolare avanzato, propriocettività." },
+            { id: 34, title: "Lesione Legamento Collaterale Mediale", district: "Coscia", severity: "Moderata", def: "Distorsione o lesione del LCM in valgo con dolore mediale e lassità.", meds: "FANS, crioterapia.", surgery: "Raramente necessaria (solo lesioni associate gravi a unhappy triad).", rehab: "Tutore protettivo in valgo, recupero ROM, rinforzo graduale." },
+            { id: 35, title: "Lesione Meniscale", district: "Coscia", severity: "Moderata", def: "Lacerazione della fibrocartilagine meniscale mediale o laterale con blocco o versamento.", meds: "FANS.", surgery: "Meniscectomia selettiva in artroscopia o sutura meniscale.", rehab: "Controllo edema, recupero estensione completa, rinforzo muscolare." },
+            { id: 36, title: "Lesione SLAP", district: "Spalla", severity: "Grave", def: "Lacerazione del cercine glenoideo superiore (Superior Labrum Anterior to Posterior).", meds: "FANS.", surgery: "Riparazione artroscopica della lesione SLAP (ancoraggio).", rehab: "Protezione della rotazione esterna iniziale, rinforzo stabilizzatori." },
+            { id: 37, title: "Lombalgia Acuta (Lumbago)", district: "Lombare", severity: "Moderata", def: "Spasmo muscolare acuto e blocco funzionale della colonna lombare.", meds: "FANS, miorilassanti centrali, cortisonici brevi.", surgery: "Non indicata.", rehab: "Decompressione dolce, tecniche miofasciali, movimento precoce controllato." },
+            { id: 38, title: "Malattia di Osgood-Schlatter", district: "Gamba", severity: "Lieve", def: "Osteocondrosi della tuberosità tibiale anteriore nei giovani adolescenti sportivi.", meds: "FANS al bisogno.", surgery: "Rimozione di ossicini residui a fine crescita (rarissimo).", rehab: "Riduzione temporanea del carico sportivo, stretching quadricipite." },
+            { id: 39, title: "Metatarsalgia", district: "Piede", severity: "Lieve", def: "Sindrome dolorosa plantare localizzata a livello delle teste metatarsali.", meds: "FANS topici.", surgery: "Osteotomie di accorciamento metatarsale nei casi ribelli.", rehab: "Scarico pressorio, plantari ortopedici personalizzati, stretching." },
+            { id: 40, title: "Neuroma di Morton", district: "Piede", severity: "Moderata", def: "Fibrosi perineurale del nervo interdigitale (più comune tra III e IV dito) con dolore urente.", meds: "Infiltrazioni di cortisone, farmaci neurotropi.", surgery: "Neurectomia o neurolisi chirurgica.", rehab: "Calzature a pianta larga, ortesi metatarsali con scarico centrale." },
+            { id: 41, title: "Pubalgia / Sindrome Adduttoria", district: "Anca", severity: "Moderata", def: "Tendinopatia inserzionale dei muscoli adduttori e sofferenza della sinfisi pubica.", meds: "FANS, infiltrazioni di PRP o cortisone sulla sinfisi.", surgery: "Tenotomia degli adduttori o stabilizzazione sinfisaria nei casi cronici.", rehab: "Gestione del carico, rinforzo del core e degli adduttori in eccentrico." },
+            { id: 42, title: "Radicolopatia Cervicale", district: "Cervicale", severity: "Grave", def: "Sofferenza radicolare da conflitto discale o osteofitario con dolore irradiato all'arto.", meds: "Cortisonici, FANS, gabapentinoidi.", surgery: "Discectomia e artrodesi o protesi discale cervicale.", rehab: "Trazioni cervicali dolci, posture di scarico, stabilizzazione." },
+            { id: 43, title: "Rizoartrosi", district: "Mano", severity: "Cronica", def: "Osteoartrosi dell'articolazione trapezio-metacarpale del pollice con dolore in pinza.", meds: "FANS, infiltrazioni di acido ialuronico.", surgery: "Artroplastica di resezione del trapezio con interposizione.", rehab: "Tutori funzionali di riposo, rinforzo muscoli estrinseci, ergonomia." },
+            { id: 44, title: "Scoliosi Idiopatica", district: "Torace", severity: "Grave", def: "Deformità tridimensionale della colonna vertebrale con rotazione vertebrale e gibbo.", meds: "Non farmacologica.", surgery: "Artrodesi vertebrale con barre e viti nei casi con curve gravi progressive.", rehab: "Esercizi specifici SEAS o Schroth, corsetto ortopedico nei casi giovanili." },
+            { id: 45, title: "Sindrome Bandelletta Tibio-Tarsale", district: "Coscia", severity: "Lieve", def: "Sindrome da attrito del tratto ileotibiale sul condilo femorale laterale (runner's knee).", meds: "FANS.", surgery: "Rilascio chirurgico o allungamento della bandelletta nei casi intrattabili.", rehab: "Stretching del TFL, foam roller, correzione appoggio plantare." },
+            { id: 46, title: "Sindrome della Cauda Equina", district: "Lombare", severity: "Grave", def: "Compressione massiva delle radici della cauda con deficit sfinterici e anestesia a sella.", meds: "Terapia medica di emergenza in attesa di chirurgia.", surgery: "URGENZA CHIRURGICA (decompressione entro 24h).", rehab: "Riabilitazione neuromotoria e uro-riabilitazione post-chirurgica." },
+            { id: 47, title: "Sindrome del Piriforme", district: "Anca", severity: "Moderata", def: "Compressione del nervo sciatico da parte del muscolo piriforme ipertonico o infiammato.", meds: "FANS, miorilassanti, infiltrazioni di tossina botulinica.", surgery: "Tenotomia del tendine del piriforme nei casi resistenti.", rehab: "Stretching specifico del piriforme, rilasciamento miofasciale." },
+            { id: 48, title: "Sindrome della Spalla Addetta (Impingement)", district: "Spalla", severity: "Moderata", def: "Conflitto subacromiale da sovraccarico funzionale o alterata biomeccanica.", meds: "FANS, infiltrazioni steroidee.", surgery: "Acromioplastica artroscopica.", rehab: "Rinforzo cuffia e depressori omerali, correzione scapolare." },
+            { id: 49, title: "Sindrome dell'Opercolo Toracico", district: "Torace", severity: "Moderata", def: "Compressione del plesso brachiale e dei vasi succlavi alla base del collo.", meds: "FANS, miorilassanti.", surgery: "Decompressione chirurgica (resezione prima costa o scalenectomia).", rehab: "Rilascio scaleni e pettorale minore, postura e respirazione diaframmatica." },
+            { id: 50, title: "Sindrome Seno del Tarso", district: "Piede", severity: "Moderata", def: "Infiammazione cronica dei legamenti del seno del tarso post-distorsione.", meds: "FANS, infiltrazioni locali.", surgery: "Pulizia artroscopica del seno del tarso.", rehab: "Propriocettività avanzata, laserterapia, plantari propriocettivi." },
+            { id: 51, title: "Sindrome Sinding-Larsen-Johansson", district: "Coscia", severity: "Lieve", def: "Trazione apofisaria dolorosa al polo inferiore della rotula nei giovani.", meds: "FANS leggeri.", surgery: "Non indicata.", rehab: "Modulazione del carico sportivo, stretching catena posteriore." },
+            { id: 52, title: "Sindrome Femoro-Rotulea", district: "Coscia", severity: "Lieve", def: "Tracking anomalo della rotula nella troclea femorale con dolore anteriore.", meds: "FANS.", surgery: "Riallineamento chirurgico o lateral release nei casi di grave tilt.", rehab: "Rinforzo selettivo del VMO, taping rotuleo, stretching della bandelletta." },
+            { id: 53, title: "Sindrome Tunnel Carpale", district: "Mano", severity: "Moderata", def: "Compressione del nervo mediano nel canale carpale con formicolii notturni.", meds: "FANS, integratori neurotrofici, infiltrazioni locali.", surgery: "Decompressione chirurgica del legamento trasverso del carpo.", rehab: "Tutore notturno, scivolamenti neurali del mediano, ergonomia." },
+            { id: 54, title: "Sindrome Tunnel Cubitale", district: "Braccio", severity: "Moderata", def: "Compressione del nervo ulnare a livello del gomito con parestesie al IV-V dito.", meds: "FANS, protezione notturna.", surgery: "Decompressione o trasposizione del nervo ulnare.", rehab: "Scivolamenti neurali ulnari, evitamento dell'appoggio prolungato sul gomito." },
+            { id: 55, title: "Sindrome Tunnel Tarsale", district: "Piede", severity: "Moderata", def: "Compressione del nervo tibiale posteriore sotto il retinacolo dei flessori al malleolo mediale.", meds: "FANS, infiltrazioni.", surgery: "Decompressione chirurgica del tunnel tarsale.", rehab: "Ortesi plantari di scarico, terapia fisica, ultrasuoni in acqua." },
+            { id: 56, title: "Sindrome di De Quervain", district: "Mano", severity: "Moderata", def: "Tenosinovite stenosante del primo compartimento estensore del polso (abduttore lungo ed estensore breve del pollice).", meds: "FANS, infiltrazione di steroide nella guaina.", surgery: "Decompressione chirurgica della puleggia fibro-ossea.", rehab: "Tutore pollice-polso, ultrasuoni, graduale ripresa del carico." },
+            { id: 57, title: "Sospetta Frattura (Ottawa Rules)", district: "Piede", severity: "Grave", def: "Protocollo di screening clinico per escludere fratture di caviglia o medio-piede.", meds: "Analgesici in attesa di diagnosi.", surgery: "Trattamento in base al tipo di frattura riscontrata.", rehab: "Immobilizzazione provvisoria e invio radiografico urgente." },
+            { id: 58, title: "Spondilolistesi", district: "Lombare", severity: "Moderata", def: "Scivolamento in avanti di una vertebra rispetto alla sottostante.", meds: "FANS, analgesici.", surgery: "Artrodesi vertebrale con decompressione nei casi instabili o con deficit.", rehab: "Core stability profonda, rinforzo addominale, evitamento dell'iperestensione." },
+            { id: 59, title: "Spondilolisi", district: "Lombare", severity: "Moderata", def: "Interruzione o frattura da stress dell'istmo interarticolare vertebrale.", meds: "FANS, riposo funzionale.", surgery: "Riparazione chirurgica dell'istmo nei giovani atleti con instabilità.", rehab: "Riposo sportivo, corsetto lombare temporaneo, rinforzo core." },
+            { id: 60, title: "Stenosi Canale Lombare", district: "Lombare", severity: "Cronica", def: "Restringimento degenerativo del canale spinale con claudicatio neurogena.", meds: "Farmaci antineuropatici, FANS, iniezioni epidurali di steroide.", surgery: "Laminectomia decompressiva lombare con o senza artrodesi.", rehab: "Esercizi in flessione del tronco, cyclette, chinesiterapia in scarico." },
+            { id: 61, title: "Tallonite da Impatto", district: "Piede", severity: "Lieve", def: "Atrofia o infiammazione del cuscinetto adiposo plantare calcaneare.", meds: "FANS topici.", surgery: "Non indicata.", rehab: "Talloniere in silicone ammortizzanti, scarico pressorio." },
+            { id: 62, title: "Tendinite Flessori Dita", district: "Mano", severity: "Lieve", def: "Sovraccarico infiammatorio dei tendini flessori delle dita nel passaggio palmare.", meds: "FANS, laserterapia.", surgery: "Raramente rilasci chirurgici.", rehab: "Modifica del carico lavorativo/sportivo, ultrasuoni, stretching." },
+            { id: 63, title: "Tendinite Peronieri", district: "Gamba", severity: "Lieve", def: "Infiammazione dei tendini peronieri nel passaggio retromalleolare laterale.", meds: "FANS, crioterapia.", surgery: "Plastica del retinacolo dei peronieri in caso di sublussazione recidivante.", rehab: "Tutore protettivo, rinforzo in eversione, tecarterapia." },
+            { id: 64, title: "Tendinite Tibiale Posteriore", district: "Gamba", severity: "Moderata", def: "Infiammazione e iniziale degenerazione del tibiale posteriore con cedimento dell'arco plantare.", meds: "FANS, infiltrazioni di PRP.", surgery: "Riparazione tendinea o trasferimenti tendinei nei casi di rottura.", rehab: "Ortesi plantari correttive, rinforzo eccentrico del tibiale posteriore." },
+            { id: 65, title: "Tendinopatia Capo Lungo Bicipite", district: "Braccio", severity: "Moderata", def: "Processo degenerativo e infiammatorio del tendine del CLB nella doccia bicipitale.", meds: "FANS, infiltrazioni ecoguidate.", surgery: "Tenodesi o tenotomia del CLB in artroscopia.", rehab: "Scarico, esercizi eccentrici, recupero sinergia di spalla." },
+            { id: 66, title: "Tendinopatia Tendine d'Achille", district: "Gamba", severity: "Moderata", def: "Tendinopatia achillea inserzionale o medioporzione con dolore e rigidità mattutina.", meds: "FANS, onde d'urto focali.", surgery: "Debridement tendine o exeresi delle calcificazioni inserzionali.", rehab: "Protocollo di Alfredson (esercizi eccentrici pesanti)." },
+            { id: 67, title: "Tendinopatia del Popliteo", district: "Gamba", severity: "Lieve", def: "Infiammazione del tendine popliteo con dolore posterolaterale in discesa.", meds: "FANS, crioterapia.", surgery: "Non indicata se isolata.", rehab: "Riposo funzionale, crioterapia, stretching e rinforzo graduale." },
+            { id: 68, title: "Tendinopatia Zampa d'Oca", district: "Coscia", severity: "Lieve", def: "Infiammazione dei tendini congiunti mediali (sartorio, gracile, semitendinoso) alla tibia.", meds: "FANS topici, ultrasuoni.", surgery: "Raramente borsectomia anserina.", rehab: "Stretching dei flessori di coscia, correzione del valgo dinamico." },
+            { id: 69, title: "Tendinopatia Tensore Fascia Lata", district: "Anca", severity: "Lieve", def: "Sovraccarico del tensore della fascia lata con dolore laterale d'anca.", meds: "FANS.", surgery: "Non indicata.", rehab: "Rilascio miofasciale, stretching della bandelletta, rinforzo abduttori." },
+            { id: 70, title: "Tendinopatia Rotulea", district: "Coscia", severity: "Moderata", def: "Tendinopatia da sovraccarico al polo inferiore della rotula (jumper's knee). meds: FANS, onde d'urto.", surgery: "Pulizia artroscopica e scapsulamento tendineo nei casi cronici gravi.", rehab: "Esercizi isometrici ed eccentrici pesanti del quadricipite." },
+            { id: 71, title: "Tenosinovite Vasi Estensori", district: "Avambraccio", severity: "Lieve", def: "Infiammazione delle guaine dei tendini estensori del polso con crepitio palpabile.", meds: "FANS, riposo con tutore.", surgery: "Non indicata.", rehab: "Ultrasuoni, laserterapia, modificazione dell'attività." },
+            { id: 72, title: "Artrite Reumatoide (Manifestazioni Ortopediche)", district: "Mano", severity: "Cronica", def: "Malattia infiammatoria sistemica con deformità articolari distruttive a mani e piedi.", meds: "DMARDs (Metotrexato), farmaci biologici, cortisonici.", surgery: "Sinoviectomie, artrodesi o protesi articolari nei casi avanzati.", rehab: "Mantenimento ROM, prevenzione delle deformità con tutori, chinesiterapia dolce." },
+            { id: 73, title: "Frattura Metafisaria Distale di Tibia (Pilonale)", district: "Gamba", severity: "Grave", def: "Frattura complessa della tibia distale che coinvolge la superficie articolare della caviglia.", meds: "Terapia antidolorifica maggiore.", surgery: "Riduzione chirurgica aperta e fissazione interna con placche e viti o fissatore esterno.", rehab: "Carico protetto tardivo, mobilizzazione precoce assistita, fisioterapia intensiva." },
+            { id: 74, title: "Frattura di Monteggia", district: "Avambraccio", severity: "Grave", def: "Frattura del terzo superiore dell'ulna associata a lussazione della testa del radio.", meds: "Analgesici.", surgery: "Riduzione cruenta e osteosintesi con placca dell'ulna e riduzione della testa radiale.", rehab: "Tutore gessato o ortopedico, recupero prono-supinazione e flesso-estensione." },
+            { id: 75, title: "Frattura di Galeazzi", district: "Avambraccio", severity: "Grave", def: "Frattura del terzo distale del radio associata a lussazione dell'articolazione radio-ulnare distale.", meds: "Analgesici.", surgery: "Osteosintesi rigida con placca e viti del radio per ripristinare l'anatomia.", rehab: "Recupero ROM di polso e gomito, chinesiterapia mirata." },
+            { id: 76, title: "Frattura del piatto tibiale", district: "Coscia", severity: "Grave", def: "Frattura articolare del ginocchio causata da forza assiale associata a varismo o valgismo.", meds: "FANS, analgesici, eparina profilattica.", surgery: "Riduzione aperta e fissazione interna con placche sagomate ed eventuali innesti ossei.", rehab: "Mobilizzazione passiva precoce (kinetec), scarico prolungato, rinforzo graduale." },
+            { id: 77, title: "Frattura Omerale Prossimale", district: "Spalla", severity: "Grave", def: "Frattura dell'estremità prossimale dell'omero (testa, trochite, trochine) frequente nell'anziano.", meds: "Antidolorifici.", surgery: "Chiodi endomidollari, placche bloccate o emiartroprotesi/protesi inversa nei casi pluriframmentari.", rehab: "Tutore di abduzione, esercizi pendolari precoci di Codman, recupero graduale." },
+            { id: 78, title: "Lesione del Tendine d'Achille (Rottura Completa)", district: "Gamba", severity: "Grave", def: "Interruzione totale del tendine d'Achille con test di Thompson positivo e impotenza funzionale.", meds: "Analgesici post-operatori.", surgery: "Riparazione chirurgica a cielo aperto o percutanea.", rehab: "Protocollo riabilitativo post-chirurgico con ortesi in equino progressivamente ridotto." },
+            { id: 79, title: "Lussazione traumatica di spalla", district: "Spalla", severity: "Grave", def: "Perdita completa dei rapporti articolari tra testa omerale e glena scapolare.", meds: "Miorilassanti e sedazione per la manovra di riduzione in pronto soccorso.", surgery: "Stabilizzazione artroscopica in caso di recidive o lesioni capsulo-labrali estese.", rehab: "Immobilizzazione breve, rinforzo della cuffia dei rotatori e dei fissatori di scapola." },
+            { id: 80, title: "Lussazione traumatica d'anca", district: "Anca", severity: "Grave", def: "Fuoriuscita della testa del femore dall'acetabolo, spesso associata a traumi ad alta energia.", meds: "Analgesici maggiori in fase acuta.", surgery: "Riduzione in urgenza in narcosi ed eventuale sintesi di frammenti associati.", rehab: "Scaricamento prolungato, riabilitazione protetta per evitare recidive di lussazione." },
+            { id: 81, title: "Osteocondrite Dissecante del Ginocchio", district: "Coscia", severity: "Moderata", def: "Sofferenza dell'osso subcondriale con distacco di un frammento osteocondriale articolare.", meds: "Condroprotettori, FANS.", surgery: "Perforazioni retrograde, fissaggio del frammento o microfratture in artroscopia.", rehab: "Scarico articolare iniziale, recupero ROM e rinforzo muscolare protetto." },
+            { id: 82, title: "Osteoporosi Severa con Fratture Vertebrali", district: "Lombare", severity: "Grave", def: "Riduzione della densità minerale ossea con cedimenti somatici vertebrali spontanei o da lievi traumi.", meds: "Bifosfonati, teriparatide, vitamina D, calcio, analgesici.", surgery: "Vertebroplastica o cifoplastica percutanea con cemento.", rehab: "Esercizi posturali in sicurezza, prevenzione cadute, rinforzo estensori della schiena." },
+            { id: 83, title: "Sindrome del Tunnel del Tarso Anteriore", district: "Piede", severity: "Moderata", def: "Compressione del nervo fibulare profondo sotto il retinacolo degli estensori.", meds: "FANS, neuroprotettori.", surgery: "Decompressione chirurgica del retinacolo estensore.", rehab: "Modifica calzature, plantari di scarico, fisioterapia strumentale." },
+            { id: 84, title: "Sindrome di Raynaud (Secondaria Ortopedica)", district: "Mano", severity: "Moderata", def: "Vasospasmo digitale episodico scatenato da freddo o stress con alterazioni trofiche.", meds: "Calcio-antagonisti (nifedipina), vasodilatatori.", surgery: "Simpaticectomia nei casi ischemici gravi refrattari.", rehab: "Esercizi di riscaldamento vascolare, biofeedback, protezione termica." },
+            { id: 85, title: "Tendinopatia Calcifica del Tricipite", district: "Braccio", severity: "Moderata", def: "Deposito di calcio nel tendine distale del tricipite in corrispondenza dell'olecrano.", meds: "FANS, cicli di ultrasuoni o onde d'urto.", surgery: "Rimozione chirurgica della calcificazione in caso di fallimento conservativo.", rehab: "Stretching ed esercizi eccentrici del gomito, crioterapia." },
+            { id: 86, title: "Tenosinovite di Chiene / Intersezione", district: "Avambraccio", severity: "Lieve", def: "Infiammazione nel punto di incrocio tra i tendini radiali del carpo e gli abduttori del pollice.", meds: "FANS, riposo funzionale con tutore.", surgery: "Raramente rilasci chirurgici.", rehab: "Ultrasuoni, laserterapia, correzione ergonomica del polso." },
+            { id: 87, title: "Frattura del Navicolare / Scafoide Tarsico", district: "Piede", severity: "Grave", def: "Frattura dell'osso scafoide del piede spesso associata a stress o traumi sportivi.", meds: "Analgesici.", surgery: "Osteosintesi con vite cannulata in caso di scomposizione.", rehab: "Immobilizzazione in gesso non di carico, magnetoterapia, rieducazione propriocettiva." },
+            { id: 88, title: "Frattura dello Scafoide Carpico", district: "Mano", severity: "Grave", def: "Frattura dell'osso scafoide del carpo con rischio di pseudoartrosi per vascolarizzazione precaria.", meds: "Analgesici.", surgery: "Osteosintesi percutanea con vite herbert o accesso volare/dorsale.", rehab: "Tutore polso-pollice prolungato, recupero ROM e forza di presa." },
+            { id: 89, title: "Frattura del Tragitto di Base del V Metatarso (Frattura di Jones)", district: "Piede", severity: "Grave", def: "Frattura diafisaria prossimale del V metatarso ad alto rischio di consolidazione ritardata.", meds: "Analgesici.", surgery: "Fissazione intramidollare con vite nei soggetti sportivi attivi.", rehab: "Scaricamento precoce, magnetoterapia, ripresa graduale dell'appoggio." },
+            { id: 90, title: "Sindrome da Intrappolamento del Nervo Interosseo Anteriore", district: "Avambraccio", severity: "Moderata", def: "Neuropatia compressiva del ramo motore del nervo mediano (Sindrome di Kiloh-Nevin).", meds: "Vタミン del gruppo B, FANS.", surgery: "Decompressione chirurgica del nervo tra i capi del pronatore rotondo.", rehab: "Esercizi di scorrimento neurale, mantenimento trofismo muscolare." }
+        ];
+
+        // 30 Patologie Neurologiche ordinate da A a Z
+        const neurologicheData = [
+            { id: 101, title: "Atassia di Friedreich", district: "Generale", severity: "Cronica", def: "Malattia neurodegenerativa ereditaria caratterizzata da progressiva atassia cerebellare e spinale.", meds: "Antiossidanti (idebenone), gestione cardiologica.", surgery: "Chirurgia ortopedica correttiva per deformità di piedi e colonna (scoliosi).", rehab: "Fisioterapia per l'equilibrio, idrokinesiterapia, logopedia e ausili per la deambulazione." },
+            { id: 102, title: "Ernia Discale con Deficit Neurologico", district: "Lombare", severity: "Grave", def: "Erniazione discale massiva con compressione radicolare e segni di ipostenia o deficit motorio.", meds: "Cortisonici ad alte dosi, analgesici maggiori, miorilassanti.", surgery: "Discectomia d'urgenza in caso di deficit progressivi o sindrome cauda equina.", rehab: "Riabilitazione neuromotoria post-chirurgica, rinforzo selettivo, rieducazione al cammino." },
+            { id: 103, title: "Glioblastoma Multiforme (Post-Chirurgia)", district: "Cervicale", severity: "Grave", def: "Neoplasia cerebrale maligna aggressiva trattata con resezione chirurgica e deficit associati.", meds: "Chemioterapia (temozolomide), radioterapia, corticosteroidi per edema.", surgery: "Resezione chirurgica tumorale iniziale.", rehab: "Fisioterapia palliativa e conservativa, mantenimento delle autonomie residue, supporto." },
+            { id: 104, title: "Ictus Ischemico / Emiplegia", district: "Generale", severity: "Grave", def: "Interruzione acuta dell'apporto ematico cerebrale con deficit motorio controlaterale (emiplegia).", meds: "Trombolisi acuta, antiaggreganti, statine, neuroprotettori.", surgery: "Decompressione chirurgica in caso di infarto maligno della cerebrolisi.", rehab: "Concetto Bobath, esercizio terapeutico conoscitivo, stimolazione neuromuscolare." },
+            { id: 105, title: "Lesione Midollare Completa / Incompleta", district: "Lombare", severity: "Grave", def: "Trauma o mielopatia con interruzione delle vie di conduzione midollare e paraplegia/tetraplegia.", meds: "Gestione neurointensiva, farmaci per spasticità (baclofen).", surgery: "Stabilizzazione chirurgica vertebrale e decompressione midollare d'urgenza.", rehab: "Riabilitazione spinale intensiva, verticalizzazione precoce, uso di esoscheletri e carrozzine." },
+            { id: 106, title: "Mielopatia Spondilotica Cervicale", district: "Cervicale", severity: "Grave", def: "Compressione cronica del midollo spinale cervicale su base artrosica-degenerativa.", meds: "Analgesici, FANS, neuroprotettori.", surgery: "Laminectomia decompressiva o corpectomia anteriore con artrodesi.", rehab: "Mantenimento della mobilità residua, prevenzione delle cadute, terapia propriocettiva." },
+            { id: 107, title: "Miosite Ossegna / Eterotopica Post-Traumatica", district: "Coscia", severity: "Moderata", def: "Formazione anomala di tessuto osseo nei tessuti molli periarticolari dopo insulti neurologici o traumi.", meds: "FANS (indometacina), bifosfonati profilattici.", surgery: "Rimozione chirurgica dell'eterotopia a maturazione avvenuta.", rehab: "Mobilizzazione attiva e passiva dolce, ultrasuoni, prevenzione della rigidità." },
+            { id: 108, title: "Mononeuropatia del Nervo Fibulare", district: "Gamba", severity: "Moderata", def: "Compressione o lesione del nervo fibulare comune al collo della fibula con piede cadente.", meds: "Vitamina B12, farmaci neurotrofici.", surgery: "Neurolisi o decompressione chirurgica del nervo.", rehab: "Rieducazione al sollevamento dell'avampiede, tutori tipo AFO, rinforzo tibiale anteriore." },
+            { id: 109, title: "Neuropatia Diabetica Periferica", district: "Piede", severity: "Cronica", def: "Danno assonale diffuso dei nervi periferici correlato all'iperglicemia cronica con ipoestesia.", meds: "Controllo glicemico rigoroso, gabapentin, pregabalin, duloxetina.", surgery: "Interventi per ulcere neuropatiche o piede di Charcot avanzato.", rehab: "Cura del piede, educazione alla prevenzione delle lesioni, esercizi di propriocezione." },
+            { id: 110, title: "Paralisi Cerebrale Infantile (PCI)", district: "Generale", severity: "Cronica", def: "Encefalopatia non progressiva insorta in epoca perinatale con disturbi del tono e del movimento.", meds: "Tossina botulinica per spasticità focale, miorilassanti.", surgery: "Interventi ortopedici di allungamento tendineo e rilasciamenti muscolari.", rehab: "Trattamento neurocognitivo, terapia occupazionale, idrokinesiterapia, metodo Bobath." },
+            { id: 111, title: "Paralisi del Plesso Brachiale (Ostetrica o Traumatica)", district: "Spalla", severity: "Grave", def: "Lesione delle radici del plesso brachiale con paralisi flaccida dell'arto superiore.", meds: "Neuroprotettori, analgesici.", surgery: "Neurorrafia, innesti nervosi o trasferimenti tendinei ricostruttivi.", rehab: "Stimolazione elettrica funzionale, mobilizzazione passiva per prevenire retrazioni capsulari." },
+            { id: 112, title: "Paralisi di Bell (Nervo Faciale)", district: "Cervicale", severity: "Lieve", def: "Paralisi periferica acuta idiopatica del nervo facciale (VII paio) con asimmetria e deficit mimico.", meds: "Corticosteroidi sistemici ad alto dosaggio precoci, antivirali.", surgery: "Decompressione del canale del faciale in casi selezionati refrattari.", rehab: "Mimica facciale allo specchio, massaggio neuromuscolare, chinesiterapia espressiva." },
+            { id: 113, title: "Polineuropatia Cronica Infiammatoria Demielinizzante (CIDP)", district: "Generale", severity: "Cronica", def: "Neuropatia autoimmune demielinizzante cronica con debolezza simmetrica progressiva.", meds: "Immunoglobuline endovenose (IVIG), plasmaferesi, corticosteroidi.", surgery: "Non indicata.", rehab: "Programma di rinforzo muscolare submassimale, prevenzione delle contratture, autonomia." },
+            { id: 114, title: "Sclerosi Laterale Amiotrofica (SLA)", district: "Generale", severity: "Grave", def: "Malattia neurodegenerativa progressiva dei motoneuroni superiori e inferiori con paralisi ingravescente.", meds: "Riluzole, edaravone, terapie sintomatiche per la spasticità e sialorrea.", surgery: "Posizionamento di PEG (gastrostomia) e tracheostomia ventilatoria in fase avanzata.", rehab: "Fisioterapia respiratoria, mantenimento passivo del ROM, conservazione dell'autonomia." },
+            { id: 115, title: "Sclerosi Multipla", district: "Generale", severity: "Cronica", def: "Malattia demielinizzante autoimmune del sistema nervoso centrale a placche multiple.", meds: "DMT (Disease-Modifying Therapies), cortisonici per le ricadute acute, farmaci per fatigue.", surgery: "Interventi ortopedici funzionali per retrazioni tendinee spastiche.", rehab: "Esercizio terapeutico personalizzato, equilibrio, gestione della spasticità e della fatica." },
+            { id: 116, title: "Sindrome del Tunnel Carpale Severo (Atrofia Tenar)", district: "Mano", severity: "Moderata", def: "Compressione cronica avanzata del nervo mediano con denervazione e ipotrofia dei muscoli tenari.", meds: "Integratori neurotrofici.", surgery: "Decompressione chirurgica d'urgenza del canale carpale.", rehab: "Riabilitazione sensitivo-motoria post-operatoria, rieducazione della pinza." },
+            { id: 117, title: "Sindrome di Guillain-Barré", district: "Generale", severity: "Grave", def: "Poliradiculoneuropatia acuta infiammatoria demielinizzante con paralisi ascendente simmetrica.", meds: "Immunoglobuline endovenose (IVIG) o plasmaferesi in regime intensivo.", surgery: "Tracheostomia e ventilazione meccanica nei casi con compromissione respiratoria.", rehab: "Fisioterapia passiva precoce, mobilizzazione articolare, svezzamento dal respiratore." },
+            { id: 118, title: "Sindrome di West / Epilessia Mioclonica Infantile", district: "Generale", severity: "Grave", def: "Encefalopatia epilettica dell'infanzia con spasmi infantili e regressione psicomotoria.", meds: "ACTH, vigabatrin, farmaci antiepilettici specifici.", surgery: "Chirurgia dell'epilessia in casi focali refrattari identificati.", rehab: "Stimolazione psicomotoria precoce, supporto allo sviluppo neuromuscolare." },
+            { id: 119, title: "Sindrome Post-Encefalitica", district: "Generale", severity: "Moderata", def: "Esiti neurocognitivi e motori a lungo termine successivi a un'infezione encefalitica.", meds: "Neuroprotettori, farmaci sintomatici.", surgery: "Non indicata.", rehab: "Riabilitazione cognitiva e neuromotoria integrata, logopedia, reinserimento." },
+            { id: 120, title: "Sindrome Post-Polio", district: "Generale", severity: "Cronica", def: "Comparsa di nuova debolezza muscolare, affaticamento e dolori a distanza di anni da infezione da poliomielite.", meds: "Analgesici, integrazione energetica.", surgery: "Correzione chirurgica di deformità scheletriche secondarie.", rehab: "Conservazione dell'energia, esercizi aerobici a basso impatto, ortesi di supporto." },
+            { id: 121, title: "Trauma Cranico Encefalico (TCE) Moderato/Grave", district: "Cervicale", severity: "Grave", def: "Insulto traumatico acuto al cervello con alterazione dello stato di coscienza e deficit focali.", meds: "Controllo della pressione intracranica, neuroprotettori, sedazione.", surgery: "Craniotomia decompressiva, evacuazione di ematomi intracranici.", rehab: "Riabilitazione neurocognitiva intensiva, risveglio, fisioterapia motoria globale." },
+            { id: 122, title: "Tremore Essenziale", district: "Cervicale", severity: "Moderata", def: "Disturbo del movimento caratterizzato da tremore posturale e d'azione simmetrico.", meds: "Beta-bloccanti (propranololo), primidone, topiramato.", surgery: "Talamotomia con ultrasuoni focalizzati (FUS) o stimolazione cerebrale profonda (DBS).", rehab: "Utilizzo di ausili appesantiti per il controllo fine, ergo-terapia." },
+            { id: 123, title: "Tumore del Midollo Spinale (Ependimoma/Meningioma)", district: "Lombare", severity: "Grave", def: "Neoplasia intrinseca o estrinseca del midollo spinale con compressione e deficit neurologici.", meds: "Corticosteroidi per ridurre l'edema perilesionale, analgesici.", surgery: "Asportazione chirurgica microchirurgica della neoformazione midollare.", rehab: "Riabilitazione neuromotoria post-operatoria, recupero della propriocezione e deambulazione." },
+            { id: 124, title: "Vasculite del Sistema Nervoso Centrale", district: "Generale", severity: "Grave", def: "Processo infiammatorio necrotizzante dei vasi sanguigni cerebrali con ischemia focale o emorragia.", meds: "Corticosteroidi ad alte dosi, immunosoppressori (ciclofosfamide).", surgery: "Chirurgia riservata a complicanze emorragiche acute.", rehab: "Fisioterapia neuromotoria mirata al recupero dei deficit focali residui." },
+            { id: 125, title: "Distrofia Miotonica di Steinert", district: "Generale", severity: "Cronica", def: "Distrofia muscolare ereditaria sistemica caratterizzata da miotonia (lento rilassamento) e debolezza.", meds: "Mexiletina (per miotonia), gestione cardiologica e respiratoria.", surgery: "Interventi per cataratta o correzioni ortopediche associate.", rehab: "Esercizi di stretching, prevenzione delle contratture, attività aerobica moderata." },
+            { id: 126, title: "Corea di Huntington", district: "Generale", severity: "Grave", def: "Malattia neurodegenerativa ereditaria con movimenti coreici involontari e declino cognitivo.", meds: "Tetrabenazina, antipsicotici per il controllo dei movimenti involontari.", surgery: "Non indicata (trattamento medico e di supporto).", rehab: "Fisioterapia per l'equilibrio, prevenzione delle cadute, logopedia e terapia occupazionale." },
+            { id: 127, title: "Encefalopatia Ipossico-Ischemica", district: "Generale", severity: "Grave", def: "Danno cerebrale diffuso derivante da prolungata ipossia o arresto cardiocircolatorio.", meds: "Terapia di supporto intensivo, farmaci anticonvulsivanti.", surgery: "Non indicata in fase acuta.", rehab: "Stimolazione multisensoriale, fisioterapia passiva per prevenire rigidità, nursing avanzato." },
+            { id: 128, title: "Malattia di Parkinson", district: "Generale", severity: "Cronica", def: "Neurodegenerazione dopaminergica con tremore a riposo, rigidità, bradicinesia e instabilità.", meds: "Levodopa, agonisti dopaminergici, inibitori MAO-B.", surgery: "Stimolazione Cerebrale Profonda (DBS) nei casi avanzati con fluttuazioni.", rehab: "LSVT BIG program, esercizi di agilità, stimolazione cueing visiva e acustica per il cammino." },
+            { id: 129, title: "Paralisi Supranucleare Progressiva (PSP)", district: "Cervicale", severity: "Grave", def: "Parkinsonismo atypico caratterizzato da precoce paralisi dello sguardo verticale e cadute.", meds: "Risposta limitata alla levodopa, farmaci sintomatici.", surgery: "Non indicata.", rehab: "Prevenzione delle cadute, logopedia per disfagia, esercizi di stabilità posturale." },
+            { id: 130, title: "Sclerosi Laterale Primaria (SLS)", district: "Generale", severity: "Cronica", def: "Variante rara di malattia dei motoneuroni caratterizzata da spasticità progressiva senza amiotrofia.", meds: "Baclofen, miorilassanti per la spasticità severa.", surgery: "Chirurgia ortopedica per rilasci tendinei in caso di spasticità grave degli arti.", rehab: "Fisioterapia incentrata sullo stretching, hydrokinesiterapia e mantenimento della deambulazione." }
         ];
 
         const trattamentiData = [
@@ -390,7 +469,7 @@
             { id: 22, district: "Gamba", title: "Popliteo", origin: "Condilo laterale del femore e menisco laterale", insertion: "Faccia posteriore tibia sopra la linea solea", innervation: "N. tibiale (L4-S1)", blood: "A. inferiori del ginocchio", daily: "Sbloccare il ginocchio completamente esteso per iniziare a piegarlo e sedersi", movements: ["Rotazione interna della tibia (a ginocchio flesso)", "Sblocco del ginocchio esteso", "Retrazione menisco laterale"] },
             { id: 23, district: "Gamba", title: "Tibiale Posteriore", origin: "Membrana interossea, faccia posteriore tibia e fibula", insertion: "Tuberosità navicolare, cuneiformi, cuboide e basi metatarsi II-IV", innervation: "N. tibiale (L4-L5)", blood: "A. fibulare", daily: "Sostenere l'arco plantare evitando il piede piatto mentre si cammina a lungo", movements: ["Inversione del piede", "Flessione plantare della caviglia", "Sostegno principale arco plantare"] },
             { id: 24, district: "Gamba", title: "Soleo", origin: "Testa e faccia posteriore della fibula e linea solea della tibia", insertion: "Tubercolo calcaneare tramite tendine d'Achille", innervation: "N. tibiale (S1-S2)", blood: "A. tibiale posteriore", daily: "Mantenere la stazione eretta immobile in coda alla posta senza svenire", movements: ["Flessione plantare della caviglia", "Stabilizzazione posturale della caviglia in piedi"] },
-            { id: 25, district: "Gamba", title: "Flessore Lungo delle Dita", origin: "Faccia posteriore della tibia sotto la linea solea", insertion: "Basi delle falangi distali delle dita II-V", innervation: "N. tibiale (S2-S3)", blood: "A. tibiale posteriore", daily: "Artigliare le dita al pavimento per mantenere l'equilibrio su un autobus in movimento", movements: ["Flessione delle dita II-V", "Flessione plantare della caviglia", "Inversione del piede"] },
+            { id: 25, district: "Gamba", title: "Flessore Lungo delle Dita", origin: "Faccia posteriore della tibia sotto la linea solea", insertion: "Basi delle falangi distale delle dita II-V", innervation: "N. tibiale (S2-S3)", blood: "A. tibiale posteriore", daily: "Artigliare le dita al pavimento per mantenere l'equilibrio su un autobus in movimento", movements: ["Flessione delle dita II-V", "Flessione plantare della caviglia", "Inversione del piede"] },
             { id: 26, district: "Gamba", title: "Flessore Lungo dell'Alluce", origin: "Due terzi inferiori faccia posteriore fibula", insertion: "Base falange distale dell'alluce", innervation: "N. tibiale (S2-S3)", blood: "A. fibulare", daily: "Dare la spinta finale sull'alluce durante la corsa o la danza sulle punte", movements: ["Flessione dell'alluce", "Flessione plantare della caviglia", "Sostegno arco mediale"] },
             { id: 27, district: "Coscia", title: "Sartorio", origin: "Spina iliaca anteriore superiore (SIAS)", insertion: "Faccia mediale prossimale della tibia (zampa d'oca)", innervation: "N. femorale (L2-L3)", blood: "A. femorale", daily: "Accavallare le gambe o sedersi a gambe incrociate (posizione del sarto)", movements: ["Flessione, abduzione e rotazione esterna dell'anca", "Flessione e rotazione interna del ginocchio"] },
             { id: 28, district: "Coscia", title: "Vasto Laterale", origin: "Grande trocantere e labbro laterale della linea aspra del femore", insertion: "Base della rotula e tuberosità tibiale tramite tendine rotuleo", innervation: "N. femorale (L2-L4)", blood: "A. circonflessa laterale del femore", daily: "Alzarsi da una sedia bassa o salire due gradini alla volta", movements: ["Estensione del ginocchio"] },
@@ -519,7 +598,7 @@
             { id: 151, district: "Mano", title: "Interosseo Palmare del Pollice (Rudimentale)", origin: "Base del I osso metacarpale (lato ulnare)", insertion: "Base falange prossimale del pollice", innervation: "N. ulnare (ramo profondo, C8-T1)", blood: "Arcata palmare profonda", daily: "Collaborare con l'adduttore del pollice nelle prese di precisione", movements: ["Adduzione e flessione MTF del pollice"] }
         ];
 
-        // 42 ESERCIZI CLINICI
+        // 42 Esercizi Clinici
         const eserciziData = [
             { id: 1, title: "Clamshell per Gluteo Medio", category: "Rinforzo", district: "Anca", target: "Gluteo medio e piccolo (stabilizzatori d'anca)", indications: ["Sindrome della bandelletta tibio-tarsale", "Borsite trocanterica e pubalgia"], dosage: "3 serie da 12-15 ripetizioni per lato", execution: "1. Posizionare il paziente in decubito laterale con bacino allineato, anche flesse a circa 45 gradi e ginocchia flesse a 90 gradi. \n2. Mantenere i piedi uniti per tutto il movimento.\n3. Sollevare lentamente il ginocchio superiore aprendo le cosce 'a libro', evitando accuratamente che il bacino ruoti all'indietro.\n4. Ritorno controllato alla posizione di partenza in 3 secondi." },
             { id: 2, title: "Ponte Gluteo (Glute Bridge)", category: "Rinforzo", district: "Anca", target: "Grande gluteo, ischiocrurali ed estensori lombari", indications: ["Lombalgia cronica aspecifica", "Sindrome femoro-rotulea"], dosage: "3 serie da 15 ripetizioni con tenuta di 2 secondi", execution: "1. Paziente supino con ginocchia flesse a 90 gradi e piedi appoggiati a terra alla larghezza delle spalle.\n2. Contrarre i glutei ed eseguire una retroversione del bacino.\n3. Sollevare il bacino verso il soffitto fino a formare una linea retta continua tra ginocchia, anche e spalle.\n4. Mantenere la posizione isometrica per 2 secondi e abbassare lentamente senza toccare terra." },
@@ -573,11 +652,12 @@
             { id: 5, title: "Protesi Totale Ginocchio (PTG)", district: "Coscia", severity: "Post-Op", def: "Post gonartrosi operata.", phases: "Fase 1 estensione e flessione.", criteria: "Autonomia scale." }
         ];
 
-        let currentSection = 'patologie';
+        let currentSection = 'patologie-ortopediche';
         let currentDistrictFilter = 'all';
 
         document.addEventListener('DOMContentLoaded', () => {
-            renderPatologie();
+            renderOrtopediche();
+            renderNeurologiche();
             renderTrattamenti();
             renderStrumentale();
             renderAnatomia();
@@ -617,8 +697,10 @@
 
         function filterContent() {
             const query = document.getElementById('global-search').value.toLowerCase();
-            if(currentSection === 'patologie') {
-                renderPatologieGrid(patologieData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.def.toLowerCase().includes(query))));
+            if(currentSection === 'patologie-ortopediche') {
+                renderOrtoGrid(ortopedicheData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.def.toLowerCase().includes(query))));
+            } else if(currentSection === 'patologie-neurologiche') {
+                renderNeuroGrid(neurologicheData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.def.toLowerCase().includes(query))));
             } else if(currentSection === 'trattamenti') {
                 renderTrattamentiGrid(trattamentiData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && i.title.toLowerCase().includes(query)));
             } else if(currentSection === 'strumentale') {
@@ -632,11 +714,11 @@
             }
         }
 
-        function renderPatologie() { renderPatologieGrid(patologieData); }
-        function renderPatologieGrid(data) {
-            document.getElementById('patologie-count').innerText = `${data.length} Patologie`;
-            document.getElementById('patologie-grid').innerHTML = data.map(item => `
-                <div onclick="openPatologiaDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
+        function renderOrtopediche() { renderOrtoGrid(ortopedicheData); }
+        function renderOrtoGrid(data) {
+            document.getElementById('orto-count').innerText = `${data.length} Patologie`;
+            document.getElementById('orto-grid').innerHTML = data.map(item => `
+                <div onclick="openPatologiaDetail(${item.id}, 'orto')" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
                     <div>
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-brand-50 text-brand-700">${item.district}</span>
@@ -646,7 +728,27 @@
                         <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
                     </div>
                     <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-brand-600 font-semibold">
-                        <span>Scheda clinica</span><i class="fa-solid fa-arrow-right"></i>
+                        <span>Scheda clinica ortopedica</span><i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderNeurologiche() { renderNeuroGrid(neurologicheData); }
+        function renderNeuroGrid(data) {
+            document.getElementById('neuro-count').innerText = `${data.length} Patologie`;
+            document.getElementById('neuro-grid').innerHTML = data.map(item => `
+                <div onclick="openPatologiaDetail(${item.id}, 'neuro')" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-rose-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rose-50 text-rose-700">${item.district}</span>
+                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md ${item.severity === 'Grave' ? 'bg-rose-50 text-rose-700' : 'bg-slate-100 text-slate-600'}">${item.severity}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-rose-600 font-semibold">
+                        <span>Scheda clinica neurologica</span><i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
             `).join('');
@@ -757,16 +859,14 @@
             `).join('');
         }
 
-        function openPatologiaDetail(id) {
-            const item = patologieData.find(p => p.id === id);
+        function openPatologiaDetail(id, type) {
+            const item = type === 'orto' ? ortopedicheData.find(p => p.id === id) : neurologicheData.find(p => p.id === id);
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Definizione</h4><p>${item.def}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Sintomi</h4><p>${item.symptoms}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Test Ortopedici</h4><p>${item.tests}</p></div>
-                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Red Flags</h4><p>${item.redFlags}</p></div>
-                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1">Gestione Fisioterapica</h4><p>${item.management}</p></div>
+                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Spiegazione Clinica</h4><p>${item.def}</p></div>
+                <div class="bg-amber-50 p-3 rounded-xl border border-amber-100"><h4 class="font-bold text-amber-800 text-[11px] uppercase mb-1"><i class="fa-solid fa-pills mr-1"></i>Terapia Farmacologica / Chirurgica</h4><p><strong>Farmaci:</strong> ${item.meds}</p><p class="mt-1"><strong>Chirurgia:</strong> ${item.surgery}</p></div>
+                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1"><i class="fa-solid fa-person-walking mr-1"></i>Trattamento Riabilitativo</h4><p>${item.rehab}</p></div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
