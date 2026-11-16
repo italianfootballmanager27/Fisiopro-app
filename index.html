@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0d9488">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Prontuario clinico gratuito per fisioterapisti: patologie, terapia manuale, terapia strumentale, anatomia, esercizi con timer e protocolli riabilitativi.">
+    <title>FisioPro Clinical | Prontuario Riabilitativo</title>
+
+    <!-- Manifest PWA Inline per installazione su dispositivi mobili -->
+    <link rel="manifest" href='data:application/manifest+json,{"name":"FisioPro Clinical","short_name":"FisioPro","start_url":".","display":"standalone","background_color":"#f8fafc","theme_color":"#0d9488","icons":[{"src":"https://placehold.co/192x192/0d9488/ffffff?text=FP","sizes":"192x192","type":"image/png"},{"src":"https://placehold.co/512x512/0d9488/ffffff?text=FisioPro","sizes":"512x512","type":"image/png"}]}'>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        clinical: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons via CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Ottimizzazioni per scrollbar e tap su mobile */
+        body {
+            -webkit-tap-highlight-color: transparent;
+            background-color: #f8fafc;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.03); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .timer-active-glow {
+            animation: pulse-ring 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased flex flex-col md:flex-row min-h-screen pb-20 md:pb-0">
+
+    <!-- SIDEBAR DESKTOP (Visibile da md in su) -->
+    <aside class="hidden md:flex md:flex-col md:w-72 md:fixed md:inset-y-0 bg-white border-r border-slate-200 z-30 shadow-sm">
+        <div class="flex items-center gap-3 px-6 py-5 border-b border-slate-100">
+            <div class="w-10 h-10 rounded-xl bg-clinical-600 flex items-center justify-center text-white shadow-md shadow-clinical-600/20">
+                <i data-lucide="activity" class="w-6 h-6"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-lg text-slate-900 leading-tight">FisioPro<span class="text-clinical-600">Clinical</span></h1>
+                <p class="text-xs text-slate-500 font-medium">Prontuario Riabilitativo</p>
+            </div>
+        </div>
+
+        <nav class="flex-1 px-4 py-6 space-y-1.5 overflow-y-auto" id="desktop-nav">
+            <!-- Generato dinamicamente da JS -->
+        </nav>
+
+        <div class="p-4 m-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Preferiti Salvati</span>
+                <span id="desktop-fav-count" class="text-xs font-bold bg-clinical-100 text-clinical-700 px-2 py-0.5 rounded-full">0</span>
+            </div>
+            <button onclick="toggleFavoritesFilter()" id="desktop-fav-btn" class="w-full py-2 px-3 rounded-xl text-sm font-medium flex items-center justify-center gap-2 transition-colors bg-white border border-slate-200 text-slate-700 hover:bg-clinical-50 hover:text-clinical-700 hover:border-clinical-200">
+                <i data-lucide="bookmark" class="w-4 h-4"></i>
+                <span>Mostra Preferiti</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- CONTENITORE PRINCIPALE -->
+    <div class="flex-1 md:pl-72 flex flex-col min-h-screen w-full">
+
+        <!-- HEADER FISSO CON BARRA DI RICERCA GLOBALE -->
+        <header class="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 py-3 md:px-8 md:py-4">
+            <div class="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                
+                <!-- Logo Mobile + Bottone Preferiti Mobile -->
+                <div class="flex items-center justify-between md:hidden">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-9 h-9 rounded-xl bg-clinical-600 flex items-center justify-center text-white shadow-sm">
+                            <i data-lucide="activity" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h1 class="font-bold text-base text-slate-900 leading-none">FisioPro<span class="text-clinical-600">Clinical</span></h1>
+                            <span class="text-[11px] text-slate-500">Atlante & Protocolli</span>
+                        </div>
+                    </div>
+
+                    <button onclick="toggleFavoritesFilter()" id="mobile-fav-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-semibold transition-all">
+                        <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
+                        <span>Preferiti</span>
+                        <span id="mobile-fav-count" class="bg-clinical-600 text-white px-1.5 py-0.2 rounded-full text-[10px]">0</span>
+                    </button>
+                </div>
+
+                <!-- Barra di Ricerca Globale -->
+                <div class="relative flex-1 max-w-2xl">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                        <i data-lucide="search" class="w-4 h-4"></i>
+                    </div>
+                    <input type="text" id="global-search" placeholder="Cerca patologia, test (es. Lachman), tecar, muscolo, esercizio..." 
+                           class="w-full pl-10 pr-10 py-2.5 bg-slate-100/80 border border-slate-200/90 rounded-2xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-clinical-500/30 focus:border-clinical-500 transition-all">
+                    <button id="clear-search" onclick="clearSearch()" class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600">
+                        <i data-lucide="x-circle" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Indicatore Sezione Attiva (Desktop) -->
+                <div class="hidden lg:flex items-center gap-2 text-xs font-medium text-slate-500 bg-slate-100 px-3 py-2 rounded-xl">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>Database Clinico Offline Ready</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- AREA CONTENUTI DINAMICI -->
+        <main class="flex-1 px-4 py-6 md:px-8 max-w-6xl mx-auto w-full">
+            
+            <!-- Banner Sezione Corrente + Filtri Rapidi -->
+            <div class="mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-4">
+                    <div>
+                        <span id="section-badge" class="inline-block text-xs font-semibold uppercase tracking-wider text-clinical-700 bg-clinical-100 px-2.5 py-1 rounded-lg mb-1.5">Modulo Clinico</span>
+                        <h2 id="section-title" class="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">Patologie Muscolo-Scheletriche</h2>
+                        <p id="section-subtitle" class="text-sm text-slate-500 mt-1">Inquadramento diagnostico, test ortopedici consigliati e red flags.</p>
+                    </div>
+                    <div id="results-counter" class="text-xs font-medium text-slate-500 bg-white px-3 py-1.5 rounded-xl border border-slate-200 self-start sm:self-auto">
+                        0 schede visualizzate
+                    </div>
+                </div>
+
+                <!-- Barra Filtri Dinamici (es. Distretti anatomici per Patologie) -->
+                <div id="subfilters-container" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+                    <!-- Popolato da JS -->
+                </div>
+            </div>
+
+            <!-- WIDGET TIMER INTERATTIVO (Visibile nella sezione Esercizi o attivabile) -->
+            <div id="exercise-timer-widget" class="hidden mb-6 bg-gradient-to-br from-slate-900 via-slate-800 to-clinical-900 text-white rounded-3xl p-5 md:p-6 shadow-lg border border-slate-700/80">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="flex items-center gap-4">
+                        <div id="timer-ring" class="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-slate-800/90 border-2 border-clinical-500/50 flex flex-col items-center justify-center shrink-0 shadow-inner">
+                            <span id="timer-display" class="text-2xl md:text-3xl font-bold font-mono tracking-tight text-white">00:30</span>
+                            <span id="timer-status-label" class="text-[10px] uppercase tracking-widest text-clinical-300 font-semibold mt-0.5">Pronto</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-0.5 rounded-md bg-clinical-500/20 text-clinical-300 text-xs font-semibold border border-clinical-500/30">Timer Clinico</span>
+                                <span id="timer-exercise-name" class="text-xs text-slate-300 truncate max-w-[180px] sm:max-w-xs">Tenuta Isometrica / Recupero</span>
+                            </div>
+                            <h3 class="text-lg font-bold mt-1">Gestione Tempi Esercizio</h3>
+                            <p class="text-xs text-slate-300 mt-0.5">Seleziona un preset rapido o avvia il timer da qualsiasi scheda esercizio.</p>
+                        </div>
+                    </div>
+
+                    <!-- Controlli e Preset Timer -->
+                    <div class="flex flex-wrap items-center gap-2.5">
+                        <div class="flex items-center bg-slate-800/80 p-1 rounded-xl border border-slate-700">
+                            <button onclick="setTimerSeconds(15)" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg hover:bg-slate-700 text-slate-200 transition">15s</button>
+                            <button onclick="setTimerSeconds(30)" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg hover:bg-slate-700 text-slate-200 transition">30s</button>
+                            <button onclick="setTimerSeconds(45)" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg hover:bg-slate-700 text-slate-200 transition">45s</button>
+                            <button onclick="setTimerSeconds(60)" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg hover:bg-slate-700 text-slate-200 transition">60s</button>
+                            <button onclick="setTimerSeconds(90)" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg hover:bg-slate-700 text-slate-200 transition">90s</button>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <button id="timer-start-btn" onclick="toggleTimer()" class="px-4 py-2.5 rounded-xl bg-clinical-500 hover:bg-clinical-400 text-slate-950 font-bold text-sm flex items-center gap-1.5 shadow-md transition">
+                                <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+                                <span>Avvia</span>
+                            </button>
+                            <button onclick="resetTimer()" class="p-2.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-white transition" title="Azzera Timer">
+                                <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRIGLIA CONTENUTI (Cards) -->
+            <div id="content-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+                <!-- Popolato dinamicamente da JS -->
+            </div>
+
+            <!-- Stato Vuoto (Nessun risultato) -->
+            <div id="empty-state" class="hidden text-center py-16 px-4 bg-white rounded-3xl border border-slate-200/80 shadow-sm">
+                <div class="w-14 h-14 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="search-x" class="w-7 h-7"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800">Nessun risultato trovato</h3>
+                <p class="text-sm text-slate-500 max-w-md mx-auto mt-1">Prova a modificare i termini di ricerca o a rimuovere i filtri attivi per visualizzare tutte le schede cliniche.</p>
+                <button onclick="resetAllFilters()" class="mt-4 px-4 py-2 bg-clinical-600 text-white text-sm font-semibold rounded-xl hover:bg-clinical-700 transition">
+                    Ripristina Filtri
+                </button>
+            </div>
+
+            <!-- Disclaimer Clinico Footer -->
+            <footer class="mt-12 pt-6 border-t border-slate-200 text-center text-xs text-slate-400 pb-6">
+                <p class="font-medium text-slate-500">FisioPro Clinical — Strumento di consultazione rapida per professionisti e studenti di Fisioterapia.</p>
+                <p class="mt-1">Le informazioni cliniche, i parametri strumentali e i protocolli hanno scopo educativo e di supporto decisionale; non sostituiscono la valutazione clinica individuale sul paziente.</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- BARRA DI NAVIGAZIONE INFERIORE MOBILE (6 Sezioni) -->
+    <nav class="md:hidden fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-200 z-30 px-1 py-1.5 shadow-[0_-4px_12px_rgba(0,0,0,0.04)]">
+        <div class="grid grid-cols-6 gap-0.5" id="mobile-nav">
+            <!-- Generato dinamicamente da JS -->
+        </div>
+    </nav>
+
+    <!-- MODALE DETTAGLI SCHEDA CLINICA -->
+    <div id="detail-modal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity" onclick="closeModal()"></div>
+
+        <!-- Contenitore Modale -->
+        <div class="flex min-h-full items-end sm:items-center justify-center p-0 sm:p-4">
+            <div class="relative w-full max-w-2xl bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl border border-slate-200 overflow-hidden transform transition-all max-h-[90vh] flex flex-col">
+                
+                <!-- Header Modale -->
+                <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-start justify-between gap-4 shrink-0">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span id="modal-category-badge" class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-clinical-100 text-clinical-800">Categoria</span>
+                            <span id="modal-tag-badge" class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-slate-200/70 text-slate-700">Sottotitolo</span>
+                        </div>
+                        <h3 id="modal-title" class="text-xl font-bold text-slate-900 leading-snug">Titolo Scheda</h3>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button id="modal-fav-btn" onclick="toggleCurrentModalFavorite()" class="p-2.5 rounded-xl border border-slate-200 bg-white text-slate-500 hover:text-amber-500 transition" title="Salva nei preferiti">
+                            <i data-lucide="bookmark" class="w-5 h-5"></i>
+                        </button>
+                        <button onclick="closeModal()" class="p-2.5 rounded-xl border border-slate-200 bg-white text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition" title="Chiudi">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Corpo Modale Scrollabile -->
+                <div id="modal-body" class="p-6 overflow-y-auto space-y-5 text-sm text-slate-700 leading-relaxed">
+                    <!-- Inserito dinamicamente da JS -->
+                </div>
+
+                <!-- Footer Modale -->
+                <div id="modal-footer" class="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between gap-3 shrink-0">
+                    <button onclick="copyModalContent()" class="px-3.5 py-2 rounded-xl border border-slate-300 bg-white text-slate-700 text-xs font-semibold hover:bg-slate-100 flex items-center gap-1.5 transition">
+                        <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                        <span id="copy-btn-text">Copia Appunti</span>
+                    </button>
+                    <button onclick="closeModal()" class="px-5 py-2 rounded-xl bg-clinical-600 text-white text-xs font-semibold hover:bg-clinical-700 transition">
+                        Chiudi Scheda
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICA -->
+    <div id="toast" class="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 text-xs font-medium border border-slate-700">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-clinical-400"></i>
+            <span id="toast-message">Operazione completata</span>
+        </div>
+    </div>
+
+    <!-- DATABASE CLINICO E LOGICA APPLICATIVA -->
+    <script>
+        // =========================================================================
+        // 1. DATABASE CLINICO COMPLETO IN ITALIANO (6 SEZIONI)
+        // =========================================================================
+        const CLINICAL_DB = {
+            patologie: {
+                title: "Patologie Muscolo-Scheletriche",
+                badge: "Inquadramento Clinico",
+                subtitle: "Eziologia, quadri sintomatologici, cluster di test ortopedici e red flags.",
+                icon: "stethoscope",
+                navLabel: "Patologie",
+                filters: ["Tutti", "Spalla", "Ginocchio", "Colonna", "Caviglia"],
+                items: [
+                    {
+                        id: "pat-1",
+                        district: "Spalla",
+                        title: "Sindrome da Conflitto Subacromiale (SAPS)",
+                        subtitle: "Tendinopatia della cuffia / Borsite subacromiale",
+                        summary: "Dolore anterolaterale di spalla esacerbato dall'elevazione dell'arto tra 60° e 120° (arco doloroso).",
+                        etiology: "Sovraccarico funzionale ripetitivo (overhead), alterazioni della cinematica scapolare (discinesia), degenerazione tendinea del sovraspinato o ispessimento della borsa subacromiale.",
+                        symptoms: [
+                            "Dolore nella regione deltoidea laterale, spesso notturno decubito sul lato affetto.",
+                            "Arco doloroso attivo in abduzione/flessione tra 60° e 120°.",
+                            "Perdita di forza in extrarotazione e abduzione per inibizione antalgica."
+                        ],
+                        tests: [
+                            "Test di Hawkins-Kennedy (alta sensibilità per conflitto anteriore)",
+                            "Test di Neer (elevazione passiva forzata in intrarotazione)",
+                            "Jobe Test / Empty Can Test (valutazione tendine sovraspinato)",
+                            "Painful Arc Sign (arco doloroso 60°-120°)"
+                        ],
+                        redFlags: "Trauma acuto ad alta energia con impotenza funzionale totale (sospetta rottura massiva cuffia), febbre/eritema locale (artrite settica), dolore irradiato non meccanico con dispnea (origine cardiaca/diaframmatica)."
+                    },
+                    {
+                        id: "pat-2",
+                        district: "Spalla",
+                        title: "Capsulite Adesiva (Spalla Congelata)",
+                        subtitle: "Rigidità gleno-omerale idiopatica o secondaria",
+                        summary: "Restrizione progressiva e dolorosa del ROM attivo e passivo su tutti i piani, in particolare extrarotazione.",
+                        etiology: "Infiammazione sinoviale seguita da fibrosi e contrattura della capsula articolare gleno-omerale. Forte associazione con diabete mellito, disfunzioni tiroidee e immobilizzazione prolungata.",
+                        symptoms: [
+                            "Fase Freezing (dolorosa): dolore intenso anche a riposo e notturno.",
+                            "Fase Frozen (adesiva): riduzione del dolore a riposo ma marcata rigidità capsulare.",
+                            "Fase Thawing (scongelamento): graduale recupero dell'articolarità."
+                        ],
+                        tests: [
+                            "Valutazione comparativa ROM passivo: perdita >50% di extrarotazione a braccio addotto",
+                            "Pattern capsulare di Cyriax: Extrarotazione > Abduzione > Intrarotazione",
+                            "Esclusione radiografica (RX) di artrosi gleno-omerale o lussazione posteriore inveterata"
+                        ],
+                        redFlags: "Anamnesi oncologica positiva (metastasi omerali/scapolari), calo ponderale inspiegabile, deformità ossea evidente post-traumatica."
+                    },
+                    {
+                        id: "pat-3",
+                        district: "Ginocchio",
+                        title: "Lesione del Legamento Crociato Anteriore (LCA)",
+                        subtitle: "Instabilità anteriore e rotatoria di ginocchio",
+                        summary: "Trauma distorsivo in valgo-rotazione esterna o iperestensione con sensazione di 'crack' ed emartro rapido.",
+                        etiology: "Meccanismo non da contatto (cambio di direzione, atterraggio da un salto con ginocchio in valgismo dinamico) o trauma diretto.",
+                        symptoms: [
+                            "Emartro intra-articolare precoce (entro 2-4 ore dal trauma).",
+                            "Sensazione di cedimento articolare (giving way) nei movimenti pivotanti.",
+                            "Limitazione dell'estensione completa (blocco meccanico se associata lesione meniscale a manico di secchio)."
+                        ],
+                        tests: [
+                            "Test di Lachman (gold standard clinico a 20°-30° di flessione)",
+                            "Pivot Shift Test (valuta l'instabilità rotatoria anterolaterale)",
+                            "Cassetto Anteriore a 90° di flessione"
+                        ],
+                        redFlags: "Assenza di polso pedidio o tibiale posteriore (lesione arteria poplitea nei traumi ad alta energia), parestesie piede (nervo peroneo comune), blocco articolare irriducibile."
+                    },
+                    {
+                        id: "pat-4",
+                        district: "Ginocchio",
+                        title: "Sindrome Femoro-Rotulea (PFPS)",
+                        subtitle: "Dolore anteriore di ginocchio da sovraccarico",
+                        summary: "Dolore peripatellare o retropatellare aggravato da squat, scale, corsa o posizione seduta prolungata.",
+                        etiology: "Aumento dello stress sull'articolazione femoro-rotulea dovuto a deficit di forza del quadricipite (VMO) e degli abduttori/extrarotatori d'anca, maltracking rotuleo o brusco incremento dei carichi.",
+                        symptoms: [
+                            "Dolore diffuso attorno o dietro la rotula (spesso indicato con il 'sign of the circle').",
+                            "Segno del cinema (dolore mantenendo il ginocchio flesso a lungo).",
+                            "Crepitii femoro-rotulei non necessariamente correlati all'entità del dolore."
+                        ],
+                        tests: [
+                            "Step-down Test eccentrico (valuta dolore e valgismo dinamico)",
+                            "Patellar Tilt & Glide Test (mobilità retinacolare)",
+                            "Clarke's Sign / Grind Test (da interpretare con cautela per falsi positivi)"
+                        ],
+                        redFlags: "Versamento articolare caldo e imponente, febbre, dolore notturno costante non meccanico, storia di lussazione rotulea traumatica con sospetto distacco osteocondrale."
+                    },
+                    {
+                        id: "pat-5",
+                        district: "Colonna",
+                        title: "Lombalgia Acuta con Radicolopatia (L4-L5 / L5-S1)",
+                        subtitle: "Conflitto disco-radicolare / Ernia discale",
+                        summary: "Dolore lombare irradiato lungo l'arto inferiore oltre il ginocchio con possibili deficit sensitivi o motori.",
+                        etiology: "Protrusione o estrusione del nucleo polposo attraverso l'anulus fibroso con compressione meccanica e infiammazione chimica della radice nervosa.",
+                        symptoms: [
+                            "Dolore urente o lancinante con distribuzione dermatomerica (L5 dorso piede/alluce; S1 pianta/margine laterale).",
+                            "Parestesie, intorpidimento o formicolio distale.",
+                            "Posizione antalgica in shift laterale e peggioramento in flessione/tosse."
+                        ],
+                        tests: [
+                            "SLR (Straight Leg Raise / Test di Lasègue) e Lasègue crociato",
+                            "Slump Test (messa in tensione neurodinamica)",
+                            "Esame neurologico mirato: riflessi (rotuleo L4, achilleo S1), forza (tibiale anteriore L4, estensore lungo alluce L5, tricipite surale S1)"
+                        ],
+                        redFlags: "SINDROME DELLA CAUDA EQUINA: anestesia a sella, ritenzione o incontinenza urinaria/fecale, deficit motorio grave e progressivo (piede cadente acuto) -> invio urgente in PS."
+                    },
+                    {
+                        id: "pat-6",
+                        district: "Caviglia",
+                        title: "Distorsione Laterale di Caviglia (Compartimento Esterno)",
+                        subtitle: "Lesione legamento peroneo-astragalico anteriore (LPAA)",
+                        summary: "Trauma in inversione e flessione plantare con dolore, edema perimalleolare laterale e difficoltà al carico.",
+                        etiology: "Inversione forzata del retropiede durante il contatto al suolo; il LPAA è il primo legamento lesionato, seguito dal peroneo-calcaneare (LPC) nei gradi severi.",
+                        symptoms: [
+                            "Edema localizzato ed ecchimosi anteroinferiore al malleolo laterale.",
+                            "Dolorabilità alla palpazione lungo il decorso del LPAA.",
+                            "Instabilità soggettiva e limitazione della dorsiflessione."
+                        ],
+                        tests: [
+                            "Ottawa Ankle Rules (per escludere necessità di RX per fratture malleolari o V metatarso)",
+                            "Test del Cassetto Anteriore di caviglia (valuta integrità LPAA)",
+                            "Talar Tilt Test (valuta integrità LPC)"
+                        ],
+                        redFlags: "Positività alle Ottawa Ankle Rules (dolore osseo malleolare posteriore o base V metatarso, incapacità di fare 4 passi), dolore alto alla sindesmosi (Squeeze test positivo)."
+                    }
+                ]
+            },
+            trattamenti: {
+                title: "Trattamenti di Terapia Manuale",
+                badge: "Tecniche Riabilitative",
+                subtitle: "Protocolli hands-on, mobilizzazioni articolari, tecniche miofasciali e linfatiche.",
+                icon: "hand",
+                navLabel: "Trattamenti",
+                filters: ["Tutti", "Articolare", "Miofasciale", "Vascolare/Linfatico"],
+                items: [
+                    {
+                        id: "trat-1",
+                        district: "Articolare",
+                        title: "Mobilizzazioni Articolari secondo Maitland",
+                        subtitle: "Movimenti accessori passivi oscillatori (Gradi I - IV)",
+                        summary: "Oscillazioni passive ritmiche applicate all'interno o al limite del range articolare per modulare il dolore o guadagnare ROM.",
+                        etiology: "Basato sul ragionamento clinico continuo (irritabilità vs rigidità): i gradi I-II agiscono sui meccanocettori per inibizione nocicettiva; i gradi III-IV mirano al rimodellamento viscoelastico capsulare.",
+                        symptoms: [
+                            "Grado I-II: Indicati in stati ad alta irritabilità e dolore acuto.",
+                            "Grado III-IV: Indicati nelle rigidità capsulari con bassa irritabilità.",
+                            "Applicabili a rachide (PA centrali/unilaterali) e articolazioni periferiche."
+                        ],
+                        tests: [
+                            "Esecuzione: Posizionare l'articolazione in posizione di riposo (loose-packed) o al limite della barriera.",
+                            "Ritmo: 2-3 oscillazioni al secondo per 30-60 secondi, ripetute 3-4 volte con rivalutazione immediata del segno comparabile.",
+                            "Controindicazioni: Fratture non consolidate, instabilità legamentosa severa, artrite infiammatoria in fase acuta, neoplasie ossee."
+                        ],
+                        redFlags: "Comparsa di sintomi neurogeni distali, vertigini/nistagmo durante mobilizzazioni cervicali (insufficienza vertebro-basilare), dolore acuto ingravescente."
+                    },
+                    {
+                        id: "trat-2",
+                        district: "Miofasciale",
+                        title: "Pompage Cervicale e Trattamento Fasciale",
+                        subtitle: "Trazione assiale lenta, mantenuta e rilasciamento progressivo",
+                        summary: "Tecnica miotensiva e fasciale dolce suddivisa in tre tempi per detendere la muscolatura suboccipitale e paravertebrale.",
+                        etiology: "Agisce sulle componenti elastiche e viscose della fascia cervicale e sui fusi neuromuscolari, migliorando la vascolarizzazione locale e decomprimendo le faccette articolari.",
+                        symptoms: [
+                            "Cervicalgia muscolo-tensiva e cefalea cervicogenica.",
+                            "Ipertono del trapezio superiore, elevatore della scapola e suboccipitali.",
+                            "Rigidità cervicale subacuta senza segni radicolari acuti."
+                        ],
+                        tests: [
+                            "Tempo 1 (Messa in tensione): Trazione assiale lenta e progressiva fino alla barriera elastica (circa 10-15 secondi).",
+                            "Tempo 2 (Mantenimento): Tenuta statica della tensione per 15-20 secondi sfruttando il rilassamento viscoelastico.",
+                            "Tempo 3 (Rilasciamento): Ritorno lentissimo alla posizione neutra (15-20 secondi) per evitare il riflesso miotatico da stiramento."
+                        ],
+                        redFlags: "Instabilità atlanto-assiale (es. Artrite Reumatoide), fratture vertebrali recenti, dissecazione arteria carotide o vertebrale, ernia discale espulsa con mielopatia."
+                    },
+                    {
+                        id: "trat-3",
+                        district: "Miofasciale",
+                        title: "Rilascio Miofasciale e Compressione Ischemica Trigger Point",
+                        subtitle: "Trattamento dei punti grilletto miofasciali (MTrP)",
+                        summary: "Pressione digitale sostenuta o scivolamento longitudinale lento per disattivare bande tese muscolari e dolore riferito.",
+                        etiology: "La pressione costante riduce l'ipossia locale nella placca motrice disfunzionale, normalizza il rilascio di acetilcolina e modula la sensibilizzazione periferica.",
+                        symptoms: [
+                            "Dolore locale e riferito riproducibile alla palpazione di un nodulo ipersensibile.",
+                            "Risposta di contrazione localizzata (Local Twitch Response).",
+                            "Limitazione dell'allungamento muscolare per dolore."
+                        ],
+                        tests: [
+                            "Esecuzione: Individuare il Trigger Point su muscolo deteso e applicare pressione graduale fino a evocare un dolore tollerabile (VAS 5-6/10).",
+                            "Durata: Mantenere 30-60 secondi fino alla percezione di 'scioglimento' tissutale (release).",
+                            "Completamento: Far seguire stretching passivo dolce o contrazione attiva nel nuovo range."
+                        ],
+                        redFlags: "Terapia anticoagulante ad alto dosaggio (rischio ematoma), trombosi venosa profonda nell'area, infezioni cutanee o ferite aperte, miosite ossificante."
+                    },
+                    {
+                        id: "trat-4",
+                        district: "Vascolare/Linfatico",
+                        title: "Linfodrenaggio Manuale (Metodo Vodder)",
+                        subtitle: "Drenaggio dell'edema post-traumatico e post-chirurgico",
+                        summary: "Manovre lente, ritmiche e a bassa pressione (30-40 mmHg) orientate verso le stazioni linfonodali prossimali.",
+                        etiology: "Stimola l'automatismo contrattile dei linfangioni, favorisce il riassorbimento del carico proteico interstiziale e riduce l'edema post-operatorio.",
+                        symptoms: [
+                            "Edema post-chirurgico (es. protesi ginocchio/anca, ricostruzione LCA).",
+                            "Ematomi ed edemi post-traumatici (distorsioni di caviglia).",
+                            "Linfedema primario o secondario."
+                        ],
+                        tests: [
+                            "Sequenza: Sempre iniziare con lo svuotamento delle stazioni linfonodali prossimali ('terminus' e linfonodi regionali).",
+                            "Manovre base: Cerchi fermi, movimento a pompa, movimento erogatore e movimento rotatorio con fase di spinta e fase di rilascio zero.",
+                            "Pressione: Leggera, superficiale, indolore, senza provocare iperemia cutanea."
+                        ],
+                        redFlags: "Infezioni acute (erisipela, cellulite batterica), trombosi venosa profonda (TVP) acuta, scompenso cardiaco congestizio non compensato, neoplasie maligne attive non trattate."
+                    }
+                ]
+            },
+            strumentale: {
+                title: "Terapia Strumentale",
+                badge: "Mezzi Fisici",
+                subtitle: "Principi biofisici, dosimetria indicativa, modalità applicative e controindicazioni.",
+                icon: "zap",
+                navLabel: "Strumentale",
+                filters: ["Tutti", "Termica/Endogena", "Meccanica/Acustica", "Elettro/Foto"],
+                items: [
+                    {
+                        id: "str-1",
+                        district: "Termica/Endogena",
+                        title: "Tecarterapia (Diatermia Capacitiva / Resistiva)",
+                        subtitle: "Trasferimento Energetico Capacitivo e Resistivo (448 kHz - 1 MHz)",
+                        summary: "Stimolazione endogena della microcircolazione e dei processi riparativi tramite correnti ad alta frequenza.",
+                        etiology: "Modalità Capacitiva (elettrodo rivestito): agisce sui tessuti a maggior contenuto idrico (muscoli, sistema linfatico). Modalità Resistiva (elettrodo non rivestito): agisce sui tessuti ad alta resistenza (tendini, legamenti, osso, fascia).",
+                        symptoms: [
+                            "Atermia (10-20% potenza): Fase acuta, drenaggio edemi, biostimolazione cellulare.",
+                            "Omeotermia (30-50% potenza): Fase subacuta, contratture muscolari, tendinopatie.",
+                            "Ipertermia (60-80% potenza): Rigidità articolari croniche, fibrosi tissutali."
+                        ],
+                        tests: [
+                            "Parametri indicativi: Frequenza ~448-500 kHz; durata 15-20 min totali (es. 10 min resistivo + 10 min capacitivo per drenaggio finale).",
+                            "Accoppiamento: Crema conduttiva abbondante e piastra di ritorno ben aderente per chiudere il circuito.",
+                            "Controindicazioni Assolute: Pacemaker o dispositivi elettronici impiantati, gravidanza, neoplasie in sede, tromboflebiti, cartilagini di accrescimento."
+                        ],
+                        redFlags: "Attenzione a deficit di sensibilità termica (neuropatia diabetica): rischio ustione in modalità ipertermica. Protesi metalliche: consentite solo a basse potenze (atermia/omeotermia) monitorando la temperatura."
+                    },
+                    {
+                        id: "str-2",
+                        district: "Elettro/Foto",
+                        title: "Laserterapia ad Alta Potenza (HILT / Nd:YAG)",
+                        subtitle: "Fotobiomodulazione e effetto antalgico profondo",
+                        summary: "Emissione luminosa coerente e monocromatica (lunghezze d'onda 810-1064 nm) ad elevata penetrazione tissutale.",
+                        etiology: "Assorbimento fotonico a livello della citocromo c ossidasi mitocondriale con incremento della sintesi di ATP, modulazione delle citochine pro-infiammatorie e innalzamento della soglia nocicettiva.",
+                        symptoms: [
+                            "Tendinopatie inserzionali (achillea, rotulea, epicondilite).",
+                            "Lesioni muscolari in fase subacuta e fascite plantare.",
+                            "Dolore articolare acuto e gonalgia/coxalgia artrosica."
+                        ],
+                        tests: [
+                            "Parametri indicativi: Lunghezza d'onda 980-1064 nm; Fluenza (densità energetica) 10-30 J/cm² in acuto fino a 60-100 J/cm² in cronico.",
+                            "Modalità: A scansione su area ampia per effetto termico/decontratturante; a punti (trigger) per effetto antalgico mirato.",
+                            "Sicurezza: Obbligatorio uso di occhiali protettivi specifici per la lunghezza d'onda per paziente e operatore."
+                        ],
+                        redFlags: "Controindicazioni Assolute: Irradiazione diretta sull'occhio, utero gravidico, aree neoplastiche, ghiandola tiroidea, epilessia fotosensibile, tatuaggi scuri (rischio assorbimento termico eccessivo)."
+                    },
+                    {
+                        id: "str-3",
+                        district: "Meccanica/Acustica",
+                        title: "Onde d'Urto Focali (ESWT) e Radiali (RSWT)",
+                        subtitle: "Meccanotrasduzione e neoangiogenesi tissutale",
+                        summary: "Impulsi acustici ad alta energia che stimolano la rigenerazione tendinea e il riassorbimento delle calcificazioni.",
+                        etiology: "La meccanotrasduzione induce rilascio di fattori di crescita (VEGF, eNOS), neoangiogenesi, rimodellamento del collagene e desensibilizzazione delle fibre nocicettive C.",
+                        symptoms: [
+                            "Tendinopatia calcifica di spalla (sovraspinato).",
+                            "Fascite plantare con o senza sperone calcaneare.",
+                            "Epicondilite laterale cronica e tendinopatia achillea inserzionale."
+                        ],
+                        tests: [
+                            "Parametri Radiali: 1500-2500 colpi, pressione 1.5 - 3.0 bar, frequenza 8-15 Hz; 3-5 sedute a distanza di 7 giorni.",
+                            "Parametri Focali: Densità di flusso energetico (EFD) 0.08 - 0.35 mJ/mm², 1500-2000 colpi.",
+                            "Nota clinica: Non applicare ghiaccio o FANS nelle 48 ore successive per non inibire la risposta infiammatoria rigenerativa."
+                        ],
+                        redFlags: "Controindicazioni Assolute: Coagulopatie o terapia anticoagulante (INR elevato), gravidanza, nuclei di ossificazione nei bambini, tessuto polmonare/encefalico nel fascio, infezioni locali."
+                    },
+                    {
+                        id: "str-4",
+                        district: "Meccanica/Acustica",
+                        title: "Ultrasuonoterapia (1 MHz / 3 MHz)",
+                        subtitle: "Micromassaggio cellulare ed effetto termico mirato",
+                        summary: "Vibrazioni meccaniche acustiche ad alta frequenza per tessuti profondi (1 MHz) o superficiali (3 MHz).",
+                        etiology: "Effetto meccanico (cavitazione stabile e micromassaggio) ed effetto termico (aumento dell'estensibilità del collagene e del flusso ematico locale).",
+                        symptoms: [
+                            "Aderenze cicatriziali e fibrosi post-traumatiche.",
+                            "Tendiniti e borsiti subacute/croniche.",
+                            "Contratture muscolari localizzate."
+                        ],
+                        tests: [
+                            "Frequenza: 1 MHz per profondità 3-5 cm; 3 MHz per strutture superficiali (< 1.5 cm).",
+                            "Emissione: Pulsata (20%-50%) per effetto atermico/antinfiammatorio; Continua (100%) per effetto termico.",
+                            "Dosaggio: 0.5 - 1.5 W/cm² per 5-8 minuti con movimento circolare costante della testina e gel conduttore."
+                        ],
+                        redFlags: "Controindicazioni Assolute: Protesi cementate (rischio scollamento termico), gravidanza, neoplasie, tromboflebiti, aree ischemiche, occhi, cuore e cartilagini di accrescimento."
+                    },
+                    {
+                        id: "str-5",
+                        district: "Elettro/Foto",
+                        title: "TENS (Elettrostimolazione Nervosa Transcutanea)",
+                        subtitle: "Neuromodulazione antalgica (Gate Control / Endorfinica)",
+                        summary: "Correnti rettangolari bifasiche simmetriche compensate per il controllo sintomatico del dolore acuto e cronico.",
+                        etiology: "TENS Convenzionale: stimola fibre afferenti A-beta chiudendo il cancello spinale (Gate Control di Melzack e Wall). TENS Endorfinica: stimola fibre A-delta inducendo rilascio di endorfine.",
+                        symptoms: [
+                            "Dolore muscolo-scheletrico acuto e post-operatorio.",
+                            "Lombalgia e cervicalgia meccanica.",
+                            "Dolore neuropatico periferico (es. nevralgia post-erpetica)."
+                        ],
+                        tests: [
+                            "TENS Convenzionale (Rapida): Frequenza 80-120 Hz, larghezza impulso 50-100 µs, intensità a soglia di parestesia confortevole (senza contrazione), durata 20-40 min.",
+                            "TENS Endorfinica (Bassa frequenza): Frequenza 2-5 Hz, larghezza impulso 200-250 µs, intensità fino a lieve scossa muscolare ritmica.",
+                            "Posizionamento elettrodi: A cavallo dell'area dolorosa o lungo il dermatomero/tronco nervoso."
+                        ],
+                        redFlags: "Controindicazioni Assolute: Pacemaker o defibrillatore impiantato, applicazione sul seno carotideo (regione anteriore del collo), gravidanza (addome/lombare), epilessia non controllata, cute lesa."
+                    }
+                ]
+            },
+            anatomia: {
+                title: "Atlante di Anatomia Funzionale",
+                badge: "Morfologia & Biomeccanica",
+                subtitle: "Origine, inserzione, innervazione radicolare e azione biomeccanica dei distretti chiave.",
+                icon: "bone",
+                navLabel: "Anatomia",
+                filters: ["Tutti", "Spalla", "Ginocchio", "Tronco/Core", "Neurologia"],
+                items: [
+                    {
+                        id: "ana-1",
+                        district: "Spalla",
+                        title: "Muscolo Sovraspinato (Cuffia dei Rotatori)",
+                        subtitle: "Stabilizzatore dinamico superiore gleno-omerale",
+                        summary: "Decorre nella fossa sovraspinata passando sotto l'arco coraco-acromiale per inserirsi sul trochite omerale.",
+                        etiology: "ORIGINE: Fossa sovraspinata della scapola (2/3 mediali). INSERZIONE: Faccetta superiore del tubercolo maggiore (trochite) dell'omero e capsula articolare.",
+                        symptoms: [
+                            "Innervazione: Nervo sovrascapolare (radici C5 - C6).",
+                            "Azione Principale: Avvio dell'abduzione omerale (primi 15°-30°) e centratura della testa omerale nella cavità glenoidea (coattazione).",
+                            "Note Cliniche: Zona critica ipovascolarizzata di Codman a circa 1 cm dall'inserzione distale."
+                        ],
+                        tests: [
+                            "Rapporto anatomico: Separato dall'acromion dalla borsa subacromiale-subdeltoidea.",
+                            "Sinergia: Lavora in coppia di forze con il deltoide per evitare la risalita della testa omerale."
+                        ],
+                        redFlags: "Lesione isolata del nervo sovrascapolare (es. da cisti paralabrali nell'incisura spinoglenoidea) causa ipotrofia marcata delle fosse sovra e infraspinata."
+                    },
+                    {
+                        id: "ana-2",
+                        district: "Spalla",
+                        title: "Infraspinato, Piccolo Rotondo e Sottoscapolare",
+                        subtitle: "Equilibrio rotatorio della Cuffia dei Rotatori",
+                        summary: "Coppia di forze trasversale che garantisce la stabilità anteroposteriore della testa omerale.",
+                        etiology: "INFRASPINATO & PICCOLO ROTONDO: Origine faccia posteriore scapola -> Inserzione faccette media e inferiore del trochite. SOTTOSCAPOLARE: Origine fossa sottoscapolare -> Inserzione tubercolo minore (trochine).",
+                        symptoms: [
+                            "Innervazione: Infraspinato (N. sovrascapolare C5-C6); Piccolo rotondo (N. ascellare C5-C6); Sottoscapolare (Nn. sottoscapolari C5-C6-C7).",
+                            "Azione Principale: Infraspinato e Piccolo Rotondo = Extrarotazione; Sottoscapolare = Intrarotazione e stabilizzazione anteriore.",
+                            "Test specifici: Lift-off e Belly-press per sottoscapolare; Patte test per extrarotatori."
+                        ],
+                        tests: [
+                            "Biomeccanica: L'equilibrio tra sottoscapolare (anteriore) e infraspinato/piccolo rotondo (posteriori) mantiene centrato il fulcro articolare durante i movimenti overhead."
+                        ],
+                        redFlags: "L'atrofia del piccolo rotondo con parestesie laterali del braccio può indicare compressione nello spazio quadrilatero di Velpeau (nervo ascellare)."
+                    },
+                    {
+                        id: "ana-3",
+                        district: "Ginocchio",
+                        title: "Complesso Legamentoso Centrale e Collaterale del Ginocchio",
+                        subtitle: "LCA, LCP, LCM e LCL",
+                        summary: "Sistema di stabilizzazione passiva primaria sui piani sagittale, frontale e rotatorio.",
+                        etiology: "LCA: Da area intercondiloidea anteriore tibia a faccia mediale condilo femorale laterale. LCP: Da area intercondiloidea posteriore tibia a faccia laterale condilo femorale mediale.",
+                        symptoms: [
+                            "LCA (2 fasci: anteromediale e posterolaterale): Limita la traslazione anteriore della tibia e l'intrarotazione eccessiva.",
+                            "LCP: Limita la traslazione posteriore della tibia (massima tensione a 90° di flessione).",
+                            "LCM (superficiale e profondo): Resiste allo stress in valgo; intimamente connesso al menisco mediale. LCL: Resiste allo stress in varo."
+                        ],
+                        tests: [
+                            "Vascolarizzazione: Arteria genicolata media (fornisce apporto ematico ai crociati).",
+                            "Propriocezione: Ricca presenza di meccanocettori (corpuscoli di Ruffini e Pacini) fondamentali per i riflessi legamento-muscolari."
+                        ],
+                        redFlags: "Triade infausta di O'Donoghue: lesione combinata di LCA, LCM e menisco mediale da trauma in valgo-rotazione esterna."
+                    },
+                    {
+                        id: "ana-4",
+                        district: "Tronco/Core",
+                        title: "Trasverso dell'Addome e Multifido Lombare",
+                        subtitle: "Cilindro stabilizzatore profondo del Core",
+                        summary: "Sistema muscolare locale ad attivazione anticipatoria (feed-forward) per il controllo segmentario lombare.",
+                        etiology: "TRASVERSO ADDOME: Da cartilagini costali (7ª-12ª), fascia toracolombare e cresta iliaca -> Linea alba. MULTIFIDO: Dal sacro e processi trasversi -> Processi spinosi 2-4 segmenti sopra.",
+                        symptoms: [
+                            "Innervazione: Trasverso (Nn. intercostali T7-T12, ileoipogastrico, ileoinguinale); Multifido (Rami posteriori dei nervi spinali segmentari).",
+                            "Azione Principale: Aumento della pressione intra-addominale (PIA), tensionamento della fascia toracolombare e controllo della traslazione intervertebrale.",
+                            "Disfunzione: Nei pazienti con lombalgia cronica si osserva ritardo di attivazione e atrofia grassa del multifido."
+                        ],
+                        tests: [
+                            "Sinergia del Core: Il cilindro è chiuso superiormente dal Diaframma e inferiormente dai muscoli del Pavimento Pelvico."
+                        ],
+                        redFlags: "La diastasi dei retti addominali post-partum va valutata prima di prescrivere esercizi ad alto incremento pressorio."
+                    },
+                    {
+                        id: "ana-5",
+                        district: "Neurologia",
+                        title: "Plesso Brachiale (Radici C5 - T1)",
+                        subtitle: "Innervazione sensitiva e motoria dell'arto superiore",
+                        summary: "Rete nervosa formata dai rami anteriori di C5, C6, C7, C8 e T1 che attraversa lo stretto toracico.",
+                        etiology: "ORGANIZZAZIONE: 5 Radici -> 3 Tronchi (Superiore C5-C6, Medio C7, Inferiore C8-T1) -> 6 Divisioni -> 3 Corde (Laterale, Posteriore, Mediale) -> Nervi Terminali.",
+                        symptoms: [
+                            "Nervo Muscolocutaneo (C5-C7): Flessori del gomito (bicipite, brachiale) e sensibilità avambraccio laterale.",
+                            "Nervo Radiale (C5-T1): Estensori di gomito, polso e dita; dorso mano laterale.",
+                            "Nervo Mediano (C5-T1): Pronatori, flessori polso/dita, eminenza tenar; palmare prime 3 dita e mezzo.",
+                            "Nervo Ulnare (C8-T1): Flessore ulnare carpo, interossei, ipotenar; 5° dito e metà ulnare 4°."
+                        ],
+                        tests: [
+                            "Siti di intrappolamento critici: Triangolo interscalenico, spazio costo-clavicolare, spazio sottocoracoideo (Sindrome dello Stretto Toracico - TOS)."
+                        ],
+                        redFlags: "Sindrome di Horner (ptosi, miosi, anidrosi) associata a dolore radicolare C8-T1 -> escludere tumore dell'apice polmonare (Pancoast)."
+                    }
+                ]
+            },
+            esercizi: {
+                title: "Libreria Esercizi Terapeutici",
+                badge: "Esercizio & Dosaggio",
+                subtitle: "Esercizi riabilitativi con posologia, focus esecutivo e timer integrato per isometrie e recuperi.",
+                icon: "dumbbell",
+                navLabel: "Esercizi",
+                filters: ["Tutti", "Base / Analgesia", "Intermedio / Forza", "Avanzato / Propriocezione"],
+                items: [
+                    {
+                        id: "ese-1",
+                        district: "Base / Analgesia",
+                        title: "Esercizi Pendolari di Codman",
+                        subtitle: "Decompressione subacromiale e mobilizzazione passiva precoce",
+                        defaultSeconds: 45,
+                        dosage: "3 serie x 45-60 secondi | Recupero 30s",
+                        summary: "Oscillazioni passive dell'arto superiore sfruttando la forza di gravità a tronco flesso.",
+                        etiology: "Obiettivo: Favorire la lubrificazione sinoviale, ridurre lo spasmo muscolare protettivo e aumentare lo spazio subacromiale senza attivazione attiva del deltoide/sovraspinato.",
+                        symptoms: [
+                            "Posizione: Busto flesso in avanti a 60°-90° con mano sana appoggiata su un lettino/tavolo.",
+                            "Esecuzione: Rilassare completamente il braccio affetto e avviare piccoli cerchi o oscillazioni antero-posteriori muovendo il tronco (non la spalla).",
+                            "Progressione: È possibile impugnare un peso leggero (0.5 - 1 kg) per aumentare la trazione articolare."
+                        ],
+                        tests: [
+                            "Errori comuni: Contrarre attivamente i muscoli della spalla per disegnare cerchi ampi.",
+                            "Timer consigliato: 45 secondi per direzione."
+                        ],
+                        redFlags: "Sospendere se compare dolore acuto trafittivo o sensazione di sublussazione anteriore."
+                    },
+                    {
+                        id: "ese-2",
+                        district: "Intermedio / Forza",
+                        title: "Extrarotazione di Spalla con Elastico a 0° Abduzione",
+                        subtitle: "Rinforzo selettivo di Infraspinato e Piccolo Rotondo",
+                        defaultSeconds: 30,
+                        dosage: "3 serie x 12-15 ripetizioni (o isometria 30s) | Rec 45s",
+                        summary: "Rotazione esterna dell'omero con gomito flesso a 90° e asciugamano arrotolato tra braccio e torace.",
+                        etiology: "Obiettivo: Rinforzare gli extrarotatori della cuffia minimizzando l'attivazione del deltoide e migliorando la vascolarizzazione tendinea grazie al piccolo cuscinetto ascellare.",
+                        symptoms: [
+                            "Posizione: Stazione eretta, scapole addotte e depresse (setting scapolare), asciugamano tra gomito e fianco.",
+                            "Esecuzione: Ruotare l'avambraccio verso l'esterno mantenendo il gomito fisso a 90°. Fase eccentrica lenta (3 secondi).",
+                            "Variante isometrica: Mantenere la tensione a 30° di extrarotazione per 30 secondi."
+                        ],
+                        tests: [
+                            "Errori comuni: Compensare con estensione del polso o abduzione del gomito dal tronco.",
+                            "Timer consigliato: 30 secondi per tenuta isometrica o recupero."
+                        ],
+                        redFlags: "Dolore > 3/10 sulla scala VAS durante l'esecuzione: ridurre la resistenza dell'elastico."
+                    },
+                    {
+                        id: "ese-3",
+                        district: "Base / Analgesia",
+                        title: "Estensione Lombare Prona (Metodo McKenzie)",
+                        subtitle: "Centralizzazione del dolore discogenico",
+                        defaultSeconds: 15,
+                        dosage: "10 ripetizioni ogni 2-3 ore (tenuta 2-15s in alto)",
+                        summary: "Estensione passiva del rachide lombare spingendo sulle braccia mantenendo il bacino rilassato sul lettino.",
+                        etiology: "Obiettivo: Promuovere la migrazione anteriore del nucleo polposo, ridurre la pressione intradiscale posteriore e ottenere il fenomeno della centralizzazione dei sintomi.",
+                        symptoms: [
+                            "Posizione: Prono, mani sotto le spalle come per eseguire un piegamento.",
+                            "Esecuzione: Estendere i gomiti sollevando il torace mentre glutei e zona lombare restano completamente rilassati al suolo.",
+                            "Verifica clinica: Il dolore irradiato deve ritirarsi prossimalmente verso il centro della colonna (centralizzazione)."
+                        ],
+                        tests: [
+                            "Errori comuni: Contrarre i glutei o i paravertebrali lombari durante la spinta.",
+                            "Timer consigliato: 15 secondi di mantenimento in estensione."
+                        ],
+                        redFlags: "PERIFERIZZAZIONE: Se il dolore scende ulteriormente lungo la gamba o aumentano parestesie/debolezza, interrompere immediatamente."
+                    },
+                    {
+                        id: "ese-4",
+                        district: "Intermedio / Forza",
+                        title: "Ponte Glutei Supino (Glute Bridge)",
+                        subtitle: "Attivazione catena posteriore e stabilizzazione lombo-pelvica",
+                        defaultSeconds: 30,
+                        dosage: "3 serie x 12 rip (o tenuta isometrica 30s) | Rec 45s",
+                        summary: "Sollevamento del bacino da posizione supina con ginocchia flesse a 90° e talloni in appoggio.",
+                        etiology: "Obiettivo: Rinforzare il grande gluteo e gli ischiocrurali riducendo lo stress in taglio anteriore sul rachide lombare.",
+                        symptoms: [
+                            "Posizione: Supino, piedi larghezza bacino, attiva pre-contrazione del trasverso addominale.",
+                            "Esecuzione: Spingere sui talloni ed estendere le anche fino ad allineare spalle, bacino e ginocchia senza iperestendere la zona lombare.",
+                            "Progressione: Ponte monopodalico (Single Leg Bridge) per controllo rotatorio del bacino."
+                        ],
+                        tests: [
+                            "Errori comuni: Crampi ai flessori di ginocchio (avvicinare i talloni ai glutei) o iperlordosi lombare.",
+                            "Timer consigliato: 30 secondi di tenuta isometrica in alto."
+                        ],
+                        redFlags: "Dolore acuto sacro-iliaco o radicolare in estensione d'anca."
+                    },
+                    {
+                        id: "ese-5",
+                        district: "Avanzato / Propriocezione",
+                        title: "Equilibrio Monopodalico su Superficie Instabile (Star Excursion)",
+                        subtitle: "Controllo neuromuscolare caviglia e ginocchio",
+                        defaultSeconds: 45,
+                        dosage: "4 serie x 45 secondi per lato | Recupero 30s",
+                        summary: "Mantenimento della stabilità su un solo arto con perturbazioni visive o raggiungimento multidirezionale.",
+                        etiology: "Obiettivo: Ripristinare le afferenze propriocettive capsulo-legamentose dopo distorsione di caviglia o ricostruzione LCA, prevenendo il valgismo dinamico.",
+                        symptoms: [
+                            "Posizione: Stazione monopodalica con ginocchio leggermente flesso (15°-20°), bacino livellato.",
+                            "Esecuzione: Mantenere l'allineamento anca-ginocchio-secondo dito del piede evitando il collasso mediale del ginocchio.",
+                            "Progressione: Occhi chiusi, cuscino propriocettivo, oppure tocco di target a terra con l'arto controlaterale (Y-Balance)."
+                        ],
+                        tests: [
+                            "Errori comuni: Caduta del bacino controlaterale (segno di Trendelenburg) o pronazione eccessiva del piede.",
+                            "Timer consigliato: 45 secondi per arto."
+                        ],
+                        redFlags: "Instabilità meccanica severa non protetta o edema articolare in incremento post-seduta."
+                    }
+                ]
+            },
+            protocolli: {
+                title: "Protocolli Riabilitativi per Fasi",
+                badge: "Percorsi Clinici",
+                subtitle: "Progressione basata su criteri clinici e biologici: Fase Acuta, Recupero ROM/Forza e Return to Sport.",
+                icon: "clipboard-list",
+                navLabel: "Protocolli",
+                filters: ["Tutti", "Ginocchio", "Anca", "Colonna"],
+                items: [
+                    {
+                        id: "prot-1",
+                        district: "Ginocchio",
+                        title: "Ricostruzione Legamento Crociato Anteriore (LCA)",
+                        subtitle: "Percorso completo 0 - 9+ Mesi (Criteri-Dipendente)",
+                        summary: "Riabilitazione strutturata dalla protezione del neo-legamento fino al Return to Sport (RTS) con test funzionali.",
+                        etiology: "Considerazioni biologiche: Il graft (tendine rotuleo o gracile/semitendinoso) attraversa una fase di necrosi avascolare e ligamentizzazione critica tra la 6ª e la 12ª settimana.",
+                        symptoms: [
+                            "FASE 1 (Settimane 0-2) - Protezione & Controllo Infiammatorio: Ghiaccio/compressione, recupero completo estensione passiva (0°), flessione progressiva fino a 90°-100°, attivazione quadricipite (contrazioni isometriche + EMS), mobilizzazione rotulea, deambulazione con stampelle a carico progressivo.",
+                            "FASE 2 (Settimane 3-12) - Recupero ROM & Forza Base: ROM completo (0°-135°+), schema del passo normale senza stampelle, esercizi in catena cinetica chiusa (mini-squat 0°-60°, leg press), rinforzo catena posteriore e glutei, propriocezione monopodalica statica e dinamica.",
+                            "FASE 3 (Mesi 3-6) - Forza Avanzata & Corsa: Rinforzo isotonico completo (inclusa catena cinetica aperta 90°-40° controllata), avvio corsa lineare (se LSI quadricipite >75% e assenza versamento), pliometria bipodalica.",
+                            "FASE 4 (Mesi 6-9+) - Return to Sport (RTS): Cambi di direzione (agility), pliometria monopodalica, criteri RTS: Limb Symmetry Index (LSI) >90% ai test isocinetici e Hop Test (Single, Triple, Crossover), scala ACL-RSI >75%."
+                        ],
+                        tests: [
+                            "Criterio chiave Fase 1 -> 2: Estensione completa 0°, flessione >90°, assenza di lag estensorio al SLR.",
+                            "Avoid: Evitare estensione attiva resistita negli ultimi 30° nelle prime 6-8 settimane per ridurre lo stress sul graft."
+                        ],
+                        redFlags: "Febbre, arrossamento e calore crescente della ferita (infezione articolare), perdita improvvisa di estensione (lesione ciclope / Cyclops lesion)."
+                    },
+                    {
+                        id: "prot-2",
+                        district: "Anca",
+                        title: "Protesi Totale d'Anca (PTA)",
+                        subtitle: "Recupero autonomia funzionale e prevenzione lussazione",
+                        summary: "Gestione post-operatoria mirata al recupero del cammino, rinforzo degli abduttori e rispetto delle precauzioni articolari.",
+                        etiology: "Nota chirurgica: L'accesso postero-laterale richiede precauzioni contro flessione >90°, adduzione oltre la linea mediana e intrarotazione nelle prime 6-8 settimane. L'accesso anteriore diretto ha minor rischio di lussazione posteriore ma richiede cautela in iperestensione ed extrarotazione.",
+                        symptoms: [
+                            "FASE 1 (Giorni 1-14) - Mobilizzazione Precoce: Profilassi antitrombotica (pompa caviglia), contrazioni isometriche quadricipite e glutei, passaggi posturali sicuri (cuscino divaricatore se indicato), deambulazione con deambulatore/2 stampelle, training scale.",
+                            "FASE 2 (Settimane 3-6) - Rinforzo & Equilibrio: Abbandono progressivo della prima stampella (lato controlaterale all'operato), abduzione d'anca in piedi/decubito, mini-squat, cyclette con sella alta, correzione zoppia di Trendelenburg.",
+                            "FASE 3 (Settimane 7-12+) - Funzione Avanzata: Cammino autonomo senza ausili, salita/discesa scale alternata, rinforzo medio gluteo in carico monopodalico, ritorno ad attività a basso impatto (nuoto, ciclismo, camminata veloce)."
+                        ],
+                        tests: [
+                            "Test funzionali: Timed Up and Go (TUG), 6-Minute Walk Test, valutazione segno di Trendelenburg."
+                        ],
+                        redFlags: "Accorciamento improvviso ed extrarotazione dell'arto con dolore acuto (lussazione protesica), polpaccio gonfio/caldo/dolente (TVP)."
+                    },
+                    {
+                        id: "prot-3",
+                        district: "Colonna",
+                        title: "Lombalgia Meccanica Acuta / Subacuta (LBP)",
+                        subtitle: "Gestione attiva, educazione e ricondizionamento",
+                        summary: "Approccio biopsicosociale per ridurre la chinesiofobia, modulare il dolore e prevenire la cronicizzazione.",
+                        etiology: "Oltre il 90% delle lombalgie è di origine meccanica non specifica. Il riposo a letto prolungato (>48h) peggiora la prognosi; il movimento dosato accelera il recupero.",
+                        symptoms: [
+                            "FASE 1 (Giorni 1-7) - Modulazione Dolore & Rassicurazione: Educazione del paziente (rassicurazione sulla benignità del quadro), ricerca preferenza direzionale (es. estensioni McKenzie o basculamenti pelvici), camminate brevi e frequenti (10-15 min), terapia manuale antalgica.",
+                            "FASE 2 (Settimane 2-4) - Controllo Motorio & Mobilità: Attivazione selettiva Core (Bird-dog, Dead-bug modificato, Side plank su ginocchia), mobilità anca e rachide toracico per ridurre il compenso lombare.",
+                            "FASE 3 (Settimane 5-8+) - Rinforzo Funzionale & Prevenzione Recidive: Schemi motori fondamentali (Hip Hinge / stacco con bastone, squat, trasporto carichi), esposizione graduale ai movimenti precedentemente temuti."
+                        ],
+                        tests: [
+                            "Screening Psicosociale (Yellow Flags): Valutare catastrofizzazione, paura del movimento (Tampa Scale of Kinesiophobia) e aspettative di recupero."
+                        ],
+                        redFlags: "Comparsa di sintomi della Cauda Equina, dolore notturno ingravescente non influenzato dalla postura, storia oncologica, febbre."
+                    }
+                ]
+            }
+        };
+
+        // =========================================================================
+        // 2. STATO DELL'APPLICAZIONE E LOCALSTORAGE
+        // =========================================================================
+        let state = {
+            activeSection: 'patologie',
+            activeSubFilter: 'Tutti',
+            searchQuery: '',
+            onlyFavorites: false,
+            favorites: JSON.parse(localStorage.getItem('fisiopro_favorites') || '[]'),
+            currentModalItem: null
+        };
+
+        // Stato Timer Esercizi
+        let timerState = {
+            totalSeconds: 30,
+            remainingSeconds: 30,
+            isRunning: false,
+            intervalId: null,
+            exerciseName: "Tenuta Isometrica / Recupero"
+        };
+
+        // =========================================================================
+        // 3. INIZIALIZZAZIONE E RENDERING NAVIGAZIONE
+        // =========================================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNavigation();
+            updateFavoritesBadges();
+            renderContent();
+
+            // Listener ricerca globale in tempo reale
+            const searchInput = document.getElementById('global-search');
+            const clearBtn = document.getElementById('clear-search');
+            
+            searchInput.addEventListener('input', (e) => {
+                state.searchQuery = e.target.value.trim().toLowerCase();
+                if (state.searchQuery.length > 0) {
+                    clearBtn.classList.remove('hidden');
+                } else {
+                    clearBtn.classList.add('hidden');
+                }
+                renderContent();
+            });
+
+            // Chiusura modale con tasto ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+        });
+
+        function renderNavigation() {
+            const desktopNav = document.getElementById('desktop-nav');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            desktopNav.innerHTML = '';
+            mobileNav.innerHTML = '';
+
+            Object.entries(CLINICAL_DB).forEach(([key, section]) => {
+                const isActive = state.activeSection === key && !state.onlyFavorites;
+
+                // Voce Sidebar Desktop
+                const dBtn = document.createElement('button');
+                dBtn.onclick = () => switchSection(key);
+                dBtn.className = `w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold transition-all ${
+                    isActive 
+                    ? 'bg-clinical-600 text-white shadow-md shadow-clinical-600/20' 
+                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+                }`;
+                dBtn.innerHTML = `
+                    <i data-lucide="${section.icon}" class="w-5 h-5 shrink-0"></i>
+                    <span class="truncate">${section.navLabel}</span>
+                    <span class="ml-auto text-xs px-2 py-0.5 rounded-full ${isActive ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'}">${section.items.length}</span>
+                `;
+                desktopNav.appendChild(dBtn);
+
+                // Voce Bottom Bar Mobile
+                const mBtn = document.createElement('button');
+                mBtn.onclick = () => switchSection(key);
+                mBtn.className = `flex flex-col items-center justify-center py-1.5 px-1 rounded-xl transition-all ${
+                    isActive 
+                    ? 'text-clinical-600 bg-clinical-50/90 font-bold' 
+                    : 'text-slate-500 hover:text-slate-800 font-medium'
+                }`;
+                mBtn.innerHTML = `
+                    <i data-lucide="${section.icon}" class="w-5 h-5 mb-0.5 ${isActive ? 'stroke-[2.5]' : ''}"></i>
+                    <span class="text-[10px] leading-tight tracking-tight truncate w-full text-center">${section.navLabel}</span>
+                `;
+                mobileNav.appendChild(mBtn);
+            });
+
+            lucide.createIcons();
+        }
+
+        function switchSection(sectionKey) {
+            state.activeSection = sectionKey;
+            state.activeSubFilter = 'Tutti';
+            state.onlyFavorites = false;
+            updateFavButtonsUI();
+            renderNavigation();
+            renderContent();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function clearSearch() {
+            const searchInput = document.getElementById('global-search');
+            searchInput.value = '';
+            state.searchQuery = '';
+            document.getElementById('clear-search').classList.add('hidden');
+            renderContent();
+        }
+
+        function resetAllFilters() {
+            clearSearch();
+            state.activeSubFilter = 'Tutti';
+            state.onlyFavorites = false;
+            updateFavButtonsUI();
+            renderNavigation();
+            renderContent();
+        }
+
+        // =========================================================================
+        // 4. RENDERING SCHEDE E FILTRI IN TEMPO REALE
+        // =========================================================================
+        function renderContent() {
+            const currentSec = CLINICAL_DB[state.activeSection];
+            const timerWidget = document.getElementById('exercise-timer-widget');
+
+            // Mostra/nascondi il widget Timer nella sezione Esercizi
+            if (state.activeSection === 'esercizi' && !state.onlyFavorites) {
+                timerWidget.classList.remove('hidden');
+            } else {
+                timerWidget.classList.add('hidden');
+            }
+
+            // Aggiorna intestazione pagina
+            if (state.onlyFavorites) {
+                document.getElementById('section-badge').textContent = "Archivio Personale";
+                document.getElementById('section-title').textContent = "Schede Cliniche Preferite";
+                document.getElementById('section-subtitle').textContent = "Tutti i protocolli, test ed esercizi salvati localmente sul tuo dispositivo.";
+            } else if (state.searchQuery.length > 0) {
+                document.getElementById('section-badge').textContent = "Ricerca Globale";
+                document.getElementById('section-title').textContent = `Risultati per "${state.searchQuery}"`;
+                document.getElementById('section-subtitle').textContent = "Ricerca trasversale in tutte le 6 sezioni cliniche.";
+            } else {
+                document.getElementById('section-badge').textContent = currentSec.badge;
+                document.getElementById('section-title').textContent = currentSec.title;
+                document.getElementById('section-subtitle').textContent = currentSec.subtitle;
+            }
+
+            // Rendering Sotto-filtri
+            const subfiltersContainer = document.getElementById('subfilters-container');
+            subfiltersContainer.innerHTML = '';
+
+            if (!state.onlyFavorites && state.searchQuery.length === 0) {
+                currentSec.filters.forEach(filter => {
+                    const isFilterActive = state.activeSubFilter === filter;
+                    const btn = document.createElement('button');
+                    btn.onclick = () => {
+                        state.activeSubFilter = filter;
+                        renderContent();
+                    };
+                    btn.className = `px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all border ${
+                        isFilterActive
+                        ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
+                        : 'bg-white text-slate-600 border-slate-200 hover:border-clinical-400 hover:text-clinical-700'
+                    }`;
+                    btn.textContent = filter;
+                    subfiltersContainer.appendChild(btn);
+                });
+            }
+
+            // Raccolta elementi da filtrare
+            let itemsToDisplay = [];
+
+            if (state.onlyFavorites || state.searchQuery.length > 0) {
+                // Cerca su tutto il database
+                Object.entries(CLINICAL_DB).forEach(([secKey, secData]) => {
+                    secData.items.forEach(item => {
+                        itemsToDisplay.push({ ...item, sectionKey: secKey, sectionName: secData.navLabel });
+                    });
+                });
+            } else {
+                // Solo sezione attiva
+                itemsToDisplay = currentSec.items.map(item => ({
+                    ...item,
+                    sectionKey: state.activeSection,
+                    sectionName: currentSec.navLabel
+                }));
+            }
+
+            // Applica filtro Preferiti
+            if (state.onlyFavorites) {
+                itemsToDisplay = itemsToDisplay.filter(item => state.favorites.includes(item.id));
+            }
+
+            // Applica Sotto-filtro distretto
+            if (!state.onlyFavorites && state.searchQuery.length === 0 && state.activeSubFilter !== 'Tutti') {
+                itemsToDisplay = itemsToDisplay.filter(item => item.district === state.activeSubFilter);
+            }
+
+            // Applica Ricerca Globale Testuale
+            if (state.searchQuery.length > 0) {
+                itemsToDisplay = itemsToDisplay.filter(item => {
+                    const searchableText = [
+                        item.title,
+                        item.subtitle,
+                        item.district,
+                        item.summary,
+                        item.etiology,
+                        item.redFlags,
+                        ...(item.symptoms || []),
+                        ...(item.tests || [])
+                    ].join(' ').toLowerCase();
+                    return searchableText.includes(state.searchQuery);
+                });
+            }
+
+            // Aggiorna contatore risultati
+            document.getElementById('results-counter').textContent = `${itemsToDisplay.length} ${itemsToDisplay.length === 1 ? 'scheda' : 'schede'}`;
+
+            // Rendering Griglia Cards
+            const grid = document.getElementById('content-grid');
+            const emptyState = document.getElementById('empty-state');
+            grid.innerHTML = '';
+
+            if (itemsToDisplay.length === 0) {
+                grid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                lucide.createIcons();
+                return;
+            }
+
+            grid.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+
+            itemsToDisplay.forEach(item => {
+                const isFav = state.favorites.includes(item.id);
+                const card = document.createElement('article');
+                card.className = "bg-white rounded-3xl border border-slate-200/90 p-5 shadow-xs hover:shadow-md hover:border-clinical-300 transition-all flex flex-col justify-between group cursor-pointer";
+                card.onclick = (e) => {
+                    // Evita apertura modale se si clicca sui bottoni rapidi della card
+                    if (e.target.closest('button')) return;
+                    openModal(item);
+                };
+
+                // Badge colore per sezione
+                const badgeHTML = (state.searchQuery.length > 0 || state.onlyFavorites)
+                    ? `<span class="text-[11px] font-bold px-2.5 py-0.5 rounded-lg bg-slate-100 text-slate-700">${item.sectionName}</span>`
+                    : '';
+
+                // Bottone Timer Rapido se è un esercizio
+                const exerciseQuickAction = item.sectionKey === 'esercizi' ? `
+                    <button onclick="loadExerciseTimer('${item.title.replace(/'/g, "\\'")}', ${item.defaultSeconds || 30})" 
+                            class="px-3 py-1.5 rounded-xl bg-clinical-50 hover:bg-clinical-100 text-clinical-700 text-xs font-semibold flex items-center gap-1.5 border border-clinical-200/80 transition">
+                        <i data-lucide="timer" class="w-3.5 h-3.5"></i>
+                        <span>Timer ${item.defaultSeconds || 30}s</span>
+                    </button>
+                ` : '';
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-start justify-between gap-2 mb-3">
+                            <div class="flex flex-wrap items-center gap-1.5">
+                                <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-lg bg-clinical-50 text-clinical-700 border border-clinical-200/60">
+                                    ${item.district}
+                                </span>
+                                ${badgeHTML}
+                            </div>
+                            <button onclick="toggleFavorite('${item.id}')" class="p-1.5 rounded-xl text-slate-400 hover:text-amber-500 hover:bg-amber-50 transition" title="${isFav ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}">
+                                <i data-lucide="bookmark" class="w-4 h-4 ${isFav ? 'fill-amber-400 text-amber-500' : ''}"></i>
+                            </button>
+                        </div>
+
+                        <h3 class="text-base font-bold text-slate-900 group-hover:text-clinical-700 transition-colors leading-snug mb-1">
+                            ${item.title}
+                        </h3>
+                        <p class="text-xs font-medium text-slate-500 mb-3">${item.subtitle}</p>
+                        
+                        <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-4">
+                            ${item.summary}
+                        </p>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                        ${exerciseQuickAction || `<span class="text-[11px] font-medium text-slate-400">Scheda clinica completa</span>`}
+                        <span class="text-xs font-semibold text-clinical-600 group-hover:translate-x-0.5 transition-transform flex items-center gap-1 ml-auto">
+                            <span>Dettagli</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </span>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+        // =========================================================================
+        // 5. MODALE DETTAGLI SCHEDA CLINICA
+        // =========================================================================
+        function openModal(item) {
+            state.currentModalItem = item;
+            const modal = document.getElementById('detail-modal');
+            const isFav = state.favorites.includes(item.id);
+
+            document.getElementById('modal-category-badge').textContent = item.sectionName || CLINICAL_DB[state.activeSection].navLabel;
+            document.getElementById('modal-tag-badge').textContent = item.district;
+            document.getElementById('modal-title').textContent = item.title;
+
+            // Aggiorna icona preferito nella modale
+            const favBtn = document.getElementById('modal-fav-btn');
+            favBtn.innerHTML = `<i data-lucide="bookmark" class="w-5 h-5 ${isFav ? 'fill-amber-400 text-amber-500' : ''}"></i>`;
+
+            // Etichette contestuali in base alla sezione
+            let labels = {
+                sec1: "Eziologia & Fisiopatologia",
+                sec2: "Quadro Clinico & Sintomi Principali",
+                sec3: "Test Clinici & Valutazione Consigliata"
+            };
+
+            if (item.sectionKey === 'trattamenti') {
+                labels = {
+                    sec1: "Razionale Biomeccanico e Neurofisiologico",
+                    sec2: "Indicazioni Cliniche",
+                    sec3: "Modalità di Esecuzione e Controindicazioni"
+                };
+            } else if (item.sectionKey === 'strumentale') {
+                labels = {
+                    sec1: "Meccanismo Biofisico",
+                    sec2: "Indicazioni Terapeutiche",
+                    sec3: "Parametri Indicativi & Sicurezza"
+                };
+            } else if (item.sectionKey === 'anatomia') {
+                labels = {
+                    sec1: "Origine e Inserzione Anatomica",
+                    sec2: "Innervazione e Azione Principale",
+                    sec3: "Correlazioni Cliniche e Biomeccaniche"
+                };
+            } else if (item.sectionKey === 'esercizi') {
+                labels = {
+                    sec1: "Obiettivo Terapeutico",
+                    sec2: "Esecuzione Step-by-Step",
+                    sec3: "Errori Comuni & Gestione Timer"
+                };
+            } else if (item.sectionKey === 'protocolli') {
+                labels = {
+                    sec1: "Razionale Biologico e Chirurgico",
+                    sec2: "Progressione Riabilitativa per Fasi",
+                    sec3: "Criteri di Passaggio e Precauzioni"
+                };
+            }
+
+            const dosageBanner = item.dosage ? `
+                <div class="bg-clinical-50 border border-clinical-200 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-clinical-700 block">Posologia Consigliata</span>
+                        <span class="text-sm font-bold text-slate-900">${item.dosage}</span>
+                    </div>
+                    <button onclick="loadExerciseTimer('${item.title.replace(/'/g, "\\'")}', ${item.defaultSeconds || 30}); closeModal();" 
+                            class="px-4 py-2 rounded-xl bg-clinical-600 hover:bg-clinical-700 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition shrink-0">
+                        <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                        <span>Avvia Timer (${item.defaultSeconds || 30}s)</span>
+                    </button>
+                </div>
+            ` : '';
+
+            const modalBody = document.getElementById('modal-body');
+            modalBody.innerHTML = `
+                <p class="text-slate-600 font-medium bg-slate-100/80 p-3.5 rounded-2xl border border-slate-200/70">
+                    ${item.summary}
+                </p>
+
+                ${dosageBanner}
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-clinical-700 mb-1.5 flex items-center gap-1.5">
+                        <i data-lucide="info" class="w-4 h-4"></i>
+                        <span>${labels.sec1}</span>
+                    </h4>
+                    <p class="text-slate-700">${item.etiology}</p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-clinical-700 mb-2 flex items-center gap-1.5">
+                        <i data-lucide="list-checks" class="w-4 h-4"></i>
+                        <span>${labels.sec2}</span>
+                    </h4>
+                    <ul class="space-y-2">
+                        ${item.symptoms.map(s => `
+                            <li class="flex items-start gap-2.5 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                <span class="w-1.5 h-1.5 rounded-full bg-clinical-500 mt-2 shrink-0"></span>
+                                <span>${s}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-clinical-700 mb-2 flex items-center gap-1.5">
+                        <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+                        <span>${labels.sec3}</span>
+                    </h4>
+                    <ul class="space-y-2">
+                        ${item.tests.map(t => `
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-clinical-600 mt-0.5 shrink-0"></i>
+                                <span>${t}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+
+                <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-rose-700 mb-1 flex items-center gap-1.5">
+                        <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                        <span>Red Flags & Controindicazioni Critiche</span>
+                    </h4>
+                    <p class="text-xs text-rose-900 leading-relaxed">${item.redFlags}</p>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+            state.currentModalItem = null;
+        }
+
+        function copyModalContent() {
+            if (!state.currentModalItem) return;
+            const item = state.currentModalItem;
+            const textToCopy = `${item.title} (${item.district})\n${item.summary}\n\nDettagli:\n${item.etiology}\n\nPunti chiave:\n- ${item.symptoms.join('\n- ')}\n\nNote/Test:\n- ${item.tests.join('\n- ')}\n\nRed Flags: ${item.redFlags}`;
+
+            // Uso di textarea temporanea + document.execCommand('copy') per massima compatibilità
+            const textArea = document.createElement("textarea");
+            textArea.value = textToCopy;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-9999px";
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast("Appunti clinici copiati negli appunti");
+            } catch (err) {
+                showToast("Impossibile copiare il testo");
+            }
+            document.body.removeChild(textArea);
+        }
+
+        // =========================================================================
+        // 6. GESTIONE PREFERITI (LOCALSTORAGE)
+        // =========================================================================
+        function toggleFavorite(itemId) {
+            const index = state.favorites.indexOf(itemId);
+            if (index === -1) {
+                state.favorites.push(itemId);
+                showToast("Aggiunto ai preferiti");
+            } else {
+                state.favorites.splice(index, 1);
+                showToast("Rimosso dai preferiti");
+            }
+            localStorage.setItem('fisiopro_favorites', JSON.stringify(state.favorites));
+            updateFavoritesBadges();
+            renderContent();
+        }
+
+        function toggleCurrentModalFavorite() {
+            if (!state.currentModalItem) return;
+            toggleFavorite(state.currentModalItem.id);
+            const isFav = state.favorites.includes(state.currentModalItem.id);
+            const favBtn = document.getElementById('modal-fav-btn');
+            favBtn.innerHTML = `<i data-lucide="bookmark" class="w-5 h-5 ${isFav ? 'fill-amber-400 text-amber-500' : ''}"></i>`;
+            lucide.createIcons();
+        }
+
+        function toggleFavoritesFilter() {
+            state.onlyFavorites = !state.onlyFavorites;
+            updateFavButtonsUI();
+            renderNavigation();
+            renderContent();
+        }
+
+        function updateFavoritesBadges() {
+            const count = state.favorites.length;
+            document.getElementById('desktop-fav-count').textContent = count;
+            document.getElementById('mobile-fav-count').textContent = count;
+        }
+
+        function updateFavButtonsUI() {
+            const dBtn = document.getElementById('desktop-fav-btn');
+            const mBtn = document.getElementById('mobile-fav-btn');
+
+            if (state.onlyFavorites) {
+                dBtn.className = "w-full py-2 px-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 transition-colors bg-amber-500 text-white shadow-xs";
+                mBtn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500 text-white text-xs font-semibold shadow-xs transition-all";
+            } else {
+                dBtn.className = "w-full py-2 px-3 rounded-xl text-sm font-medium flex items-center justify-center gap-2 transition-colors bg-white border border-slate-200 text-slate-700 hover:bg-clinical-50 hover:text-clinical-700 hover:border-clinical-200";
+                mBtn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 text-xs font-semibold transition-all";
+            }
+        }
+
+        // =========================================================================
+        // 7. TIMER INTERATTIVO PER ESERCIZI TERAPEUTICI (CON SEGNALE ACUSTICO)
+        // =========================================================================
+        function formatTime(secs) {
+            const m = Math.floor(secs / 60).toString().padStart(2, '0');
+            const s = (secs % 60).toString().padStart(2, '0');
+            return `${m}:${s}`;
+        }
+
+        function updateTimerDisplay() {
+            document.getElementById('timer-display').textContent = formatTime(timerState.remainingSeconds);
+            document.getElementById('timer-exercise-name').textContent = timerState.exerciseName;
+            
+            const startBtn = document.getElementById('timer-start-btn');
+            const statusLabel = document.getElementById('timer-status-label');
+            const timerRing = document.getElementById('timer-ring');
+
+            if (timerState.isRunning) {
+                startBtn.innerHTML = `<i data-lucide="pause" class="w-4 h-4 fill-current"></i><span>Pausa</span>`;
+                startBtn.classList.replace('bg-clinical-500', 'bg-amber-400');
+                startBtn.classList.replace('hover:bg-clinical-400', 'hover:bg-amber-300');
+                statusLabel.textContent = "In Corso";
+                timerRing.classList.add('timer-active-glow', 'border-clinical-400');
+            } else {
+                startBtn.innerHTML = `<i data-lucide="play" class="w-4 h-4 fill-current"></i><span>Avvia</span>`;
+                startBtn.classList.replace('bg-amber-400', 'bg-clinical-500');
+                startBtn.classList.replace('hover:bg-amber-300', 'hover:bg-clinical-400');
+                statusLabel.textContent = timerState.remainingSeconds === 0 ? "Completato!" : "Pronto";
+                timerRing.classList.remove('timer-active-glow', 'border-clinical-400');
+            }
+            lucide.createIcons();
+        }
+
+        function setTimerSeconds(seconds) {
+            pauseTimer();
+            timerState.totalSeconds = seconds;
+            timerState.remainingSeconds = seconds;
+            updateTimerDisplay();
+        }
+
+        function loadExerciseTimer(exerciseName, seconds) {
+            // Assicura passaggio alla sezione esercizi per vedere il timer
+            if (state.activeSection !== 'esercizi') {
+                switchSection('esercizi');
+            }
+            pauseTimer();
+            timerState.exerciseName = exerciseName;
+            timerState.totalSeconds = seconds;
+            timerState.remainingSeconds = seconds;
+            updateTimerDisplay();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            showToast(`Timer impostato su ${seconds}s`);
+        }
+
+        function toggleTimer() {
+            if (timerState.isRunning) {
+                pauseTimer();
+            } else {
+                startTimer();
+            }
+        }
+
+        function startTimer() {
+            if (timerState.remainingSeconds <= 0) {
+                timerState.remainingSeconds = timerState.totalSeconds;
+            }
+            timerState.isRunning = true;
+            updateTimerDisplay();
+
+            timerState.intervalId = setInterval(() => {
+                timerState.remainingSeconds--;
+                updateTimerDisplay();
+
+                if (timerState.remainingSeconds <= 0) {
+                    pauseTimer();
+                    playBeepSignal();
+                    showToast("Tempo esercizio completato!");
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            timerState.isRunning = false;
+            if (timerState.intervalId) {
+                clearInterval(timerState.intervalId);
+                timerState.intervalId = null;
+            }
+            updateTimerDisplay();
+        }
+
+        function resetTimer() {
+            pauseTimer();
+            timerState.remainingSeconds = timerState.totalSeconds;
+            updateTimerDisplay();
+        }
+
+        // Segnale acustico Web Audio API (nessun file audio esterno necessario)
+        function playBeepSignal() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const notes = [880, 1108.73, 1318.51]; // Accordo positivo La maggiore
+                notes.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime + idx * 0.12);
+                    gain.gain.setValueAtTime(0.15, audioCtx.currentTime + idx * 0.12);
+                    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + idx * 0.12 + 0.35);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(audioCtx.currentTime + idx * 0.12);
+                    osc.stop(audioCtx.currentTime + idx * 0.12 + 0.35);
+                });
+            } catch (e) {
+                // Fallback silenzioso se audio bloccato dal browser
+            }
+        }
+
+        // =========================================================================
+        // 8. NOTIFICHE TOAST
+        // =========================================================================
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2600);
+        }
+    </script>
+</body>
+</html>
