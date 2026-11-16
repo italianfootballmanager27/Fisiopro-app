@@ -114,7 +114,7 @@
                 <i class="fa-solid fa-bone text-xl mb-2 text-emerald-600"></i>
                 <div>
                     <h3 class="font-bold text-sm">Anatomia</h3>
-                    <p class="text-[11px] opacity-75">151 Muscoli + Funzione</p>
+                    <p class="text-[11px] opacity-75">Muscoli per Distretto</p>
                 </div>
             </button>
             <button onclick="switchSection('esercizi')" id="btn-sec-esercizi" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
@@ -171,9 +171,9 @@
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-bone text-emerald-600"></i>
-                    <span>Atlante Miologico Ufficiale (151 Muscoli con Origine, Inserzione e Gesti Quotidiani)</span>
+                    <span>Atlante Miologico Ufficiale (Filtrato per Sezione Anatomica)</span>
                 </h2>
-                <span id="anatomia-count" class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded-full">151 Muscoli Certificati</span>
+                <span id="anatomia-count" class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-2.5 py-1 rounded-full">Muscoli Certificati</span>
             </div>
             <div id="anatomia-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
@@ -182,7 +182,7 @@
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-dumbbell text-indigo-600"></i>
-                    <span>Manuale Prescrittivo di Esercizio Terapeutico (42 Schede Cliniche per Distretto)</span>
+                    <span>Manuale Prescrittivo di Esercizio Terapeutico (Filtrato per Distretto con Indicazioni)</span>
                 </h2>
                 <span id="esercizi-count" class="text-xs bg-indigo-100 text-indigo-800 font-semibold px-2.5 py-1 rounded-full">42 Esercizi</span>
             </div>
@@ -357,23 +357,49 @@
             { id: 8, title: "Onde d'Urto Radiali", district: "Lombare", severity: "Mezzo Fisico", def: "Onde pneumatiche per tessuti.", goals: "Rilascio miofasciale.", indicationsList: ["1. Sindrome piriforme", "2. Bandelletta", "3. Trigger point", "4. Zampa d'oca", "5. Periostite"], contraindications: "Cranio.", execution: "2000-3000 colpi." },
             { id: 9, title: "Ionoforesi", district: "Braccio", severity: "Elettroterapia", def: "Veicolazione farmaci con corrente.", goals: "Antinfiammatorio locale.", indicationsList: ["1. Epicondilite", "2. Tendinite", "3. Borsite", "4. Tenosinovite", "5. Tendinopatia"], contraindications: "Lesioni cutanee.", execution: "20 minuti." },
             { id: 10, title: "TECARterapia", district: "Ginocchio", severity: "Mezzo Fisico", def: "Diatermia capacitiva e resistiva.", goals: "Iperemia e drenaggio.", indicationsList: ["1. Distorsione", "2. Contratture", "3. Gonartrosi", "4. Coxartrosi", "5. Cervicalgia"], contraindications: "Pacemaker.", execution: "Massaggio capacitivo." },
-            { id: 11, title: "Ultrasuoni in Acquas", district: "Piede", severity: "Mezzo Fisico", def: "Vibrazioni in vasca.", goals: "Micromassaggio osseo.", indicationsList: ["1. Tibiale posteriore", "2. De Quervain", "3. Tunnel tarsale", "4. Metatarsalgia", "5. Flessori dita"], contraindications: "Ferite aperte.", execution: "10-12 minuti." },
+            { id: 11, title: "Ultrasuoni in Acqua", district: "Piede", severity: "Mezzo Fisico", def: "Vibrazioni in vasca.", goals: "Micromassaggio osseo.", indicationsList: ["1. Tibiale posteriore", "2. De Quervain", "3. Tunnel tarsale", "4. Metatarsalgia", "5. Flessori dita"], contraindications: "Ferite aperte.", execution: "10-12 minuti." },
             { id: 12, title: "Ultrasuoni Tradizionali", district: "Spalla", severity: "Mezzo Fisico", def: "Vibrazioni acustiche US.", goals: "Ammorbidimento cicatrici.", indicationsList: ["1. Calcificazioni", "2. Fascite", "3. Cicatrici", "4. Epicondilite", "5. Borsite"], contraindications: "Epifisi fertili.", execution: "Movimento continuo." }
         ];
 
+        // ATLANTE MIOLOGICO SUDDIVISO PER I DISTRETTI DELLA BARRA SUPERIORE
         const anatomiaData = [
+            // PIEDE
             { id: 1, district: "Piede", title: "Abduttore dell'Alluce", origin: "Tuberosità calcaneare mediale", insertion: "Base falange prossimale alluce", innervation: "N. plantare mediale", blood: "A. plantare mediale", daily: "Camminare a piedi nudi sulla sabbia spingendo sull'alluce", movements: ["Abduzione alluce", "Flessione falange prossimale alluce", "Sostegno arco plantare mediale"] },
+            { id: 2, district: "Piede", title: "Flessore Breve delle Dita", origin: "Processo mediale tuberosità calcaneare", insertion: "Falangi medie delle dita II-V", innervation: "N. plantare mediale", blood: "A. plantare mediale", daily: "Mpresa e adattamento della pianta del piede al terreno irregolare", movements: ["Flessione dita II-V", "Supporto arco plantare longitudinale"] },
+            
+            // GAMBA
             { id: 13, district: "Gamba", title: "Estensore Lungo delle Dita", origin: "Condilo laterale tibia e faccia anteriore fibula", insertion: "Falangi medie e distali dita II-V", innervation: "N. fibulare profondo", blood: "A. tibiale anteriore", daily: "Sollevare la punta del piede per non inciampare sul tappeto", movements: ["Estensione dita II-V", "Flessione dorsale della caviglia", "Eversione del piede"] },
             { id: 24, district: "Gamba", title: "Soleo", origin: "Testa e faccia posteriore della fibula e linea solea della tibia", insertion: "Tubercolo calcaneare tramite tendine d'Achille", innervation: "N. tibiale", blood: "A. tibiale posteriore", daily: "Mantenere la stazione eretta immobile in coda alla posta senza svenire", movements: ["Flessione plantare della caviglia", "Stabilizzazione posturale della caviglia in piedi"] },
+
+            // COSCIA
             { id: 36, district: "Coscia", title: "Retto Femorale", origin: "Spina iliaca anteriore inferiore (SIAI) e margine acetabolare", insertion: "Base della rotula tramite il tendine rotuleo alla tuberosità tibiale", innervation: "N. femorale", blood: "A. circonferenziale mediale del femore", daily: "Dare un calcio a un pallone o sollevare la gamba tesa dal letto", movements: ["Estensione del ginocchio", "Flessione dell'anca", "Stabilizzazione della rotula"] },
+            { id: 37, district: "Coscia", title: "Bicipite Femorale", origin: "Capo lungo: tuberosità ischiatica; Capo breve: labbro laterale linea aspra", insertion: "Testa della fibula", innervation: "N. tibiale (capo lungo) e fibulare comune (capo breve)", blood: "A. perforanti", daily: "Piegare il ginocchio all'indietro per fare un passo di corsa", movements: ["Flessione del ginocchio", "Rotazione esterna della gamba", "Estensione dell'anca"] },
+
+            // ANCA
             { id: 45, district: "Anca", title: "Grande Gluteo", origin: "Ala iliaca posteriore, sacro, coccige e legamento sacrotuberoso", insertion: "Tratto ileotibiale e tuberosità glutea del femore", innervation: "N. gluteo inferiore", blood: "A. glutea superiore e inferiore", daily: "Alzarsi da una sedia, fare le scale o correre in salita", movements: ["Estensione dell'anca", "Rotazione esterna dell'anca", "Abduzione e adduzione"] },
             { id: 48, district: "Anca", title: "Medio Gluteo", origin: "Superficie esterna dell'ala iliaca", insertion: "Faccia laterale del grande trocantere", innervation: "N. gluteo superiore", blood: "A. glutea superiore", daily: "Camminare sollevando un piede alla volta senza far cadere il bacino", movements: ["Abduzione dell'anca", "Rotazione interna ed esterna", "Stabilizzazione pelvica nel cammino"] },
+
+            // LOMBARE
             { id: 61, district: "Lombare", title: "Quadrato dei Lombi", origin: "Cresta iliaca e legamento iliolombare", insertion: "XII costa e processi trasversi delle vertebre L1-L4", innervation: "N. sottocostale e rami anteriori di L1-L4", blood: "A. subcostale e lombari", daily: "Sollevare l'anca e la gamba per fare un passo lungo o salire su un automezzo", movements: ["Inclinazione laterale della colonna lombare", "Estensione della colonna", "Abbassamento della XII costa"] },
+
+            // TORACE
             { id: 69, district: "Torace", title: "Grande Dorsale", origin: "Processi spinosi T7-L5, fascia toracolombare, cresta iliaca e ultime coste", insertion: "Solco bicipitale dell'omero", innervation: "N. toracodorsale", blood: "A. toracodorsale", daily: "Nuotare a stile libero, fare trazioni alla sbarra o tirare una fune", movements: ["Estensione della spalla", "Adduzione della spalla", "Rotazione interna"] },
+
+            // CERVICALE
             { id: 97, district: "Cervicale", title: "Sternocleidomastoideo", origin: "Manubrio dello sterno e clavicola", insertion: "Processo masttoideo dell'osso temporale", innervation: "N. accessorio (XI) e plesso cervicale", blood: "A. occipitale e tiroidea superiore", daily: "Girare la testa dall'altro lato per guardare prima di attraversare la strada", movements: ["Rotazione controlaterale della testa", "Inclinazione ipsilaterale", "Flessione del collo"] },
+
+            // SPALLA
             { id: 100, district: "Spalla", title: "Bicipite Brachiale Capo Breve", origin: "Processo coracoide della scapola", insertion: "Tuberosità del radio e aponeurosi bicipitale", innervation: "N. muscolocutaneo", blood: "A. brachiale", daily: "Sollevare una borsa della spesa pesante piegando il braccio e girando il palmo in sù", movements: ["Flessione del gomito", "Supinazione dell'avambraccio", "Flessione della spalla"] },
-            { id: 110, district: "Spalla", title: "Sovraspinato", origin: "Fossa sopraspinata della scapola", insertion: "Faccia superiore del tubercolo maggiore dell'omero", innervation: "N. soprascapolare", blood: "A. soprascapolare", daily: "Iniziare a sollevare il braccio lateralmente per indicare una direzione o prendere una tazza", movements: ["Abduzione iniziale della spalla (primi 15-30 gradi)", "Stabilizzazione e centratura della testa omerale contro la glena", "Collaborazione alla rotazione esterna"] },
-            { id: 136, district: "Avambraccio", title: "Supinatore", origin: "Epicondilo laterale dell'omero, legamento anulare e cresta del supinatore", insertion: "Faccia anteriore e laterale del terzo superiore del radio", innervation: "N. radiale / interosseo posteriore", blood: "A. ricorrente radiale", daily: "Aprire una porta infilando la chiave nella serratura e girandola", movements: ["Supinazione dell'avambraccio (ruota il palmo in sù)"] }
+            { id: 110, district: "Spalla", title: "Sovraspinato", origin: "Fossa sopraspinata della scapola", insertion: "Faccia superiore del tubercolo maggiore dell'omero", innervation: "N. soprascapolare", blood: "A. soprascapolare", daily: "Iniziare a sollevare il braccio lateralmente per indicare una direzione o prendere una tazza", movements: ["Abduzione iniziale della spalla (primi 15-30 gradi)", "Stabilizzazione e centratura della testa omerale contro la glena"] },
+
+            // BRACCIO
+            { id: 120, district: "Braccio", title: "Tricipite Brachiale", origin: "Capo lungo: tubercolo infraglenoideo; Capo mediale/laterale: faccia posteriore omero", insertion: "Olecrane dell'ulna", innervation: "N. radiale", blood: "A. brachiale profonda", daily: "Spingere un portone pesante in avanti o sollevarsi da una sedia con le braccia", movements: ["Estensione del gomito", "Estensione dell'spalla (capo lungo)"] },
+
+            // AVAMBRACCIO
+            { id: 136, district: "Avambraccio", title: "Supinatore", origin: "Epicondilo laterale dell'omero, legamento anulare e cresta del supinatore", insertion: "Faccia anteriore e laterale del terzo superiore del radio", innervation: "N. radiale / interosseo posteriore", blood: "A. ricorrente radiale", daily: "Aprire una porta infilando la chiave nella serratura e girandola", movements: ["Supinazione dell'avambraccio (ruota il palmo in sù)"] },
+
+            // MANO
+            { id: 145, district: "Mano", title: "Adduttore dell'Alluce / Interossei palmari", origin: "Base metacarpi II, IV e V", insertion: "Falangi prossimali delle dita", innervation: "N. ulnare (ramo profondo)", blood: "Arcata palmare profonda", daily: "Afferrare saldamente oggetti sottili tra le dita o scrivere con una penna", movements: ["Adduzione delle dita verso il dito medio", "Flessione metacarpofalangea"] }
         ];
 
         // 42 ESERCIZI CLINICI CON DISTRETTO ASSOCIATO E ALMENO 2 INDICAZIONI DI PATOLOGIA/INFORTUNIO
@@ -393,9 +419,9 @@
             { id: 10, title: "Calf Raise Monopodalico", category: "Rinforzo", district: "Gamba", target: "Gastrocnemio e muscolo soleo", indications: ["Tendinopatia d'Achille", "Recupero post-distorsivo di caviglia"], dosage: "3 serie da 15 ripetizioni per arto", execution: "1. In piedi su un rialzo con l'avampiede in appoggio e i talloni liberi di scendere.\n2. Sollevarsi sulla punta del piede massimizzando la flessione plantare.\n3. Mantenere il ginocchio esteso (o leggermente flesso per isolare il soleo).\n4. Eseguire una discesa lenta e controllata sotto il livello del gradino." },
             { id: 11, title: "Protocollo Alfredson per Tendine d'Achille", category: "Eccentrici", district: "Gamba", target: "Tendine d'Achille e complesso surale", indications: ["Tendinopatia achillea inserzionale e medio-porzione", "Tendinite cronica dei peronieri"], dosage: "3 serie da 15 ripetizioni lente (con ginocchio teso e flesso)", execution: "1. In piedi su un gradino con l'avampiede dell'arto infortunato.\n2. Utilizzare l'arto sano per sollevarsi sulla punta.\n3. Spostare tutto il peso sull'arto infortunato e scendere giù con il tallone in modo molto lento (fase eccentrica pura) contando 5 secondi.\n4. Ripetere sia con ginocchio teso che leggermente flesso." },
             { id: 12, title: "Flessione Dorsale Isolata con Elastico", category: "Isolamento", district: "Gamba", target: "Tibiale anteriore", indications: ["Sindrome da stress tibiale mediale (shin splints)", "Recupero post-distorsione laterale di caviglia"], dosage: "3 serie da 15 ripetizioni", execution: "1. Seduti a terra con gamba distesa e un elastico (theraband) agganciato all'avampiede e ancorato saldamente davanti.\n2. Tirare la punta del piede verso di sé (flessione dorsale) contrastando la resistenza dell'elastico.\n3. Ritorno lento alla posizione iniziale." },
-            { id: 13, title: "Circonduzioni della Caviglia", category: "Chinesiterapia", district: "Caviglia", target: "Mobilità tibio-tarsica e subtalare", indications: ["Distorsione di caviglia in fase subacuta", "Sindrome del seno del tarso"], dosage: "2 serie da 15 circonduzioni per senso", execution: "1. Seduti su una sedia o con gamba sollevata.\n2. Eseguire cerchi ampi e lenti con la punta del piede, muovendolo nel senso orario.\n3. Invertire la direzione nel senso antiorario.\n4. Massimizzare l'escursione articolare in flessione dorsale, plantare e inversione/eversione." },
-            { id: 14, title: "Stabilità su Tavoletta Propriocettiva", category: "Core", district: "Caviglia", target: "Recettori articolari, peronieri e core distale", indications: ["Instabilità cronica di caviglia", "Recupero post-frattura malleolare"], dosage: "3 serie da 45 secondi", execution: "1. In piedi al centro di una tavoletta instabile (proprio/freeman).\n2. Mantenere il contatto con i bordi della tavoletta cercando di non farli sbattere contro il pavimento.\n3. Fissare un punto fisso davanti a sé per l'equilibrio.\n4. Eseguire lievi flessioni di ginocchio di controllo." },
-            { id: 15, title: "Rieducazione del Passo con Doppio Ostacolo", category: "Neurodinamica", district: "Caviglia", target: "Schema motorio del cammino e propriocezione avanzata", indications: ["Recupero post-chirurgico LCA", "Esiti di distorsione severa di caviglia"], dosage: "2 serie da 2 minuti", execution: "1. Posizionare piccoli ostacoli bassi sul pavimento.\n2. Camminare controllando attentamente la fase di sollevamento dell'avampiede (evitando il piede cadente).\n3. Concentrarsi sul corretto appoggio tallone-avampiede-spinta.\n4. Mantenere ritmo costante." },
+            { id: 13, title: "Circonduzioni della Caviglia", category: "Chinesiterapia", district: "Piede", target: "Mobilità tibio-tarsica e subtalare", indications: ["Distorsione di caviglia in fase subacuta", "Sindrome del seno del tarso"], dosage: "2 serie da 15 circonduzioni per senso", execution: "1. Seduti su una sedia o con gamba sollevata.\n2. Eseguire cerchi ampi e lenti con la punta del piede, muovendolo nel senso orario.\n3. Invertire la direzione nel senso antiorario.\n4. Massimizzare l'escursione articolare in flessione dorsale, plantare e inversione/eversione." },
+            { id: 14, title: "Stabilità su Tavoletta Propriocettiva", district: "Piede", target: "Recettori articolari, peronieri e core distale", indications: ["Instabilità cronica di caviglia", "Recupero post-frattura malleolare"], dosage: "3 serie da 45 secondi", execution: "1. In piedi al centro di una tavoletta instabile (proprio/freeman).\n2. Mantenere il contatto con i bordi della tavoletta cercando di non farli sbattere contro il pavimento.\n3. Fissare un punto fisso davanti a sé per l'equilibrio.\n4. Eseguire lievi flessioni di ginocchio di controllo." },
+            { id: 15, title: "Rieducazione del Passo con Doppio Ostacolo", district: "Gamba", target: "Schema motorio del cammino e propriocezione avanzata", indications: ["Recupero post-chirurgico LCA", "Esiti di distorsione severa di caviglia"], dosage: "2 serie da 2 minuti", execution: "1. Posizionare piccoli ostacoli bassi sul pavimento.\n2. Camminare controllando attentamente la fase di sollevamento dell'avampiede (evitando il piede cadente).\n3. Concentrarsi sul corretto appoggio tallone-avampiede-spinta.\n4. Mantenere ritmo costante." },
 
             // LOMBARE / COLONNA (16-22)
             { id: 16, title: "Plank Frontale Avambracci", category: "Core", district: "Lombare", target: "Trasverso dell'addome, retto e stabilizzatori globali", indications: ["Lombalgia cronica", "Spondilolisi e spondilolistesi stabile"], dosage: "3 serie da 30-45 secondi di tenuta", execution: "1. Proni con appoggio sugli avambracci (gomiti sotto le spalle) e sulle punte dei piedi.\n2. Sollevare il bacino allineandolo perfettamente con le spalle e i talloni.\n3. Contrarre l'addome risucchiando l'ombelico ed evitare l'inarcamento lombare.\n4. Mantenere il collo in posizione neutra guardando il pavimento." },
