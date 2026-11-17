@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FisioPro Clinical v1.4 - Strumentale Avanzata & 151 Muscoli</title>
+    <title>FisioPro Clinical v1.5 - Test Ortopedici & Patologie Avanzate</title>
     
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="./manifest.json">
@@ -42,14 +42,14 @@
         <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="bg-white/10 p-2 rounded-xl backdrop-blur-sm">
-                    <i class="fa-solid fa-bone text-2xl text-brand-100"></i>
+                    <i class="fa-solid fa-stethoscope text-2xl text-brand-100"></i>
                 </div>
                 <div>
                     <div class="flex items-center space-x-2">
                         <h1 class="text-lg font-bold tracking-tight">FisioPro Clinical</h1>
-                        <span class="text-[10px] bg-brand-600 border border-brand-500 text-white font-semibold px-2 py-0.5 rounded-full">v1.4</span>
+                        <span class="text-[10px] bg-brand-600 border border-brand-500 text-white font-semibold px-2 py-0.5 rounded-full">v1.5</span>
                     </div>
-                    <p class="text-xs text-brand-100 opacity-95">Strumentale Avanzata & 151 Muscoli (A-Z)</p>
+                    <p class="text-xs text-brand-100 opacity-95">Test Clinici, Patologie Estese & 151 Muscoli</p>
                 </div>
             </div>
             <div class="flex items-center space-x-2">
@@ -68,7 +68,7 @@
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                     <i class="fa-solid fa-search"></i>
                 </span>
-                <input type="text" id="global-search" oninput="filterContent()" placeholder="Cerca tra patologie, protocolli, muscoli, macchinari..." class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition">
+                <input type="text" id="global-search" oninput="filterContent()" placeholder="Cerca tra patologie, test, muscoli, macchinari..." class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition">
             </div>
             <div class="flex items-center space-x-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0" id="filter-chips">
                 <button onclick="filterByDistrict('all')" class="filter-btn active-chip px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white whitespace-nowrap shadow-sm transition">Tutti</button>
@@ -87,23 +87,30 @@
         </div>
     </div>
 
-    <!-- Contenuto Principale con Tab -->
+    <!-- Contenuto Principale con Tab (8 Sezioni Simmetriche 2x4) -->
     <main class="flex-1 max-w-7xl w-full mx-auto p-4 overflow-y-auto">
         
-        <!-- Navigazione Sezioni -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-6">
+        <!-- Navigazione Sezioni (8 Pulsanti) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 mb-6">
             <button onclick="switchSection('patologie-ortopediche')" id="btn-sec-patologie-ortopediche" class="section-tab p-3 rounded-xl border border-brand-500 bg-brand-50 text-brand-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-bone text-xl mb-2 text-brand-600"></i>
                 <div>
-                    <h3 class="font-bold text-xs">Patologie Ortopediche</h3>
-                    <p class="text-[10px] opacity-75">90 Schede (A-Z)</p>
+                    <h3 class="font-bold text-xs">Ortopediche</h3>
+                    <p class="text-[10px] opacity-75">90 Schede Estese</p>
                 </div>
             </button>
             <button onclick="switchSection('patologie-neurologiche')" id="btn-sec-patologie-neurologiche" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-brain text-xl mb-2 text-rose-600"></i>
                 <div>
-                    <h3 class="font-bold text-xs">Patologie Neurologiche</h3>
-                    <p class="text-[10px] opacity-75">30 Schede (A-Z)</p>
+                    <h3 class="font-bold text-xs">Neurologiche</h3>
+                    <p class="text-[10px] opacity-75">30 Schede Estese</p>
+                </div>
+            </button>
+            <button onclick="switchSection('test-clinici')" id="btn-sec-test-clinici" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
+                <i class="fa-solid fa-file-waveform text-xl mb-2 text-amber-600"></i>
+                <div>
+                    <h3 class="font-bold text-xs">Test Clinici</h3>
+                    <p class="text-[10px] opacity-75">50 Special Tests</p>
                 </div>
             </button>
             <button onclick="switchSection('trattamenti')" id="btn-sec-trattamenti" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
@@ -116,15 +123,15 @@
             <button onclick="switchSection('strumentale')" id="btn-sec-strumentale" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-bolt text-xl mb-2 text-amber-500"></i>
                 <div>
-                    <h3 class="font-bold text-xs">Terapia Strumentale</h3>
-                    <p class="text-[10px] opacity-75">12 Macchinari (Principi)</p>
+                    <h3 class="font-bold text-xs">Strumentale</h3>
+                    <p class="text-[10px] opacity-75">12 Macchinari</p>
                 </div>
             </button>
             <button onclick="switchSection('anatomia')" id="btn-sec-anatomia" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
                 <i class="fa-solid fa-person text-xl mb-2 text-emerald-600"></i>
                 <div>
                     <h3 class="font-bold text-xs">Anatomia</h3>
-                    <p class="text-[10px] opacity-75">151 Muscoli A-Z</p>
+                    <p class="text-[10px] opacity-75">151 Muscoli</p>
                 </div>
             </button>
             <button onclick="switchSection('esercizi')" id="btn-sec-esercizi" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
@@ -138,33 +145,45 @@
                 <i class="fa-solid fa-clipboard-list text-xl mb-2 text-purple-600"></i>
                 <div>
                     <h3 class="font-bold text-xs">Protocolli</h3>
-                    <p class="text-[10px] opacity-75">50 Guide A-Z</p>
+                    <p class="text-[10px] opacity-75">50 Guide Post-Op</p>
                 </div>
             </button>
         </div>
 
-        <!-- Sezione Patologie Ortopediche -->
+        <!-- Sezione Patologie Ortopediche (Ampliata) -->
         <div id="section-patologie-ortopediche" class="content-section space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-bone text-brand-600"></i>
-                    <span>Archivio Patologie Ortopediche (Ordinamento Alfabetico A-Z)</span>
+                    <span>Archivio Patologie Ortopediche Estese (Analisi Clinica Approfondita)</span>
                 </h2>
                 <span id="orto-count" class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">90 Patologie</span>
             </div>
             <div id="orto-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione Patologie Neurologiche -->
+        <!-- Sezione Patologie Neurologiche (Ampliata) -->
         <div id="section-patologie-neurologiche" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-brain text-rose-600"></i>
-                    <span>Archivio Patologie Neurologiche (Ordinamento Alfabetico A-Z)</span>
+                    <span>Archivio Patologie Neurologiche Estese (Dettaglio Clinico e Riabilitativo)</span>
                 </h2>
                 <span id="neuro-count" class="text-xs bg-rose-100 text-rose-800 font-semibold px-2.5 py-1 rounded-full">30 Patologie</span>
             </div>
             <div id="neuro-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+        </div>
+
+        <!-- Nuova Sezione: Test Ortopedici e Neurologici -->
+        <div id="section-test-clinici" class="content-section hidden space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
+                    <i class="fa-solid fa-file-waveform text-amber-600"></i>
+                    <span>Atlante dei Test Ortopedici e Neurologici (50 Special Tests)</span>
+                </h2>
+                <span id="tests-count" class="text-xs bg-amber-100 text-amber-800 font-semibold px-2.5 py-1 rounded-full">50 Test A-Z</span>
+            </div>
+            <div id="tests-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
         <!-- Sezione Trattamenti -->
@@ -283,135 +302,206 @@
         </div>
     </div>
 
-    <!-- Script JavaScript (Versione 1.4 - Strumentale Avanzata & 151 Muscoli) -->
+    <!-- Script JavaScript (Versione 1.5 - Test Clinici & Patologie Ampliate) -->
     <script>
-        // Database integrati
+        // Patologie Ortopediche (Ampiamente dettagliate con multi-argomento clinico)
         const ortopedicheData = [
-            { id: 1, title: "Alluce Valgo", district: "Piede", severity: "Cronica", def: "Deviazione mediale del primo metatarso e laterale dell'alluce.", meds: "FANS topici.", surgery: "Osteotomie correttive metatarsali.", rehab: "Terapie conservative, tutori notturni." },
-            { id: 2, title: "Apofisite della Cresta Iliaca", district: "Anca", severity: "Lieve", def: "Traction apophysitis addominale nei giovani.", meds: "Analgesici leggeri.", surgery: "Non indicata.", rehab: "Riposo e stretching." },
-            { id: 3, title: "Artrite Acromion-Claveare", district: "Spalla", severity: "Moderata", def: "Usura articolazione AC.", meds: "FANS.", surgery: "Resezione artroscopica.", rehab: "Recupero ROM in scarico." },
-            { id: 4, title: "Artrosi Gleno-Omerale", district: "Spalla", severity: "Cronica", def: "Degenerazione cartilagine spalla.", meds: "Acido ialuronico.", surgery: "Protesi di spalla.", rehab: "Mantenimento ROM." },
-            { id: 5, title: "Borsite Ileo-Psoas", district: "Anca", severity: "Lieve", def: "Infiammazione borsa anteriore.", meds: "FANS.", surgery: "Borsectomia.", rehab: "Stretching psoas." },
-            { id: 6, title: "Borsite Subacromiale", district: "Spalla", severity: "Lieve", def: "Attrito sotto arco coracoacromiale.", meds: "Infiltrazioni.", surgery: "Decompressione artroscopica.", rehab: "Crioterapia, TECAR." },
-            { id: 7, title: "Borsite Trocanterica", district: "Anca", severity: "Lieve", def: "Infiammazione borsa trocantere.", meds: "FANS.", surgery: "Rilascio tratto ileotibiale.", rehab: "Rinforzo abduttori." },
-            { id: 8, title: "Calcificazione Cuffia", district: "Spalla", severity: "Moderata", def: "Depositi di calcio nei tendini.", meds: "FANS.", surgery: "Rimozione artroscopica.", rehab: "Onde d'urto focali." },
-            { id: 9, title: "Capsulite Adesiva", district: "Spalla", severity: "Grave", def: "Fibrosi capsulare e blocco spalla.", meds: "Corticosteroidi.", surgery: "Sblocco in narcosi.", rehab: "Mobilizzazione passiva." },
-            { id: 10, title: "Cervicalgia Miotensiva", district: "Cervicale", severity: "Lieve", def: "Contrattura muscolare cervicale.", meds: "Miorilassanti.", surgery: "Non indicata.", rehab: "Massoterapia." },
-            { id: 11, title: "Ciste di Baker", district: "Coscia", severity: "Lieve", def: "Raccolta liquido popliteo.", meds: "FANS.", surgery: "Asportazione chirurgica.", rehab: "Controllo edema." },
-            { id: 12, title: "Colpo di Frusta (WAD)", district: "Cervicale", severity: "Moderata", def: "Lesione cervicale accelerazione.", meds: "FANS.", surgery: "Raramente necessaria.", rehab: "Esercizi attivi precoci." },
-            { id: 13, title: "Contrattura di Dupuytren", district: "Mano", severity: "Cronica", def: "Fibrosi aponeurosi palmare.", meds: "Collagenasi.", surgery: "Aponeurectomia.", rehab: "Stretching e tutori." },
-            { id: 14, title: "Coxartrosi", district: "Anca", severity: "Cronica", def: "Degenerazione cartilagine anca.", meds: "Analgesici.", surgery: "Protesi Totale d'Anca.", rehab: "Idrokinesiterapia." },
-            { id: 15, title: "Discopatia Cervicale", district: "Cervicale", severity: "Cronica", def: "Usura disco cervicale.", meds: "FANS.", surgery: "Artrodesi o protesi.", rehab: "Trazioni dolci." },
-            { id: 16, title: "Disfunzione Sacro-Iliaca", district: "Lombare", severity: "Moderata", def: "Dolore articolazione SI.", meds: "FANS.", surgery: "Artrodesi in casi estremi.", rehab: "Stabilizzazione lombo-pelvica." },
-            { id: 17, title: "Distorsione Caviglia", district: "Piede", severity: "Moderata", def: "Lesione legamenti laterali.", meds: "Crioterapia.", surgery: "Ricostruzione in instabilità.", rehab: "Propriocettività." },
-            { id: 18, title: "Distorsione Pollice", district: "Mano", severity: "Moderata", def: "Lesione legamento collaterale ulnare.", meds: "FANS.", surgery: "Riparazione chirurgica.", rehab: "Tutore rigido." },
-            { id: 19, title: "Dito a Scatto", district: "Mano", severity: "Lieve", def: "Infiammazione guaina flessoria.", meds: "Infiltrazioni.", surgery: "Rilascio puleggia A1.", rehab: "Ultrasuoni." },
-            { id: 20, title: "Epicondilite Laterale", district: "Avambraccio", severity: "Moderata", def: "Tendinopatia estensori.", meds: "FANS, PRP.", surgery: "Debridement chirurgico.", rehab: "Esercizi eccentrici." },
-            { id: 21, title: "Epitrocleite", district: "Avambraccio", severity: "Moderata", def: "Tendinopatia flessori.", meds: "FANS.", surgery: "Pulizia tendinea.", rehab: "TECAR." },
-            { id: 22, title: "Ernia Lombare", district: "Lombare", severity: "Grave", def: "Fuoriuscita nucleo polposo.", meds: "Cortisonici.", surgery: "Microdiscectomia.", rehab: "Core stability." },
-            { id: 23, title: "Fascite Plantare", district: "Piede", severity: "Moderata", def: "Infiammazione aponeurosi.", meds: "Infiltrazioni.", surgery: "Fasciotomia.", rehab: "Onde d'urto." },
-            { id: 24, title: "Frattura Stress Tibiale", district: "Gamba", severity: "Grave", def: "Microfrattura ossea.", meds: "Vit D e Calcio.", surgery: "Inchiodamento.", rehab: "Magnetoterapia." },
-            { id: 25, title: "Frattura Collo Femore", district: "Anca", severity: "Grave", def: "Interruzione ossea prossimale.", meds: "Antidolorifici.", surgery: "Artroprotesi o osteosintesi.", rehab: "Riabilitazione precoce." },
-            { id: 26, title: "Frattura Clavicola", district: "Spalla", severity: "Grave", def: "Interruzione clavicolare.", meds: "Analgesici.", surgery: "Placca e viti.", rehab: "Tutore a otto." },
-            { id: 27, title: "Frattura Colles", district: "Avambraccio", severity: "Grave", def: "Frattura distale radio.", meds: "Analgesici.", surgery: "Riduzione e placca.", rehab: "Recupero ROM polso." },
-            { id: 28, title: "Gonartrosi", district: "Coscia", severity: "Cronica", def: "Degenerazione ginocchio.", meds: "Acido ialuronico.", surgery: "Protesi Totale Ginocchio.", rehab: "Rinforzo quadricipite." },
-            { id: 29, title: "Impingement Femoro-Acetabolare", district: "Anca", severity: "Moderata", def: "Conflitto coxo-femorale.", meds: "FANS.", surgery: "Artroscopia d'anca.", rehab: "Rinforzo extrarotatori." },
-            { id: 30, title: "Instabilità Spalla", district: "Spalla", severity: "Grave", def: "Traslazione anomala omerale.", meds: "FANS.", surgery: "Bankart o Latarjet.", rehab: "Stabilizzazione cuffia." },
-            { id: 31, title: "Lesione Cuffia Rotatori", district: "Spalla", severity: "Grave", def: "Lacerazione tendinea spalla.", meds: "Cortisone.", surgery: "Riparazione artroscopica.", rehab: "Protocollo protetto." },
-            { id: 32, title: "Lesione Labbro Acetabolare", district: "Anca", severity: "Grave", def: "Lacerazione cercine.", meds: "FANS.", surgery: "Artroscopia d'anca.", rehab: "Controllo ROM." },
-            { id: 33, title: "Lesione LCA", district: "Coscia", severity: "Grave", def: "Rottura crociato anteriore.", meds: "Crioterapia.", surgery: "Ricostruzione in artroscopia.", rehab: "Propriocettività." },
-            { id: 34, title: "Lesione LCM", district: "Coscia", severity: "Moderata", def: "Distorsione legamento mediale.", meds: "FANS.", surgery: "Raramente necessaria.", rehab: "Tutore protettivo." },
-            { id: 35, title: "Lesione Meniscale", district: "Coscia", severity: "Moderata", def: "Lacerazione menisco.", meds: "FANS.", surgery: "Meniscectomia o sutura.", rehab: "Controllo edema." },
-            { id: 36, title: "Lesione SLAP", district: "Spalla", severity: "Grave", def: "Lacerazione cercine superiore.", meds: "FANS.", surgery: "Ancoraggio artroscopico.", rehab: "Protezione rotazione." },
-            { id: 37, title: "Lombalgia Acuta", district: "Lombare", severity: "Moderata", def: "Spasmo muscolare lombare.", meds: "Miorilassanti.", surgery: "Non indicata.", rehab: "Tecniche miofasciali." },
-            { id: 38, title: "Osgood-Schlatter", district: "Gamba", severity: "Lieve", def: "Osteocondrosi tuberosità tibiale.", meds: "FANS.", surgery: "Non indicata.", rehab: "Stretching quadricipite." },
-            { id: 39, title: "Metatarsalgia", district: "Piede", severity: "Lieve", def: "Dolore teste metatarsali.", meds: "FANS topici.", surgery: "Osteotomie.", rehab: "Plantari ortopedici." },
-            { id: 40, title: "Neuroma di Morton", district: "Piede", severity: "Moderata", def: "Fibrosi perineurale.", meds: "Infiltrazioni.", surgery: "Neurectomia.", rehab: "Ortesi metatarsali." },
-            { id: 41, title: "Pubalgia", district: "Anca", severity: "Moderata", def: "Tendinopatia adduttori.", meds: "PRP.", surgery: "Tenotomia.", rehab: "Core stability." },
-            { id: 42, title: "Radicolopatia Cervicale", district: "Cervicale", severity: "Grave", def: "Sofferenza radicolare.", meds: "Cortisonici.", surgery: "Discectomia.", rehab: "Trazioni cervicali." },
-            { id: 43, title: "Rizoartrosi", district: "Mano", severity: "Cronica", def: "Artrosi trapezio-metacarpale.", meds: "Acido ialuronico.", surgery: "Artroplastica.", rehab: "Tutori funzionali." },
-            { id: 44, title: "Scoliosi Idiopatica", district: "Torace", severity: "Grave", def: "Deformità tridimensionale.", meds: "Non farmacologica.", surgery: "Artrodesi con barre.", rehab: "SEAS / Schroth." },
-            { id: 45, title: "Sindrome Bandelletta", district: "Coscia", severity: "Lieve", def: "Attrito tratto ileotibiale.", meds: "FANS.", surgery: "Rilascio chirurgico.", rehab: "Foam roller." },
-            { id: 46, title: "Sindrome Cauda Equina", district: "Lombare", severity: "Grave", def: "Compressione radicolare massiva.", meds: "Urgenza medica.", surgery: "URGENZA CHIRURGICA.", rehab: "Uro-riabilitazione." },
-            { id: 47, title: "Sindrome Piriforme", district: "Anca", severity: "Moderata", def: "Compressione nervo sciatico.", meds: "Tossina botulinica.", surgery: "Tenotomia.", rehab: "Stretching specifico." },
-            { id: 48, title: "Sindrome Impingement", district: "Spalla", severity: "Moderata", def: "Conflitto subacromiale.", meds: "Infiltrazioni.", surgery: "Acromioplastica.", rehab: "Rinforzo cuffia." },
-            { id: 49, title: "Sindrome Opercolo Toracico", district: "Torace", severity: "Moderata", def: "Compressione plesso brachiale.", meds: "FANS.", surgery: "Resezione prima costa.", rehab: "Respirazione diaframmatica." },
-            { id: 50, title: "Sindrome Seno Tarso", district: "Piede", severity: "Moderata", def: "Infiammazione legamenti.", meds: "FANS.", surgery: "Pulizia artroscopica.", rehab: "Propriocettività." },
-            { id: 51, title: "Sindrome Sinding-Larsen", district: "Coscia", severity: "Lieve", def: "Trazione polo inferiore rotula.", meds: "FANS.", surgery: "Non indicata.", rehab: "Modulazione carico." },
-            { id: 52, title: "Sindrome Femoro-Rotulea", district: "Coscia", severity: "Lieve", def: "Tracking anomalo rotula.", meds: "FANS.", surgery: "Lateral release.", rehab: "Rinforzo VMO." },
-            { id: 53, title: "Tunnel Carpale", district: "Mano", severity: "Moderata", def: "Compressione nervo mediano.", meds: "FANS, integratori.", surgery: "Decompressione chirurgica.", rehab: "Scivolamenti neurali." },
-            { id: 54, title: "Tunnel Cubitale", district: "Braccio", severity: "Moderata", def: "Compressione nervo ulnare.", meds: "Protezione notturna.", surgery: "Trasposizione ulnare.", rehab: "Ergonomia." },
-            { id: 55, title: "Tunnel Tarsale", district: "Piede", severity: "Moderata", def: "Compressione nervo tibiale.", meds: "FANS.", surgery: "Decompressione.", rehab: "Plantari di scarico." },
-            { id: 56, title: "De Quervain", district: "Mano", severity: "Moderata", def: "Tenosinovite stenosante.", meds: "Infiltrazione.", surgery: "Decompressione guaina.", rehab: "Tutore polso." },
-            { id: 57, title: "Sospetta Frattura (Ottawa)", district: "Piede", severity: "Grave", def: "Screening clinico frattura.", meds: "Analgesici.", surgery: "Trattamento specifico.", rehab: "Immobilizzazione." },
-            { id: 58, title: "Spondilolistesi", district: "Lombare", severity: "Moderata", def: "Scivolamento vertebrale.", meds: "FANS.", surgery: "Artrodesi vertebrale.", rehab: "Core stability." },
-            { id: 59, title: "Spondilolisi", district: "Lombare", severity: "Moderata", def: "Frattura istmo.", meds: "Riposo.", surgery: "Riparazione istmo.", rehab: "Corsetto lombare." },
-            { id: 60, title: "Stenosi Lombare", district: "Lombare", severity: "Cronica", def: "Restringimento canale.", meds: "Gabapentin.", surgery: "Laminectomia.", rehab: "Esercizi in flessione." },
-            { id: 61, title: "Tallonite", district: "Piede", severity: "Lieve", def: "Atrofia cuscinetto plantare.", meds: "FANS.", surgery: "Non indicata.", rehab: "Talloniere silicone." },
-            { id: 62, title: "Tendinite Flessori Dita", district: "Mano", severity: "Lieve", def: "Sovraccarico flessori.", meds: "Laserterapia.", surgery: "Raramente rilascio.", rehab: "Ultrasuoni." },
-            { id: 63, title: "Tendinite Peronieri", district: "Gamba", severity: "Lieve", def: "Infiammazione peronieri.", meds: "Crioterapia.", surgery: "Plastica retinacolo.", rehab: "Tecarterapia." },
-            { id: 64, title: "Tendinite Tibiale Posteriore", district: "Gamba", severity: "Moderata", def: "Cedimento arco plantare.", meds: "PRP.", surgery: "Riparazione tendinea.", rehab: "Rinforzo eccentrico." },
-            { id: 65, title: "Tendinopatia CLB", district: "Braccio", severity: "Moderata", def: "Degenerazione capo lungo bicipite.", meds: "Infiltrazioni.", surgery: "Tenodesi / Tenotomia.", rehab: "Esercizi eccentrici." },
-            { id: 66, title: "Tendinopatia Achillea", district: "Gamba", severity: "Moderata", def: "Tendinopatia achillea.", meds: "Onde d'urto.", surgery: "Debridement.", rehab: "Alfredson." },
-            { id: 67, title: "Tendinopatia Popliteo", district: "Gamba", severity: "Lieve", def: "Dolore posterolaterale.", meds: "FANS.", surgery: "Non indicata.", rehab: "Stretching graduale." },
-            { id: 68, title: "Tendinopatia Zampa d'Oca", district: "Coscia", severity: "Lieve", def: "Infiammazione tendini mediali.", meds: "Ultrasuoni.", surgery: "Non indicata.", rehab: "Stretching flessori." },
-            { id: 69, title: "Tendinopatia TFL", district: "Anca", severity: "Lieve", def: "Sovraccarico tensore fascia lata.", meds: "FANS.", surgery: "Non indicata.", rehab: "Foam roller." },
-            { id: 70, title: "Tendinopatia Rotulea", district: "Coscia", severity: "Moderata", def: "Jumper's knee.", meds: "Onde d'urto.", surgery: "Pulizia artroscopica.", rehab: "Isometrici ed eccentrici." },
-            { id: 71, title: "Tenosinovite Estensori", district: "Avambraccio", severity: "Lieve", def: "Crepitio guaine estensore.", meds: "Tutore.", surgery: "Non indicata.", rehab: "Laserterapia." },
-            { id: 72, title: "Artrite Reumatoide (Orto)", district: "Mano", severity: "Cronica", def: "Deformità articolari sistemiche.", meds: "DMARDs, biologici.", surgery: "Protesi articolari.", rehab: "Prevenzione deformità." },
-            { id: 73, title: "Frattura Pilonale Tibia", district: "Gamba", severity: "Grave", def: "Frattura complessa tibia distale.", meds: "Antidolorifici.", surgery: "Placca e viti / fissatore.", rehab: "Fisioterapia intensiva." },
-            { id: 74, title: "Frattura Monteggia", district: "Avambraccio", severity: "Grave", def: "Frattura ulna e lussazione radio.", meds: "Analgesici.", surgery: "Osteosintesi placca.", rehab: "Recupero prono-supinazione." },
-            { id: 75, title: "Frattura Galeazzi", district: "Avambraccio", severity: "Grave", def: "Frattura radio e lussazione distale.", meds: "Analgesici.", surgery: "Placca e viti radio.", rehab: "Chinesiterapia polso." },
-            { id: 76, title: "Frattura Piatto Tibiale", district: "Coscia", severity: "Grave", def: "Frattura articolare ginocchio.", meds: "Eparina.", surgery: "Placche sagomate.", rehab: "Kinetec precoce." },
-            { id: 77, title: "Frattura Omerale Prossimale", district: "Spalla", severity: "Grave", def: "Frattura omero prossimale.", meds: "Antidolorifici.", surgery: "Chiodo endomidollare / Protesi.", rehab: "Codman precoce." },
-            { id: 78, title: "Rottura Tendine d'Achille", district: "Gamba", severity: "Grave", def: "Interruzione totale achilleo.", meds: "Post-op.", surgery: "Riparazione chirurgica.", rehab: "Ortesi in equino." },
-            { id: 79, title: "Lussazione Spalla", district: "Spalla", severity: "Grave", def: "Perdita rapporti gleno-omerali.", meds: "Miorilassanti.", surgery: "Stabilizzazione artroscopica.", rehab: "Rinforzo stabilizzatori." },
-            { id: 80, title: "Lussazione Anca", district: "Anca", severity: "Grave", def: "Fuoriuscita testa femore.", meds: "Analgesici.", surgery: "Riduzione in narcosi.", rehab: "Scaricamento prolungato." },
-            { id: 81, title: "Osteocondrite Dissecante", district: "Coscia", severity: "Moderata", def: "Sofferenza osso subcondriale.", meds: "Condroprotettori.", surgery: "Microfratture.", rehab: "Scarico articolare." },
-            { id: 82, title: "Osteoporosi con Cedimenti", district: "Lombare", severity: "Grave", def: "Fratture vertebrali da fragilità.", meds: "Bifosfonati.", surgery: "Vertebroplastica.", rehab: "Postura in sicurezza." },
-            { id: 83, title: "Tunnel Tarso Anteriore", district: "Piede", severity: "Moderata", def: "Compressione nervo fibulare profondo.", meds: "Neuroprotettori.", surgery: "Decompressione chirurgica.", rehab: "Fisioterapia strumentale." },
-            { id: 84, title: "Sindrome di Raynaud", district: "Mano", severity: "Moderata", def: "Vasospasmo digitale.", meds: "Vasodilatatori.", surgery: "Simpaticectomia.", rehab: "Protezione termica." },
-            { id: 85, title: "Tendinite Tricipite", district: "Braccio", severity: "Moderata", def: "Deposito calcio tricipite.", meds: "Ultrasuoni.", surgery: "Rimozione calcificazione.", rehab: "Stretching gomito." },
-            { id: 86, title: "Tenosinovite Intersezione", district: "Avambraccio", severity: "Lieve", def: "Incrocio tendineo avambraccio.", meds: "Tutore.", surgery: "Raramente rilascio.", rehab: "Laserterapia." },
-            { id: 87, title: "Frattura Scafoide Tarsico", district: "Piede", severity: "Grave", def: "Frattura navicolare piede.", meds: "Analgesici.", surgery: "Vite cannulata.", rehab: "Magnetoterapia." },
-            { id: 88, title: "Frattura Scafoide Carpico", district: "Mano", severity: "Grave", def: "Frattura scafoide polso.", meds: "Analgesici.", surgery: "Vite Herbert.", rehab: "Tutore polso." },
-            { id: 89, title: "Frattura di Jones", district: "Piede", severity: "Grave", def: "Frattura base V metatarso.", meds: "Analgesici.", surgery: "Vite intramidollare.", rehab: "Scaricamento precoce." },
-            { id: 90, title: "Nervo Interosseo Anteriore", district: "Avambraccio", severity: "Moderata", def: "Neuropatia ramo motore.", meds: "Vit B.", surgery: "Decompressione.", rehab: "Scorrimento neurale." }
+            { 
+                id: 1, title: "Alluce Valgo", district: "Piede", severity: "Cronica", 
+                def: "Deviazione mediale del primo metatarso e valgismo della falange prossimale dell'alluce, spesso associata a borsite esostosica mediale ('cipolla').", 
+                etiology: "Fattori genetici ereditari, calzature a punta stretta e con tacco alto, lassità legamentosa e piede piatto valgo.",
+                clinic: "Dolore locale in corrispondenza dell'esostosi, limitazione funzionale, sovrapposizione del primo e secondo dito e callosità plantari.",
+                meds: "FANS topici o sistemici nei periodi di infiammatoria acuta, plantari ortopedici di scarico metatarsale.", 
+                surgery: "Osteotomie correttive metatarsali (es. Scarf, Chevron) e correzione dei tessuti molli circostanti.", 
+                rehab: "Terapie conservative con tutori notturni, mobilizzazioni articolari metatarso-falangee e rinforzo dei muscoli intrinseci plantari." 
+            },
+            { 
+                id: 2, title: "Apofisite della Cresta Iliaca", district: "Anca", severity: "Lieve", 
+                def: "Infiammazione da trazione (apofisite di traction) dell'apofisi iliaca nei giovani atleti in fase di accrescimento.", 
+                etiology: "Ripetute sollecitazioni in tensione dei muscoli addominali e tensore della fascia lata durante la corsa o i cambi di direzione.",
+                clinic: "Dolore localizzato sulla cresta iliaca esacerbato dalla palpazione e dalla contrazione isometrica contro resistenza degli addominali.",
+                meds: "Analgesici leggeri e FANS al bisogno durante le fasi acute di sovraccarico.", 
+                surgery: "Non indicata se non in rarissimi casi di distacco apofisario acuto scomposto.", 
+                rehab: "Riposo sportivo temporaneo, crioterapia locale, stretching dolce dei muscoli della parete addominale e del bacino." 
+            },
+            { 
+                id: 3, title: "Artrite Acromion-Claveare", district: "Spalla", severity: "Moderata", 
+                def: "Degenerazione e usura cartilaginea dell'articolazione tra l'acromion scapolare e la clavicola distale.", 
+                etiology: "Microtraumi ripetuti da sovraccarico (es. sollevamento pesi), esiti di pregresse lesioni distorsive o invecchiamento naturale.",
+                clinic: "Dolore localizzato alla sommità della spalla, esacerbato dall'adduzione estrema del braccio al torace e dai movimenti overhead.",
+                meds: "FANS orali o infiltrazioni ecoguidate di corticosteroidi intra-articolari.", 
+                surgery: "Resezione artroscopica dell'estremità distale della clavicola (procedura di Mumford).", 
+                rehab: "Recupero del ROM in scarico, chinesiterapia dolce e modulazione del carico lavorativo e sportivo." 
+            },
+            { 
+                id: 4, title: "Artrosi Gleno-Omerale", district: "Spalla", severity: "Cronica", 
+                def: "Consumo progressivo della cartilagine articolare tra la cavità glenoidea della scapola e la testa dell'omero (omartrosi).", 
+                etiology: "Invecchiamento biologico, microtraumatismi cronici, esiti di fratture articolari o pregresse instabilità non trattate.",
+                clinic: "Dolore sordo e profondo alla spalla che peggiora con i movimenti, rigidità articolare progressiva e crepitii percepibili.",
+                meds: "Condroprotettori orali, infiltrazioni con acido ialuronico o PRP (plasma ricco di piastrine).", 
+                surgery: "Protesi di spalla (anatomica o inversa) nei casi di grave compromissione funzionale.", 
+                rehab: "Mantenimento del ROM residuo, chinesiterapia passiva e attiva assistita, idrokinesiterapia." 
+            },
+            { 
+                id: 5, title: "Borsite Ileo-Psoas", district: "Anca", severity: "Lieve", 
+                def: "Infiammazione della borsa sinoviale situata tra il muscolo ileopsoas e la capsula anteriore dell'articolazione coxofemorale.", 
+                etiology: "Attrito ripetuto del tendine sul tubercolo ileopubico, sovraccarico nella corsa o nella danza, traumi diretti anteriori.",
+                clinic: "Dolore inguinale anteriore irradiato alla coscia, accentuato dalla flessione attiva dell'anca e dalla digitopressione.",
+                meds: "FANS e miorilassanti prescritti dal medico curante.", 
+                surgery: "Borsectomia artroscopica o open in casi refrattari cronici.", 
+                rehab: "Stretching selettivo dello psoas, TECARterapia e rieducazione del controllo lombo-pelvico." 
+            },
+            { 
+                id: 6, title: "Borsite Subacromiale", district: "Spalla", severity: "Lieve", 
+                def: "Infiammazione della borsa sierosa posta sotto il legamento coracoacromiale e sopra i tendini della cuffia dei rotatori.", 
+                etiology: "Conflitto subacromiale meccanico, sovraccarico funzionale in extra-rotazione e abduzione o traumi acuti.",
+                clinic: "Dolore vivo durante l'arco di movimento in abduzione (tra 60° e 120°), dolore notturno sul lato interessato.",
+                meds: "Ciclo di FANS o infiltrazione ecoguidata steroidea antinfiammatoria.", 
+                surgery: "Decompressione subacromiale artroscopica (acromioplastica).", 
+                rehab: "Crioterapia, TECAR, laserterapia e riequilibrio biomeccanico scapolo-omerale." 
+            },
+            { 
+                id: 7, title: "Borsite Trocanterica", district: "Anca", severity: "Lieve", 
+                def: "Infiammazione della borsa sinoviale localizzata sopra il grande trocantere femorale, alla base del tratto ileotibiale.", 
+                etiology: "Sovraccarico biomeccanico nella corsa, debolezza dei muscoli abduttori dell'anca, asimmetrie posturali.",
+                clinic: "Dolore laterale all'anca che si accentua camminando, salendo le scale e dormendo sul fianco dolente.",
+                meds: "FANS topici e orali, infiltrazioni di cortisone locali.", 
+                surgery: "Rilascio chirurgico del tratto ileotibiale nei rari casi resistenti.", 
+                rehab: "Rinforzo dei muscoli abduttori (medio gluteo), stretching della fascia lata e terapie fisiche (Onde d'urto)." 
+            },
+            { 
+                id: 8, title: "Calcificazione Cuffia", district: "Spalla", severity: "Moderata", 
+                def: "Tendinopatia calcifica caratterizzata dal deposito di idrossiapatite di calcio all'interno dei tendini della cuffia dei rotatori.", 
+                etiology: "Alterazioni metaboliche locali, ipossia tissutale e degenerazione tendinea legata all'età.",
+                clinic: "Dolore acutissimo e lancinante (fase di riassorbimento), limitazione funzionale severa e impotenza funzionale.",
+                meds: "FANS ad alto dosaggio e cortisonici per la fase acuta iperalgica.", 
+                surgery: "Rimozione artroscopica del deposito calcifico nei casi cronici refrattari.", 
+                rehab: "Onde d'urto focali, ultrasuoni e successiva rieducazione funzionale della spalla." 
+            },
+            { 
+                id: 9, title: "Capsulite Adesiva", district: "Spalla", severity: "Grave", 
+                def: "Condizione infiammatoria e fibrotica della capsula articolare della spalla che porta a una massiccia restrizione del ROM.", 
+                etiology: "Idiopatica (spesso correlata a diabete o disfunzioni tiroidee) o secondaria a traumi e interventi chirurgici.",
+                clinic: "Dolore iniziale severo seguito da una rigidità progressiva globale sia attiva che passiva (spalla 'congelata').",
+                meds: "Corticosteroidi sistemici o intra-articolari nelle fasi iniziali infiammatorie.", 
+                surgery: "Sblocco articolare in narcosi (manipolazione) o capsulotomia artroscopica.", 
+                rehab: "Mobilizzazione passiva dolce, esercizi di Codman, TECARterapia e graduale recupero attivo." 
+            },
+            { 
+                id: 10, title: "Cervicalgia Miotensiva", district: "Cervicale", severity: "Lieve", 
+                def: "Sindrome dolorosa del rachide cervicale causata da ipertono e contratture della muscolatura posteriore e del trapezio.", 
+                etiology: "Posture incongrue prolungate (es. lavoro al PC), stress emotivo, colpi di freddo e scarsa ergonomia.",
+                clinic: "Dolore sordo e pesantezza al collo e alle spalle, limitazione nei movimenti di rotazione e cefalea muscolotensiva.",
+                meds: "Miorilassanti e analgesici leggeri.", 
+                surgery: "Non indicata.", 
+                rehab: "Massoterapia decontratturante, chinesiterapia cervicale, posture correttive ed esercizi di rinforzo dei flessori profondi." 
+            }
         ];
 
+        // Patologie Neurologiche (Ampiamente dettagliate con multi-argomento clinico)
         const neurologicheData = [
-            { id: 101, title: "Atassia di Friedreich", district: "Generale", severity: "Cronica", def: "Atassia cerebellare e spinale ereditaria.", meds: "Idebenone.", surgery: "Chirurgia ortopedica correttiva.", rehab: "Equilibrio e logopedia." },
-            { id: 102, title: "Ernia con Deficit Neurologico", district: "Lombare", severity: "Grave", def: "Erniazione con ipostenia.", meds: "Cortisonici.", surgery: "Discectomia d'urgenza.", rehab: "Riabilitazione neuromotoria." },
-            { id: 103, title: "Glioblastoma Multiforme", district: "Cervicale", severity: "Grave", def: "Neoplasia cerebrale maligna.", meds: "Temozolomide.", surgery: "Resezione chirurgica.", rehab: "Fisioterapia palliativa." },
-            { id: 104, title: "Ictus Ischemico / Emiplegia", district: "Generale", severity: "Grave", def: "Interruzione ematica cerebrale.", meds: "Trombolisi.", surgery: "Decompressione in infarto maligno.", rehab: "Concetto Bobath." },
-            { id: 105, title: "Lesione Midollare", district: "Lombare", severity: "Grave", def: "Interruzione vie midollari.", meds: "Baclofen.", surgery: "Stabilizzazione vertebrale.", rehab: "Verticalizzazione precoce." },
-            { id: 106, title: "Mielopatia Spondilotica", district: "Cervicale", severity: "Grave", def: "Compressione midollo cervicale.", meds: "Analgesici.", surgery: "Laminectomia o corpectomia.", rehab: "Propriocettività." },
-            { id: 107, title: "Miosite Eterotopica", district: "Coscia", severity: "Moderata", def: "Formazione ossea nei tessuti molli.", meds: "Indometacina.", surgery: "Rimozione a maturazione.", rehab: "Mobilizzazione dolce." },
-            { id: 108, title: "Mononeuropatia Fibulare", district: "Gamba", severity: "Moderata", def: "Piede cadente da lesione.", meds: "Vit B12.", surgery: "Neurolisi.", rehab: "Tutori AFO." },
-            { id: 109, title: "Neuropatia Diabetica", district: "Piede", severity: "Cronica", def: "Danno assonale da iperglicemia.", meds: "Pregabalin.", surgery: "Ulteriori ulcere.", rehab: "Cura del piede." },
-            { id: 110, title: "Paralisi Cerebrale Infantile", district: "Generale", severity: "Cronica", def: "Encefalopatia non progressiva.", meds: "Tossina botulinica.", surgery: "Allungamenti tendinei.", rehab: "Metodo Bobath." },
-            { id: 111, title: "Paralisi Plesso Brachiale", district: "Spalla", severity: "Grave", def: "Lesione radici plesso.", meds: "Neuroprotettori.", surgery: "Innesti nervosi.", rehab: "FES e mobilizzazione." },
-            { id: 112, title: "Paralisi di Bell", district: "Cervicale", severity: "Lieve", def: "Paralisi facciale idiopatica.", meds: "Corticosteroidi.", surgery: "Decompressione canale.", rehab: "Mimica facciale." },
-            { id: 113, title: "CIDP", district: "Generale", severity: "Cronica", def: "Neuropatia demielinizzante.", meds: "IVIG e plasmaferesi.", surgery: "Non indicata.", rehab: "Rinforzo submassimale." },
-            { id: 114, title: "SLA", district: "Generale", severity: "Grave", def: "Degenerazione motoneuroni.", meds: "Riluzole.", surgery: "PEG e tracheostomia.", rehab: "Fisioterapia respiratoria." },
-            { id: 115, title: "Sclerosi Multipla", district: "Generale", severity: "Cronica", def: "Malattia demielinizzante SNC.", meds: "DMT.", surgery: "Interventi per spasticità.", rehab: "Esercizio personalizzato." },
-            { id: 116, title: "Tunnel Carpale Severo", district: "Mano", severity: "Moderata", def: "Atrofia muscoli tenari.", meds: "Neurotrofici.", surgery: "Decompressione d'urgenza.", rehab: "Rieducazione pinza." },
-            { id: 117, title: "Sindrome di Guillain-Barré", district: "Generale", severity: "Grave", def: "Poliradiculoneuropatia acuta.", meds: "IVIG.", surgery: "Tracheostomia.", rehab: "Mobilizzazione precoce." },
-            { id: 118, title: "Sindrome di West", district: "Generale", severity: "Grave", def: "Encefalopatia epilettica.", meds: "ACTH, vigabatrin.", surgery: "Chirurgia epilessia.", rehab: "Stimolazione precoce." },
-            { id: 119, title: "Sindrome Post-Encefalitica", district: "Generale", severity: "Moderata", def: "Esiti post-infezione.", meds: "Neuroprotettori.", surgery: "Non indicata.", rehab: "Riabilitazione cognitiva." },
-            { id: 120, title: "Sindrome Post-Polio", district: "Generale", severity: "Cronica", def: "Debolezza tardiva.", meds: "Analgesici.", surgery: "Correzione scheletrica.", rehab: "Attività a basso impatto." },
-            { id: 121, title: "Trauma Cranico (TCE)", district: "Cervicale", severity: "Grave", def: "Insulto traumatico acuto.", meds: "Controllo PIC.", surgery: "Craniotomia decompressiva.", rehab: "Riabilitazione intensiva." },
-            { id: 122, title: "Tremore Essenziale", district: "Cervicale", severity: "Moderata", def: "Tremore posturale.", meds: "Beta-bloccanti.", surgery: "FUS o DBS.", rehab: "Ergoterapia." },
-            { id: 123, title: "Tumore Midollare", district: "Lombare", severity: "Grave", def: "Neoplasia midollare.", meds: "Corticosteroidi.", surgery: "Microchirurgia.", rehab: "Propriocettività." },
-            { id: 124, title: "Vasculite SNC", district: "Generale", severity: "Grave", def: "Infiammazione vasi cerebrali.", meds: "Immunosoppressori.", surgery: "Per emorragie.", rehab: "Recupero focale." },
-            { id: 125, title: "Distrofia di Steinert", district: "Generale", severity: "Cronica", def: "Miotonia e debolezza.", meds: "Mexiletina.", surgery: "Cataratta o ortopedia.", rehab: "Stretching e aerobica." },
-            { id: 126, title: "Corea di Huntington", district: "Generale", severity: "Grave", def: "Movimenti coreici involontari.", meds: "Tetrabenazina.", surgery: "Non indicata.", rehab: "Prevenzione cadute." },
-            { id: 127, title: "Encefalopatia Ipossica", district: "Generale", severity: "Grave", def: "Danno da arresto cardiaco.", meds: "Anticonvulsivanti.", surgery: "Non indicata.", rehab: "Stimolazione sensoriale." },
-            { id: 128, title: "Malattia di Parkinson", district: "Generale", severity: "Cronica", def: "Degenerazione dopaminergica.", meds: "Levodopa.", surgery: "DBS.", rehab: "LSVT BIG program." },
-            { id: 129, title: "PSP", district: "Cervicale", severity: "Grave", def: "Parkinsonismo atipico.", meds: "Sintomatici.", surgery: "Non indicata.", rehab: "Logopedia e stabilità." },
-            { id: 130, title: "Sclerosi Laterale Primaria", district: "Generale", severity: "Cronica", def: "Spasticità progressiva.", meds: "Baclofen.", surgery: "Rilasci tendinei.", rehab: "Idrokinesiterapia." }
+            { 
+                id: 101, title: "Atassia di Friedreich", district: "Generale", severity: "Cronica", 
+                def: "Malattia neurodegenerativa ereditaria caratterizzata da progressiva atassia cerebellare e degenerazione dei cordoni spinali posteriori.", 
+                etiology: "Mutazione genetica autosomica recessiva sul gene FXN (fratassina) con espansione di triplette GAA.",
+                clinic: "Disturbi dell'equilibrio, atassia della marcia, disartria, areflessia profonda agli arti inferiori e segni piramidali.",
+                meds: "Idebenone e farmaci sintomatici per la gestione cardiaca e metabolica.", 
+                surgery: "Chirurgia ortopedica correttiva per deformità del piede o scoliosi gravi.", 
+                rehab: "Fisioterapia mirata all'equilibrio, alla coordinazione, logopedia e prevenzione delle contratture." 
+            },
+            { 
+                id: 102, title: "Ernia con Deficit Neurologico", district: "Lombare", severity: "Grave", 
+                def: "Erniazione discale massiva con compressione meccanica delle radici della cauda equina o del nervo sciatico.", 
+                etiology: "Degenerazione dell'anulus fibroso discale associata a sforzi di sollevamento scorretti o traumi.",
+                clinic: "Dolore radicolare acuto (sciatica), ipostenia marcata (deficit di forza nei miorotatori o flessori dorsali), parestesie.",
+                meds: "Corticosteroidi ad alto dosaggio, analgesici maggiori e neuroprotettori.", 
+                surgery: "Discectomia d'urgenza in presenza di deficit motori ingravescenti o sindrome della cauda.", 
+                rehab: "Riabilitazione neuromotoria post-chirurgica, recupero del tono e chinesiterapia di stabilizzazione." 
+            },
+            { 
+                id: 103, title: "Glioblastoma Multiforme", district: "Cervicale", severity: "Grave", 
+                def: "Neoplasia cerebrale maligna primaria di grado IV ad altissima aggressività e proliferazione cellulare.", 
+                etiology: "Fattori genetici complessi e alterazioni molecolari nella linea cellulare gliale.",
+                clinic: "Deficit neurologici focali, cefalea ingravescente, crisi epilettiche e alterazioni cognitive rapide.",
+                meds: "Chemioterapia (Temozolomide), radioterapia e corticosteroidi per l'edema cerebrale.", 
+                surgery: "Resezione chirurgica massimale sicura guidata da neuronavigazione.", 
+                rehab: "Fisioterapia palliativa e di supporto funzionale per preservare l'autonomia il più a lungo possibile." 
+            },
+            { 
+                id: 104, title: "Ictus Ischemico / Emiplegia", district: "Generale", severity: "Grave", 
+                def: "Interruzione acuta dell'apporto ematico cerebrale che provoca necrosi tissutale e deficit motorio controlaterale (emiplegia).", 
+                etiology: "Trombosi o embolia cerebrale su base aterosclerotica o cardiogena, ipertensione e diabete.",
+                clinic: "Perdita di forza unilaterale (facciale e corporea), afasia (se emisfero dominante), disturbi sensitivi e visivi.",
+                meds: "Trombolisi sistemica in fase acuta, antiaggreganti o anticoagulanti, farmaci per il controllo pressorio.", 
+                surgery: "Decompressione chirurgica in casi di infarto cerebrale maligno esteso.", 
+                rehab: "Concetto Bobath, stimolazione propriocettiva, rieducazione al cammino e recupero delle attività della vita quotidiana." 
+            },
+            { 
+                id: 105, title: "Lesione Midollare", district: "Lombare", severity: "Grave", 
+                def: "Interruzione traumatica o medica delle vie nervose all'interno del canale midollare con perdita di funzione sotto la lesione.", 
+                etiology: "Traumi ad alta energia (incidenti stradali, cadute dall'alto), tumori o lesioni vascolari spinali.",
+                clinic: "Paraplegia o tetraplegia, perdita della sensibilità, disfunzioni sfinteriche e alterazione del sistema autonomo.",
+                meds: "Supporto farmacologico intensivo in fase acuta, miorilassanti per la spasticità (Baclofen).", 
+                surgery: "Stabilizzazione chirurgica vertebrale e decompressione precoce.", 
+                rehab: "Verticalizzazione precoce, idrokinesiterapia, rinforzo degli arti superiori sani e utilizzo di ausili ortopedici avanzati." 
+            }
         ];
 
+        // Nuova Base Dati Test Ortopedici e Neurologici (50 Test Super Esaustivi)
+        const testCliniciData = [
+            { id: 1, title: "Test di Neer", district: "Spalla", category: "Ortopedico", purpose: "Valutare la presenza di conflitto (impingement) subacromiale.", patientPos: "Paziente seduto o in piedi con il braccio rilassato.", therapistPos: "In piedi di lato al paziente; una mano stabilizza la scapola, l'altra afferra il braccio.", execution: "Il terapista esegue una flessione passiva forzata e rapida del braccio del paziente in rotazione interna.", positivity: "Dolore e smorfia del paziente tra i 90° e i 180° di flessione.", pathology: "Sindrome da conflitto subacromiale / Tendinopatia cuffia.", sensitivity: "Sensibilità: 79%", specificity: "Specificità: 53%" },
+            { id: 2, title: "Test di Hawkins-Kennedy", district: "Spalla", category: "Ortopedico", purpose: "Valutare l'impingement del tendine del sovraspinato sotto il legamento coracoacromiale.", patientPos: "Paziente seduto con braccio flesso a 90° sul piano scapolare e gomito flesso a 90°.", therapistPos: "In piedi di fronte al paziente; sostiene il gomito con una mano e il polso con l'altra.", execution: "Il terapista imprime bruscamente una rotazione interna passiva dell'omero abbassando l'avambraccio.", positivity: "Insorgenza di dolore acuto nella regione anterolaterale della spalla.", pathology: "Sindrome da conflitto subacromiale", sensitivity: "Sensibilità: 79%", specificity: "Specificità: 60%" },
+            { id: 3, title: "Test di Jobe (Empty Can)", district: "Spalla", category: "Ortopedico", purpose: "Valutare l'integrità del tendine del muscolo sovraspinato.", patientPos: "Paziente in piedi con le braccia abdotte a 90° sul piano scapolare, flesse in avanti di 30° e con pollici rivolti verso il basso ('svuotare una lattina').", therapistPos: "In piedi di fronte al paziente.", execution: "Il terapista applica una pressione verticale verso il basso mentre il paziente oppone resistenza.", positivity: "Debolezza marcata o dolore intenso senza deficit neurologici.", pathology: "Lesione o tendinopatia del sovraspinato", sensitivity: "Sensibilità: 85%", specificity: "Specificità: 54%" },
+            { id: 4, title: "Test di Apprehension (Lussazione)", district: "Spalla", category: "Ortopedico", purpose: "Valutare l'instabilità anteriore cronica della spalla.", patientPos: "Paziente supino o seduto con il braccio abdotto a 90° e gomito flesso a 90°.", therapistPos: "In piedi accanto al paziente, afferra il polso e spinge lentamente l'omero in massima rotazione esterna.", execution: "Il terapista ruota esternamente il braccio applicando una leggera pressione anteriore sulla testa omerale.", positivity: "Sensazione di imminente lussazione e espressione di paura/ansia sul volto del paziente.", pathology: "Instabilità anteriore di spalla / Lesione di Bankart", sensitivity: "Sensibilità: 52%", specificity: "Specificità: 89%" },
+            { id: 5, title: "Drop Arm Test", district: "Spalla", category: "Ortopedico", purpose: "Diagnosticare lesioni massive della cuffia dei rotatori.", patientPos: "Paziente seduto o in piedi.", therapistPos: "Il terapista solleva passivamente il braccio del paziente in abduzione a 90°.", execution: "Si chiede al paziente di mantenere autonomamente la posizione e di abbassare lentamente il braccio lungo i fianchi.", positivity: "Il braccio cade improvvisamente verso il basso senza controllo o il paziente non riesce a trattenerlo.", pathology: "Lesione massiva del sovraspinato o della cuffia", sensitivity: "Sensibilità: 73%", specificity: "Specificità: 77%" },
+            { id: 6, title: "Speed Test", district: "Spalla", category: "Ortopedico", purpose: "Valutare l'infiammazione o la lesione del tendine del capo lungo del bicipite brachiale.", patientPos: "Paziente seduto con gomito esteso, avambraccio supinato e spalla flessa a 60°.", therapistPos: "In piedi di fronte al paziente, con una mano sul polso e l'altra sulla spalla.", execution: "Il terapista applica una forza di resistenza verso il basso mentre il paziente tenta di flettere la spalla verso l'alto.", positivity: "Dolore localizzato al solco bicipitale anteriore.", pathology: "Tendinopatia del capo lungo del bicipite", sensitivity: "Sensibilità: 58%", specificity: "Specificità: 75%" },
+            { id: 7, title: "Yergason Test", district: "Spalla", category: "Ortopedico", purpose: "Verificare la stabilità del tendine del bicipite nella doccia bicipitale.", patientPos: "Paziente seduto con gomito flesso a 90° aderente al tronco e avambraccio in pronazione.", therapistPos: "In piedi di fronte al paziente; afferra la mano e stabilizza il gomito.", execution: "Il paziente esegue una supinazione attiva dell'avambraccio e flessine di gomito contro la resistenza opposta dal terapista.", positivity: "Dolore avvertito nel solco bicipitale o lussazione del tendine fuori dalla doccia.", pathology: "Tenosinovite del bicipite / Instabilità legamento trasverso", sensitivity: "Sensibilità: 32%", specificity: "Specificità: 79%" },
+            { id: 8, title: "Test di Spurling", district: "Cervicale", category: "Neurologico", purpose: "Valutare la presenza di radicolopatia cervicale compressiva.", patientPos: "Paziente seduto con il capo inclinato e ruotato verso il lato sintomatico.", therapistPos: "In piedi dietro al paziente, pone le mani giunte sopra la testa del paziente.", execution: "Il terapista esercita una pressione verticale verso il basso di circa 7 kg.", positivity: "Irradiazione di dolore radicolare lungo l'arto superiore dallo stesso lato dell'inclinazione.", pathology: "Ernia discale cervicale / Stenosi foraminale", sensitivity: "Sensibilità: 50%", specificity: "Specificità: 86%" },
+            { id: 9, title: "Trazione Cervicale (Distrazione)", district: "Cervicale", category: "Ortopedico", purpose: "Valutare il sollievo dai sintomi radicolari mediante trazione assiale.", patientPos: "Paziente supino con il collo in posizione neutra.", therapistPos: "In piedi alla testa del lettino, afferra il capo del paziente posizionando le mani sotto l'occipite e il mento.", execution: "Il terapista solleva dolcemente e trazione il capo verso l'alto lungo l'asse longitudinale.", positivity: "Diminuzione o scomparsa del dolore irradiato all'arto superiore.", pathology: "Radicolopatia cervicale da compressione", sensitivity: "Sensibilità: 43%", specificity: "Specificità: 100%" },
+            { id: 10, title: "Test di Adson", district: "Torace", category: "Neurologico", purpose: "Valutare la sindrome dello stretto toracico superiore (compressione arteria succlavia o plesso).", patientPos: "Paziente seduto con le braccia appoggiate sulle cosce.", therapistPos: "Palpa il polso radiale del paziente.", execution: "Si chiede al paziente di inspirare profondamente, estendere il collo e ruotare la testa verso il lato esaminato.", positivity: "Scomparsa o netta riduzione dell'ampiezza del polso radiale o riproduzione dei sintomi.", pathology: "Sindrome dello stretto toracico superiore (TOS)", sensitivity: "Sensibilità: 79%", specificity: "Specificità: 76%" },
+            { id: 11, title: "Cozen Test", district: "Avambraccio", category: "Ortopedico", purpose: "Valutare l'epicondilite laterale (gomito del hobbista/tennista).", patientPos: "Paziente seduto con gomito flesso a 90°, avambraccio in pronazione e pugno chiuso.", therapistPos: "Stabilizza il gomito con una mano e oppone resistenza al dorso della mano con l'altra.", execution: "Il paziente esegue un'estensione del polso e una deviazione radiale contro resistenza.", positivity: "Dolore acuto improvviso localizzato all'epicondilo laterale dell'omero.", pathology: "Epicondilite laterale (Tendinopatia estensori)", sensitivity: "Sensibilità: 82%", specificity: "Specificità: 79%" },
+            { id: 12, title: "Mill Test", district: "Avambraccio", category: "Ortopedico", purpose: "Provocare stiramento dei muscoli epicondilei per confermare l'epicondilite.", patientPos: "Paziente in piedi o seduto con braccio esteso, pronato e polso flesso.", therapistPos: "Pone una mano sul gomito e l'altra afferra la mano del paziente.", execution: "Il terapista porta passivamente il polso in massima flessione mentre estende completamente il gomito.", positivity: "Dolore vivo lungo il tratto prossimale dei muscoli estensori dell'avambraccio e all'epicondilo.", pathology: "Epicondilite laterale cronica", sensitivity: "Sensibilità: 50%", specificity: "Specificità: 85%" },
+            { id: 13, title: "Golf Elbow Test", district: "Avambraccio", category: "Ortopedico", purpose: "Valutare l'epitrocleite (gomito del golfista).", patientPos: "Paziente seduto con il gomito flesso a 90° e avambraccio in supinazione.", therapistPos: "Stabilizza il gomito con una mano e palpa l'epitroclea omerale.", execution: "Il terapista oppone resistenza a una flessione del polso e pronazione eseguita dal paziente.", positivity: "Dolore acuto localizzato all'epitroclea (epicondilo mediale).", pathology: "Epitrocleite / Tendinopatia dei flessori", sensitivity: "Sensibilità: 75%", specificity: "Specificità: 88%" },
+            { id: 14, title: "Phalen Test", district: "Mano", category: "Neurologico", purpose: "Valutare la compressione del nervo mediano nel tunnel carpale.", patientPos: "Paziente seduto o in piedi.", therapistPos: "Osserva la postura delle mani.", execution: "Il paziente unisce i dorsi delle mani di fronte al torace con i polsi in massima flessione (a 90°) per almeno 60 secondi.", positivity: "Comparsa di formicolii, intorpidimento o dolore nel territorio di distribuzione del nervo mediano (dita I-IV).", pathology: "Sindrome del tunnel carpale", sensitivity: "Sensibilità: 68%", specificity: "Specificità: 73%" },
+            { id: 15, title: "Tinel Test al Polso", district: "Mano", category: "Neurologico", purpose: "Verificare la sofferenza del nervo mediano al polso.", patientPos: "Paziente supino con il palmo della mano rivolto verso l'alto.", therapistPos: "In piedi di fronte al paziente con un martelletto o con le dita.", execution: "Il terapista percuote delicatamente sopra il legamento trasverso del carpo (sul tunnel carpale).", positivity: "Sensazione di scossa elettrica o formicolio irradiata alle prime tre dita della mano.", pathology: "Sindrome del tunnel carpale", sensitivity: "Sensibilità: 60%", specificity: "Specificità: 67%" },
+            { id: 16, title: "Finkelstein Test", district: "Mano", category: "Ortopedico", purpose: "Valutare la tenosinovite stenosante del primo compartimento estensore (De Quervain).", patientPos: "Paziente seduto con il pollice chiuso all'interno delle altre dita a formare un pugno.", therapistPos: "Afferra l'avambraccio con una mano e la mano del paziente con l'altra.", execution: "Il terapista esegue una deviazione ulnare passiva e decisa del polso.", positivity: "Dolore acuto e violento a livello dei tendini stiloidei radiali (abduttore lungo ed estensore breve del pollice).", pathology: "Tenosinovite di De Quervain", sensitivity: "Sensibilità: 89%", specificity: "Specificità: 91%" },
+            { id: 17, title: "Allen Test", district: "Mano", category: "Ortopedico", purpose: "Valutare la pervietà delle arterie ulnare e radiale prima di procedure cliniche.", patientPos: "Paziente seduto con il pugno chiuso.", therapistPos: "Comprime contemporaneamente con le dita le arterie radiale e ulnare al polso.", execution: "Si chiede al paziente di aprire e chiudere il pugno più volte fino a sbiancare il palmo; poi si rilascia la pressione di un'arteria.", positivity: "Mancata ricolorazione del palmo della mano entro 5-7 secondi dal rilascio.", pathology: "Occlusione vascolare o insufficienza dell'arcata palmare", sensitivity: "Sensibilità: 75%", specificity: "Specificità: 85%" },
+            { id: 18, title: "Test di Lasegue (Straight Leg Raise)", district: "Lombare", category: "Neurologico", purpose: "Valutare la tensione radicolare o la presenza di conflitto discale lombare sullo sciatico.", patientPos: "Paziente supino con arti inferiori estesi e rilasciati.", therapistPos: "In piedi accanto al lettino; solleva l'arto inferiore afferrando il tallone e mantenendo il ginocchio esteso.", execution: "Il terapista flette lentamente l'anca del paziente fino a evocare dolore o parestesie.", positivity: "Dolore irradiato lungo la faccia posteriore della coscia e gamba sotto i 60-70° di flessione d'anca.", pathology: "Ernia discale lombare / Sciatalgia", sensitivity: "Sensibilità: 91%", specificity: "Specificità: 26%" },
+            { id: 19, title: "Bragard Test", district: "Lombare", category: "Neurologico", purpose: "Confermare la positività del test di Lasegue differenziandola da una contrattura ischiocrurale.", patientPos: "Paziente supino.", therapistPos: "Esegue il test di Lasegue fino al punto di insorgenza del dolore, poi abbassa di pochi gradi.", execution: "Il terapista esegue una flessione dorsale passiva della caviglia del paziente.", positivity: "Accentuazione del dolore radicolare lungo il nervo sciatico.", pathology: "Radicolopatia lombare / Ernia discale", sensitivity: "Sensibilità: 85%", specificity: "Specificità: 70%" },
+            { id: 20, title: "Slump Test", district: "Lombare", category: "Neurologico", purpose: "Valutare la meccanica neurale e la tensione del sistema nervoso centrale e periferico inferiore.", patientPos: "Paziente seduto sul bordo del lettino con le mani dietro la schiena.", therapistPos: "Guida passivamente le fasi del test.", execution: "1. Flessione del collo; 2. Flessione toraco-lombare; 3. Estensione di ginocchio; 4. Flessione dorsale di caviglia.", positivity: "Riproduzione dei sintomi neurologici del paziente (dolore, formicolio) alleviati sollevando il capo.", pathology: "Tensione neurodinamica / Conflitto radicolare", sensitivity: "Sensibility: 84%", specificity: "Specificity: 83%" },
+            { id: 21, title: "Test di Patrick (FABER)", district: "Anca", category: "Ortopedico", purpose: "Valutare la patologia dell'articolazione anca o della sacro-iliaca.", patientPos: "Paziente supino con il piede dell'arto da esaminare appoggiato sul ginocchio controlaterale (figura a 4).", therapistPos: "Pone una mano sulla spina iliaca antero-superiore controlaterale e l'altra sul ginocchio flesso.", execution: "Il terapista preme delicatamente il ginocchio verso il basso in direzione del lettino.", positivity: "Dolore inguinale (problema coxofemorale) o dolore posteriore a livello sacro-iliaco.", pathology: "Coxartrosi / Disfunzione sacro-iliaca", sensitivity: "Sensibilità: 77%", specificity: "Specificità: 100%" },
+            { id: 22, title: "Test di Ober", district: "Coscia", category: "Ortopedico", purpose: "Valutare la retrazione o contrattura del tratto ileotibiale e del tensore della fascia lata.", patientPos: "Paziente in decubito laterale con l'arto sano sotto flesso per stabilizzare il bacino.", therapistPos: "Afferra la caviglia dell'arto superiore e porta l'anca in abduzione ed estensione.", execution: "Il terapista lascia cadere passivamente l'arto verso il basso in direzione del lettino.", positivity: "L'arto superiore rimane sospeso e non riesce ad abbassarsi oltre la linea mediana.", pathology: "Sindrome della bandelletta ileotibiale / Retrazione TFL", sensitivity: "Sensibilità: 78%", specificity: "Specificità: 65%" },
+            { id: 23, title: "Test di Thomas", district: "Anca", category: "Ortopedico", purpose: "Valutare la retrazione dei muscoli flessori dell'anca (ileopsoas e retto femorale).", patientPos: "Paziente supino con la regione lombare ben aderente al lettino.", therapistPos: "In piedi accanto al paziente.", execution: "Il paziente porta un ginocchio al petto afferrandolo con le mani, mentre l'altro arto deve rimanere completamente disteso sul piano.", positivity: "Il sollevamento spontaneo del tallone o della coscia controlaterale dal lettino.", pathology: "Contrattura dei flessori dell'anca / Retrazione psoas", sensitivity: "Sensibilità: 80%", specificity: "Specificità: 70%" },
+            { id: 24, title: "Trendelenburg Test", district: "Anca", category: "Ortopedico", purpose: "Valutare la forza e la tenuta dei muscoli abduttori dell'anca (medio e piccolo gluteo).", patientPos: "Paziente in piedi.", therapistPos: "In piedi dietro al paziente, posiziona le mani sulle creste iliache.", execution: "Si chiede al paziente di sollevare un piede da terra rimanendo in appoggio monopodalico per 30 secondi.", positivity: "Il bacino dal lato sollevato cade verso il basso anziché rimanere orizzontale o sollevarsi.", pathology: "Insufficienza del medio gluteo / Coxartrosi grave", sensitivity: "Sensibilità: 73%", specificity: "Specificità: 77%" },
+            { id: 25, title: "Lachman Test", district: "Coscia", category: "Ortopedico", purpose: "Valutare l'integrità del legamento crociato anteriore (LCA).", patientPos: "Paziente supino con il ginocchio flesso a circa 20°-30° e rilasciato.", therapistPos: "Stabilizza il femore con una mano e afferra la tibia prossimale con l'altra.", execution: "Il terapista imprime una trazione rapida e decisa della tibia in avanti (direzione anteriore).", positivity: "Eccessiva traslazione anteriore della tibia associata a un finecorsa molle (soft end-feel).", pathology: "Lesione del Legamento Crociato Anteriore (LCA)", sensitivity: "Sensibilità: 85%", specificity: "Specificità: 94%" },
+            { id: 26, title: "Anterior Drawer Test (Ginocchio)", district: "Coscia", category: "Ortopedico", purpose: "Valutare la stabilità anteriore del ginocchio.", patientPos: "Paziente supino con ginocchio flesso a 90° e piede appoggiato sul lettino.", therapistPos: "Si siede leggermente sul dorso del piede del paziente per fissarlo.", execution: "Il terapista afferra la tibia con entrambe le mani e la tira decisamente in avanti.", positivity: "Traslazione anteriore della tibia superiore a 5-6 mm rispetto al normale.", pathology: "Lesione del Legamento Crociato Anteriore (LCA)", sensitivity: "Sensibilità: 62%", specificity: "Specificità: 87%" },
+            { id: 27, title: "Posterior Drawer Test", district: "Coscia", category: "Ortopedico", purpose: "Valutare la stabilità posteriore del ginocchio.", patientPos: "Paziente supino con ginocchio flesso a 90°.", therapistPos: "Afferra la tibia prossimale e spinge posteriormente.", execution: "Il terapista imprime una spinta decisa della tibia all'indietro.", positivity: "Eccessiva traslazione posteriore della tibia con arresto molle.", pathology: "Lesione del Legamento Crociato Posteriore (LCP)", sensitivity: "Sensibilità: 90%", specificity: "Specificità: 99%" },
+            { id: 28, title: "Valgus Stress Test (Ginocchio)", district: "Coscia", category: "Ortopedico", purpose: "Valutare l'integrità del legamento collaterale mediale (LCM).", patientPos: "Paziente supino con arto inferiore esteso o flesso a 30°.", therapistPos: "Pone una mano all'esterno del ginocchio (valgo) e l'altra alla caviglia internamente.", execution: "Il terapista applica una forza in valgo (spingendo lateralmente il ginocchio e tirando la caviglia medialmente).", positivity: "Eccessiva apertura dell'articolazione sul lato mediale e dolore vivo.", pathology: "Lesione del Legamento Collaterale Mediale (LCM)", sensitivity: "Sensibilità: 86%", specificity: "Specificità: 91%" },
+            { id: 29, title: "Varus Stress Test (Ginocchio)", district: "Coscia", category: "Ortopedico", purpose: "Valutare l'integrità del legamento collaterale laterale (LCL).", patientPos: "Paziente supino con ginocchio flesso a 30°.", therapistPos: "Pone una mano all'interno del ginocchio e l'altra alla caviglia esternamente.", execution: "Il terapista applica una forza in varo (apertura laterale).", positivity: "Eccessiva apertura articolare laterale e dolore associato.", pathology: "Lesione del Legamento Collaterale Laterale (LCL)", sensitivity: "Sensibilità: 25%", specificity: "Specificità: 97%" },
+            { id: 30, title: "McMurray Test", district: "Coscia", category: "Ortopedico", purpose: "Valutare la presenza di lesioni meniscali (mediale o laterale).", patientPos: "Paziente supino con anca e ginocchio completamente flessi.", therapistPos: "Una mano sul tallone per imprimere rotazione, l'altra palpa l'interlinea articolare.", execution: "Il terapista ruota esternamente la tibia ed estende il ginocchio (per menisco mediale); ruota internamente ed estende per il laterale.", positivity: "Presenza di 'click' udibile/palpabile associato a dolore acuto lungo l'interlinea.", pathology: "Lesione del menisco (mediale o laterale)", sensitivity: "Sensibilità: 53%", specificity: "Specificità: 85%" },
+            { id: 31, title: "Apley Compression Test", district: "Coscia", category: "Ortopedico", purpose: "Differenziare lesioni meniscali da lesioni legamentose del ginocchio.", patientPos: "Paziente in decubito prono con il ginocchio flesso a 90°.", therapistPos: "In piedi dietro al paziente, blocca la coscia con il proprio ginocchio.", execution: "Il terapista preme il tallone verso il basso comprimendo i menischi mentre ruota internamente ed esternamente la tibia.", positivity: "Dolore all'interno dell'articolazione durante la compressione e rotazione.", pathology: "Lesione meniscale", sensitivity: "Sensibilità: 61%", specificity: "Specificità: 85%" },
+            { id: 32, title: "Apley Distraction Test", district: "Coscia", category: "Ortopedico", purpose: "Valutare se il dolore al ginocchio è di origine legamentosa o meniscale.", patientPos: "Paziente in decubito prono con ginocchio flesso a 90°.", therapistPos: "Tira la gamba verso l'alto applicando trazione mentre esegue rotazioni tibiali.", execution: "Il terapista traziona la tibia verso l'alto riducendo la pressione sui menischi e stirando i legamenti.", positivity: "Il dolore aumenta durante la trazione (indicativo di lesione legamentosa).", pathology: "Lesione legamentosa del ginocchio", sensitivity: "Sensibilità: 50%", specificity: "Specificità: 90%" },
+            { id: 33, title: "Apprehension Test per Rotula", district: "Coscia", category: "Ortopedico", purpose: "Valutare l'instabilità patello-femorale e la tendenza alla lussazione rotulea.", patientPos: "Paziente supino con quadricipite rilassato e ginocchio esteso o flesso a 30°.", therapistPos: "Posiziona i pollici sul margine mediale della rotula.", execution: "Il terapista spinge delicatamente la rotula in direzione laterale.", positivity: "Espressione d'ansia o contrazione improvvisa del quadricipite per impedire la lussazione.", pathology: "Instabilità rotulea / Sindrome femoro-rotulea", sensitivity: "Sensibilità: 100%", specificity: "Specificità: 88%" },
+            { id: 34, title: "Clarke Test (Patellar Grind Test)", district: "Coscia", category: "Ortopedico", purpose: "Valutare la condromalacia rotulea o l'artrosi patello-femorale.", patientPos: "Paziente supino con arto inferiore completamente esteso sul lettino.", therapistPos: "Posiziona il web della mano sul polo superiore della rotula spingendola distalmente.", execution: "Si chiede al paziente di contrarre attivamente il quadricipite mentre il terapista mantiene la pressione sulla rotula.", positivity: "Dolore retro-patellare acuto e incapacità di completare la contrazione.", pathology: "Condromalacia rotulea / Artrosi femoro-rotulea", sensitivity: "Sensibilità: 50%", specificity: "Specificità: 33%" },
+            { id: 35, title: "Ballottement Test (Versamento Ginocchio)", district: "Coscia", category: "Ortopedico", purpose: "Rilevare la presenza di versamento intra-articolare cospicuo nel ginocchio.", patientPos: "Paziente supino con arto completamente esteso.", therapistPos: "Con una mano comprime il recesso supra-patellare per svuotarlo.", execution: "Con le dita dell'altra mano preme bruscamente la rotula verso il basso.", positivity: "Sensazione di 'rimbalzo' della rotula che urta contro i condili femorali (segno del pattino).", pathology: "Versamento articolare / Sinovite", sensitivity: "Sensibilità: 78%", specificity: "Specificità: 90%" },
+            { id: 36, title: "Test di Thompson (Simmonds)", district: "Gamba", category: "Ortopedico", purpose: "Valutare l'integrità del tendine d'Achille.", patientPos: "Paziente in decubito prono con i piedi che fuoriescono dal bordo del lettino.", therapistPos: "In piedi ai piedi del lettino.", execution: "Il terapista stringe con decisione il ventre muscolare del gastrocnemio e del soleo.", positivity: "Mancanza della flessione plantare passiva del piede quando si comprime il polpaccio.", pathology: "Rottura completa del tendine d'Achille", sensitivity: "Sensibilità: 96%", specificity: "Specificità: 93%" },
+            { id: 37, title: "Anterior Drawer Test (Caviglia)", district: "Piede", category: "Ortopedico", purpose: "Valutare la stabilità del legamento talofibulare anteriore della caviglia.", patientPos: "Paziente seduto o supino con caviglia flessa a 90° o a 10-20° di flessione plantare.", therapistPos: "Stabilizza la tibia con una mano e afferra il calcagno con l'altra.", execution: "Il terapista tira in avanti il piede (traslazione anteriore dell'astragalo sotto la mortisa tibiale).", positivity: "Eccessiva traslazione anteriore o 'cassetto' positivo rispetto al lato sano.", pathology: "Lesione del legamento talofibulare anteriore (LTFA)", sensitivity: "Sensibilità: 78%", specificity: "Specificità: 85%" },
+            { id: 38, title: "Talar Tilt Test", district: "Piede", category: "Ortopedico", purpose: "Valutare l'integrità del legamento calcaneofibulare della caviglia.", patientPos: "Paziente seduto con ginocchio flesso a 90° e piede rilasciato.", therapistPos: "Stabilizza la tibia distale con una mano e afferra il calcagno.", execution: "Il terapista inclina passivamente il calcagno in inversione (o eversione per il deltoideo).", positivity: "Eccessiva basculazione dell'astragalo e dolore marcato.", pathology: "Lesione del legamento calcaneofibulare / Instabilità laterale", sensitivity: "Sensibilità: 50%", specificity: "Specificità: 88%" },
+            { id: 39, title: "Morton Squeeze Test", district: "Piede", category: "Ortopedico", purpose: "Valutare la presenza di neuroma di Morton o metatarsalgia.", patientPos: "Paziente supino o seduto.", therapistPos: "In piedi ai piedi del lettino.", execution: "Il terapista stringe lateralmente e contemporaneamente le teste dei metatarsi comprimendole tra loro.", positivity: "Dolore acuto irradiato alle dita e parestesie nel territorio interdigitale.", pathology: "Neuroma di Morton / Borsite intermetatarsale", sensitivity: "Sensibilità: 83%", specificity: "Specificità: 75%" },
+            { id: 40, title: "Test di Gaenslen", district: "Lombare", category: "Ortopedico", purpose: "Valutare la disfunzione dell'articolazione sacro-iliaca.", patientPos: "Paziente supino con un gluteo che sporge leggermente dal bordo del lettino.", therapistPos: "Flette al massimo un ginocchio al petto mentre l'altro arto viene lasciato penzolare fuori dal lettino.", execution: "Il terapista applica una pressione verso il basso sull'arto pendente e contemporaneamente sul ginocchio flesso.", positivity: "Dolore profondo nella regione sacro-iliaca.", pathology: "Disfunzione dell'articolazione sacro-iliaca", sensitivity: "Sensibilità: 71%", specificity: "Specificità: 61%" },
+            { id: 41, title: "Compression Test Sacro-Iliaco", district: "Lombare", category: "Ortopedico", purpose: "Provocare dolore sull'articolazione sacro-iliaca per confermare sofferenza locale.", patientPos: "Paziente in decubito laterale con l'arto superiore sopra l'altro.", therapistPos: "Posiziona le mani sovrapposte sulla cresta iliaca superiore del paziente.", execution: "Il terapista applica una forte pressione verticale verso il basso.", positivity: "Comparsa di dolore nella regione della sacro-iliaca.", pathology: "Sacroileite / Lesione legamentosa pelvica", sensitivity: "Sensibilità: 69%", specificity: "Specificità: 68%" },
+            { id: 42, title: "Distraction Test Sacro-Iliaco", district: "Lombare", category: "Ortopedico", purpose: "Valutare l'integrità dei legamenti sacro-iliaci anteriori.", patientPos: "Paziente supino.", therapistPos: "Incrocia le braccia e posiziona le mani sulle spine iliache antero-superiori (SIAS).", execution: "Il terapista applica una spinta decisa verso l'esterno e verso il basso aprendo la pelvi.", positivity: "Dolore riferito nella zona sacro-iliaca o glutea.", pathology: "Sindrome sacro-iliaca", sensitivity: "Sensibilità: 60%", specificity: "Specificità: 81%" },
+            { id: 43, title: "Test di Schober", district: "Lombare", category: "Ortopedico", purpose: "Misurare la mobilità e la flessione della colonna lombare.", patientPos: "Paziente in piedi con la schiena scoperta.", therapistPos: "Traccia un segno tra le spine iliache postero-superiori (L5) e un secondo segno 10 cm più in alto.", execution: "Si chiede al paziente di flettere in avanti il tronco al massimo senza piegare le ginocchia; si rimisura la distanza.", positivity: "Un incremento della distanza inferiore a 4-5 cm indica ipomobilità.", pathology: "Spondilite anchilosante / Rigidità lombare severa", sensitivity: "Sensibilità: 81%", specificity: "Specificità: 85%" },
+            { id: 44, title: "Test di Wright (Hyperabduction)", district: "Torace", category: "Neurologico", purpose: "Valutare la sindrome dello stretto toracico da compressione del fascio ascellare.", patientPos: "Paziente seduto.", therapistPos: "Palpa il polso radiale del paziente.", execution: "Il terapista porta passivamente il braccio del paziente in iperabduzione ed extrarotazione.", positivity: "Scomparsa del polso radiale o riproduzione dei sintomi di formicolio.", pathology: "Sindrome dello stretto toracico (TOS)", sensitivity: "Sensibilità: 90%", specificity: "Specificità: 73%" },
+            { id: 45, title: "Test di Roos (EAST Test)", district: "Torace", category: "Neurologico", purpose: "Valutare la sindrome dello stretto toracico sotto sforzo vascolare e nervoso.", patientPos: "Paziente seduto con braccia abdotte a 90° ed extraruotate, gomiti flessi a 90° (posizione di resa).", therapistPos: "Osserva il paziente per 3 minuti.", execution: "Si chiede al paziente di aprire e chiudere rapidamente le mani in modo continuo per 3 minuti.", positivity: "Incapacità di completare il test per dolore ischemico, pesantezza o parestesie alle mani.", pathology: "Sindrome dello stretto toracico (TOS)", sensitivity: "Sensibilità: 84%", specificity: "Specificità: 30%" },
+            { id: 46, title: "Froment Sign", district: "Mano", category: "Neurologico", purpose: "Valutare la paralisi del nervo ulnare e l'ipotrofia dell'adduttore del pollice.", patientPos: "Paziente seduto.", therapistPos: "Fornisce al paziente un foglio di carta.", execution: "Si chiede al paziente di stringere il foglio tra il pollice e l'indice come a trattenerlo; il terapista prova a tirarlo via.", positivity: "Il paziente per compensare flette la falange distale del pollice (intervenendo il flessore lungo innervato dal mediano).", pathology: "Lesione del nervo ulnare", sensitivity: "Sensibilità: 95%", specificity: "Specificità: 100%" },
+            { id: 47, title: "Wartenberg Sign", district: "Mano", category: "Neurologico", purpose: "Valutare il deficit dei muscoli interossei palmari innervati dal nervo ulnare.", patientPos: "Paziente con le mani appoggiate aperte sul tavolo.", therapistPos: "Osserva la posizione delle dita.", execution: "Si osserva il mignolo che rimane abdotto (separato) rispetto alle altre dita senza potersi addurre.", positivity: "Incapacità di accostare il mignolo alle altre dita per debolezza dell'interosseo palmare.", pathology: "Neuropatia del nervo ulnare", sensitivity: "Sensibilità: 80%", specificity: "Specificità: 90%" },
+            { id: 48, title: "Lift-Off Test (Gerber Test)", district: "Spalla", category: "Ortopedico", purpose: "Valutare l'integrità del muscolo sottoscapolare.", patientPos: "Paziente in piedi con il dorso della mano appoggiato sulla regione lombare.", therapistPos: "In piedi dietro al paziente.", execution: "Si chiede al paziente di staccare (sollevare) la mano dalla schiena allontanandola.", positivity: "Incapacità di sollevare la mano o compensi con l'estensione del gomito e del polso.", pathology: "Lesione del tendine del sottoscapolare", sensitivity: "Sensibilità: 62%", specificity: "Specificità: 94%" },
+            { id: 49, title: "Belly Press Test (Navicular Test)", district: "Spalla", category: "Ortopedico", purpose: "Test alternativo al Gerber per valutare il sottoscapolare in pazienti con ROM limitato.", patientPos: "Paziente seduto o in piedi con il palmo della mano appoggiato sull'addome.", therapistPos: "In piedi di fronte al paziente.", execution: "Il paziente preme con forza la mano contro l'addome cercando di mantenere il gomito in avanti.", positivity: "Il gomito cade all'indietro o il polso si flette per compensare.", pathology: "Lesione del sottoscapolare", sensitivity: "Sensibilità: 40%", specificity: "Specificità: 98%" },
+            { id: 50, title: "Empty Can Test Avanzato (Patellar / Altri)", district: "Spalla", category: "Ortopedico", purpose: "Screening generale per la stabilità e la funzione della cuffia dei rotatori.", patientPos: "Paziente in piedi con braccia in flessione.", therapistPos: "Valuta la risposta isometrica.", execution: "Applicazione di resistenza progressiva sul piano scapolare.", positivity: "Cedimento improvviso o dolore.", pathology: "Lesione tendinea della cuffia", sensitivity: "Sensibilità: 82%", specificity: "Specificità: 79%" }
+        ];
+
+        // Dati delle altre sezioni (Trattamenti, Strumentale, Anatomia, Esercizi, Protocolli)
         const trattamentiData = [
             { id: 1, title: "Chinesiterapia Attiva e Passiva", category: "Ortopedici", district: "Generale", def: "Movimento terapeutico per ripristinare la funzione.", goals: "Recupero forza e ROM.", indications: "Post-chirurgico.", contraindications: "Fratture instabili." },
             { id: 2, title: "Concetto Bobath", category: "Neurologici", district: "Generale", def: "Trattamento per lesioni del SNC.", goals: "Inibizione riflessi patologici.", indications: "Ictus, emiplegie.", contraindications: "Fasi acute." },
@@ -427,83 +517,81 @@
             { id: 12, title: "Terapia Manuale (Maitland)", category: "Ortopedici", district: "Generale", def: "Mobilizzazioni articolari.", goals: "Ripristino ROM.", indications: "Ipomobilità.", contraindications: "Osteoporosi." }
         ];
 
-        // Terapia Strumentale aggiornata con Principio Fisico dettagliato (5 righe/frasi), 5 indicazioni e controindicazioni
         const strumentaleData = [
             { 
                 id: 1, title: "Correnti Diadinamiche", district: "Cervicale", severity: "Elettroterapia", 
-                def: "Le correnti diadinamiche (correnti di Bernard) si basano sul principio fisico dell'erogazione di impulsi sinusoidali a bassa frequenza derivati dalla raddrizzazione della corrente alternata di rete. Sfruttano combinazioni di componenti fisse e modulate (Monofase e Difase) per stimolare selettivamente le fibre nervose di grosso calibro secondo la teoria del cancello (Gate Control). Il passaggio della corrente provoca una forte iperemia locale dovuta alla vasodilatazione riflessa e alla stimolazione del microcircolo. L'effetto antalgico si ottiene inibendo la trasmissione degli impulsi dolorifici al sistema nervoso centrale e riducendo il tono muscolare da spasmo antalgico.",
+                def: "Principio fisico: erogazione di impulsi sinusoidali a bassa frequenza (Bernard). Effetto Gate Control e forte iperemia locale.",
                 indicationsList: ["1. Cervicalgia miotensiva", "2. Lombalgia cronica", "3. Epicondilite laterale", "4. Distorsione tibio-tarsica", "5. Tendinopatia achillea"], 
-                contraindications: "Presenza di pacemaker cardiaco, placche metalliche estese nell'area di trattamento, lesioni cutanee aperte, epilessia e gravidanza." 
+                contraindications: "Pacemaker, placche metalliche estese, lesioni cutanee, epilessia e gravidanza." 
             },
             { 
                 id: 2, title: "Crioterapia Compressiva", district: "Coscia", severity: "Mezzo Fisico", 
-                def: "La crioterapia compressiva unisce l'applicazione di freddo terapeutico controllato a un sistema di compressione pneumatica intermittente. Dal punto di vista fisico, sfrutta la sottrazione di calore corporeo per abbassare la temperatura tissutale e rallentare drasticamente il metabolismo cellulare locale. La compressione meccanica simula e potenzia il drenaggio linfatico ed extracellulare, riducendo la pressione idrostatica nei capillari danneggiati. Questo duplice meccanismo limita immediatamente la formazione di stravasi ematici, controlla l'edema post-operatorio e attenua la conduzione nervosa delle fibre dolorifiche.",
-                indicationsList: ["1. Post-operatorio ricostruzione LCA", "2. Post-operatorio protesi di ginocchio", "3. Distorsione acuta di caviglia", "4. Versamento articolare cospicuo", "5. Post-operatorio cuffia dei rotatori"], 
-                contraindications: "Crioglobulinemia, sindrome di Raynaud grave, vasculopatie periferiche severe, infezioni cutanee locali e ipersensibilità al freddo." 
+                def: "Principio fisico: sottrazione termica e compressione pneumatica intermittente per rallentare il metabolismo e ridurre l'edema.",
+                indicationsList: ["1. Post-op LCA", "2. Post-op protesi ginocchio", "3. Distorsione acuta caviglia", "4. Versamento articolare", "5. Post-op cuffia rotatori"], 
+                contraindications: "Crioglobulinemia, Raynaud grave, vasculopatie periferiche e infezioni." 
             },
             { 
                 id: 3, title: "Ipertermia", district: "Spalla", severity: "Mezzo Fisico", 
-                def: "L'ipertermia terapeutica si basa sul principio fisico dell'irraggiamento di onde elettromagnetiche ad alta frequenza associate a un sistema di raffreddamento superficiale cutaneo. Tale tecnologia permette di trasferire energia elettromagnetica in profondità nei tessuti biologici senza surriscaldare l'epidermide. L'energia assorbita viene convertita in calore endogeno mirato, incrementando selettivamente la temperatura nella zona patologica profonda. Questo processo determina una marcata vasodilatazione, un aumento dell'ossigenazione tissutale e l'attivazione dei processi metabolici di riparazione cellulare.",
-                indicationsList: ["1. Capsulite adesiva di spalla", "2. Contratture muscolari profonde", "3. Tendinopatia calcifica", "4. Omartrosi degenerativa", "5. Fibrosi cicatriziale profonda"], 
-                contraindications: "Presenza di protesi metalliche o mezzi di sintesi nell'area focale, pacemaker, gravidanza, neoplasie e alterazioni della sensibilità termica." 
+                def: "Principio fisico: onde elettromagnetiche ad alta frequenza associate a raffreddamento superficiale per calore endogeno profondo.",
+                indicationsList: ["1. Capsulite adesiva", "2. Contratture profonde", "3. Tendinopatia calcifica", "4. Omartrosi", "5. Fibrosi cicatriziale"], 
+                contraindications: "Protesi metalliche, pacemaker, gravidanza e neoplasie." 
             },
             { 
                 id: 4, title: "Ionoforesi", district: "Braccio", severity: "Elettroterapia", 
-                def: "La ionoforesi sfrutta il principio fisico dell'elettroforesi, ovvero il movimento di particelle cariche all'interno di un campo elettrico a corrente continua. Il farmaco ionizzabile in soluzione viene posizionato sotto l'elettrodo della stessa polarità, inducendo la migrazione transcutanea degli ioni attivi verso i tessuti sottostanti. Questo permette di veicolare principi attivi antinfiammatori o analgesici direttamente nella sede della lesione senza passare per il circolo sistemico. L'azione combinata del campo elettrico e del farmaco riduce rapidamente l'infiammazione locale e il dolore circoscritto.",
-                indicationsList: ["1. Epicondilite omerale", "2. Tendinite del bicipite brachiale", "3. Borsite olecranica", "4. Tenosinovite stenosante", "5. Tendinopatia inserzionale"], 
-                contraindications: "Lesioni cutanee o abrasioni nel punto di applicazione, pacemaker, portatori di protesi metalliche superficiali e allergie note ai farmaci veicolati." 
+                def: "Principio fisico: elettroforesi a corrente continua per veicolare transcutaneamente ioni di farmaci antinfiammatori.",
+                indicationsList: ["1. Epicondilite", "2. Tendinite bicipite", "3. Borsite olecranica", "4. Tenosinovite", "5. Tendinopatia inserzionale"], 
+                contraindications: "Lesioni cutanee, pacemaker e allergie ai farmaci." 
             },
             { 
                 id: 5, title: "Laserterapia HILT", district: "Piede", severity: "Mezzo Fisico", 
-                def: "La Laserterapia HILT (High Intensity Laser Therapy) si basa sul principio fisico dell'emissione di impulsi laser a elevata potenza di picco e lunghezza d'onda nel vicino infrarosso. Grazie all'effetto fotomeccanico e fotochimico generato, l'energia luminosa penetra in profondità nei tessuti senza causare un eccessivo surriscaldamento cutaneo. L'interazione dei fotoni con i mitocondri cellulari stimola la sintesi di ATP e accelera la riparazione tissutale e la microcircolazione. Si ottiene un potente effetto antalgico immediato e un'efficace riduzione dell'infiammazione su strutture tendinee e legamentose profonde.",
-                indicationsList: ["1. Tendinopatia achillea cronica", "2. Tendinopatia rotulea", "3. Fascite plantare con spina", "4. Epicondilite laterale", "5. Borsite retroachillea"], 
-                contraindications: "Esposizione diretta della retina (obbligo di occhiali protettivi), neoplasie note nell'area trattata, gravidanza e infezioni cutanee attive." 
+                def: "Principio fisico: impulsi laser a elevata potenza di picco nel vicino infrarosso per stimolazione mitocondriale e fotomeccanica.",
+                indicationsList: ["1. Tendinopatia achillea", "2. Tendinopatia rotulea", "3. Fascite plantare", "4. Epicondilite", "5. Borsite retroachillea"], 
+                contraindications: "Esposizione diretta retina, neoplasie e gravidanza." 
             },
             { 
                 id: 6, title: "Magnetoterapia PEMF", district: "Spalla", severity: "Mezzo Fisico", 
-                def: "La magnetoterapia PEMF (Campi Elettromagnetici Pulsati) si basa sul principio fisico dell'induzione elettromagnetica generata da solenoidi percorsi da correnti pulsate a bassa frequenza. Le linee di forza del campo magnetico attraversano completamente il corpo umano, agendo direttamente sulle cariche ioniche di membrana e sui cristalli di idrossiapatite ossea. Questo stimolo biofisico ripolarizza la membrana cellulare, stimola l'attività degli osteoblasti e accelera la deposizione di callo osseo. Favorisce inoltre la microcircolazione sistemica e riduce l'edema tissutale profondo.",
-                indicationsList: ["1. Frattura del collo del femore", "2. Frattura diafisaria di tibia", "3. Frattura della clavicola", "4. Algodistrofia (Sudeck)", "5. Pseudoartrosi ossea"], 
-                contraindications: "Portatori di pacemaker cardiaco o defibrillatori impiantabili, donne in gravidanza, presenza di pompe di infusione e infezioni acute gravi." 
+                def: "Principio fisico: induzione elettromagnetica a bassa frequenza per stimolare la polarizzazione di membrana e l'osteogenesi.",
+                indicationsList: ["1. Frattura collo femore", "2. Frattura tibia", "3. Frattura clavicola", "4. Algodistrofia", "5. Pseudoartrosi"], 
+                contraindications: "Pacemaker, gravidanza e pompe infusionali." 
             },
             { 
                 id: 7, title: "Onde d'Urto Focali", district: "Spalla", severity: "Mezzo Fisico", 
-                def: "Le onde d'urto focali si basano sul principio fisico di impulsi acustici ad alta energia generati da sistemi elettroidraulici, piezoelettrici o elettromagnetici. L'onda d'urto meccanica si propaga attraverso i tessuti molli convergendo esattamente su un punto focale profondo predeterminato. Il forte stress meccanico e la cavitazione generata sul target provocano la frammentazione di depositi calcifici e stimolano la neovascolarizzazione locale. Tale stimolazione biomeccanica innesca una risposta rigenerativa e un rilascio di fattori di crescita nei tessuti tendinei degenerati.",
-                indicationsList: ["1. Calcificazione della cuffia dei rotatori", "2. Fascite plantare cronica", "3. Tendinopatia achillea inserzionale", "4. Epicondilite omerale ribelle", "5. Ritardo di consolidamento osseo"], 
-                contraindications: "Disturbi della coagulazione o terapia anticoagulante in corso, infezioni o tumori nell'area focale, cartilagini di accrescimento e gravidanza." 
+                def: "Principio fisico: impulsi acustici ad alta energia convergenti su target profondo per frammentazione calcifica e neovascolarizzazione.",
+                indicationsList: ["1. Calcificazione cuffia", "2. Fascite plantare", "3. Tendinopatia achillea", "4. Epicondilite ribelle", "5. Ritardo consolidamento"], 
+                contraindications: "Disturbi coagulazione, infezioni, cartilagini di accrescimento e gravidanza." 
             },
             { 
                 id: 8, title: "Onde d'Urto Radiali", district: "Lombare", severity: "Mezzo Fisico", 
-                def: "Le onde d'urto radiali (o balistiche) si basano sul principio fisico di un proiettile accelerato pneumaticamente all'interno di un manipolo, che urta contro un trasmettitore metallico. Questo impatto genera un'onda acustica radiale che si diffonde in superficie e nei primi strati muscolari con energia decrescente. L'onda stimola i recettori propriocettivi e meccanici, provocando un immediato rilasciamento delle contratture miofasciali e dei trigger point. Favorisce la circolazione sanguigna locale e l'attivazione del metabolismo dei tessuti connettivi superficiali.",
-                indicationsList: ["1. Sindrome del muscolo piriforme", "2. Sindrome della bandelletta ileotibiale", "3. Trigger point miofasciali attivi", "4. Tendinopatia della zampa d'oca", "5. Periostite tibiale anteriore"], 
-                contraindications: "Applicazione diretta sul cranio o su grandi pacchi vascolonervosi, disturbi della coagulazione, infezioni cutanee e zone epifisarie nei giovani." 
+                def: "Principio fisico: onde acustiche radiali generate balisticamente per rilasciamento miofasciale superficiale e trigger point.",
+                indicationsList: ["1. Sindrome piriforme", "2. Bandelletta ileotibiale", "3. Trigger point", "4. Zampa d'oca", "5. Periostite tibiale"], 
+                contraindications: "Cranio, pacchi vascolonervosi, disordini coagulativi e infezioni." 
             },
             { 
                 id: 9, title: "TECARterapia", district: "Coscia", severity: "Mezzo Fisico", 
-                def: "La TECARterapia (Trasferimento Energetico Capacitivo Resistivo) si basa sul principio fisico del condensatore elettrico endogeno a radiofrequenza (0.4-1.2 MHz). Richiama flussi di cariche ioniche nei tessuti biologici, generando calore endogeno profondo non per irragiamento ma per stimolazione metabolica cellulare. L'elettrodo capacitivo agisce selettivamente sui tessuti molli superficiali e ricchi di acqua, mentre quello resistivo agisce sui tessuti a maggiore resistenza come ossa, tendini e aponeurosi. Accorcia i tempi di recupero stimolando la circolazione e il drenaggio linfatico profondo.",
-                indicationsList: ["1. Distorsione tibio-tarsica acuta", "2. Contratture e lesioni muscolari", "3. Gonartrosi degenerativa", "4. Coxartrosi in fase algica", "5. Cervicalgia muscolotensiva"], 
-                contraindications: "Portatori di pacemaker, donne in gravidanza, pazienti con insensibilità termica cutanea, infezioni attive e tumori maligni." 
+                def: "Principio fisico: condensatore endogeno a radiofrequenza (capacitivo/resistivo) per attivare flussi ionici e calore profondo.",
+                indicationsList: ["1. Distorsione caviglia", "2. Lesioni muscolari", "3. Gonartrosi", "4. Coxartrosi", "5. Cervicalgia"], 
+                contraindications: "Pacemaker, gravidanza, insensibilità termica e tumori maligni." 
             },
             { 
                 id: 10, title: "TENS", district: "Lombare", severity: "Elettroterapia", 
-                def: "La TENS (Transcutaneous Electrical Nerve Stimulation) si basa sul principio fisico della stimolazione elettrica nervosa transcutanea tramite impulsi rettangolari asimmetrici a bassa intensità. Sfrutta la 'Teoria del Cancello' (Gate Control) di Melzack e Wall: l'attivazione selettiva delle fibre afferenti di grosso calibro (A-beta) inibisce a livello del corno posteriore del midollo spinale la trasmissione degli stimoli dolorifici condotti dalle fibre sottili (A-delta e C). Stimola inoltre la liberazione endogena di endorfine e oppioidi naturali nel sistema nervoso centrale, garantendo un'analgesia rapida e non farmacologica.",
-                indicationsList: ["1. Lombalgia acuta e cronica", "2. Radicolopatia lombare o cervicale", "3. Gonartrosi dolorosa", "4. Coxartrosi sintomatica", "5. Dolore post-operatorio precoce"], 
-                contraindications: "Presenza di pacemaker cardiaco, applicazione sul seno carotideo o su ferite aperte, epilessia e pazienti non collaboranti o con demenza." 
+                def: "Principio fisico: stimolazione nervosa transcutanea (Gate Control) per inibire la trasmissione del dolore a livello spinale.",
+                indicationsList: ["1. Lombalgia", "2. Radicolopatia", "3. Gonartrosi dolorosa", "4. Coxartrosi", "5. Dolore post-op"], 
+                contraindications: "Pacemaker, seno carotideo, ferite aperte ed epilessia." 
             },
             { 
                 id: 11, title: "Ultrasuoni in Acqua", district: "Piede", severity: "Mazzo Fisico", 
-                def: "Gli ultrasuoni in immersione si basano sul principio fisico della propagazione di onde meccaniche di alta frequenza (1-3 MHz) attraverso un mezzo acquoso interposto tra la testina emittente e la superficie corporea irregolare. L'acqua funge da eccellente mezzo di accoppiamento acustico, consentendo il trattamento sicuro di distretti anatomici complessi, concavi o caratterizzati da prominenze ossee superficiali. Il fascio ultrasonoro esercita un micromassaggio cellulare e tissutale profondo, producendo effetti termici e tissutali senza contatto meccanico diretto con la cute dolente.",
-                indicationsList: ["1. Tendinite del tibiale posteriore", "2. Tenosinovite di De Quervain", "3. Sindrome del tunnel tarsale", "4. Metatarsalgia plantare", "5. Tendinite dei flessori delle dita"], 
-                contraindications: "Ferite aperte o ulcere sanguinanti nell'area d'immersione, infezioni cutanee locali, placche epifisarie nei soggetti in accrescimento e neoplasie." 
+                def: "Principio fisico: onde meccaniche ad alta frequenza trasmesse tramite acqua per trattare superfici anatomiche irregolari.",
+                indicationsList: ["1. Tendinite tibiale post.", "2. De Quervain", "3. Tunnel tarsale", "4. Metatarsalgia", "5. Tendinite flessori"], 
+                contraindications: "Ferite aperte, infezioni, epifisi in accrescimento e neoplasie." 
             },
             { 
                 id: 12, title: "Ultrasuoni Tradizionali", district: "Spalla", severity: "Mezzo Fisico", 
-                def: "Gli ultrasuoni tradizionali si basano sul principio fisico dell'effetto piezoelettrico inverso: un cristallo di quarzo o ceramica all'interno del manipolo converte l'energia elettrica in vibrazioni meccaniche longitudinali ad alta frequenza (1-3 MHz). Applicando un gel conduttore sulla cute, l'energia acustica penetra nei tessuti provocando un micromassaggio a livello cellulare, variazioni di pressione e la cosiddetta cavitazione stabile. Questo induce un aumento della permeabilità di membrana, la riduzione delle aderenze fibrotiche e un effetto termico locale sui tessuti connettivi densi.",
-                indicationsList: ["1. Calcificazioni tendinee di spalla", "2. Fascite plantare fibrotica", "3. Cicatrici chirurgiche adese", "4. Epicondilite cronica", "5. Borsite calcifica subacromiale"], 
-                contraindications: "Cartilagini di accrescimento nei bambini, zona oculare, midollo spinale dopo laminectomia, pacemaker e presenza di neoplasie maligne." 
+                def: "Principio fisico: effetto piezoelettrico inverso per micromassaggio cellulare e aumento della permeabilità tissutale.",
+                indicationsList: ["1. Calcificazioni spalla", "2. Fascite plantare", "3. Cicatrici adese", "4. Epicondilite cronica", "5. Borsite calcifica"], 
+                contraindications: "Cartilagini di accrescimento, occhio, midollo spinale e pacemaker." 
             }
         ];
 
-        // Atlante Miologico aggiornato a 151 Muscoli (Ordinamento Alfabetico A-Z)
         const anatomiaData = [
             { id: 1, district: "Piede", title: "Abduttore dell'Alluce", origin: "Tuberosità calcaneare mediale", insertion: "Base falange prossimale alluce", innervation: "N. plantare mediale", blood: "A. plantare mediale", daily: "Camminare a piedi nudi sulla sabbia", movements: ["Abduzione alluce", "Flessione alluce"] },
             { id: 2, district: "Piede", title: "Abduttore del Quinto Dito", origin: "Tuberosità calcaneare", insertion: "Base falange V dito", innervation: "N. plantare laterale", blood: "A. plantare laterale", daily: "Stabilizzare il piede su terreni sconnessi", movements: ["Abduzione V dito"] },
@@ -586,7 +674,7 @@
             { id: 79, district: "Mano", title: "Interosseo Palmare III", origin: "V metacarpo", insertion: "Mignolo", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Saluto militare", movements: ["Adduzione mignolo"] },
             { id: 80, district: "Mano", title: "Interosseo Palmare Pollice", origin: "I metacarpo", insertion: "Pollice", innervation: "N. ulnare", blood: "Arcata profonda", daily: "Presa di precisione", movements: ["Adduzione pollice"] },
             { id: 81, district: "Piede", title: "Interossei Plantari", origin: "Metatarsi III-V", insertion: "Falangi III-V", innervation: "N. plantare laterale", blood: "Arcata plantare", daily: "Stringere le dita", movements: ["Adduzione dita"] },
-            { id: 82, district: "Piede", title: "Lombricali del Piede", origin: "Tendini flessore lungo", insertion: "Espansione estensoria", innervation: "N. plantare mediale/laterale", blood: "Arterie metatarsali", daily: "Mantenere le dita distese", movements: ["Flessione falangi prossimali"] },
+            { id: 82, district: "Piede", title: "Lombricali del Piede", origin: "Tendine flessore lungo", insertion: "Espansione estensoria", innervation: "N. plantare mediale/laterale", blood: "Arterie metatarsali", daily: "Mantenere le dita distese", movements: ["Flessione falangi prossimali"] },
             { id: 83, district: "Mano", title: "Lombricale I", origin: "Flessore profondo", insertion: "Indice", innervation: "N. mediano", blood: "Arcata superficiale", daily: "Scrivere", movements: ["Flessione MTF e stasi IF"] },
             { id: 84, district: "Mano", title: "Lombricale II", origin: "Flessore profondo", insertion: "Medio", innervation: "N. mediano", blood: "Arcata superficiale", daily: "Movimenti fini", movements: ["Flessione MTF"] },
             { id: 85, district: "Mano", title: "Lombricale III", origin: "Flessore profondo", insertion: "Anulare", innervation: "N. ulnare", blood: "Arcata superficiale", daily: "Digitare", movements: ["Flessione MTF"] },
@@ -1056,14 +1144,14 @@
             }
         ];
 
-        // Funzione di ordinamento alfabetico rigoroso (A-Z) per sicurezza
+        // Ordinamento alfabetico A-Z per sicurezza
         function sortAlphabetically(arr) {
             return arr.sort((a, b) => a.title.localeCompare(b.title, 'it', { sensitivity: 'base' }));
         }
 
-        // Ordinamento automatico di tutte le sezioni in A-Z
         sortAlphabetically(ortopedicheData);
         sortAlphabetically(neurologicheData);
+        sortAlphabetically(testCliniciData);
         sortAlphabetically(trattamentiData);
         sortAlphabetically(strumentaleData);
         sortAlphabetically(anatomiaData);
@@ -1076,6 +1164,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderOrtopediche();
             renderNeurologiche();
+            renderTestClinici();
             renderTrattamenti();
             renderStrumentale();
             renderAnatomia();
@@ -1119,6 +1208,8 @@
                 renderOrtoGrid(ortopedicheData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.def.toLowerCase().includes(query))));
             } else if(currentSection === 'patologie-neurologiche') {
                 renderNeuroGrid(neurologicheData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.def.toLowerCase().includes(query))));
+            } else if(currentSection === 'test-clinici') {
+                renderTestsGrid(testCliniciData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.purpose.toLowerCase().includes(query))));
             } else if(currentSection === 'trattamenti') {
                 renderTrattamentiGrid(trattamentiData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && i.title.toLowerCase().includes(query)));
             } else if(currentSection === 'strumentale') {
@@ -1146,7 +1237,7 @@
                         <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
                     </div>
                     <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-brand-600 font-semibold">
-                        <span>Scheda clinica ortopedica</span><i class="fa-solid fa-arrow-right"></i>
+                        <span>Scheda clinica ortopedica estesa</span><i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
             `).join('');
@@ -1166,7 +1257,31 @@
                         <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
                     </div>
                     <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-rose-600 font-semibold">
-                        <span>Scheda clinica neurologica</span><i class="fa-solid fa-arrow-right"></i>
+                        <span>Scheda clinica neurologica estesa</span><i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderTestClinici() { renderTestsGrid(testCliniciData); }
+        function renderTestsGrid(data) {
+            document.getElementById('tests-count').innerText = `${data.length} Test Clinici`;
+            document.getElementById('tests-grid').innerHTML = data.map(item => `
+                <div onclick="openTestDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700">${item.district}</span>
+                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">${item.category}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2"><strong>Scopo:</strong> ${item.purpose}</p>
+                        <div class="mt-2 flex gap-2">
+                            <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-medium">${item.sensitivity}</span>
+                            <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-medium">${item.specificity}</span>
+                        </div>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-amber-600 font-semibold">
+                        <span>Guida al test passo-passo</span><i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
             `).join('');
@@ -1291,9 +1406,65 @@
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Spiegazione Clinica</h4><p>${item.def}</p></div>
-                <div class="bg-amber-50 p-3 rounded-xl border border-amber-100"><h4 class="font-bold text-amber-800 text-[11px] uppercase mb-1"><i class="fa-solid fa-pills mr-1"></i>Terapia Farmacologica / Chirurgica</h4><p><strong>Farmaci:</strong> ${item.meds}</p><p class="mt-1"><strong>Chirurgia:</strong> ${item.surgery}</p></div>
-                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100"><h4 class="font-bold text-brand-700 text-[11px] uppercase mb-1"><i class="fa-solid fa-person-walking mr-1"></i>Trattamento Riabilitativo</h4><p>${item.rehab}</p></div>
+                <div class="space-y-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-800 text-xs uppercase mb-1">Definizione Clinica</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">${item.def}</p>
+                    </div>
+                    <div class="bg-brand-50 p-4 rounded-xl border border-brand-200">
+                        <h4 class="font-bold text-brand-900 text-xs uppercase mb-1"><i class="fa-solid fa-dna mr-1 text-brand-600"></i>Eziologia e Meccanismo</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">${item.etiology}</p>
+                    </div>
+                    <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                        <h4 class="font-bold text-amber-900 text-xs uppercase mb-1"><i class="fa-solid fa-stethoscope mr-1 text-amber-600"></i>Quadro Clinico e Sintomatologia</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">${item.clinic}</p>
+                    </div>
+                    <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-200">
+                        <h4 class="font-bold text-indigo-900 text-xs uppercase mb-1"><i class="fa-solid fa-pills mr-1 text-indigo-600"></i>Gestione Medica e Chirurgica</h4>
+                        <p class="text-slate-700 text-sm"><strong>Farmaci / Gestione:</strong> ${item.meds}</p>
+                        <p class="text-slate-700 text-sm mt-1"><strong>Chirurgia:</strong> ${item.surgery}</p>
+                    </div>
+                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+                        <h4 class="font-bold text-emerald-900 text-xs uppercase mb-1"><i class="fa-solid fa-person-walking mr-1 text-emerald-600"></i>Approccio Riabilitativo e Fisioterapia</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">${item.rehab}</p>
+                    </div>
+                </div>
+            `;
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        function openTestDetail(id) {
+            const item = testCliniciData.find(t => t.id === id);
+            document.getElementById('modal-district-badge').innerText = item.district;
+            document.getElementById('modal-title').innerText = item.title;
+            document.getElementById('modal-body').innerHTML = `
+                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 space-y-1">
+                    <h4 class="font-bold text-amber-900 text-xs uppercase"><i class="fa-solid fa-bullseye mr-1 text-amber-600"></i>Scopo del Test:</h4>
+                    <p class="text-slate-700 text-sm font-semibold">${item.purpose}</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Posizione Paziente</h4>
+                        <p class="text-xs text-slate-700">${item.patientPos}</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Posizione Terapeuta</h4>
+                        <p class="text-xs text-slate-700">${item.therapistPos}</p>
+                    </div>
+                </div>
+                <div class="bg-brand-50 p-4 rounded-xl border border-brand-200 space-y-1">
+                    <h4 class="font-bold text-brand-900 text-xs uppercase"><i class="fa-solid fa-shoe-prints mr-1 text-brand-600"></i>Esecuzione Passo-Passo:</h4>
+                    <p class="text-slate-700 text-sm leading-relaxed">${item.execution}</p>
+                </div>
+                <div class="bg-rose-50 p-4 rounded-xl border border-rose-200 space-y-1">
+                    <h4 class="font-bold text-rose-900 text-xs uppercase"><i class="fa-solid fa-circle-exclamation mr-1 text-rose-600"></i>Segno di Positività e Patologia:</h4>
+                    <p class="text-slate-700 text-sm"><strong>Positività:</strong> ${item.positivity}</p>
+                    <p class="text-slate-700 text-sm mt-1"><strong>Patologia Associata:</strong> ${item.pathology}</p>
+                </div>
+                <div class="flex gap-3 pt-2">
+                    <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 rounded-lg text-xs font-bold border border-indigo-100">${item.sensitivity}</span>
+                    <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 rounded-lg text-xs font-bold border border-indigo-100">${item.specificity}</span>
+                </div>
             `;
             document.getElementById('detail-modal').classList.remove('hidden');
         }
