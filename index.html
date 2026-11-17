@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FisioPro Clinical v1.5 - Archivio Completo 90 Orto & 30 Neuro</title>
+    <title>FisioPro Clinical v1.6 - Neuro Avanzata & Full 1.5</title>
     
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="./manifest.json">
@@ -47,9 +47,9 @@
                 <div>
                     <div class="flex items-center space-x-2">
                         <h1 class="text-lg font-bold tracking-tight">FisioPro Clinical</h1>
-                        <span class="text-[10px] bg-brand-600 border border-brand-500 text-white font-semibold px-2 py-0.5 rounded-full">v1.5 Full</span>
+                        <span class="text-[10px] bg-brand-600 border border-brand-500 text-white font-semibold px-2 py-0.5 rounded-full">v1.6 Advanced Neuro</span>
                     </div>
-                    <p class="text-xs text-brand-100 opacity-95">90 Orto, 30 Neuro, Test Clinici & 151 Muscoli</p>
+                    <p class="text-xs text-brand-100 opacity-95">90 Orto, 30 Neuro (Evidence-Based), Test & 151 Muscoli</p>
                 </div>
             </div>
             <div class="flex items-center space-x-2">
@@ -103,7 +103,7 @@
                 <i class="fa-solid fa-brain text-xl mb-2 text-rose-600"></i>
                 <div>
                     <h3 class="font-bold text-xs">Neurologiche</h3>
-                    <p class="text-[10px] opacity-75">30 Schede</p>
+                    <p class="text-[10px] opacity-75">30 Schede v1.6</p>
                 </div>
             </button>
             <button onclick="switchSection('test-clinici')" id="btn-sec-test-clinici" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
@@ -162,12 +162,12 @@
             <div id="orto-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione Patologie Neurologiche (30 Schede Complete) -->
+        <!-- Sezione Patologie Neurologiche v1.6 (Farmacologia Specifica & Tecniche Neuro-Riabilitative Avanzate) -->
         <div id="section-patologie-neurologiche" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-brain text-rose-600"></i>
-                    <span>Archivio Patologie Neurologiche (30 Schede Complete A-Z)</span>
+                    <span>Archivio Patologie Neurologiche v1.6 (Farmacologia & Neuro-Riabilitazione Evidence-Based)</span>
                 </h2>
                 <span id="neuro-count" class="text-xs bg-rose-100 text-rose-800 font-semibold px-2.5 py-1 rounded-full">30 Patologie</span>
             </div>
@@ -302,9 +302,9 @@
         </div>
     </div>
 
-    <!-- Script JavaScript (Versione 1.5 - Full 90 Orto, 30 Neuro, Test & 151 Muscoli) -->
+    <!-- Script JavaScript (Versione 1.6 - Orto 90 Intatte, Neuro v1.6 Avanzata con Farmacologia & Tecniche Riabilitative) -->
     <script>
-        // Tutte le 90 Patologie Ortopediche con sezioni ampliate
+        // Le 90 Patologie Ortopediche intatte (v1.5 Full)
         const ortopedicheData = [
             { id: 1, title: "Alluce Valgo", district: "Piede", severity: "Cronica", def: "Deviazione mediale del primo metatarso e laterale dell'alluce.", etiology: "Fattori genetici, calzature a punta stretta e lassità legamentosa.", clinic: "Dolore locale in corrispondenza dell'esostosi mediale ('cipolla').", meds: "FANS topici.", surgery: "Osteotomie correttive metatarsali.", rehab: "Terapie conservative, tutori notturni." },
             { id: 2, title: "Apofisite della Cresta Iliaca", district: "Anca", severity: "Lieve", def: "Traction apophysitis addominale nei giovani.", etiology: "Sollecitazioni ripetute in tensione dei muscoli addominali.", clinic: "Dolore localizzato sulla cresta iliaca esacerbato dalla palpazione.", meds: "Analgesici leggeri.", surgery: "Non indicata.", rehab: "Riposo e stretching." },
@@ -398,38 +398,38 @@
             { id: 90, title: "Nervo Interosseo Anteriore", district: "Avambraccio", severity: "Moderata", def: "Neuropatia ramo motore.", etiology: "Compressione o infiammazione.", clinic: "Debolezza pinza pollice-indice.", meds: "Vit B.", surgery: "Decompressione.", rehab: "Scorrimento neurale." }
         ];
 
-        // Tutte le 30 Patologie Neurologiche con sezioni ampliate
+        // 30 Patologie Neurologiche v1.6 (Senza Chirurgia, Con Farmacologia Mirata e Tecniche Neuro-Riabilitative Avanzate Evidence-Based)
         const neurologicheData = [
-            { id: 101, title: "Atassia di Friedreich", district: "Generale", severity: "Cronica", def: "Atassia cerebellare e spinale ereditaria.", etiology: "Mutazione gene fratassina.", clinic: "Disturbi dell'equilibrio e disartria.", meds: "Idebenone.", surgery: "Chirurgia ortopedica correttiva.", rehab: "Equilibrio e logopedia." },
-            { id: 102, title: "Ernia con Deficit Neurologico", district: "Lombare", severity: "Grave", def: "Erniazione con ipostenia.", etiology: "Compressione radicolare severa.", clinic: "Dolore radicolare e deficit forza.", meds: "Cortisonici.", surgery: "Discectomia d'urgenza.", rehab: "Riabilitazione neuromotoria." },
-            { id: 103, title: "Glioblastoma Multiforme", district: "Cervicale", severity: "Grave", def: "Neoplasia cerebrale maligna.", etiology: "Proliferazione gliale anomala.", clinic: "Deficit focali e cefalea.", meds: "Temozolomide.", surgery: "Resezione chirurgica.", rehab: "Fisioterapia palliativa." },
-            { id: 104, title: "Ictus Ischemico / Emiplegia", district: "Generale", severity: "Grave", def: "Interruzione ematica cerebrale.", etiology: "Trombosi o embolia.", clinic: "Emiplegia controlaterale.", meds: "Trombolisi.", surgery: "Decompressione in infarto maligno.", rehab: "Concetto Bobath." },
-            { id: 105, title: "Lesione Midollare", district: "Lombare", severity: "Grave", def: "Interruzione vie midollari.", etiology: "Trauma spinale.", clinic: "Paraplegia e perdita sensibilità.", meds: "Baclofen.", surgery: "Stabilizzazione vertebrale.", rehab: "Verticalizzazione precoce." },
-            { id: 106, title: "Mielopatia Spondilotica", district: "Cervicale", severity: "Grave", def: "Compressione midollo cervicale.", etiology: "Artrosi cervicale severa.", clinic: "Disturbi della marcia e spasticità.", meds: "Analgesici.", surgery: "Laminectomia o corpectomia.", rehab: "Propriocettività." },
-            { id: 107, title: "Miosite Eterotopica", district: "Coscia", severity: "Moderata", def: "Formazione ossea nei tessuti molli.", etiology: "Esito di traumi o chirurgia.", clinic: "Tumefazione e blocco articolare.", meds: "Indometacina.", surgery: "Rimozione a maturazione.", rehab: "Mobilizzazione dolce." },
-            { id: 108, title: "Mononeuropatia Fibulare", district: "Gamba", severity: "Moderata", def: "Piede cadente da lesione.", etiology: "Compressione del nervo fibulare.", clinic: "Impossibilità a flettere dorsalmente.", meds: "Vit B12.", surgery: "Neurolisi.", rehab: "Tutori AFO." },
-            { id: 109, title: "Neuropatia Diabetica", district: "Piede", severity: "Cronica", def: "Danno assonale da iperglicemia.", etiology: "Diabete prolungato.", clinic: "Parestesie e ulcere plantari.", meds: "Pregabalin.", surgery: "Ulteriori ulcere.", rehab: "Cura del piede." },
-            { id: 110, title: "Paralisi Cerebrale Infantile", district: "Generale", severity: "Cronica", def: "Encefalopatia non progressiva.", etiology: "Danno perinatale.", clinic: "Spasticità e ritardo motorio.", meds: "Tossina botulinica.", surgery: "Allungamenti tendinei.", rehab: "Metodo Bobath." },
-            { id: 111, title: "Paralisi Plesso Brachiale", district: "Spalla", severity: "Grave", def: "Lesione radici plesso.", etiology: "Trauma ostetrico o accidentale.", clinic: "Arto superiore flaccido.", meds: "Neuroprotettori.", surgery: "Innesti nervosi.", rehab: "FES e mobilizzazione." },
-            { id: 112, title: "Paralisi di Bell", district: "Cervicale", severity: "Lieve", def: "Paralisi facciale idiopatica.", etiology: "Infiammazione nervo facciale.", clinic: "Asimmetria mimica facciale.", meds: "Corticosteroidi.", surgery: "Decompressione canale.", rehab: "Mimica facciale." },
-            { id: 113, title: "CIDP", district: "Generale", severity: "Cronica", def: "Neuropatia demielinizzante.", etiology: "Risposta autoimmune.", clinic: "Debolezza simmetrica progressiva.", meds: "IVIG e plasmaferesi.", surgery: "Non indicata.", rehab: "Rinforzo submassimale." },
-            { id: 114, title: "SLA", district: "Generale", severity: "Grave", def: "Degenerazione motoneuroni.", etiology: "Sclerosi laterale amiotrofica.", clinic: "Ipostenia progressiva e fascicolazioni.", meds: "Riluzole.", surgery: "PEG e tracheostomia.", rehab: "Fisioterapia respiratoria." },
-            { id: 115, title: "Sclerosi Multipla", district: "Generale", severity: "Cronica", def: "Malattia demielinizzante SNC.", etiology: "Autoimmune cronica.", clinic: "Disturbi visivi, fatica, atassia.", meds: "DMT.", surgery: "Interventi per spasticità.", rehab: "Esercizio personalizzato." },
-            { id: 116, title: "Tunnel Carpale Severo", district: "Mano", severity: "Moderata", def: "Atrofia muscoli tenari.", etiology: "Compressione cronica mediano.", clinic: "Perdita di forza nella pinza.", meds: "Neurotrofici.", surgery: "Decompressione d'urgenza.", rehab: "Rieducazione pinza." },
-            { id: 117, title: "Sindrome di Guillain-Barré", district: "Generale", severity: "Grave", def: "Poliradiculoneuropatia acuta.", etiology: "Post-infezione virale.", clinic: "Debolezza ascendente simmetrica.", meds: "IVIG.", surgery: "Tracheostomia.", rehab: "Mobilizzazione precoce." },
-            { id: 118, title: "Sindrome di West", district: "Generale", severity: "Grave", def: "Encefalopatia epilettica.", etiology: "Danno cerebrale infantile.", clinic: "Spasmi infantili in flessione.", meds: "ACTH, vigabatrin.", surgery: "Chirurgia epilessia.", rehab: "Stimolazione precoce." },
-            { id: 119, title: "Sindrome Post-Encefalitica", district: "Generale", severity: "Moderata", def: "Esiti post-infezione.", etiology: "Infezione virale encefalica.", clinic: "Deficit cognitivi e motori.", meds: "Neuroprotettori.", surgery: "Non indicata.", rehab: "Riabilitazione cognitiva." },
-            { id: 120, title: "Sindrome Post-Polio", district: "Generale", severity: "Cronica", def: "Debolezza tardiva.", etiology: "Precedente poliomielite.", clinic: "Fatica muscolare e dolori articolari.", meds: "Analgesici.", surgery: "Correzione scheletrica.", rehab: "Attività a basso impatto." },
-            { id: 121, title: "Trauma Cranico (TCE)", district: "Cervicale", severity: "Grave", def: "Insulto traumatico acuto.", etiology: "Impatto violento al capo.", clinic: "Alterazione dello stato di coscienza.", meds: "Controllo PIC.", surgery: "Craniotomia decompressiva.", rehab: "Riabilitazione intensiva." },
-            { id: 122, title: "Tremore Essenziale", district: "Cervicale", severity: "Moderata", def: "Tremore posturale.", etiology: "Ereditarietà familiare.", clinic: "Tremore delle mani nei gesti.", meds: "Beta-bloccanti.", surgery: "FUS o DBS.", rehab: "Ergoterapia." },
-            { id: 123, title: "Tumore Midollare", district: "Lombare", severity: "Grave", def: "Neoplasia midollare.", etiology: "Massa neoplastica spinale.", clinic: "Deficit neurologici progressivi.", meds: "Corticosteroidi.", surgery: "Microchirurgia.", rehab: "Propriocettività." },
-            { id: 124, title: "Vasculite SNC", district: "Generale", severity: "Grave", def: "Infiammazione vasi cerebrali.", etiology: "Malattia autoimmune sistemica.", clinic: "Cefalea e deficit focali.", meds: "Immunosoppressori.", surgery: "Per emorragie.", rehab: "Recupero focale." },
-            { id: 125, title: "Distrofia di Steinert", district: "Generale", severity: "Cronica", def: "Miotonia e debolezza.", etiology: "Distrofia miotonica genetica.", clinic: "Difficoltà a rilasciare la stretta.", meds: "Mexiletina.", surgery: "Cataratta o ortopedia.", rehab: "Stretching e aerobica." },
-            { id: 126, title: "Corea di Huntington", district: "Generale", severity: "Grave", def: "Movimenti coreici involontari.", etiology: "Mutazione genetica autosomica.", clinic: "Movimenti involontari e demenza.", meds: "Tetrabenazina.", surgery: "Non indicata.", rehab: "Prevenzione cadute." },
-            { id: 127, title: "Encefalopatia Ipossica", district: "Generale", severity: "Grave", def: "Danno da arresto cardiaco.", etiology: "Carenza di ossigeno cerebrale.", clinic: "Stato vegetativo o deficit gravi.", meds: "Anticonvulsivanti.", surgery: "Non indicata.", rehab: "Stimolazione sensoriale." },
-            { id: 128, title: "Malattia di Parkinson", district: "Generale", severity: "Cronica", def: "Degenerazione dopaminergica.", etiology: "Perdita neuroni a substantia nigra.", clinic: "Tremore a riposo, rigidità, bradicinesia.", meds: "Levodopa.", surgery: "DBS.", rehab: "LSVT BIG program." },
-            { id: 129, title: "PSP", district: "Cervicale", severity: "Grave", def: "Parkinsonismo atipico.", etiology: "Paralisi supranucleare progressiva.", clinic: "Cadute precoci e deficit oculomotori.", meds: "Sintomatici.", surgery: "Non indicata.", rehab: "Logopedia e stabilità." },
-            { id: 130, title: "Sclerosi Laterale Primaria", district: "Generale", severity: "Cronica", def: "Spasticità progressiva.", etiology: "Degenerazione motoneuroni superiori.", clinic: "Spasticità degli arti inferiori.", meds: "Baclofen.", surgery: "Rilasci tendinei.", rehab: "Idrokinesiterapia." }
+            { id: 101, title: "Atassia di Friedreich", district: "Generale", severity: "Cronica", def: "Atassia cerebellare e spinale ereditaria progressiva.", etiology: "Mutazione gene FXN (fratassina) con espansione tripletta GAA.", clinic: "Disturbi dell'equilibrio, disartria, areflessia e segni piramidali.", meds: "Idebenone (antiossidante mitocondriale), inibitori HDAC, coenzima Q10.", rehab: "Riabilitazione neuromotoria basata su Frenkel per la coordinazione, cinesiterapia attiva in scarico, logopedia per la disartria e training propriocettivo con pedane stabilometriche." },
+            { id: 102, title: "Ernia con Deficit Neurologico", district: "Lombare", severity: "Grave", def: "Erniazione discale voluminosa con compromissione radicolare motoria.", etiology: "Rottura anulus fibroso con compressione meccanica e infiammatoria della radice.", clinic: "Dolore radicolare acuto (sciatalgia/cruralgia) associato a ipostenia e deficit di forza (es. piede cadente).", meds: "Corticosteroidi orali ad alto dosaggio (es. Deltacortene), FANS, neuroprotettori (Acido Alfa-Lipoico, Vitamine B), gabapentinoidi.", rehab: "Trattamento neurodinamico con scivolamenti neurali (nerve gliding), decompressione vertebrale manuale dolce, rieducazione del core stability e rinforzo selettivo dei muscoli deficitari." },
+            { id: 103, title: "Glioblastoma Multiforme", district: "Cervicale", severity: "Grave", def: "Neoplasia gliale cerebrale maligna ad alto grado di infiltrazione.", etiology: "Proliferazione clonale anomala degli astrociti con alterazioni genetiche (IDH, MGMT).", clinic: "Deficit neurologici focali rapidamente progressivi, cefalea intrattabile, crisi epilettiche e alterazioni cognitive.", meds: "Temozolomide (chemioterapia), cortisonici ad alto dosaggio (Desametasone) per edema perilesionale, farmaci antiepilettici profilattici (Levetiracetam).", rehab: "Fisioterapia palliativa e conservativa per il mantenimento dell'autonomia residua, prevenzione delle contratture da immobilità, terapia occupazionale e supporto posturale." },
+            { id: 104, title: "Ictus Ischemico / Emiplegia", district: "Generale", severity: "Grave", def: "Deficit neurologico focale acuto da ipossia/ischemia tissutale cerebrale.", etiology: "Tromboembolia o aterosclerosi dei grossi vasi cerebrali.", clinic: "Emiplegia controlaterale, emianestesia, emianopsia e disturbi del linguaggio (afasia).", meds: "Antiaggreganti (Aspirina/Clopidogrel), neuroprotettori, statine, farmaci per il controllo pressorio e della spasticità (Baclofen, Tossina Botulinica).", rehab: "Approccio neurocognitivo secondo il Metodo Perfetti (Esercizio Terapeutico Conoscitivo), Concetto Bobath per il controllo del tono posturale, Constraint-Induced Movement Therapy (CIMT) per l'arto superiore e training robotico del cammino." },
+            { id: 105, title: "Lesione Midollare", district: "Lombare", severity: "Grave", def: "Interruzione parziale o totale delle vie di conduzione midollari.", etiology: "Traumi spinali acuti (incidenti, cadute) o lesioni vascolari.", clinic: "Paraplegia o tetraplegia, perdita della sensibilità sotto il livello lesionale e disfunzioni sfinteriche.", meds: "Baclofen intratecale o orale per la spasticità, gabapentin per il dolore neuropatico, farmaci urologici per la vescica neurogena.", rehab: "Verticalizzazione precoce con tavole inclinate, idrokinesiterapia, functional electrical stimulation (FES), rinforzo della muscolatura superiore e training con esoscheletri robotizzati." },
+            { id: 106, title: "Mielopatia Spondilotica", district: "Cervicale", severity: "Grave", def: "Compressione cronica del midollo spinale cervicale su base degenerativa.", etiology: "Stenosi del canale spinale da artrosi, osteofiti e ipertrofia del legamento giallo.", clinic: "Disturbi della marcia (spasticità), impaccio motorio alle mani, parestesie e segni di sofferenza piramidale.", meds: "Miorilassanti centrali, FANS, analgesici maggiori e neurotrofici.", rehab: "Esercizi di stabilizzazione cervicale profonda, chinesiterapia propriocettiva, ginnastica posturale globale e chinesiterapia passiva/attiva per il mantenimento del ROM." },
+            { id: 107, title: "Miosite Eterotopica", district: "Coscia", severity: "Moderata", def: "Formazione anomala di tessuto osseo ectopico nei tessuti molli periarticolari.", etiology: "Esito di traumi importanti, ustioni, chirurgia o prolungata immobilità neurologica.", clinic: "Tumefazione locale calda, dolore e progressivo blocco del ROM articolare.", meds: "FANS (Indometacina a scopo preventivo/curativo), bifosfonati in fase precoce.", rehab: "Mobilizzazione passiva molto dolce e graduale nel rispetto della soglia del dolore, idrokinesiterapia in scarico e cinesiterapia attiva per preservare la funzione." },
+            { id: 108, title: "Mononeuropatia Fibulare", district: "Gamba", severity: "Moderata", def: "Sofferenza compressiva o traumatica del nervo fibulare comune al collo della fibula.", etiology: "Compressione estrinseca prolungata (gesso stretto, posture scorrette, accavallamento gambe).", clinic: "Piede cadente (drop foot), impossibilità alla flessione dorsale ed eversione del piede, ipoestesia al dorso.", meds: "Vitamina B12, acido alfa-lipoico, neuroprotettori orali.", rehab: "Utilizzo di tutori dinamici AFO (Ankle Foot Orthosis), rinforzo isometrico ed eccentrico dei muscoli della loggia anteriore, stimolazione elettrica funzionale (FES) e rieducazione neuromuscolare del passo." },
+            { id: 109, title: "Neuropatia Diabetica", district: "Piede", severity: "Cronica", def: "Polineuropatia simmetrica distale sensitivo-motoria da danno metabolico microvascolare.", etiology: "Iperglicemia cronica con accumulo di prodotti di glicazione avanzata (AGEs).", clinic: "Parestesie, bruciore 'a calza', perdita della sensibilità propriocettiva e rischio di ulcere plantari.", meds: "Pregabalin, Gabapentin, Duloxetina per il dolore neuropatico, acido alfa-lipoico, rigoroso controllo glicemico.", rehab: "Cura meticolosa del piede (foot care), esercizi propriocettivi su superfici instabili per stimolare i recettori residui, desensibilizzazione cutanea e calzature ortopediche su misura." },
+            { id: 110, title: "Paralisi Cerebrale Infantile", district: "Generale", severity: "Cronica", def: "Disordine non progressivo del movimento e della postura infantile.", etiology: "Insulto encefalico pre, peri o post-natale (ipossia, emorragia).", clinic: "Spasticità, atassia, discinesia, ritardo motorio e alterazioni dello schema del cammino.", meds: "Tossina botulinica focale per rilasciare i muscoli ipertonici, Baclofen orale, benzodiazepine.", rehab: "Terapia neuropsicomotoria secondo il Metodo Vojta e Bobath, hydrokinesiterapia pediatrica, stretching prolungato con tutori seriali (casting) e training robotico Lokomat." },
+            { id: 111, title: "Paralisi Plesso Brachiale", district: "Spalla", severity: "Grave", def: "Lesione delle radici del plesso brachiale (C5-T1).", etiology: "Trauma ostetrico (distocia di spalla) o traumi ad alta energia (incidenti in moto).", clinic: "Arto superiore flaccido, perdita di riflessi e deficit di forza globale (es. paralisi di Erb-Duchenne o Klumpke).", meds: "Neurotrofici, analgesici per dolore neuropatico, vitamine del gruppo B.", rehab: "Mobilizzazione passiva precoce per prevenire la spalla congelata, stimolazione elettrica neuromuscolare (FES), terapia specchio e tecniche di facilitazione neuromuscolare propriocezione (PNF)." },
+            { id: 112, title: "Paralisi di Bell", district: "Cervicale", severity: "Lieve", def: "Paralisi periferica acuta idiopatica del nervo facciale (VII n.c.).", etiology: "Probabile riattivazione virale (HSV) con edema e compressione nel canale di Falloppio.", clinic: "Asimmetria facciale monolaterale, incapacità di chiudere l'occhio, deviazione della rima buccale.", meds: "Corticosteroidi ad alto dosaggio precoci (Prednisone), antivirali (Valaciclovir), protezione oculare con lacrime artificiali.", rehab: "Riabilitazione della mimica facciale allo specchio, massaggio miofasciale dei muscoli masticatori e mimici, taping neuromuscolare correttivo e biofeedback elettromiografico." },
+            { id: 113, title: "CIDP (Polineuropatia Cronica Infiammatoria)", district: "Generale", severity: "Cronica", def: "Neuropatia autoimmune demielinizzante cronica progressiva o recidivante.", etiology: "Reazione immunomediata diretta contro le componenti della mielina periferica.", clinic: "Debolezza muscolare simmetrica progressiva prossimale e distale, areflessia e deficit sensitivi.", meds: "Immunoglobuline endovena (IVIG), plasmaferesi, corticosteroidi sistemici, immunosoppressori.", rehab: "Programma di esercizio aerobico e di rinforzo a basso carico (submassimale) per prevenire il disadattamento da fatica, stretching analitico e hydrokinesiterapia." },
+            { id: 114, title: "SLA (Sclerosi Laterale Amiotrofica)", district: "Generale", severity: "Grave", def: "Malattia degenerativa progressiva dei motoneuroni superiori e inferiori.", etiology: "Multifattoriale (genetica, accumulo di glutammato, stress ossidativo).", clinic: "Amiotrofia progressiva, fascicolazioni, spasticità, disfagia e insufficienza respiratoria.", meds: "Riluzole, Edaravone (farmaci neuroprotettivi), trattamenti sintomatici per crampi e scialorrea.", rehab: "Fisioterapia respiratoria (disostruzione bronchiale, insufflazione-esuflazione meccanica), stretching preventivo delle contratture, conservazione dell'energia e adattamenti ergonomici." },
+            { id: 115, title: "Sclerosi Multipla", district: "Generale", severity: "Cronica", def: "Patologia infiammatoria demielinizzante cronica autoimmune del sistema nervoso centrale.", etiology: "Reazione autoimmune mediata da linfociti T contro la guaina mielinica del SNC.", clinic: "Disturbi visivi (neurite ottica), fatica cronica, atassia, parestesie, spasticità e disturbi urinari.", meds: "Terapie modificanti la malattia (DMT: interferoni, anticorpi monoclonali), cortisonici per le ricadute acute, Baclofen e Fampridina per la deambulazione.", rehab: "Esercizio terapeutico personalizzato per la gestione della fatica (Cooling suits), training aerobico moderato, coordinazione propriocettiva ed equilibrio (Scuola di Equilibrio)." },
+            { id: 116, title: "Tunnel Carpale Severo", district: "Mano", severity: "Moderata", def: "Sofferenza severa cronica del nervo mediano al polso con danno assonale.", etiology: "Compressione persistente nel canale carpale con atrofia dei muscoli dell'eminenza tenar.", clinic: "Formicolio persistente, ipoestesia d1-d3 e perdita di forza nella pinza pollice-indice.", meds: "Vitamina B6/B12, integratori neurotrofici, FANS al bisogno.", rehab: "Scivolamenti neurali del nervo mediano (nerve glides), terapia manuale del carpo, stretching del retinacolo dei flessori e rieducazione fine della pinza." },
+            { id: 117, title: "Sindrome di Guillain-Barré", district: "Generale", severity: "Grave", def: "Poliradiculoneuropatia infiammatoria acuta demielinizzante o assonale.", etiology: "Risposta autoimmune scatenata da infezioni respiratorie o gastrointestinali precedenti.", clinic: "Debolezza muscolare progressiva ascendente simmetrica, areflessia e possibile insufficienza respiratoria.", meds: "Immunoglobuline endovena (IVIG) o plasmaferesi (terapia d'urgenza), supporto intensivo.", rehab: "Mobilizzazione passiva precoce per prevenire retrazioni e piaghe da decubito, posizionamento articolare protettivo, svezzamento graduale dal letto alla sedia a rotelle e rinforzo attivo assistito." },
+            { id: 118, title: "Sindrome di West", district: "Generale", severity: "Grave", def: "Encefalopatia epilettica dell'infanzia.", etiology: "Lesioni cerebrali strutturali, genetiche o metaboliche congenite.", clinic: "Spasmi infantili in flessione, arresto dello sviluppo psicomotorio e ipsaritmia all'EEG.", meds: "Vigabatrin, Ormone Adrenocorticotropo (ACTH), farmaci antiepilettici specifici.", rehab: "Stimolazione sensoriale precoce, fisioterapia neuroevolutiva secondo il metodo Bobath e supporto allo sviluppo psicomotorio globale." },
+            { id: 119, title: "Sindrome Post-Encefalitica", district: "Generale", severity: "Moderata", def: "Complicanze a lungo termine successive a infezioni virali del SNC (encefaliti).", etiology: "Esiti di flogosi virale (Herpes Simplex, Arbovirus) con danno parenchimale residuo.", clinic: "Deficit cognitivi, alterazioni comportamentali, astenia cronica e lievi deficit motori focali.", meds: "Neuroprotettori, integratori cognitivi, farmaci sintomatici.", rehab: "Riabilitazione neuromotoria globale, stimolazione cognitiva integrata, esercizi di equilibrio e rieducazione allo sforzo graduale." },
+            { id: 120, title: "Sindrome Post-Polio", district: "Generale", severity: "Cronica", def: "Comparsa di nuova debolezza muscolare e affaticabilità decenni dopo l'infezione acuta da polio.", etiology: "Degenerazione tardiva dei terminali assonali sovraccarichi compensatori.", clinic: "Fatica muscolare sproporzionata, dolori articolari e muscolari, progressiva atrofia.", meds: "Analgesici, integratori energetici, coenzima Q10.", rehab: "Programma di conservazione dell'energia, attività aerobica a bassissimo impatto (nuoto, cyclette leggera), hydrokinesiterapia ed evitamento del sovraccarico muscolare." },
+            { id: 121, title: "Trauma Cranico (TCE)", district: "Cervicale", severity: "Grave", def: "Insulto traumatico acuto all'encefalo con alterazione dello stato di coscienza.", etiology: "Incidenti stradali, cadute accidentali o traumi contusivi violenti.", clinic: "Coma iniziale, confusione, amnesia, deficit focali, cefalea e disturbi cognitivo-comportamentali.", meds: "Controllo della pressione intracranica (PIC), anticonvulsivanti profilattici, neuroprotettori.", rehab: "Coma stimulation (stimolazione multisensoriale controllata), verticalizzazione precoce, riabilitazione motoria basata sulla facilitazione neuromuscolare e reinserimento funzionale." },
+            { id: 122, title: "Tremore Essenziale", district: "Cervicale", severity: "Moderata", def: "Disturbo del movimento caratterizzato da tremore posturale e cinetico.", etiology: "Fattori genetici con trasmissione autosomica dominante in molti casi.", clinic: "Tremore bilaterale delle mani e degli avambracci durante il mantenimento di posture o azioni.", meds: "Beta-bloccanti (Propranololo), primidone, farmaci anticomiziali (Topiramato).", rehab: "Terapia occupazionale con ausili ponderati per la stabilità della mano (es. posate pesate), esercizi di controllo motorio fine e tecniche di rilassamento." },
+            { id: 123, title: "Tumore Midollare", district: "Lombare", severity: "Grave", def: "Massa neoplastica primitiva o secondaria all'interno del canale vertebrale midollare.", etiology: "Proliferazione cellulare neoplastica extramidollare o intramidollare.", clinic: "Deficit neurologici progressivi, dolore radicolare ingravescente e disturbi sfinterici.", meds: "Corticosteroidi per ridurre l'edema peritumorale, terapia oncologica specifica (chemio/radioterapia).", rehab: "Fisioterapia conservativa e preventiva per il mantenimento del ROM, gestione della spasticità e training propriocettivo protetto." },
+            { id: 124, title: "Vasculite del SNC", district: "Generale", severity: "Grave", def: "Processo infiammatorio necrotizzante dei vasi sanguigni del sistema nervoso centrale.", etiology: "Malattia autoimmune sistemica o primitiva del SNC.", clinic: "Cefalea persistente, deficit focali transitori o permanenti, alterazioni dello stato mentale.", meds: "Corticosteroidi ad alte dosi, immunosoppressori aggressivi (Ciclofosfamide, Rituximab).", rehab: "Riabilitazione neuromotoria personalizzata in base ai deficit focali residui, recupero dell'equilibrio e chinesiterapia dolce." },
+            { id: 125, title: "Distrofia Miotonica di Steinert", district: "Generale", severity: "Cronica", def: "Distrofia muscolare multisistemica caratterizzata da miotonia.", etiology: "Mutazione genetica (espansione CTG nel gene DMPK).", clinic: "Miotonia (difficoltà a rilasciare la presa), debolezza muscolare distale, calvizie precoce e cataratte.", meds: "Mexiletina o carbamazepina per la miotonia, monitoraggio cardiologico.", rehab: "Stretching analitico dei distretti retratti, esercizi aerobici a bassa intensità per combattere la faticabilità e logopedia." },
+            { id: 126, title: "Corea di Huntington", district: "Generale", severity: "Grave", def: "Malattia neurodegenerativa ereditaria caratterizzata da movimenti involontari coreici.", etiology: "Mutazione autosomica dominante (espansione CAG nel gene IT15/huntingtina).", clinic: "Movimenti coreici involontari fluidi ma imprevedibili, alterazioni psichiatriche e decadimento cognitivo.", meds: "Tetrabenazina o Deutetrabenazina per ridurre i movimenti coreici, antipsicotici atipici.", rehab: "Prevenzione delle cadute con adattamenti ambientali, fisioterapia per l'equilibrio, esercizi di coordinazione e logopedia per la gestione della disfagia." },
+            { id: 127, title: "Encefalopatia Ipossica", district: "Generale", severity: "Grave", def: "Danno cerebrale diffuso derivante da carenza globale di ossigeno e perfusione.", etiology: "Arresto cardiaco, insufficienza respiratoria acuta o anossia prolungata.", clinic: "Stato vegetativo persistente, stato di coscienza minima o deficit cognitivo-motori severi.", meds: "Farmaci anticonvulsivanti, neuroprotettori, gestione medica intensiva.", rehab: "Stimolazione sensoriale multicanale (Basal Stimulation), posizionamento posturale antidecubito, mobilizzazione passiva globale per prevenire anchilosi e chinesiterapia passiva." },
+            { id: 128, title: "Malattia di Parkinson", district: "Generale", severity: "Cronica", def: "Malattia neurodegenerativa progressiva da perdita di neuroni dopaminergici.", etiology: "Degenerazione dei neuroni della substantia nigra pars compacta (corpi di Lewy).", clinic: "Tremore a riposo, rigidità plastica, bradicinesia e instabilità posturale.", meds: "Levodopa + Carbidopa/Benserazide, agonisti dopaminergici, inibitori MAO-B e COMT.", rehab: "LSVT BIG program per l'ampiezza del movimento, cueing visivo/sonoro per il freezing del passo, training di equilibrio e stretching dei flessori del tronco." },
+            { id: 129, title: "Paralisi Supranucleare Progressiva (PSP)", district: "Cervicale", severity: "Grave", def: "Parkinsonismo atipico caratterizzato da alterazioni precoci dello sguardo verticale.", etiology: "Accumulo di proteina tau anomala nei nuclei della base e tronco encefalico.", clinic: "Cadute precoci all'indietro, oftalmoplegia sopranucleare verticale, rigidità assiale e demenza.", meds: "Risposta scarsa alla Levodopa; farmaci sintomatici per rigidità e disturbi dell'umore.", rehab: "Esercizi specifici per l'equilibrio e la prevenzione delle cadute, compensazione visiva per i deficit oculomotori e posture di stabilizzazione assiale." },
+            { id: 130, title: "Sclerosi Laterale Primaria", district: "Generale", severity: "Cronica", def: "Malattia degenerativa selettiva dei motoneuroni superiori.", etiology: "Degenerazione cortico-spinale idiopatica progressiva.", clinic: "Spasticità progressiva severa degli arti inferiori e superiori, iperreflessia e pseudobulbarismo.", meds: "Baclofen, Tizanidina, benzodiazepine per il controllo della spasticità grave.", rehab: "Stretching passivo intensivo, idrokinesiterapia in acqua calda, posture in scarico e utilizzo di ausili per la deambulazione per preservare l'autonomia." }
         ];
 
         // Atlante Test Clinici (50 Test)
@@ -486,7 +486,7 @@
             { id: 50, title: "Screening Cuffia Avanzato", district: "Spalla", category: "Ortopedico", purpose: "Funzione globale cuffia.", patientPos: "In piedi.", therapistPos: "Resistenza progressiva.", execution: "Resistenza su piano scapolare.", positivity: "Cedimento o dolore.", pathology: "Lesione cuffia", sensitivity: "Sensibilità: 82%", specificity: "Specificità: 79%" }
         ];
 
-        // Altre basi dati (Trattamenti, Strumentale, Anatomia, Esercizi, Protocolli)
+        // Trattamenti, Strumentale, Anatomia, Esercizi, Protocolli (Intatti dalla v1.5 Full)
         const trattamentiData = [
             { id: 1, title: "Chinesiterapia Attiva e Passiva", category: "Ortopedici", district: "Generale", def: "Movimento terapeutico per ripristinare la funzione.", goals: "Recupero forza e ROM.", indications: "Post-chirurgico.", contraindications: "Fratture instabili." },
             { id: 2, title: "Concetto Bobath", category: "Neurologici", district: "Generale", def: "Trattamento per lesioni del SNC.", goals: "Inibizione riflessi patologici.", indications: "Ictus, emiplegie.", contraindications: "Fasi acute." },
@@ -517,7 +517,6 @@
             { id: 12, title: "Ultrasuoni Tradizionali", district: "Spalla", severity: "Mezzo Fisico", def: "Principio fisico: effetto piezoelettrico inverso per micromassaggio cellulare e aumento della permeabilità tissutale.", indicationsList: ["1. Calcificazioni spalla", "2. Fascite plantare", "3. Cicatrici adese", "4. Epicondilite cronica", "5. Borsite calcifica"], contraindications: "Cartilagini di accrescimento, occhio, midollo spinale e pacemaker." }
         ];
 
-        // 151 Muscoli
         const anatomiaData = [
             { id: 1, district: "Piede", title: "Abduttore dell'Alluce", origin: "Tuberosità calcaneare mediale", insertion: "Base falange prossimale alluce", innervation: "N. plantare mediale", blood: "A. plantare mediale", daily: "Camminare a piedi nudi sulla sabbia", movements: ["Abduzione alluce", "Flessione alluce"] },
             { id: 2, district: "Piede", title: "Abduttore del Quinto Dito", origin: "Tuberosità calcaneare", insertion: "Base falange V dito", innervation: "N. plantare laterale", blood: "A. plantare laterale", daily: "Stabilizzare il piede su terreni sconnessi", movements: ["Abduzione V dito"] },
@@ -672,7 +671,6 @@
             { id: 151, district: "Torace", title: "Zygomaticus (Accessori Posturali)", origin: "Osso zigomatico", insertion: "Angolo della bocca", innervation: "N. facciale", blood: "A. facciale", daily: "Espressioni facciali e correlazioni posturali", movements: ["Elevazione commessura labiale"] }
         ];
 
-        // Esercizi Terapeutici
         const eserciziData = [
             { id: 1, title: "Abduzione Anca in Decubito", category: "Isolamento", district: "Anca", target: "Medio gluteo", indications: ["Coxartrosi lieve"], dosage: "3 serie da 15 rip", execution: "1. Decubito laterale.\n2. Arto superiore teso.\n3. Sollevamento controllato." },
             { id: 2, title: "Abduzione Monopodalica", category: "Core", district: "Anca", target: "Controllo pelvico", indications: ["Instabilità d'anca"], dosage: "3 serie da 12 rip", execution: "1. In piedi su un arto.\n2. Bacino orizzontale.\n3. Sollevare l'arto controlaterale." },
@@ -718,7 +716,6 @@
             { id: 42, title: "Coordinazione Occhio-Mano", category: "Neurodinamica", district: "Mano", target: "Sensomotorio", indications: ["Post Colles"], dosage: "3 serie da 1 min", execution: "1. Lancio e presa pallina." }
         ];
 
-        // 50 Protocolli Post-Op
         const protocolliData = [
             { id: 1, title: "Artrodesi della Caviglia (Tibio-Tarsica)", district: "Gamba", severity: "Post-Op", surgery: "Fusione chirurgica dell'articolazione della caviglia per artrosi severa.", phases: "Fase 1 (0-6 sett): Gesso o stivale senza carico.\nFase 2 (6-12 sett): Carico parziale in stivale rigido, mobilità delle dita.\nFase 3 (3-12 mesi): Carico completo con scarpa ammortizzata e adattamento del passo.", daily: "Il movimento di flesso-estensione della caviglia sarà azzerato; il passo sfrutterà le articolazioni del piede.", rtp: "Ritorno a camminate a 4-6 mesi." },
             { id: 2, title: "Artrodesi della Subtalare / Triplice Artrodesi", district: "Piede", severity: "Post-Op", surgery: "Fusione chirurgica delle articolazioni del retropiede (subtalare, talonavicolare e calcaneocuboidea) per artrosi grave o instabilità.", phases: "Fase 1 (0-6 sett): Gesso o stivale rigido senza carico assoluto. Elevazione costante del piede per ridurre l'edema.\nFase 2 (6-12 sett): Passaggio a stivale rimovibile, inizio carico parziale progressivo e mobilità delle dita.\nFase 3 (3-6 mesi): Carico completo con scarpa confortevole, plantare ortopedico e recupero della deambulazione.", daily: "Utilizzo rigoroso delle stampelle senza appoggiare il piede per le prime 6 settimane.", rtp: "Ritorno a camminate e attività a basso impatto a 4-6 mesi." },
@@ -875,7 +872,7 @@
         function renderNeuroGrid(data) {
             document.getElementById('neuro-count').innerText = `${data.length} Patologie`;
             document.getElementById('neuro-grid').innerHTML = data.map(item => `
-                <div onclick="openPatologiaDetail(${item.id}, 'neuro')" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-rose-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
+                <div onclick="openNeuroDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-rose-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
                     <div>
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rose-50 text-rose-700">${item.district}</span>
@@ -885,7 +882,7 @@
                         <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
                     </div>
                     <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-rose-600 font-semibold">
-                        <span>Scheda clinica neurologica completa</span><i class="fa-solid fa-arrow-right"></i>
+                        <span>Scheda neurologica v1.6 (Farmaci & Tecniche)</span><i class="fa-solid fa-arrow-right"></i>
                     </div>
                 </div>
             `).join('');
@@ -1030,7 +1027,7 @@
         }
 
         function openPatologiaDetail(id, type) {
-            const item = type === 'orto' ? ortopedicheData.find(p => p.id === id) : neurologicheData.find(p => p.id === id);
+            const item = ortopedicheData.find(p => p.id === id);
             document.getElementById('modal-district-badge').innerText = item.district;
             document.getElementById('modal-title').innerText = item.title;
             document.getElementById('modal-body').innerHTML = `
@@ -1041,11 +1038,11 @@
                     </div>
                     <div class="bg-brand-50 p-4 rounded-xl border border-brand-200">
                         <h4 class="font-bold text-brand-900 text-xs uppercase mb-1"><i class="fa-solid fa-dna mr-1 text-brand-600"></i>Eziologia e Meccanismo</h4>
-                        <p class="text-slate-700 text-sm leading-relaxed">${item.etiology || "Fattori eziologici correlati al sovraccarico funzionale e alle caratteristiche biomeccaniche distrettuali."}</p>
+                        <p class="text-slate-700 text-sm leading-relaxed">${item.etiology}</p>
                     </div>
                     <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
                         <h4 class="font-bold text-amber-900 text-xs uppercase mb-1"><i class="fa-solid fa-stethoscope mr-1 text-amber-600"></i>Quadro Clinico e Sintomatologia</h4>
-                        <p class="text-slate-700 text-sm leading-relaxed">${item.clinic || "Dolore localizzato, limitazione funzionale nei movimenti specifici e alterazioni della mobilità articolare."}</p>
+                        <p class="text-slate-700 text-sm leading-relaxed">${item.clinic}</p>
                     </div>
                     <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-200">
                         <h4 class="font-bold text-indigo-900 text-xs uppercase mb-1"><i class="fa-solid fa-pills mr-1 text-indigo-600"></i>Gestione Medica e Chirurgica</h4>
@@ -1054,6 +1051,38 @@
                     </div>
                     <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
                         <h4 class="font-bold text-emerald-900 text-xs uppercase mb-1"><i class="fa-solid fa-person-walking mr-1 text-emerald-600"></i>Approccio Riabilitativo e Fisioterapia</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">${item.rehab}</p>
+                    </div>
+                </div>
+            `;
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        // Modale specifico per le Patologie Neurologiche v1.6 (Senza chirurgia, con Farmacologia avanzata e Tecniche Neuro-riabilitative)
+        function openNeuroDetail(id) {
+            const item = neurologicheData.find(n => n.id === id);
+            document.getElementById('modal-district-badge').innerText = item.district;
+            document.getElementById('modal-title').innerText = item.title;
+            document.getElementById('modal-body').innerHTML = `
+                <div class="space-y-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <h4 class="font-bold text-slate-800 text-xs uppercase mb-1">Definizione Neurologica</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">${item.def}</p>
+                    </div>
+                    <div class="bg-brand-50 p-4 rounded-xl border border-brand-200">
+                        <h4 class="font-bold text-brand-900 text-xs uppercase mb-1"><i class="fa-solid fa-dna mr-1 text-brand-600"></i>Eziologia e Patogenesi</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">${item.etiology}</p>
+                    </div>
+                    <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                        <h4 class="font-bold text-amber-900 text-xs uppercase mb-1"><i class="fa-solid fa-stethoscope mr-1 text-amber-600"></i>Quadro Clinico e Segni Universitari</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">${item.clinic}</p>
+                    </div>
+                    <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-200">
+                        <h4 class="font-bold text-indigo-900 text-xs uppercase mb-1"><i class="fa-solid fa-pills mr-1 text-indigo-600"></i>Opzioni di Terapia Farmacologica Specifica</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed">${item.meds}</p>
+                    </div>
+                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
+                        <h4 class="font-bold text-emerald-900 text-xs uppercase mb-1"><i class="fa-solid fa-brain mr-1 text-emerald-600"></i>Protocollo Neuro-Riabilitativo Dettagliato (Evidence-Based)</h4>
                         <p class="text-slate-700 text-sm leading-relaxed">${item.rehab}</p>
                     </div>
                 </div>
@@ -1216,7 +1245,6 @@
                     <p class="text-slate-700 text-sm font-semibold">${item.rtp}</p>
                 </div>
             `;
-            document.getElementById('detail-modal').classList.add('hidden'); // fix
             document.getElementById('detail-modal').classList.remove('hidden');
         }
 
