@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FisioPro Clinical v1.6 - Neuro Avanzata & Full 1.5</title>
+    <title>FisioPro Clinical v1.7 - Trattamenti Avanzati & Full Suite</title>
     
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="./manifest.json">
@@ -47,9 +47,9 @@
                 <div>
                     <div class="flex items-center space-x-2">
                         <h1 class="text-lg font-bold tracking-tight">FisioPro Clinical</h1>
-                        <span class="text-[10px] bg-brand-600 border border-brand-500 text-white font-semibold px-2 py-0.5 rounded-full">v1.6 Advanced Neuro</span>
+                        <span class="text-[10px] bg-brand-600 border border-brand-500 text-white font-semibold px-2 py-0.5 rounded-full">v1.7 Advanced Rehab</span>
                     </div>
-                    <p class="text-xs text-brand-100 opacity-95">90 Orto, 30 Neuro (Evidence-Based), Test & 151 Muscoli</p>
+                    <p class="text-xs text-brand-100 opacity-95">90 Orto, 30 Neuro, 30 Trattamenti (Orto/Neuro/Ped), 50 Test & 151 Muscoli</p>
                 </div>
             </div>
             <div class="flex items-center space-x-2">
@@ -68,7 +68,7 @@
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                     <i class="fa-solid fa-search"></i>
                 </span>
-                <input type="text" id="global-search" oninput="filterContent()" placeholder="Cerca tra patologie, test, muscoli, macchinari..." class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition">
+                <input type="text" id="global-search" oninput="filterContent()" placeholder="Cerca tra patologie, trattamenti, test, muscoli..." class="w-full pl-10 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition">
             </div>
             <div class="flex items-center space-x-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0" id="filter-chips">
                 <button onclick="filterByDistrict('all')" class="filter-btn active-chip px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white whitespace-nowrap shadow-sm transition">Tutti</button>
@@ -117,7 +117,7 @@
                 <i class="fa-solid fa-hands-holding-child text-xl mb-2 text-brand-600"></i>
                 <div>
                     <h3 class="font-bold text-xs">Trattamenti</h3>
-                    <p class="text-[10px] opacity-75">Ordinati A-Z</p>
+                    <p class="text-[10px] opacity-75">30 Metodi v1.7</p>
                 </div>
             </button>
             <button onclick="switchSection('strumentale')" id="btn-sec-strumentale" class="section-tab p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-left transition shadow-sm flex flex-col justify-between">
@@ -162,7 +162,7 @@
             <div id="orto-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione Patologie Neurologiche v1.6 (Farmacologia Specifica & Tecniche Neuro-Riabilitative Avanzate) -->
+        <!-- Sezione Patologie Neurologiche v1.6 -->
         <div id="section-patologie-neurologiche" class="content-section hidden space-y-4">
             <div class="flex items-center justify-between">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
@@ -186,14 +186,19 @@
             <div id="tests-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
 
-        <!-- Sezione Trattamenti -->
+        <!-- Sezione Trattamenti v1.7 (30 Metodiche Divise in Ortopedici, Neurologici, Pediatrici) -->
         <div id="section-trattamenti" class="content-section hidden space-y-4">
-            <div class="flex items-center justify-between">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <h2 class="text-lg font-bold text-slate-800 flex items-center space-x-2">
                     <i class="fa-solid fa-hands-holding-child text-brand-600"></i>
-                    <span>Trattamenti Riabilitativi (Ordinamento Alfabetico A-Z)</span>
+                    <span>Trattamenti Riabilitativi Avanzati v1.7 (30 Metodiche A-Z)</span>
                 </h2>
-                <span class="text-xs bg-brand-100 text-brand-800 font-semibold px-2.5 py-1 rounded-full">Ordinati A-Z</span>
+                <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 sm:pb-0">
+                    <button onclick="filterTrattamentiCat('all')" id="btn-tratt-all" class="tratt-cat-btn px-3 py-1 rounded-full text-xs font-bold bg-brand-600 text-white shadow-sm transition">Tutti (30)</button>
+                    <button onclick="filterTrattamentiCat('Ortopedici')" id="btn-tratt-Ortopedici" class="tratt-cat-btn px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">Ortopedici (12)</button>
+                    <button onclick="filterTrattamentiCat('Neurologici')" id="btn-tratt-Neurologici" class="tratt-cat-btn px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">Neurologici (10)</button>
+                    <button onclick="filterTrattamentiCat('Pediatrici')" id="btn-tratt-Pediatrici" class="tratt-cat-btn px-3 py-1 rounded-full text-xs font-semibold bg-slate-200 text-slate-700 hover:bg-slate-300 transition">Pediatrici (8)</button>
+                </div>
             </div>
             <div id="trattamenti-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
@@ -302,9 +307,9 @@
         </div>
     </div>
 
-    <!-- Script JavaScript (Versione 1.6 - Orto 90 Intatte, Neuro v1.6 Avanzata con Farmacologia & Tecniche Riabilitative) -->
+    <!-- Script JavaScript (Versione 1.7 - Trattamenti Espansi, Tutto il resto intatto dalla 1.6) -->
     <script>
-        // Le 90 Patologie Ortopediche intatte (v1.5 Full)
+        // Le 90 Patologie Ortopediche intatte (v1.5/v1.6)
         const ortopedicheData = [
             { id: 1, title: "Alluce Valgo", district: "Piede", severity: "Cronica", def: "Deviazione mediale del primo metatarso e laterale dell'alluce.", etiology: "Fattori genetici, calzature a punta stretta e lassità legamentosa.", clinic: "Dolore locale in corrispondenza dell'esostosi mediale ('cipolla').", meds: "FANS topici.", surgery: "Osteotomie correttive metatarsali.", rehab: "Terapie conservative, tutori notturni." },
             { id: 2, title: "Apofisite della Cresta Iliaca", district: "Anca", severity: "Lieve", def: "Traction apophysitis addominale nei giovani.", etiology: "Sollecitazioni ripetute in tensione dei muscoli addominali.", clinic: "Dolore localizzato sulla cresta iliaca esacerbato dalla palpazione.", meds: "Analgesici leggeri.", surgery: "Non indicata.", rehab: "Riposo e stretching." },
@@ -333,7 +338,7 @@
             { id: 25, title: "Frattura Collo Femore", district: "Anca", severity: "Grave", def: "Interruzione ossea prossimale.", etiology: "Trauma in pazienti osteoporotici.", clinic: "Impotenza funzionale totale.", meds: "Antidolorifici.", surgery: "Artroprotesi o osteosintesi.", rehab: "Riabilitazione precoce." },
             { id: 26, title: "Frattura Clavicola", district: "Spalla", severity: "Grave", def: "Interruzione clavicolare.", etiology: "Caduta sulla spalla.", clinic: "Deformità visibile e dolore.", meds: "Analgesici.", surgery: "Placca e viti.", rehab: "Tutore a otto." },
             { id: 27, title: "Frattura Colles", district: "Avambraccio", severity: "Grave", def: "Frattura distale radio.", etiology: "Caduta su mano estesa.", clinic: "Deformità a 'dorso di fork'.", meds: "Analgesici.", surgery: "Riduzione e placca.", rehab: "Recupero ROM polso." },
-            { id: 28, title: "Gonartrosi", district: "Coscia", severity: "Cronica", def: "Degenerazione ginocchio.", etiology: "Usura cartilaginea e obesità.", clinic: "Dolore e crepitii articolari.", meds: "Acido ialuronico.", surgery: "Protesi Totale Ginocchio.", rehab: "Rinforzo quadricipite." },
+            { id: 28, title: "Gonartrosi", district: "Coscia", severity: "Cronica", def: "Degenerazione cartilagine ginocchio.", etiology: "Usura cartilaginea e obesità.", clinic: "Dolore e crepitii articolari.", meds: "Acido ialuronico.", surgery: "Protesi Totale Ginocchio.", rehab: "Rinforzo quadricipite." },
             { id: 29, title: "Impingement Femoro-Acetabolare", district: "Anca", severity: "Moderata", def: "Conflitto coxo-femorale.", etiology: "Deformità Cam o Pincer.", clinic: "Dolore inguinale in flessione.", meds: "FANS.", surgery: "Artroscopia d'anca.", rehab: "Rinforzo extrarotatori." },
             { id: 30, title: "Instabilità Spalla", district: "Spalla", severity: "Grave", def: "Traslazione anomala omerale.", etiology: "Lussazioni recidivanti.", clinic: "Sensazione di cedimento.", meds: "FANS.", surgery: "Bankart o Latarjet.", rehab: "Stabilizzazione cuffia." },
             { id: 31, title: "Lesione Cuffia Rotatori", district: "Spalla", severity: "Grave", def: "Lacerazione tendinea spalla.", etiology: "Trauma o degenerazione.", clinic: "Impossibilità a sollevare il braccio.", meds: "Cortisone.", surgery: "Riparazione artroscopica.", rehab: "Protocollo protetto." },
@@ -398,7 +403,7 @@
             { id: 90, title: "Nervo Interosseo Anteriore", district: "Avambraccio", severity: "Moderata", def: "Neuropatia ramo motore.", etiology: "Compressione o infiammazione.", clinic: "Debolezza pinza pollice-indice.", meds: "Vit B.", surgery: "Decompressione.", rehab: "Scorrimento neurale." }
         ];
 
-        // 30 Patologie Neurologiche v1.6 (Senza Chirurgia, Con Farmacologia Mirata e Tecniche Neuro-Riabilitative Avanzate Evidence-Based)
+        // 30 Patologie Neurologiche v1.6 intatte
         const neurologicheData = [
             { id: 101, title: "Atassia di Friedreich", district: "Generale", severity: "Cronica", def: "Atassia cerebellare e spinale ereditaria progressiva.", etiology: "Mutazione gene FXN (fratassina) con espansione tripletta GAA.", clinic: "Disturbi dell'equilibrio, disartria, areflessia e segni piramidali.", meds: "Idebenone (antiossidante mitocondriale), inibitori HDAC, coenzima Q10.", rehab: "Riabilitazione neuromotoria basata su Frenkel per la coordinazione, cinesiterapia attiva in scarico, logopedia per la disartria e training propriocettivo con pedane stabilometriche." },
             { id: 102, title: "Ernia con Deficit Neurologico", district: "Lombare", severity: "Grave", def: "Erniazione discale voluminosa con compromissione radicolare motoria.", etiology: "Rottura anulus fibroso con compressione meccanica e infiammatoria della radice.", clinic: "Dolore radicolare acuto (sciatalgia/cruralgia) associato a ipostenia e deficit di forza (es. piede cadente).", meds: "Corticosteroidi orali ad alto dosaggio (es. Deltacortene), FANS, neuroprotettori (Acido Alfa-Lipoico, Vitamine B), gabapentinoidi.", rehab: "Trattamento neurodinamico con scivolamenti neurali (nerve gliding), decompressione vertebrale manuale dolce, rieducazione del core stability e rinforzo selettivo dei muscoli deficitari." },
@@ -432,7 +437,7 @@
             { id: 130, title: "Sclerosi Laterale Primaria", district: "Generale", severity: "Cronica", def: "Malattia degenerativa selettiva dei motoneuroni superiori.", etiology: "Degenerazione cortico-spinale idiopatica progressiva.", clinic: "Spasticità progressiva severa degli arti inferiori e superiori, iperreflessia e pseudobulbarismo.", meds: "Baclofen, Tizanidina, benzodiazepine per il controllo della spasticità grave.", rehab: "Stretching passivo intensivo, idrokinesiterapia in acqua calda, posture in scarico e utilizzo di ausili per la deambulazione per preservare l'autonomia." }
         ];
 
-        // Atlante Test Clinici (50 Test)
+        // Atlante Test Clinici (50 Test) intatto
         const testCliniciData = [
             { id: 1, title: "Test di Neer", district: "Spalla", category: "Ortopedico", purpose: "Valutare la presenza di conflitto (impingement) subacromiale.", patientPos: "Paziente seduto o in piedi con il braccio rilassato.", therapistPos: "In piedi di lato al paziente.", execution: "Flessione passiva forzata del braccio in rotazione interna.", positivity: "Dolore tra i 90° e i 180°.", pathology: "Sindrome da conflitto subacromiale", sensitivity: "Sensibilità: 79%", specificity: "Specificità: 53%" },
             { id: 2, title: "Test di Hawkins-Kennedy", district: "Spalla", category: "Ortopedico", purpose: "Valutare l'impingement del tendine del sovraspinato.", patientPos: "Paziente seduto con braccio flesso a 90° e gomito a 90°.", therapistPos: "Sostiene il gomito e il polso.", execution: "Rotazione interna passiva dell'omero.", positivity: "Dolore acuto anterolaterale.", pathology: "Conflitto subacromiale", sensitivity: "Sensibilità: 79%", specificity: "Specificità: 60%" },
@@ -486,22 +491,346 @@
             { id: 50, title: "Screening Cuffia Avanzato", district: "Spalla", category: "Ortopedico", purpose: "Funzione globale cuffia.", patientPos: "In piedi.", therapistPos: "Resistenza progressiva.", execution: "Resistenza su piano scapolare.", positivity: "Cedimento o dolore.", pathology: "Lesione cuffia", sensitivity: "Sensibilità: 82%", specificity: "Specificità: 79%" }
         ];
 
-        // Trattamenti, Strumentale, Anatomia, Esercizi, Protocolli (Intatti dalla v1.5 Full)
+        // 30 Trattamenti Riabilitativi Avanzati v1.7 (Divisi in Ortopedici, Neurologici, Pediatrici con spiegazioni esaustive)
         const trattamentiData = [
-            { id: 1, title: "Chinesiterapia Attiva e Passiva", category: "Ortopedici", district: "Generale", def: "Movimento terapeutico per ripristinare la funzione.", goals: "Recupero forza e ROM.", indications: "Post-chirurgico.", contraindications: "Fratture instabili." },
-            { id: 2, title: "Concetto Bobath", category: "Neurologici", district: "Generale", def: "Trattamento per lesioni del SNC.", goals: "Inibizione riflessi patologici.", indications: "Ictus, emiplegie.", contraindications: "Fasi acute." },
-            { id: 3, title: "Esercizio Terapeutico Conoscitivo", category: "Neurologici", district: "Generale", def: "Riabilitazione basata sui processi cognitivi.", goals: "Controllo motorio.", indications: "Stroke.", contraindications: "Coma profondo." },
-            { id: 4, title: "Fisioterapia Torcicollo", category: "Pediatrici", district: "Cervicale", def: "Trattamento retrazione SCM.", goals: "Recupero ROM.", indications: "Torcicollo congenito.", contraindications: "Fratture." },
-            { id: 5, title: "Idrokinesiterapia", category: "Ortopedici", district: "Generale", def: "Riabilitazione in acqua riscaldata.", goals: "Deambulazione in scarico.", indications: "Post-chirurgico.", contraindications: "Ferite aperte." },
-            { id: 6, title: "Linfodrenaggio Manuale", category: "Ortopedici", district: "Generale", def: "Massaggio ritmato linfatico.", goals: "Riduzione edemi.", indications: "Edemi post-traumatici.", contraindications: "Tromboflebiti." },
-            { id: 7, title: "Massoterapia Decontratturante", category: "Ortopedici", district: "Generale", def: "Manovre tessuti molli.", goals: "Rilassamento.", indications: "Mialgie.", contraindications: "Trombosi." },
-            { id: 8, title: "Metodo Mézières (RPG)", category: "Ortopedici", district: "Generale", def: "Allungamento catene.", goals: "Riequilibrio posturale.", indications: "Scoliosi.", contraindications: "Fasi acute." },
-            { id: 9, title: "Metodo Ponseti", category: "Pediatrici", district: "Piede", def: "Protocollo gessato neonatale.", goals: "Correzione equino-varo.", indications: "Piede torto.", contraindications: "Sindromico." },
-            { id: 10, title: "Metodo Souchard", category: "Ortopedici", district: "Generale", def: "Globalità posturale.", goals: "Eliminazione compensazioni.", indications: "Algie croniche.", contraindications: "Non collaborazione." },
-            { id: 11, title: "Rieducazione Propriocettiva", category: "Ortopedici", district: "Generale", def: "Stimolazione recettoriale.", goals: "Controllo neuromuscolare.", indications: "Distorsioni.", contraindications: "Instabilità grave." },
-            { id: 12, title: "Terapia Manuale (Maitland)", category: "Ortopedici", district: "Generale", def: "Mobilizzazioni articolari.", goals: "Ripristino ROM.", indications: "Ipomobilità.", contraindications: "Osteoporosi." }
+            // ORTOPEDICI (12)
+            {
+                id: 1,
+                title: "Chinesiterapia Attiva, Passiva e Assistita",
+                category: "Ortopedici",
+                district: "Generale",
+                def: "La chinesiterapia costituisce il pilastro fondamentale della riabilitazione motoria e si basa sull'utilizzo scientificamente dosato del movimento (passivo, attivo-assistito, attivo libero e contro resistenza) per ripristinare l'integrità meccanica e neuromuscolare. Nella fase passiva, il terapista mobilizza i capi articolari rispettando la fisiologia articolare (rotolamento e scivolamento) per mantenere l'elasticità capsulo-legamentosa, nutrire la cartilagine ialina tramite diffusione sinoviale e inviare afferenze propriocettive ai centri corticali. Nella fase attiva, si stimola il reclutamento delle unità motorie secondo il principio di Henneman, favorendo l'adattamento trofico muscolare e tendineo.",
+                integration: "Si integra sinergicamente con la terapia fisica strumentale antalgica (TECAR, TENS, Crioterapia) per abbattere la soglia del dolore prima della mobilizzazione, con l'idrokinesiterapia per sfruttare la spinta idrostatica di Archimede e con il linfodrenaggio manuale in presenza di edemi post-chirurgici.",
+                goals: "1. Ripristinare il Range of Motion (ROM) fisiologico completo su tutti i piani anatomici.\n2. Prevenire aderenze fibrose intrarticolari, retrazioni muscolo-tendinee e rigidezza capsulare.\n3. Riattivare il trofismo, la forza resistente e la potenza muscolare progressiva.\n4. Migliorare la lubrificazione articolare e il trofismo della cartilagine.",
+                indications: "Esiti di fratture e lussazioni, post-operatorio ortopedico (protesi d'anca/ginocchio, ricostruzione LCA, sutura cuffia), artrosi primaria e secondaria, lombalgie e cervicalgie subacute, immobilizzazioni prolungate.",
+                contraindications: "Fratture non consolidate o instabili, processi infettivi o infiammatori acuti settici, trombosi venosa profonda (TVP) in atto, emartro acuto non drenato, dolore acuto ingravescente durante la manovra."
+            },
+            {
+                id: 2,
+                title: "Dry Needling (Puntura a Secco Miofasciale)",
+                category: "Ortopedici",
+                district: "Generale",
+                def: "Tecnica invasiva mininvasiva che utilizza aghi filiformi monouso sterili (senza inoculazione di farmaci) inseriti direttamente nei Trigger Point Miofasciali (MTrP) attivi o latenti. L'inserimento dell'ago e la tecnica di pistoning provocano una 'Local Twitch Response' (risposta di contrazione localizzata) involontaria delle fibre muscolari contratte. Questo fenomeno meccanico interrompe il circolo vizioso della placca motrice disfunzionale, normalizza il pH locale acido, riduce la concentrazione di sostanze algogene (Sostanza P, CGRP, bradichinina) e induce un immediato effetto analgesico mediato da meccanismi oppioidi endogeni e inibizione discendente.",
+                integration: "Ottima preparazione prima della terapia manuale miofasciale, dello stretching analitico o degli esercizi eccentrici. Si abbina efficacemente alle onde d'urto radiali e al taping neuromuscolare per mantenere il rilasciamento ottenuto.",
+                goals: "1. Disattivare i Trigger Point miofasciali attivi responsabili del dolore riferito.\n2. Ripristinare la lunghezza fisiologica del sarcomero e l'elasticità della fascia.\n3. Ridurre l'iperattività elettrica spontanea della placca neuromuscolare.\n4. Migliorare immediatamente il ROM articolare limitato da tensione muscolare.",
+                indications: "Sindrome del dolore miofasciale, cervicalgia e lombalgia muscolo-tensiva, epicondilite ed epitrocleite, sindrome del piriforme, tendinopatie da sovraccarico, cefalea tensiva.",
+                contraindications: "Agofobia severa, pazienti in terapia anticoagulante ad alto dosaggio o con coagulopatie, infezioni cutanee o linfedema nell'area di trattamento, gravidanza (primo trimestre o punti specifici), presenza di protesi articolari o impianti vicino al sito."
+            },
+            {
+                id: 3,
+                title: "Fibrolisi Diacutanea",
+                category: "Ortopedici",
+                district: "Generale",
+                def: "Metodica strumentale manuale ideata da Kurt Ekman che impiega ganci in acciaio inox con spatole smussate di diverse curvature per raggiungere e trattare meccanicamente i corpuscoli fibrosi, le aderenze inter-aponeurotiche e le cicatrici tissutali non accessibili alle dita del terapista. La tecnica prevede tre fasi: palpazione manuale, reperimento strumentale e fibrolisi (trazione/scollamento preciso dei setti intermuscolari). L'azione meccanica rompe i legami crociati patologici del collagene e stimola una risposta istaminica controllata che favorisce il rimodellamento tissutale.",
+                integration: "Si associa idealmente a tecniche di neurodinamica (scivolamenti neurali) nelle sindromi da intrappolamento periferico, allo stretching miofasciale e alla TECARterapia per ammorbidire i tessuti prima dell'intervento strumentale.",
+                goals: "1. Eliminare le aderenze fibrose tra i piani fasciali, tendinei e legamentosi.\n2. Ripristinare il fisiologico scorrimento tissutale e ridurre le resistenze meccaniche.\n3. Liberare i rami nervosi periferici intrappolati in tessuti cicatriziali.\n4. Riassorbire i corpuscoli irritativi miofasciali cronici.",
+                indications: "Esiti cicatriziali post-chirurgici o post-traumatici, tendinopatie croniche (achillea, rotulea, epicondilite), sindrome della bandelletta ileotibiale, nevralgie periferiche da intrappolamento, contratture muscolari croniche inveterate.",
+                contraindications: "Fragilità capillare severa o assunzione di anticoagulanti, patologie dermatologiche nella zona da trattare, stati infiammatori acuti, varici venose importanti, pazienti anziani con cute atrofica."
+            },
+            {
+                id: 4,
+                title: "Idrokinesiterapia (Riabilitazione in Acqua)",
+                category: "Ortopedici",
+                district: "Generale",
+                def: "Sfrutta le proprietà fisiche dell'acqua riscaldata (32°-34°C) a scopo terapeutico. Il principio di Archimede riduce il carico gravitazionale fino al 90% (immersione fino al collo), permettendo la deambulazione precoce e il movimento attivo senza stress articolare. La pressione idrostatica esercita un drenaggio linfatico e venoso naturale continuo, riducendo l'edema perifericamente. La viscosità dell'acqua offre una resistenza dolce, isotonica e adattabile in tutte le direzioni del movimento, mentre il calore stimola il rilasciamento muscolare e l'innalzamento della soglia del dolore.",
+                integration: "Complementare alla chinesiterapia a secco per anticipare il recupero dello schema del passo. Si integra con la rieducazione propriocettiva utilizzando galleggianti destabilizzanti e con la terapia manuale in acqua (es. Watsu).",
+                goals: "1. Anticipare il carico parziale e la rieducazione al cammino in assenza di dolore.\n2. Ridurre l'edema post-traumatico o post-chirurgico grazie alla pressione idrostatica.\n3. Facilitare il rilasciamento muscolare globale e il recupero del ROM articolare.\n4. Migliorare l'equilibrio, la propriocezione e la fiducia motoria del paziente.",
+                indications: "Post-operatorio protesico (anca, ginocchio, spalla), ricostruzioni legamentose (LCA), fratture degli arti inferiori in fase di carico parziale, lombalgie croniche, coxartrosi e gonartrosi, fibromialgia.",
+                contraindications: "Ferite chirurgiche non perfettamente cicatrizzate, infezioni cutanee o micosi, incontinenza sfinterica non controllata, insufficienza cardiaca o respiratoria scompensata, idrofobia."
+            },
+            {
+                id: 5,
+                title: "Linfodrenaggio Manuale (Metodo Vodder / Leduc)",
+                category: "Ortopedici",
+                district: "Generale",
+                def: "Tecnica di massaggio dolce, lento e ritmico eseguita con pressioni leggere (30-40 mmHg) che agiscono esclusivamente sul tessuto connettivo lasso sottocutaneo, senza mai provocare arrossamento o dolore. Attraverso manovre specifiche (cerchi fermi, pompaggio, erogatore, rotazione) si stimola la contrattilità intrinseca dei linfangioni (unità funzionali dei vasi linfatici), favorendo il riassorbimento delle macromolecole proteiche e dei liquidi interstiziali verso le stazioni linfonodali sane.",
+                integration: "Essenziale nel post-operatorio ortopedico in combinazione con la crioterapia compressiva, il bendaggio elasto-compressivo multistrato e gli esercizi di pompa muscolare attiva.",
+                goals: "1. Riassorbire edemi post-traumatici, post-chirurgici e linfedemi primari o secondari.\n2. Stimolare il sistema immunitario locale e accelerare i processi di cicatrizzazione.\n3. Ridurre la tensione tissutale dolorosa legata al gonfiore.\n4. Prevenire l'evoluzione fibrotica dei tessuti edematosi.",
+                indications: "Edemi post-chirurgici (protesi ginocchio/anca, ricostruzione LCA, fratture), distorsioni acute di caviglia, linfedema post-mastectomia, algodistrofia (Sindrome di Sudeck) in fase edematosa.",
+                contraindications: "Infezioni acute (erisipela, linfangite), trombosi venosa profonda (TVP) acuta, insufficienza cardiaca congestizia scompensata, neoplasie maligne in fase attiva non trattate."
+            },
+            {
+                id: 6,
+                title: "Manipolazione Fasciale (Metodo Stecco)",
+                category: "Ortopedici",
+                district: "Generale",
+                def: "Sistema valutativo e terapeutico incentrato sulla fascia profonda e sul suo ruolo nella coordinazione motoria e nella propriocezione. Secondo il modello biomeccanico di Luigi Stecco, la fascia coordina le unità motorie unidirezionali tramite i Centri di Coordinazione (CC) e i Centri di Fusione (CF). Quando la matrice extracellulare densifica (alterazione della viscosità dell'acido ialuronico) a causa di traumi, overuse o chirurgia, si crea una restrizione dello scorrimento fasciale che genera dolore riferito a distanza. Il trattamento consiste in una frizione profonda mirata sui punti densificati per generare calore locale e ripristinare la fluidità della sostanza fondamentale.",
+                integration: "Si integra eccellentemente con l'esercizio terapeutico per consolidare il nuovo schema motorio, con la rieducazione posturale globale e con il dry needling.",
+                goals: "1. Ripristinare la fluidità e lo scorrimento fisiologico tra i diversi strati fasciali.\n2. Rimuovere le densificazioni dei Centri di Coordinazione e Fusione.\n3. Riequilibrare le tensioni miofasciali lungo le sequenze cinetiche.\n4. Risolvere il dolore muscolo-scheletrico cronico e migliorare l'efficienza del gesto.",
+                indications: "Lombalgie e cervicalgie croniche, tendinopatie ribelli, sindromi canalicolari, esiti dolorosi di distorsioni o fratture, cefalee miotensive, disfunzioni viscerali correlate.",
+                contraindications: "Lesioni cutanee aperte o infezioni locali, tromboflebiti, fratture recenti non consolidate, patologie neoplastiche nella sede del trattamento, stati febbrili."
+            },
+            {
+                id: 7,
+                title: "Massoterapia Decontratturante e Trasversa Profonda (Cyriax)",
+                category: "Ortopedici",
+                district: "Generale",
+                def: "Insieme di manovre manuali (sfioramento, impastamento, frizione, percussione) applicate ai tessuti molli per ridurre l'ipertono muscolare riflesso e migliorare la vascolarizzazione locale. Include il Massaggio Trasverso Profondo (MTP) secondo James Cyriax, eseguito perpendicolarmente alle fibre di un tendine o legamento lesionato per prevenire la formazione di aderenze trasversali anomale, stimolare l'orientamento longitudinale delle nuove fibre di collagene e produrre un'iperemia analgetica locale.",
+                integration: "Si combina con la termoterapia esogena/endogena (TECAR, ultrasuoni), lo stretching analitico e gli esercizi eccentrici nelle tendinopatie.",
+                goals: "1. Ridurre lo spasmo muscolare protettivo e l'ipertono miofasciale.\n2. Aumentare l'apporto ematico locale e favorire la rimozione dei cataboliti.\n3. Prevenire e rompere le aderenze cicatriziali in tendini e legamenti (Cyriax).\n4. Indurre rilassamento neurovegetativo e riduzione del dolore.",
+                indications: "Contratture muscolari paravertebrali, tendinopatie inserzionali (epicondilite, tendinite rotulea, achillea), esiti di distrazioni muscolari e distorsioni legamentose subacute.",
+                contraindications: "Lesioni muscolari acute (strappi recenti con ematoma), flebiti e trombosi venose, calcificazioni eterotopiche (miosite ossificante), infezioni cutanee, stati febbrili."
+            },
+            {
+                id: 8,
+                title: "Metodo McKenzie (MDT - Mechanical Diagnosis and Therapy)",
+                category: "Ortopedici",
+                district: "Lombare",
+                def: "Approccio diagnostico e terapeutico basato sulla risposta sintomatica e meccanica del paziente a movimenti ripetuti e posture mantenute della colonna vertebrale. Il cardine del metodo è il fenomeno della 'Centralizzazione': lo spostamento del dolore irradiato dagli arti verso la linea mediana della colonna, che indica la direzione preferenziale del movimento terapeutico (spesso estensione, ma anche flessione o traslazione laterale). Il paziente viene educato all'autogestione tramite esercizi specifici eseguiti più volte al giorno.",
+                integration: "Si associa a programmi di Core Stability per mantenere i guadagni ottenuti, ergonomia posturale lavorativa e tecniche di neurodinamica in caso di residua irritazione radicolare.",
+                goals: "1. Ottenere la centralizzazione e la scomparsa del dolore radicolare irradiato.\n2. Ripristinare la completa mobilità meccanica della colonna vertebrale.\n3. Rendere il paziente autonomo nell'autogestione dei sintomi (self-treatment).\n4. Prevenire le recidive attraverso la profilassi posturale.",
+                indications: "Ernia del disco lombare e cervicale, protrusioni discali, sciatalgia e cervicobrachialgia, lombalgia acuta e cronica meccanica, disfunzioni posturali.",
+                contraindications: "Sindrome della cauda equina, deficit neurologici motori gravi e rapidamente progressivi, fratture vertebrali instabili, neoplasie spinali, infezioni vertebrali (spondilodiscite)."
+            },
+            {
+                id: 9,
+                title: "Metodo Mézières (Rieducazione Posturale Globale)",
+                category: "Ortopedici",
+                district: "Generale",
+                def: "Metodica riabilitativa globale ideata da Françoise Mézières che considera il corpo umano come un'unità funzionale governata da catene muscolari poliarticolari (in particolare la grande catena posteriore). Secondo Mézières, la maggior parte dei dismorfismi e delle algie deriva dall'accorciamento e dall'ipertono delle catene posteriori, che creano compensi in lordosi, rotazione e blocco diaframmatico. Il trattamento consiste nel mantenimento di posture di stiramento globale assiale associate a una respirazione diaframmatica profonda per allungare simultaneamente tutti i muscoli della catena ed eliminare i compensi.",
+                integration: "Si abbina alla terapia manuale miofasciale preparatoria, agli esercizi di stabilizzazione del core e all'educazione ergonomica.",
+                goals: "1. Allungare globalmente le catene muscolari retratte (soprattutto la catena posteriore).\n2. Eliminare i compensi posturali e le asimmetrie del tronco e degli arti.\n3. Liberare il diaframma e armonizzare la meccanica respiratoria.\n4. Ridurre i carichi compressivi articolari e discali.",
+                indications: "Iperlordosi, ipercifosi, scoliosi dell'adulto, lombalgie e cervicalgie croniche posturali, esiti di colpo di frusta, disfunzioni temporo-mandibolari.",
+                contraindications: "Fasi infiammatorie acute con dolore incoercibile, grave osteoporosi con rischio di fratture da schiacciamento, patologie psichiatriche che impediscono la collaborazione, infezioni acute."
+            },
+            {
+                id: 10,
+                title: "Metodo Souchard (RPG - Rieducazione Posturale Globale)",
+                category: "Ortopedici",
+                district: "Generale",
+                def: "Evoluzione scientifica del metodo Mézières sviluppata da Philippe Souchard. Distingue i muscoli della statica (tonici, fibrosi, tendenti all'accorciamento) dai muscoli della dinamica (fasici, tendenti all'ipotonia). Utilizza posture attive di stiramento progressivo e dolce (in scarico o in carico, apertura o chiusura dell'angolo coxo-femorale) guidate dal terapista con trazioni assiali continue e contrazioni isometriche eccentrico-frenanti di bassissima intensità per rimodellare il tessuto connettivo senza scatenare il riflesso miotatico da stiramento.",
+                integration: "Complementare al rinforzo selettivo dei muscoli fasici ipotonici, alla terapia manuale articolare e alla propriocezione.",
+                goals: "1. Ripristinare l'equilibrio tra catene muscolari statiche e dinamiche.\n2. Decomprimere le articolazioni sovraccaricate (in particolare dischi intervertebrali e anche).\n3. Correggere le alterazioni morfologiche e posturali attraverso l'allungamento connettivale.\n4. Migliorare la consapevolezza corporea e il controllo posturale attivo.",
+                indications: "Patologie discali (ernie, protrusione), algie vertebrali croniche, patologie articolari (coxartrosi, gonartrosi, conflitto subacromiale), deviazioni vertebrali, riequilibrio posturale nello sportivo.",
+                contraindications: "Fratture recenti, stati infiammatori acuti, trombosi venose, incapacità cognitiva a mantenere la postura attiva richiesta."
+            },
+            {
+                id: 11,
+                title: "Rieducazione Propriocettiva e Neuromuscolare",
+                category: "Ortopedici",
+                district: "Generale",
+                def: "Insieme di esercizi mirati a stimolare i meccanocettori periferici (fusi neuromuscolari, organi tendinei del Golgi, corpuscoli di Ruffini e Pacini) presenti nelle capsule articolari, nei legamenti e nei muscoli. Attraverso l'utilizzo di superfici instabili (tavolette di Freeman, cuscini propriocettivi, BOSU), perturbazioni esterne e compiti a occhi chiusi, si ottimizza il feedback afferente al SNC, riducendo i tempi di latenza della risposta muscolare riflessa protettiva e migliorando la stabilità dinamica articolare.",
+                integration: "Fase imprescindibile di chiusura di ogni percorso ortopedico; si integra con il rinforzo eccentrico, la pliometria e il gestuale sportivo specifico.",
+                goals: "1. Ridurre i tempi di reazione muscolare protettiva di fronte a stress distorsivi improvvisi.\n2. Ripristinare la sensibilità cinestesica e il senso di posizione articolare (JPS) post-trauma.\n3. Migliorare l'equilibrio statico, dinamico e il controllo motorio fine.\n4. Prevenire le recidive infortunistiche (es. distorsioni croniche di caviglia, re-rottura LCA).",
+                indications: "Distorsioni di caviglia e ginocchio, post-operatorio legamentoso (LCA, LCL, spalla), protesi articolari, instabilità cronica di spalla o caviglia, prevenzione cadute nell'anziano.",
+                contraindications: "Instabilità articolare meccanica grave non protetta in fase acuta, dolore acuto al carico, fratture non consolidate, vertigini severe non compensate."
+            },
+            {
+                id: 12,
+                title: "Terapia Manuale Ortopedica (Concetti Maitland e Kaltenborn)",
+                category: "Ortopedici",
+                district: "Generale",
+                def: "Approccio specialistico basato sul ragionamento clinico avanzato per la valutazione e il trattamento delle disfunzioni artrocinematiche. Il Concetto Maitland utilizza oscillazioni passive calibrate su 5 gradi di ampiezza (Gradi I-II per l'analgesia tramite stimolazione dei meccanocettori a bassa soglia; Gradi III-IV per il guadagno meccanico contro resistenza capsulare; Grado V manipolazione HVLA). Il Concetto Kaltenborn applica la regola convesso-concavo utilizzando trazioni e scivolamenti traslatori (glide) paralleli al piano di trattamento articolare per ripristinare il gioco articolare fisiologico.",
+                integration: "Si associa sempre a esercizi attivi di mantenimento del ROM ('mobilizzazione con movimento' secondo Mulligan), neurodinamica e rinforzo stabilizzatore.",
+                goals: "1. Ripristinare il gioco articolare accessorio (scivolamento, rotolamento, trazione).\n2. Modulare il dolore articolare attraverso l'inibizione neurofisiologica spinale.\n3. Risolvere le rigidità capsulari e legamentose post-traumatiche o degenerative.\n4. Migliorare la fluidità e la biomeccanica del movimento fisiologico.",
+                indications: "Capsulite adesiva (spalla congelata), rigidità post-traumatica di gomito/polso/caviglia, blocchi articolari vertebrali, artrosi d'anca e ginocchio, conflitto subacromiale.",
+                contraindications: "Fratture, tumori ossei, infezioni articolari (artrite settica), instabilità legamentosa grave, sindrome della cauda equina, insufficienza vertebro-basilare (per manipolazioni cervicali), osteoporosi severa."
+            },
+
+            // NEUROLOGICI (10)
+            {
+                id: 13,
+                title: "Concetto Bobath (NDT - Neuro-Developmental Treatment)",
+                category: "Neurologici",
+                district: "Generale",
+                def: "Approccio problem-solving per la valutazione e il trattamento di individui con disturbi della funzione, del movimento e del controllo posturale causati da una lesione del Sistema Nervoso Centrale (SNC). Basato sulla neuroplasticità, il metodo mira a modulare il tono muscolare anomalo (spasticità o flaccidità) attraverso la gestione dei Punti Chiave di Controllo (Key Points: capo, cingolo scapolare, bacino), inibendo gli schemi riflessi patologici e facilitando contemporaneamente le reazioni di raddrizzamento, equilibrio e i movimenti funzionali selettivi orientati al compito.",
+                integration: "Si integra efficacemente con la terapia occupazionale per il trasferimento nelle attività della vita quotidiana (ADL), la tossina botulinica focale per il controllo della spasticità e l'uso di ortesi dinamiche.",
+                goals: "1. Normalizzare e modulare il tono posturale anomalo (riduzione dell'ipertono spastico).\n2. Inibire gli schemi motori sinergici patologici e le reazioni associate.\n3. Facilitare il controllo posturale antigravitario, l'equilibrio e la simmetria del carico.\n4. Promuovere il recupero del movimento selettivo funzionale e dell'autonomia.",
+                indications: "Ictus cerebrale ischemico ed emorragico (emiplegia), trauma cranico encefalico (TCE), sclerosi multipla, paralisi cerebrale infantile, esiti di neurochirurgia.",
+                contraindications: "Nessuna controindicazione assoluta; richiede adattamento in caso di grave instabilità emodinamica acuta, stato febbrile o dolore acuto non controllato."
+            },
+            {
+                id: 14,
+                title: "Constraint-Induced Movement Therapy (CIMT)",
+                category: "Neurologici",
+                district: "Braccio",
+                def: "Tecnica riabilitativa ad alta evidenza scientifica ideata da Edward Taub per superare il fenomeno del 'Non-Uso Appreso' (Learned Non-Use) nell'arto superiore paretico post-ictus. Il protocollo prevede la costrizione fisica dell'arto sano (tramite un guanto imbottito o tutore) per il 90% delle ore di veglia per 2 settimane, abbinata a un training intensivo e ripetitivo (shaping e task-practice) dell'arto paretico per 6 ore al giorno. Questo induce una massiva riorganizzazione corticale e l'espansione delle aree motorie rappresentative dell'arto colpito.",
+                integration: "Si abbina alla stimolazione elettrica funzionale (FES), alla Mirror Therapy nelle fasi iniziali e alla terapia occupazionale orientata agli oggetti reali.",
+                goals: "1. Invertire il meccanismo comportamentale e neurale del 'non-uso appreso'.\n2. Indurre riorganizzazione neuroplastica corticale nell'emisfero leso.\n3. Aumentare significativamente la frequenza e la qualità d'uso spontaneo dell'arto paretico.\n4. Migliorare la destrezza manuale, la presa e la coordinazione.",
+                indications: "Pazienti post-ictus o trauma cranico in fase subacuta o cronica con un minimo recupero motorio attivo residuo (almeno 10°-20° di estensione attiva del polso e delle dita).",
+                contraindications: "Assenza totale di movimento attivo distale (plegia completa), grave spasticità non controllata, deficit cognitivi severi o afasia globale che impediscono la comprensione, grave instabilità dell'equilibrio (rischio cadute con arto sano bloccato)."
+            },
+            {
+                id: 15,
+                title: "Esercizio Terapeutico Conoscitivo (Metodo Perfetti)",
+                category: "Neurologici",
+                district: "Generale",
+                def: "Teoria riabilitativa neurocognitiva sviluppata da Carlo Perfetti che concepisce il recupero motorio non come semplice contrazione muscolare, ma come attivazione dei processi cognitivi (attenzione, percezione, memoria, linguaggio, immagine motoria). Il movimento è considerato un mezzo per conoscere l'ambiente. Il terapista propone 'problemi conoscitivi' (riconoscimento di superfici, forme, pesi, distanze ad occhi chiusi) che il paziente deve risolvere frammentando il corpo e controllando volontariamente l'irradiazione patologica e la spasticità attraverso l'elaborazione delle informazioni somestesiche.",
+                integration: "Si integra con la Mirror Therapy, la Motor Imagery (immaginazione motoria guidata) e la riabilitazione neuropsicologica.",
+                goals: "1. Riorganizzare i sistemi funzionali cerebrali attraverso l'attivazione dei processi cognitivi.\n2. Controllare coscientemente la spasticità, l'irradiazione patologica e il deficit di reclutamento.\n3. Recuperare la sensibilità tattile, cinestesica e propriocettiva.\n4. Ricostruire l'immagine motoria corretta del gesto prima della sua esecuzione.",
+                indications: "Emiplegia post-ictus, atassia cerebellare, sclerosi multipla, paralisi periferiche, sindromi dolorose complesse (CRPS / Algodistrofia).",
+                contraindications: "Stato di coma o grave alterazione dello stato di coscienza, demenza avanzata o deficit attentivi gravi che impediscono l'elaborazione cognitiva."
+            },
+            {
+                id: 16,
+                title: "Facilitazione Neuromuscolare Propriocettiva (PNF - Metodo Kabat)",
+                category: "Neurologici",
+                district: "Generale",
+                def: "Metodica basata sulla stimolazione massima dei propriocettori muscolari, tendinei e articolari attraverso schemi di movimento globali tridimensionali (diagonali e spirali) che ricalcano i gesti funzionali naturali. Utilizza stimoli specifici (contatto manuale direzionale, resistenza massima adattata, stiramento rapido iniziale, comandi verbali chiari, contatto visivo) e tecniche mirate (Inversione degli antagonisti, Contrazione-Rilasciamento, Stabilizzazione ritmica) per sfruttare il fenomeno dell'irradiazione (overflow) dai muscoli forti verso quelli deboli.",
+                integration: "Molto efficace in combinazione con l'idrochinesiterapia (metodo Bad Ragaz Ring), la terapia manuale e il rinforzo funzionale.",
+                goals: "1. Facilitare l'attivazione di gruppi muscolari paretici tramite l'irradiazione da distretti forti.\n2. Aumentare la forza, la resistenza e la coordinazione intermuscolare.\n3. Migliorare il ROM articolare e ridurre l'ipertono tramite inibizione reciproca.\n4. Stabilizzare il tronco e i cingoli nella statica e nella dinamica.",
+                indications: "Lesioni del SNC (ictus, sclerosi multipla, lesioni midollari incomplete), lesioni nervose periferiche (plesso brachiale), sindrome di Guillain-Barré, rigidità articolari post-traumatiche.",
+                contraindications: "Fratture instabili, dolore acuto esacerbato dalla resistenza, ipertensione arteriosa grave non controllata (evitare manovra di Valsalva durante resistenze massimali)."
+            },
+            {
+                id: 17,
+                title: "Fisioterapia Respiratoria e Disostruzione Bronchiale",
+                category: "Neurologici",
+                district: "Torace",
+                def: "Insieme di tecniche manuali e strumentali volte a ottimizzare la ventilazione alveolare, mantenere la pervietà delle vie aeree e potenziare i muscoli respiratori (diaframma, intercostali, addominali) compromessi da patologie neurologiche o neuromuscolari. Comprende tecniche di drenaggio autogeno, ciclo attivo delle tecniche respiratorie (ACBT), espirazione lenta totale a glottide aperta (ELTGOL), assistenza manuale alla tosse (glossopharyngeal breathing, air stacking) e utilizzo di dispositivi a pressione espiratoria positiva (PEP) o insufflatori-esufflatori meccanici (assistente alla tosse).",
+                integration: "Fondamentale nei pazienti neurologici gravi in sinergia con la verticalizzazione precoce, la mobilizzazione toracica e la logopedia per la gestione della disfagia.",
+                goals: "1. Prevenire atelettasie, ristagno di secrezioni e polmoniti ab ingestis.\n2. Mantenere l'elasticità della gabbia toracica e la compliance polmonare.\n3. Migliorare l'efficacia della tosse e la clearance mucociliare.\n4. Ridurre la dispnea e migliorare gli scambi gassosi.",
+                indications: "Sclerosi Laterale Amiotrofica (SLA), distrofie muscolari (Duchenne, Steinert), lesioni midollari cervicali e toraciche alte, sindrome di Guillain-Barré, sclerosi multipla avanzata, post-coma.",
+                contraindications: "Pneumotorace non drenato, emottisi attiva, instabilità emodinamica grave, ipertensione endocranica non controllata, fratture costali acute (per manovre compressive)."
+            },
+            {
+                id: 18,
+                title: "Functional Electrical Stimulation (FES)",
+                category: "Neurologici",
+                district: "Gamba",
+                def: "Applicazione di treni di impulsi elettrici bifasici compensati sui nervi motori periferici o sui punti motori muscolari per generare contrazioni funzionali sincronizzate con un compito motorio reale (es. flessione dorsale della caviglia durante la fase di oscillazione del passo tramite sensore al tallone, o apertura della mano durante l'afferramento). Oltre all'effetto ortesico immediato, la FES genera un potente feedback afferente propriocettivo sincrono con il comando volontario, promuovendo la plasticità sinaptica (apprendimento hebbiano).",
+                integration: "Si associa al training del cammino su treadmill, alla CIMT per l'arto superiore e agli esercizi di rinforzo attivo.",
+                goals: "1. Correggere il piede cadente (drop foot) e migliorare la sicurezza e la velocità del cammino.\n2. Prevenire l'atrofia muscolare da denervazione parziale o disuso.\n3. Facilitare la presa e il rilascio della mano paretica.\n4. Ridurre la spasticità dei muscoli antagonisti tramite inibizione reciproca.",
+                indications: "Emiplegia post-ictus, sclerosi multipla, lesioni midollari incomplete, mononeuropatia del nervo fibulare comune, paralisi cerebrale infantile.",
+                contraindications: "Pacemaker o defibrillatori impiantabili, lesioni complete del motoneurone inferiore con denervazione totale irreversibile, trombosi venosa profonda, lesioni cutanee o epilessia non controllata."
+            },
+            {
+                id: 19,
+                title: "Metodo Frenkel (Esercizi di Coordinazione)",
+                category: "Neurologici",
+                district: "Generale",
+                def: "Protocollo classico ma tuttora validissimo sviluppato da Heinrich Frenkel per trattare l'atassia sensitiva e cerebellare. Poiché la propriocezione è compromessa, il metodo insegna al paziente a compensare la perdita di sensibilità profonda utilizzando intensivamente il controllo visivo e l'udito. Gli esercizi consistono in movimenti lenti, precisi e ripetitivi degli arti inferiori e superiori (eseguiti prima da supini, poi da seduti e infine in piedi seguendo impronte disegnate a terra), basati su tre principi: concentrazione, precisione e ripetizione.",
+                integration: "Si combina con l'uso di pedane stabilometriche con biofeedback visivo, esercizi di equilibrio (Scuola di Equilibrio) e idrokinesiterapia per sfruttare la viscosità dell'acqua che frena le oscillazioni atassiche.",
+                goals: "1. Vicariare il deficit propriocettivo attraverso il controllo visivo e cognitivo.\n2. Migliorare la precisione, la fluidità e la metria dei movimenti (riduzione dismetria).\n3. Ridurre il rischio di cadute e aumentare la sicurezza nella deambulazione.\n4. Controllare i movimenti involontari e le oscillazioni del tronco.",
+                indications: "Atassia di Friedreich e atassie spinocerebellari, sclerosi multipla (forma atassica), neuropatie periferiche sensitive severe (diabetica, Guillain-Barré), esiti di lesioni cerebellari.",
+                contraindications: "Deficit visivi gravi non correggibili (impossibilità di vicariare con la vista), grave fatica muscolare acuta (evitare l'esaurimento energetico)."
+            },
+            {
+                id: 20,
+                title: "Metodo LSVT BIG (Lee Silverman Voice Treatment)",
+                category: "Neurologici",
+                district: "Generale",
+                def: "Protocollo riabilitativo intensivo standardizzato ed evidence-based sviluppato specificamente per la Malattia di Parkinson. Mira a ricalibrare la percezione sensoriale dell'ampiezza del movimento ('scaling'), contrastando l'ipocinesia e la bradicinesia. Il programma prevede 16 sedute individuali in 4 settimane (4 giorni/settimana da 60 minuti) più compiti domiciliari quotidiani, basati su movimenti globali massimali e ripetitivi ad alta ampiezza ('Pensa GRANDE!') abbinati a feedback sensoriali continui.",
+                integration: "Si integra con la logopedia LSVT LOUD per la voce, il cueing visivo e uditivo (metronomo, strisce a terra) per superare il freezing del passo e il Nordic Walking.",
+                goals: "1. Ricalibrare la percezione interna del paziente riguardo l'ampiezza normale del gesto.\n2. Aumentare la lunghezza del passo, la velocità del cammino e l'oscillazione delle braccia.\n3. Migliorare l'equilibrio dinamico, i passaggi posturali e la rotazione del tronco.\n4. Trasferire l'ampiezza del movimento nelle attività quotidiane.",
+                indications: "Malattia di Parkinson (in tutti gli stadi, con massima efficacia nelle fasi lievi-moderate), parkinsonismi atipici selezionati.",
+                contraindications: "Instabilità cardiovascolare grave non controllata, demenza severa che impedisce l'apprendimento procedurale, fratture o dolore ortopedico acuto."
+            },
+            {
+                id: 21,
+                title: "Mirror Therapy (Terapia dello Specchio)",
+                category: "Neurologici",
+                district: "Mano",
+                def: "Tecnica basata sull'illusione ottica e sull'attivazione del sistema dei neuroni specchio (Mirror Neuron System). Il paziente posiziona l'arto paretico o dolorante dietro uno specchio posto sul piano sagittale mediano e muove l'arto sano osservandone il riflesso nello specchio. Il cervello riceve un feedback visivo congruente che fa percepire il movimento fluido e indolore dell'arto colpito, stimolando la corteccia premotoria e motoria primaria ipsilesionale e modulando le mappe somatosensoriali alterate.",
+                integration: "Ottima preparazione prima della CIMT, della terapia occupazionale e degli esercizi di controllo motorio fine.",
+                goals: "1. Stimolare i neuroni specchio e riattivare i circuiti motori silenti post-lesione.\n2. Ridurre il dolore neuropatico cronico e il dolore da arto fantasma.\n3. Migliorare il recupero motorio dell'arto superiore e della mano nella fase acuta/subacuta.\n4. Contrastare l'eminegligenza spaziale (Neglect).",
+                indications: "Emiparesi/emiplegia dell'arto superiore post-ictus, sindrome dolorosa regionale complessa (CRPS / Algodistrofia), dolore da arto fantasma post-amputazione, lesioni nervose periferiche.",
+                contraindications: "Grave neglect visuo-spaziale non compensato che impedisce di fissare lo specchio, deficit visivi bilaterali gravi, disturbi psichiatrici con alterazione dell'esame di realtà."
+            },
+            {
+                id: 22,
+                title: "Neurodinamica (Mobilizzazione del Sistema Nervoso)",
+                category: "Neurologici",
+                district: "Generale",
+                def: "Approccio clinico sviluppato da David Butler e Michael Shacklock che studia e tratta la meccanica e la fisiologia del sistema nervoso periferico e centrale in relazione ai tessuti circostanti (interfacce meccaniche). Attraverso manovre sequenziali di 'Sliders' (scivolamenti che fanno muovere il nervo senza aumentarne la tensione) e 'Tensioners' (tensionamenti controllati), si migliora lo scorrimento intraneurale, si favorisce il flusso assoplasmatico, si riduce l'edema intraneurale e si normalizza la meccanosensibilità patologica del nervo.",
+                integration: "Si associa alla terapia manuale articolare, alla fibrolisi diacutanea per liberare le interfacce fasciali e al metodo McKenzie nelle radicolopatie.",
+                goals: "1. Ripristinare il fisiologico scorrimento longitudinale e trasversale dei tronchi nervosi.\n2. Ridurre l'edema intraneurale e migliorare la microcircolazione del nervo (vasa nervorum).\n3. Diminuire l'ipersensibilità meccanica e il dolore neuropatico irradiato.\n4. Prevenire aderenze cicatriziali perineurali post-chirurgiche.",
+                indications: "Radicolopatie cervicali e lombari (sciatalgia, cruralgia), sindrome del tunnel carpale, cubitale e tarsale, sindrome dello stretto toracico (TOS), sindrome del piriforme, esiti di chirurgia spinale.",
+                contraindications: "Deficit neurologici motori acuti e rapidamente ingravescenti, sindrome della cauda equina, mielopatia acuta, infezioni o neoplasie del sistema nervoso, dolore acuto irritabile."
+            },
+
+            // PEDIATRICI (8)
+            {
+                id: 23,
+                title: "Fisioterapia Respiratoria Pediatrica (AFE e Drenaggio Autogeno Assistito)",
+                category: "Pediatrici",
+                district: "Torace",
+                def: "Insieme di tecniche manuali non invasive progettate per l'anatomia e la fisiologia respiratoria del neonato e del bambino (gabbia toracica più compliante, vie aeree di piccolo calibro). Utilizza principalmente l'Aumento del Flusso Espiratorio (AFE) lento o rapido e il Drenaggio Autogeno Assistito (DAA), accompagnando manualmente il torace e l'addome del bambino durante l'espirazione per mobilizzare le secrezioni dalle vie aeree distali verso quelle prossimali, dove vengono espulse tramite la tosse o il lavaggio nasale.",
+                integration: "Si integra con l'aerosolterapia, i lavaggi nasali con soluzione fisiologica/ipertonica e l'educazione dei genitori alla gestione domiciliare.",
+                goals: "1. Disostruire le vie aeree periferiche e centrali dall'accumulo di muco denso.\n2. Ridurre il lavoro respiratorio, il broncospasmo riflesso e la dispnea.\n3. Prevenire sovrainfezioni batteriche, otiti e ricoveri ospedalieri.\n4. Migliorare la saturazione di ossigeno e la qualità del sonno e dell'alimentazione.",
+                indications: "Bronchiolite acuta, fibrosi cistica, discinesia ciliare primitiva, broncopolmoniti, atelettasie, patologie neuromuscolari infantili (SMA), asma bronchiale.",
+                contraindications: "Pneumotorace non drenato, reflusso gastroesofageo severo subito dopo i pasti (attendere almeno 1-2 ore), emottisi, fratture costali, grave instabilità cardiorespiratoria."
+            },
+            {
+                id: 24,
+                title: "Intervento Precoce secondo il Metodo Brazelton e Care Neonatale",
+                category: "Pediatrici",
+                district: "Generale",
+                def: "Approccio neurocomportamentale rivolto al neonato pretermine o a rischio neurologico in Terapia Intensiva Neonatale (TIN) e nei primi mesi di vita. Basato sulla scala NBAS di Thomas Brazelton e sulla teoria sinattiva di Heidelise Als (NIDCAP), mira a proteggere lo sviluppo del cervello immaturo regolando gli stimoli ambientali (luci, rumori), favorendo il contenimento posturale ('nido' neonatale in flessione fisiologica), il contatto pelle-a-pelle (Kangaroo Mother Care) e insegnando ai genitori a leggere i segnali di stress e autoregolazione del bambino.",
+                integration: "Si integra con la fisioterapia neuroevolutiva (Bobath), il massaggio infantile e il supporto logopedico per la coordinazione suzione-deglutizione-respirazione.",
+                goals: "1. Favorire la stabilità neurovegetativa, motoria e comportamentale del neonato pretermine.\n2. Prevenire posture patologiche in estensione (opistotono) e retrazioni scapolo-omerali.\n3. Promuovere l'attaccamento genitoriale e la competenza dei caregiver.\n4. Sostenere la maturazione delle competenze relazionali e sensomotorie precoci.",
+                indications: "Prematurità, basso peso alla nascita, encefalopatia ipossico-ischemica lieve/moderata, neonati con rischio evolutivo.",
+                contraindications: "Procedure non essenziali durante fasi di grave instabilità dei parametri vitali (bradicardia, desaturazione severa) in TIN."
+            },
+            {
+                id: 25,
+                title: "Metodo Castagnini (Terapia Neuropsicomotoria Precoce)",
+                category: "Pediatrici",
+                district: "Generale",
+                def: "Approccio riabilitativo italiano sviluppato da Mario Castagnini per l'intervento ultra-precoce (entro i primi mesi di vita) nei bambini a rischio di Paralisi Cerebrale Infantile o ritardo psicomotorio. Si fonda sull'attivazione dei riflessi arcaici e degli automatismi motori innati attraverso stimolazioni propriocettive, esterocettive e vestibolari specifiche (rotolamenti, strisciamento, reazioni di raddrizzamento) eseguite in modo intensivo e quotidiano con il coinvolgimento diretto e addestrato dei genitori.",
+                integration: "Si affianca al monitoraggio neuropsichiatrico infantile, all'idrokinesiterapia pediatrica e alla terapia occupazionale.",
+                goals: "1. Sfruttare la massima finestra di plasticità cerebrale nei primi 6-12 mesi di vita.\n2. Prevenire la strutturazione di schemi motori patologici e deformità ortopediche.\n3. Promuovere l'acquisizione delle tappe fondamentali dello sviluppo (controllo del capo, rotolamento, seduta, gattonamento).\n4. Formare attivamente i genitori come co-terapeuti quotidiani.",
+                indications: "Neonati e lattanti con segni neurologici precoci di allarme (alterazioni dei General Movements), esiti di sofferenza perinatale, ritardo psicomotorio, sindromi genetiche.",
+                contraindications: "Lussazione congenita dell'anca non ridotta o instabile (per alcune manovre di carico), fratture ostetriche non consolidate, stati febbrili acuti."
+            },
+            {
+                id: 26,
+                title: "Metodo Ponseti (Trattamento Piede Torto Congenito)",
+                category: "Pediatrici",
+                district: "Piede",
+                def: "Protocollo gold-standard mondiale ideato da Ignacio Ponseti per la correzione non chirurgica del piede torto congenito (equino-varo-addotto-supinato). Si basa sulla comprensione anatomica delle articolazioni del tarso che ruotano simultaneamente attorno alla testa dell'astragalo. Prevede manipolazioni settimanali dolci seguite dall'applicazione di gessi femoro-podalici seriati (solitamente 5-6 gessi) per correggere progressivamente cavo, addotto e varo, seguiti da eventuale tenotomia percutanea del tendine d'Achille e dall'uso del tutore in abduzione (Mitchell/Denis Browne) fino ai 4-5 anni.",
+                integration: "Richiede stretta collaborazione tra ortopedico pediatrico, fisioterapista per la mobilizzazione dolce e il rinforzo dei muscoli peronieri/eversori, e famiglia per l'aderenza al tutore.",
+                goals: "1. Ottenere un piede plantigrado, flessibile, indolore e funzionalmente normale senza chirurgia invasiva.\n2. Correggere tridimensionalmente tutte le componenti della deformità.\n3. Prevenire le recidive attraverso la gestione corretta del tutore in abduzione.\n4. Garantire uno sviluppo motorio e sportivo sovrapponibile ai coetanei.",
+                indications: "Piede torto congenito idiopatico (iniziare idealmente entro le prime 2-3 settimane di vita), piede torto sindromico o neurologico.",
+                contraindications: "Infezioni cutanee o lesioni da decubito sotto gesso (richiedono pausa temporanea del gesso e medicazione)."
+            },
+            {
+                id: 27,
+                title: "Metodo Schroth (Rieducazione Tridimensionale della Scoliosi)",
+                category: "Pediatrici",
+                district: "Torace",
+                def: "Metodica fisioterapica specifica per la scoliosi idiopatica dell'adolescente (PSSE) sviluppata da Katharina Schroth. Considera la scoliosi come una deformità tridimensionale della colonna e della gabbia toracica (inclinazione frontale, alterazione sagittale e rotazione assiale con gibbo). Il trattamento utilizza posture asimmetriche specifiche di autocorrezione tridimensionale abbinate alla 'Respirazione Angolare Rotatoria' (dirigere l'inspirazione verso le zone concavi collassate del torace) e a contrazioni isometriche di stabilizzazione allo specchio.",
+                integration: "Si integra indispensabilmente con il trattamento ortesico (corsetto Cheneau, Lionese, Sforzesco) nelle curve evolutive > 20° Cobb e con l'attività sportiva simmetrica.",
+                goals: "1. Arrestare o rallentare la progressione della curva scoliotica durante la spinta puberale.\n2. Derotare i corpi vertebrali e ridurre l'entità del gibbo costale.\n3. Migliorare la capacità vitale polmonare e l'espansione toracica.\n4. Automatizzare la postura autocorretta nelle attività quotidiane.",
+                indications: "Scoliosi idopatica giovanile e dell'adolescente, ipercifosi dorsale (morbo di Scheuermann), asimmetrie posturali evolutive.",
+                contraindications: "Curve scoliotiche gravi (> 45°-50° Cobb) con indicazione chirurgica immediata, deficit cognitivi che impediscono il controllo respiratorio asimmetrico."
+            },
+            {
+                id: 28,
+                title: "Metodo SEAS (Approccio Scientifico con Esercizi alla Scoliosi)",
+                category: "Pediatrici",
+                district: "Torace",
+                def: "Protocollo riabilitativo italiano sviluppato da ISICO (Istituto Scientifico Italiano Colonna Vertebrale) basato sulle più recenti evidenze scientifiche SOSORT. Il cardine del metodo è l'Autocorrezione Attiva Tridimensionale eseguita dal paziente senza aiuti esterni, integrata progressivamente in esercizi funzionali destabilizzanti, di equilibrio, coordinazione e rinforzo neuromuscolare. Mira a migliorare la stabilità intrinseca della colonna e a creare un riflesso posturale correttivo automatico.",
+                integration: "Lavora in stretta sinergia con l'uso del corsetto ortopedico (aumentando l'efficacia della spinta del corsetto ed evitando l'ipotrofia muscolare) e con gli sport agonistici.",
+                goals: "1. Sviluppare la capacità di autocorrezione attiva tridimensionale della colonna.\n2. Migliorare la stabilità spinale e la resistenza dei muscoli paravertebrali profondi.\n3. Evitare o ridurre la necessità di prescrizione del corsetto nelle curve lievi.\n4. Preparare la colonna allo svezzamento dal corsetto mantenendo la correzione ottenuta.",
+                indications: "Scoliosi idiopatica dell'adolescente a basso-medio rischio evolutivo, scoliosi in trattamento con corsetto, dorso curvo astenico.",
+                contraindications: "Scoliosi secondarie a patologie neuromuscolari o malformazioni congenite gravi che richiedono approcci differenti."
+            },
+            {
+                id: 29,
+                title: "Metodo Vojta (Locomozione Riflessa)",
+                category: "Pediatrici",
+                district: "Generale",
+                def: "Principio terapeutico neurofisiologico scoperto da Václav Vojta basato sull'attivazione di schemi motori globali innati presenti nel SNC ('Strisciamento riflesso' in posizione prona e 'Rotolamento riflesso' in posizione supina e sul fianco). Attraverso l'applicazione di pressioni mirate su specifiche 'zone di scatenamento' sul tronco e sugli arti, mantenendo il bambino in posture angolari precise, si evocano risposte motorie involontarie coordinate che attivano la muscolatura profonda assiale, raddrizzano la colonna e promuovono la differenziazione muscolare.",
+                integration: "Spesso combinato con il concetto Bobath per integrare gli schemi evocati nelle attività funzionali volontarie e con l'idrochinesiterapia pediatrica.",
+                goals: "1. Attivare gli schemi fisiologici innati di raddrizzamento e locomozione bloccati dalla lesione.\n2. Migliorare il controllo posturale automatico, l'allineamento della colonna e la centrazione articolare (es. anche).\n3. Regolare la funzione respiratoria, la suzione e la deglutizione.\n4. Prevenire le retrazioni muscolari e le deformità scheletriche.",
+                indications: "Paralisi cerebrale infantile (PCI), ritardi dello sviluppo motorio, lesioni del plesso brachiale ostetriche, torcicollo miogeno congenito, spina bifida, displasia dell'anca.",
+                contraindications: "Malattie metaboliche o osteogenesi imperfetta (fragilità ossea estrema), patologie cardiache gravi scompensate, stati febbrili acuti o post-vaccinazione immediata (attendere 48 ore)."
+            },
+            {
+                id: 30,
+                title: "Trattamento del Torcicollo Miogeno Congenito e Plagiocefalia Posizionale",
+                category: "Pediatrici",
+                district: "Cervicale",
+                def: "Protocollo riabilitativo mirato al neonato che presenta inclinazione laterale del capo e rotazione controlaterale dovute alla retrazione o fibrosi del muscolo sternocleidomastoideo (SCM), spesso associato ad appiattimento cranico asimmetrico (plagiocefalia). Il trattamento prevede manovre di stretching dolce e prolungato dello SCM in rotazione e inclinazione opposta, stimolazioni visive e uditive per incentivare la rotazione attiva verso il lato limitato, promozione del 'Tummy Time' (tempo a pancia in giù da sveglio) e consigli posturali per l'alternanza del decubito.",
+                integration: "Collaborazione con il pediatra per escludere cause oculari o malformazioni ossee cervicali, e con l'osteopatia pediatrica per il rilascio delle tensioni cranio-sacrali.",
+                goals: "1. Ripristinare il completo Range of Motion passivo e attivo del rachide cervicale.\n2. Risolvere la retrazione fibrosa del muscolo sternocleidomastoideo.\n3. Prevenire o correggere il rimodellamento asimmetrico del cranio (plagiocefalia).\n4. Garantire lo sviluppo simmetrico della linea mediana e della coordinazione oculo-manuale.",
+                indications: "Torcicollo miogeno congenito (con o senza pseudotumore dello SCM), torcicollo posturale del neonato, plagiocefalia posizionale occipitale.",
+                contraindications: "Malformazioni vertebrali cervicali congenite (sindrome di Klippel-Feil), instabilità atlanto-assiale (es. Sindrome di Down senza screening radiografico), frattura di clavicola acuta non consolidata."
+            }
         ];
 
+        // Sezioni Strumentale, Anatomia, Esercizi, Protocolli (Intatte dalla v1.6)
         const strumentaleData = [
             { id: 1, title: "Correnti Diadinamiche", district: "Cervicale", severity: "Elettroterapia", def: "Principio fisico: erogazione di impulsi sinusoidali a bassa frequenza (Bernard). Effetto Gate Control e forte iperemia locale.", indicationsList: ["1. Cervicalgia miotensiva", "2. Lombalgia cronica", "3. Epicondilite laterale", "4. Distorsione tibio-tarsica", "5. Tendinopatia achillea"], contraindications: "Pacemaker, placche metalliche estese, lesioni cutanee, epilessia e gravidanza." },
             { id: 2, title: "Crioterapia Compressiva", district: "Coscia", severity: "Mezzo Fisico", def: "Principio fisico: sottrazione termica e compressione pneumatica intermittente per rallentare il metabolismo e ridurre l'edema.", indicationsList: ["1. Post-op LCA", "2. Post-op protesi ginocchio", "3. Distorsione acuta caviglia", "4. Versamento articolare", "5. Post-op cuffia rotatori"], contraindications: "Crioglobulinemia, Raynaud grave, vasculopatie periferiche e infezioni." },
@@ -513,7 +842,7 @@
             { id: 8, title: "Onde d'Urto Radiali", district: "Lombare", severity: "Mezzo Fisico", def: "Principio fisico: onde acustiche radiali generate balisticamente per rilasciamento miofasciale superficiale e trigger point.", indicationsList: ["1. Sindrome piriforme", "2. Bandelletta ileotibiale", "3. Trigger point", "4. Zampa d'oca", "5. Periostite tibiale"], contraindications: "Cranio, pacchi vascolonervosi, disordini coagulativi e infezioni." },
             { id: 9, title: "TECARterapia", district: "Coscia", severity: "Mezzo Fisico", def: "Principio fisico: condensatore endogeno a radiofrequenza (capacitivo/resistivo) per attivare flussi ionici e calore profondo.", indicationsList: ["1. Distorsione caviglia", "2. Lesioni muscolari", "3. Gonartrosi", "4. Coxartrosi", "5. Cervicalgia"], contraindications: "Pacemaker, gravidanza, insensibilità termica e tumori maligni." },
             { id: 10, title: "TENS", district: "Lombare", severity: "Elettroterapia", def: "Principio fisico: stimolazione nervosa transcutanea (Gate Control) per inibire la trasmissione del dolore a livello spinale.", indicationsList: ["1. Lombalgia", "2. Radicolopatia", "3. Gonartrosi dolorosa", "4. Coxartrosi", "5. Dolore post-op"], contraindications: "Pacemaker, seno carotideo, ferite aperte ed epilessia." },
-            { id: 11, title: "Ultrasuoni in Acqua", district: "Piede", severity: "Mazzo Fisico", def: "Principio fisico: onde meccaniche ad alta frequenza trasmesse tramite acqua per trattare superfici anatomiche irregolari.", indicationsList: ["1. Tendinite tibiale post.", "2. De Quervain", "3. Tunnel tarsale", "4. Metatarsalgia", "5. Tendinite flessori"], contraindications: "Ferite aperte, infezioni, epifisi in accrescimento e neoplasie." },
+            { id: 11, title: "Ultrasuoni in Acqua", district: "Piede", severity: "Mezzo Fisico", def: "Principio fisico: onde meccaniche ad alta frequenza trasmesse tramite acqua per trattare superfici anatomiche irregolari.", indicationsList: ["1. Tendinite tibiale post.", "2. De Quervain", "3. Tunnel tarsale", "4. Metatarsalgia", "5. Tendinite flessori"], contraindications: "Ferite aperte, infezioni, epifisi in accrescimento e neoplasie." },
             { id: 12, title: "Ultrasuoni Tradizionali", district: "Spalla", severity: "Mezzo Fisico", def: "Principio fisico: effetto piezoelettrico inverso per micromassaggio cellulare e aumento della permeabilità tissutale.", indicationsList: ["1. Calcificazioni spalla", "2. Fascite plantare", "3. Cicatrici adese", "4. Epicondilite cronica", "5. Borsite calcifica"], contraindications: "Cartilagini di accrescimento, occhio, midollo spinale e pacemaker." }
         ];
 
@@ -759,518 +1088,673 @@
             { id: 40, title: "Sintesi Frattura del Collo del Femore (Viti)", district: "Anca", severity: "Grave", surgery: "Osteosintesi con tre viti cannulate parallele per frattura mediale del collo femorale in giovane o anziano selezionato.", phases: "Fase 1 (0-4 sett): Carico parziale o sfiorante in base alla stabilità della sintesi.\nFase 2 (4-8 sett): Incremento del carico al 100% dopo controllo radiografico.\nFase 3 (2-3 mesi): Recupero muscolare globale.", daily: "Utilizzo di ausili per la deambulazione nelle prime settimane.", rtp: "Ritorno a camminate a 3 mesi." },
             { id: 41, title: "Sintesi Frattura del radio distale (Fissatore)", district: "Avambraccio", severity: "Grave", surgery: "Applicazione di fissatore esterno per fratture esposte o complesse del polso.", phases: "Fase 1 (0-4 sett): Medicazione quotidiana dei fori dei fili di Kirschner, mobilità dita.\nFase 2 (4-6 sett): Rimozione del fissatore e inizio rieducazione funzionale del polso.\nFase 3 (6-12 sett): Rinforzo progressivo.", daily: "Pulizia meticolosa dei pin cutanei con disinfettante per prevenire infezioni.", rtp: "Ritorno a sport a 3-4 mesi." },
             { id: 42, title: "Sintesi Frattura Diafisaria di Tibia", district: "Gamba", severity: "Grave", surgery: "Inchiodamento endomidollare bloccato per frattura della diafisi tibiale.", phases: "Fase 1 (0-4 sett): Carico parziale immediato tollerato, mobilità caviglia e ginocchio.\nFase 2 (4-8 sett): Carico completo progressivo, rinforzo muscolare.\nFase 3 (2-4 mesi): Riatletizzazione e ripresa della corsa.", daily: "Deambulazione con un bastone fino a sicurezza.", rtp: "Ritorno a sport a 5-6 mesi." },
-            { id: 43, title: "Sintesi Frattura Omero Prossimale (Placca)", district: "Spalla", severity: "Grave", surgery: "Riduzione e osteosintesi con placca bloccata per fratture della testa omerale.", phases: "Fase 1 (0-3 sett): Tutore di braccio. Esercizi pendolari di Codman e mobilità passiva della spalla.\nFase 2 (3-6 sett): Inizio ROM attivo-assistito ed esercizi di rinforzo isometrico.\nFase 3 (6-12 sett): Recupero del ROM attivo completo e rinforzo della cuffia dei rotatori.", daily: "Non caricare alcun peso sul braccio per le prime 6 settimane.", rtp: "Ritorno a sport leggeri a 4 mesi." },
-            { id: 44, title: "Sintesi Frattura Sovracondiloidea del Femore", district: "Coscia", severity: "Grave", surgery: "Osteosintesi con chiodo endomidollare o placca retrograda per frattura distale del femore.", phases: "Fase 1 (0-6 sett): Carico parziale protetto, mobilizzazione precoce del ginocchio.\nFase 2 (6-12 sett): Incremento del carico al 100%, rinforzo del quadricipite.\nFase 3 (3-6 mesi): Recupero completo della forza e della deambulazione.", daily: "Utilizzo stampelle fino a consolidamento osseo.", rtp: "Ritorno a sport a 6 mesi." },
-            { id: 45, title: "Sostituzione Legamentosa della Diga (Caviglia)", district: "Piede", severity: "Post-Op", surgery: "Plastica legamentosa di Broström-Gould per instabilità cronica laterale di caviglia.", phases: "Fase 1 (0-3 sett): Tutore rigido o gesso senza carico. Evitare assolutamente inversioni di caviglia.\nFase 2 (3-6 sett): Passaggio a tutorino bivalve, carico parziale e inizio ROM in flesso-estensione.\nFase 3 (6-12 sett): Carico completo, esercizi propriocettivi su tavoletta e rinforzo dei muscoli peronieri.", daily: "Utilizzo del tutore protettivo durante gli spostamenti esterni per le prime 6 settimane.", rtp: "Ritorno alla corsa e sport multidirezionali a 3-4 mesi." },
-            { id: 46, title: "Stabilizzazione Odontoidea / C1-C2 (Collo)", district: "Cervicale", severity: "Grave", surgery: "Artrodesi posteriore C1-C2 o fissazione per instabilità atlanto-assiale.", phases: "Fase 1 (0-6 sett): Utilizzo di collare rigido o Minerva in base alle indicazioni del chirurgo. Carico e mobilità protetti.\nFase 2 (6-12 sett): Svezzamento graduale dal collare (se approvato), esercizi isometrici cervicali molto leggeri.\nFase 3 (3-6 mesi): Recupero della stabilità e della propriocezione cervicale.", daily: "Divieto assoluto di guidare con il collare rigido. Attenzione ai movimenti bruschi della testa.", rtp: "Ritorno ad attività lavorative a 3 mesi, no sport di contatto." },
-            { id: 47, title: "Stabilizzazione di Spalla (Latarjet / Bankart)", district: "Spalla", severity: "Post-Op", surgery: "Intervento di stabilizzazione anteriore per recidive di lussazione (tecnica artroscopica di Bankart o trasposizione ossea di Latarjet).", phases: "Fase 1 (0-4 sett): Tutore antirotazionale per 4 settimane. ROM passivo limitato in flessione ed evitare assolutamente rotazione esterna oltre 0°.\nFase 2 (4-8 sett): Svezzamento dal tutore. Inizio ROM attivo-assistito e recupero della rotazione esterna graduale fino a 45°.\nFase 3 (8-16 sett): Rinforzo muscolare della cuffia e deltoide, stabilizzazione scapolare e riatletizzazione.", daily: "Evitare movimenti bruschi di abduzione e rotazione esterna combinata (es. prendere qualcosa dal sedile posteriore dell'auto).", rtp: "Ritorno a sport di contatto o con sbracciate (rugby, pallamano, lotta) a 6 mesi, previa certificazione di stabilità clinica." },
-            { id: 48, title: "Sostituzione Protesica Totale di Polso", district: "Avambraccio", severity: "Post-Op", surgery: "Impianto di protesi totale di polso in forme gravi di artrite reumatoide o artrosi post-traumatica.", phases: "Fase 1 (0-4 sett): Tutore di polso. Mobilità attiva delle dita e flesso-estensione passiva controllata.\nFase 2 (4-8 sett): Rimozione del tutore protettivo, inizio ROM attivo del polso.\nFase 3 (8-12 sett): Rinforzo leggero della presa e ripresa delle attività quotidiane.", daily: "Divieto di sollevare pesi superiori a 1-2 kg con la mano operata.", rtp: "Ritorno a vita quotidiana autonoma a 3 mesi." },
-            { id: 49, title: "Sutura Meniscale", district: "Coscia", severity: "Post-Op", surgery: "Riparazione artroscopica del menisco mediale o laterale mediante tecnica all-inside o inside-out per preservare il tessuto.", phases: "Fase 1 (0-4 sett): Tutore bloccato in estensione durante il cammino. Flessione limitata a 90° per proteggere la linea di sutura. Carico protetto al 30-50%.\nFase 2 (4-8 sett): Sblocco del tutore e recupero graduale del ROM completo oltre i 90° a 6 settimane. Inizio rinforzo in catena cinetica chiusa.\nFase 3 (8-16 sett): Progressione del carico completo, esercizi propriocettivi avanzati, cyclette e corsa leggera.", daily: "Evitare accuratamente flessioni profonde del ginocchio e accovacciamenti (squat profondi) per i primi 2 mesi.", rtp: "Ritorno all'attività sportiva agonistica a 4-6 mesi dall'intervento, previa assenza di dolore alla linea di interlinea articolare e test di stabilità negativi." },
-            { id: 50, title: "Sutura della Cuffia dei Rotatori", district: "Spalla", severity: "Post-Op", surgery: "Riparazione artroscopica o a cielo aperto dei tendini del sovraspinato, infraspinato e/o sottoscapolare con ancrettes suture.", phases: "Fase 1 (0-6 sett): Immobilizzazione in tutore con cuscino di abduzione a 30°. ROM passivo assistito protetto (evitare rotazione esterna oltre 30° e flessione oltre 90°). No contrazione attiva. \nFase 2 (6-12 sett): Svezzamento dal tutore. Inizio ROM attivo-assistito e poi attivo. Rinforzo isometrico iniziale di deltoide e cuffia.\nFase 3 (12-24 sett): Rinforzo progressivo contro resistenza, pliometria leggera e recupero della funzione completa.", daily: "Indossare il tutore giorno e notte per le prime 6 settimane. Autonomia nel vestirsi con camicie aperte davanti dal 45° giorno.", rtp: "Ritorno a lavori pesanti o sport overhead (pallavolo, nuoto) consentito non prima di 6-9 mesi, previa test isocinetici con deficit <15% rispetto all'arto sano." }
+            { id: 43, title: "Sintesi Frattura Omero Prossimale (Placca)", district: "Spalla", severity: "Grave", surgery: "Riduzione e osteosintesi con placca bloccata per fratture della testa omerale.", phases: "Fase 1 (0-3 sett): Tutore di braccio. Esercizi pendolari di Codman e mobilità passiva della spalla.\nFase 2 (3-6 sett): Inizio ROM attivo-assistito ed esercizi di rinforzo isometrico.\nFase 3 (6-12 sett): Rinforzo progressivo della cuffia dei rotatori.", daily: "Evitare di sollevare pesi fino alla conferma radiografica di callo osseo.", rtp: "Ritorno a vita attiva a 3-4 mesi." },
+            { id: 44, title: "Sintesi Frattura Trocanterica di Femore (Chiodo)", district: "Anca", severity: "Grave", surgery: "Osteosintesi con chiodo endomidollare cefalico (Gamma nail) per frattura pertrocanterica.", phases: "Fase 1 (0-2 sett): Carico immediato tollerato con deambulatore in prima/seconda giornata.\nFase 2 (2-6 sett): Passaggio a due bastoni canadesi, rinforzo abduttori anca e quadricipite.\nFase 3 (6-12 sett): Deambulazione autonoma senza ausili.", daily: "Prevenzione delle cadute e adattamenti domestici per la sicurezza.", rtp: "Ritorno all'autonomia domiciliare a 2-3 mesi." },
+            { id: 45, title: "Stabilizzazione di Spalla (Intervento di Bankart / Latarjet)", district: "Spalla", severity: "Post-Op", surgery: "Riparazione artroscopica del cercine glenoideo (Bankart) o trasposizione ossea del processo coracoideo (Latarjet).", phases: "Fase 1 (0-4 sett): Tutore di spalla. Esercizi di mobilizzazione passiva del gomito, polso e dita. Pendolo dolce di Codman.\nFase 2 (4-8 sett): Rimozione del tutore. Recupero progressivo del ROM attivo assistito (limitare rotazione esterna a 30° fino a settimana 6).\nFase 3 (8-16 sett): Rinforzo intensivo della cuffia dei rotatori e degli stabilizzatori della scapola (dentato anteriore, trapezio inferiore).", daily: "Evitare di portare il braccio dietro la schiena o in posizione di lancio (abduzione + extrarotazione) per almeno 2 mesi.", rtp: "Ritorno a sport overhead o di contatto (pallavolo, rugby, nuoto) a 4-6 mesi, previa stabilità clinica e forza completa." },
+            { id: 46, title: "Sutura Artroscopica della Cuffia dei Rotatori", district: "Spalla", severity: "Post-Op", surgery: "Reinserzione artroscopica dei tendini della cuffia dei rotatori (sovraspinato, sottospinato) mediante ancorette ossee.", phases: "Fase 1 (0-6 sett): Tutore abduttore di spalla (15°-30°) giorno e notte. Solo mobilizzazione passiva eseguita dal fisioterapista per proteggere la sutura.\nFase 2 (6-12 sett): Rimozione graduale del tutore. Inizio della mobilizzazione attiva assistita, recupero completo del ROM senza dolore.\nFase 3 (12-16 sett): Inizio del rinforzo progressivo della cuffia dei rotatori con elastici a resistenza crescente e stabilizzazione scapolare.", daily: "Non sollevare pesi né spingersi su un braccio per alzarsi dal letto per almeno 2 mesi. Dormire preferibilmente semi-seduti nelle prime settimane.", rtp: "Ritorno a lavori manuali leggeri a 3 mesi. Ritorno ad attività sportive pesanti o lavori sopra il livello della testa (overhead) a 5-6 mesi." },
+            { id: 47, title: "Sutura Meniscale (Menisco Repair)", district: "Coscia", severity: "Post-Op", surgery: "Riparazione artroscopica tramite punti di sutura della lesione meniscale (in zona vascolare red-red o red-white).", phases: "Fase 1 (0-4 sett): Carico sfiorante (20% del peso) con stampelle e tutore bloccato in estensione. Flessione limitata rigorosamente a 90°.\nFase 2 (4-8 sett): Abbandono graduale del tutore e delle stampelle. Progressione della flessione oltre i 90°, rinforzo isometrico e in scarico.\nFase 3 (8-16 sett): Rinforzo in carico, propriocezione, cyclette. Evitare squat profondi fino al quarto mese.", daily: "Divieto assoluto di accovacciarsi o effettuare torsioni sul ginocchio carico nei primi 3 mesi per non lacerare la sutura.", rtp: "Ritorno alla corsa lineare a 3-4 mesi e allo sport completo a 5-6 mesi (tempi più lunghi rispetto alla meniscectomia)." },
+            { id: 48, title: "Tendinopatia Rotulea (Pulizia Artroscopica)", district: "Coscia", severity: "Moderata", surgery: "Scarificazione e pulizia artroscopica dei tessuti degenerativi del polo inferiore rotuleo.", phases: "Fase 1 (0-2 sett): Controllo dolore e edema, mobilizzazione immediata.\nFase 2 (2-6 sett): Esercizi isometrici e inizio carico progressivo (Decline Squat).\nFase 3 (6-12 sett): Riatletizzazione e pliometria graduale.", daily: "Applicazione di ghiaccio dopo gli esercizi.", rtp: "Ritorno a sport di salto a 3-4 mesi." },
+            { id: 49, title: "Tenorrafia Flessori / Estensori delle Dita", district: "Mano", severity: "Post-Op", surgery: "Sutura chirurgica microchirurgica dei tendini flessori o estensori delle dita della mano post-trauma da taglio.", phases: "Fase 1 (0-4 sett): Tutore dinamico o statico protettivo (protocollo di Kleinert o Duran). Mobilizzazione passiva controllata precocissima per prevenire aderenze senza tensionare la sutura.\nFase 2 (4-8 sett): Rimozione graduale del tutore, inizio dei movimenti attivi dolci senza resistenza.\nFase 3 (8-12 sett): Inizio del rinforzo graduale della presa e stretching delle eventuali retrazioni.", daily: "Massima aderenza all'uso del tutore 24h/24 nelle prime 4 settimane per evitare la rottura della sutura tendinea.", rtp: "Ritorno a lavori manuali pesanti o sport a 3-4 mesi." },
+            { id: 50, title: "Vertebroplastica / Cifoplastica Percutanea", district: "Lombare", severity: "Post-Op", surgery: "Iniezione percutanea di cemento osseo (PMMA) nel corpo vertebrale fratturato per stabilizzazione immediata.", phases: "Fase 1 (0-2 sett): Mobilizzazione e deambulazione immediata dal giorno successivo all'intervento. Riduzione rapida del dolore.\nFase 2 (2-6 sett): Esercizi di estensione dorsale dolce e postura in sicurezza. Evitare flessioni profonde del tronco.\nFase 3 (6-12 sett): Rinforzo paravertebrale leggero e terapia medica per l'osteoporosi.", daily: "Mantenere una postura eretta ed evitare di sollevare oggetti pesanti da terra piegando la schiena.", rtp: "Ritorno alle normali attività quotidiane a 2-4 settimane." }
         ];
 
-        // Ordinamento alfabetico A-Z per sicurezza
-        function sortAlphabetically(arr) {
-            return arr.sort((a, b) => a.title.localeCompare(b.title, 'it', { sensitivity: 'base' }));
-        }
+        // Ordinamenti alfabetici rigorosi per tutte le sezioni
+        ortopedicheData.sort((a, b) => a.title.localeCompare(b.title));
+        neurologicheData.sort((a, b) => a.title.localeCompare(b.title));
+        testCliniciData.sort((a, b) => a.title.localeCompare(b.title));
+        trattamentiData.sort((a, b) => a.title.localeCompare(b.title));
+        strumentaleData.sort((a, b) => a.title.localeCompare(b.title));
+        anatomiaData.sort((a, b) => a.title.localeCompare(b.title));
+        eserciziData.sort((a, b) => a.title.localeCompare(b.title));
+        protocolliData.sort((a, b) => a.title.localeCompare(b.title));
 
-        sortAlphabetically(ortopedicheData);
-        sortAlphabetically(neurologicheData);
-        sortAlphabetically(testCliniciData);
-        sortAlphabetically(trattamentiData);
-        sortAlphabetically(strumentaleData);
-        sortAlphabetically(anatomiaData);
-        sortAlphabetically(eserciziData);
-        sortAlphabetically(protocolliData);
-
+        // Stato globale
         let currentSection = 'patologie-ortopediche';
-        let currentDistrictFilter = 'all';
+        let currentDistrict = 'all';
+        let currentTrattamentiCat = 'all';
 
         document.addEventListener('DOMContentLoaded', () => {
-            renderOrtopediche();
-            renderNeurologiche();
-            renderTestClinici();
-            renderTrattamenti();
-            renderStrumentale();
-            renderAnatomia();
-            renderEsercizi();
-            renderProtocolli();
+            renderOrtopediche(ortopedicheData);
+            renderNeurologiche(neurologicheData);
+            renderTests(testCliniciData);
+            renderTrattamenti(trattamentiData);
+            renderStrumentale(strumentaleData);
+            renderAnatomia(anatomiaData);
+            renderEsercizi(eserciziData);
+            renderProtocolli(protocolliData);
         });
 
+        // Navigazione tra le 8 Sezioni
         function switchSection(sectionId) {
             currentSection = sectionId;
+            document.querySelectorAll('.content-section').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`section-${sectionId}`).classList.remove('hidden');
+
             document.querySelectorAll('.section-tab').forEach(btn => {
                 btn.classList.remove('border-brand-500', 'bg-brand-50', 'text-brand-700');
                 btn.classList.add('border-slate-200', 'bg-white', 'text-slate-700');
             });
             const activeBtn = document.getElementById(`btn-sec-${sectionId}`);
-            if(activeBtn) {
-                activeBtn.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
-                activeBtn.classList.add('border-brand-500', 'bg-brand-50', 'text-brand-700');
-            }
-            document.querySelectorAll('.content-section').forEach(sec => sec.classList.add('hidden'));
-            document.getElementById(`section-${sectionId}`).classList.remove('hidden');
-
+            activeBtn.classList.remove('border-slate-200', 'bg-white', 'text-slate-700');
+            activeBtn.classList.add('border-brand-500', 'bg-brand-50', 'text-brand-700');
+            
             filterContent();
         }
 
         function filterByDistrict(district) {
-            currentDistrictFilter = district;
-            document.querySelectorAll('#filter-chips button').forEach(btn => {
-                btn.classList.remove('bg-brand-600', 'text-white', 'shadow-sm');
-                btn.classList.add('bg-slate-100', 'text-slate-600');
+            currentDistrict = district;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white', 'font-semibold', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'text-slate-600', 'font-medium');
             });
-            if (event && event.target) {
-                event.target.classList.remove('bg-slate-100', 'text-slate-600');
-                event.target.classList.add('bg-brand-600', 'text-white', 'shadow-sm');
-            }
+            event.target.classList.remove('bg-slate-100', 'text-slate-600', 'font-medium');
+            event.target.classList.add('bg-brand-600', 'text-white', 'font-semibold', 'shadow-sm');
+
+            filterContent();
+        }
+
+        // Filtro specifico per categorie dei Trattamenti (Ortopedici, Neurologici, Pediatrici)
+        function filterTrattamentiCat(cat) {
+            currentTrattamentiCat = cat;
+            document.querySelectorAll('.tratt-cat-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white', 'font-bold', 'shadow-sm');
+                btn.classList.add('bg-slate-200', 'text-slate-700', 'font-semibold');
+            });
+            const activeBtn = document.getElementById(`btn-tratt-${cat}`);
+            activeBtn.classList.remove('bg-slate-200', 'text-slate-700', 'font-semibold');
+            activeBtn.classList.add('bg-brand-600', 'text-white', 'font-bold', 'shadow-sm');
+
             filterContent();
         }
 
         function filterContent() {
             const query = document.getElementById('global-search').value.toLowerCase();
-            if(currentSection === 'patologie-ortopediche') {
-                renderOrtoGrid(ortopedicheData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.def.toLowerCase().includes(query))));
-            } else if(currentSection === 'patologie-neurologiche') {
-                renderNeuroGrid(neurologicheData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.def.toLowerCase().includes(query))));
-            } else if(currentSection === 'test-clinici') {
-                renderTestsGrid(testCliniciData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.purpose.toLowerCase().includes(query))));
-            } else if(currentSection === 'trattamenti') {
-                renderTrattamentiGrid(trattamentiData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && i.title.toLowerCase().includes(query)));
-            } else if(currentSection === 'strumentale') {
-                renderStrumentaleGrid(strumentaleData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.def.toLowerCase().includes(query))));
-            } else if(currentSection === 'anatomia') {
-                renderAnatomiaGrid(anatomiaData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.origin.toLowerCase().includes(query) || i.insertion.toLowerCase().includes(query))));
-            } else if(currentSection === 'esercizi') {
-                renderEserciziGrid(eserciziData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.target.toLowerCase().includes(query) || i.indications.some(ind => ind.toLowerCase().includes(query)))));
-            } else if(currentSection === 'protocolli') {
-                renderProtocolliGrid(protocolliData.filter(i => (currentDistrictFilter === 'all' || i.district === currentDistrictFilter) && (i.title.toLowerCase().includes(query) || i.surgery.toLowerCase().includes(query))));
+
+            // 1. Ortopediche
+            const filteredOrto = ortopedicheData.filter(item => {
+                const matchDist = currentDistrict === 'all' || item.district === currentDistrict;
+                const matchQuery = item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.district.toLowerCase().includes(query);
+                return matchDist && matchQuery;
+            });
+            renderOrtopediche(filteredOrto);
+            document.getElementById('orto-count').innerText = `${filteredOrto.length} Patologie`;
+
+            // 2. Neurologiche
+            const filteredNeuro = neurologicheData.filter(item => {
+                const matchDist = currentDistrict === 'all' || item.district === currentDistrict || item.district === 'Generale';
+                const matchQuery = item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query) || item.meds.toLowerCase().includes(query) || item.rehab.toLowerCase().includes(query);
+                return matchDist && matchQuery;
+            });
+            renderNeurologiche(filteredNeuro);
+            document.getElementById('neuro-count').innerText = `${filteredNeuro.length} Patologie`;
+
+            // 3. Test Clinici
+            const filteredTests = testCliniciData.filter(item => {
+                const matchDist = currentDistrict === 'all' || item.district === currentDistrict;
+                const matchQuery = item.title.toLowerCase().includes(query) || item.purpose.toLowerCase().includes(query) || item.pathology.toLowerCase().includes(query);
+                return matchDist && matchQuery;
+            });
+            renderTests(filteredTests);
+            document.getElementById('tests-count').innerText = `${filteredTests.length} Test A-Z`;
+
+            // 4. Trattamenti (con filtro Categoria Ortopedici / Neurologici / Pediatrici)
+            const filteredTrattamenti = trattamentiData.filter(item => {
+                const matchCat = currentTrattamentiCat === 'all' || item.category === currentTrattamentiCat;
+                const matchDist = currentDistrict === 'all' || item.district === currentDistrict || item.district === 'Generale';
+                const matchQuery = item.title.toLowerCase().includes(query) || 
+                                   item.def.toLowerCase().includes(query) || 
+                                   item.category.toLowerCase().includes(query) || 
+                                   item.indications.toLowerCase().includes(query) ||
+                                   item.goals.toLowerCase().includes(query);
+                return matchCat && matchDist && matchQuery;
+            });
+            renderTrattamenti(filteredTrattamenti);
+
+            // 5. Strumentale
+            const filteredStrum = strumentaleData.filter(item => {
+                const matchDist = currentDistrict === 'all' || item.district === currentDistrict;
+                const matchQuery = item.title.toLowerCase().includes(query) || item.def.toLowerCase().includes(query);
+                return matchDist && matchQuery;
+            });
+            renderStrumentale(filteredStrum);
+
+            // 6. Anatomia
+            const filteredAnat = anatomiaData.filter(item => {
+                const matchDist = currentDistrict === 'all' || item.district === currentDistrict;
+                const matchQuery = item.title.toLowerCase().includes(query) || item.innervation.toLowerCase().includes(query) || item.daily.toLowerCase().includes(query);
+                return matchDist && matchQuery;
+            });
+            renderAnatomia(filteredAnat);
+            document.getElementById('anatomia-count').innerText = `${filteredAnat.length} Muscoli A-Z`;
+
+            // 7. Esercizi
+            const filteredEserc = eserciziData.filter(item => {
+                const matchDist = currentDistrict === 'all' || item.district === currentDistrict;
+                const matchQuery = item.title.toLowerCase().includes(query) || item.target.toLowerCase().includes(query);
+                return matchDist && matchQuery;
+            });
+            renderEsercizi(filteredEserc);
+            document.getElementById('esercizi-count').innerText = `${filteredEserc.length} Esercizi A-Z`;
+
+            // 8. Protocolli
+            const filteredProt = protocolliData.filter(item => {
+                const matchDist = currentDistrict === 'all' || item.district === currentDistrict;
+                const matchQuery = item.title.toLowerCase().includes(query) || item.surgery.toLowerCase().includes(query);
+                return matchDist && matchQuery;
+            });
+            renderProtocolli(filteredProt);
+            document.getElementById('protocolli-count').innerText = `${filteredProt.length} Protocolli A-Z`;
+        }
+
+        // Funzioni di Rendering
+        function renderOrtopediche(data) {
+            const grid = document.getElementById('orto-grid');
+            grid.innerHTML = data.map(p => `
+                <div onclick="openDetail('ortopedica', ${p.id})" class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-brand-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">${p.district}</span>
+                            <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-brand-50 text-brand-700">${p.severity}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-sm group-hover:text-brand-600 transition mb-1">${p.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">${p.def}</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-brand-600 font-semibold">
+                        <span>Vedi scheda completa</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderNeurologiche(data) {
+            const grid = document.getElementById('neuro-grid');
+            grid.innerHTML = data.map(p => `
+                <div onclick="openDetail('neurologica', ${p.id})" class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-rose-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700">${p.district}</span>
+                            <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">${p.severity}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-sm group-hover:text-rose-600 transition mb-1">${p.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">${p.def}</p>
+                        <div class="mt-2 space-y-1 bg-slate-50 p-2 rounded-lg text-[10px]">
+                            <p class="text-indigo-700 font-medium line-clamp-1"><i class="fa-solid fa-pills mr-1"></i>${p.meds}</p>
+                            <p class="text-emerald-700 font-medium line-clamp-1"><i class="fa-solid fa-hand-holding-medical mr-1"></i>${p.rehab}</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-rose-600 font-semibold">
+                        <span>Farmaci e Riabilitazione</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderTests(data) {
+            const grid = document.getElementById('tests-grid');
+            grid.innerHTML = data.map(t => `
+                <div onclick="openDetail('test', ${t.id})" class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-amber-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800">${t.district}</span>
+                            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">${t.category}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-sm group-hover:text-amber-600 transition mb-1">${t.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed mb-2">${t.purpose}</p>
+                        <div class="flex items-center space-x-2 text-[10px] text-slate-400">
+                            <span><i class="fa-solid fa-bullseye text-amber-500 mr-1"></i>${t.sensitivity}</span>
+                            <span>•</span>
+                            <span>${t.specificity}</span>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-amber-600 font-semibold">
+                        <span>Vedi esecuzione e positività</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Rendering Trattamenti v1.7 con badge distintivi per Ortopedici, Neurologici e Pediatrici
+        function renderTrattamenti(data) {
+            const grid = document.getElementById('trattamenti-grid');
+            grid.innerHTML = data.map(t => {
+                let badgeClass = 'bg-brand-50 text-brand-700 border-brand-200';
+                let hoverBorder = 'hover:border-brand-300';
+                let textAccent = 'text-brand-600';
+                let icon = 'fa-bone';
+
+                if (t.category === 'Neurologici') {
+                    badgeClass = 'bg-rose-50 text-rose-700 border-rose-200';
+                    hoverBorder = 'hover:border-rose-300';
+                    textAccent = 'text-rose-600';
+                    icon = 'fa-brain';
+                } else if (t.category === 'Pediatrici') {
+                    badgeClass = 'bg-teal-50 text-teal-700 border-teal-200';
+                    hoverBorder = 'hover:border-teal-300';
+                    textAccent = 'text-teal-600';
+                    icon = 'fa-baby';
+                }
+
+                return `
+                <div onclick="openDetail('trattamento', ${t.id})" class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm hover:shadow-md ${hoverBorder} transition cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${badgeClass}">
+                                <i class="fa-solid ${icon} mr-1"></i>${t.category}
+                            </span>
+                            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">${t.district}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-sm group-hover:${textAccent} transition mb-1.5">${t.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">${t.def}</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] ${textAccent} font-semibold">
+                        <span>Metodo, Sinergie & Obiettivi</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+            `}).join('');
+        }
+
+        function renderStrumentale(data) {
+            const grid = document.getElementById('strumentale-grid');
+            grid.innerHTML = data.map(s => `
+                <div onclick="openDetail('strumentale', ${s.id})" class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-amber-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-800">${s.severity}</span>
+                            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">5 Patologie</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-sm group-hover:text-amber-600 transition mb-1">${s.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">${s.def}</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-amber-600 font-semibold">
+                        <span>Vedi 5 patologie e rischi</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderAnatomia(data) {
+            const grid = document.getElementById('anatomia-grid');
+            grid.innerHTML = data.map(m => `
+                <div onclick="openDetail('muscolo', ${m.id})" class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-emerald-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700">${m.district}</span>
+                            <span class="text-[10px] font-medium text-slate-400">Miologia</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-sm group-hover:text-emerald-600 transition mb-1">${m.title}</h3>
+                        <p class="text-[11px] text-slate-500"><span class="font-semibold text-slate-700">Innervazione:</span> ${m.innervation}</p>
+                        <p class="text-[11px] text-emerald-700 mt-1 italic line-clamp-1"><i class="fa-solid fa-person-walking mr-1"></i>"${m.daily}"</p>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-emerald-600 font-semibold">
+                        <span>Origine, Inserzione, Funzione</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderEsercizi(data) {
+            const grid = document.getElementById('esercizi-grid');
+            grid.innerHTML = data.map(e => `
+                <div onclick="openDetail('esercizio', ${e.id})" class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-indigo-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700">${e.category}</span>
+                            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">${e.district}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-sm group-hover:text-indigo-600 transition mb-1">${e.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2"><span class="font-semibold text-slate-700">Target:</span> ${e.target}</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-indigo-600 font-semibold">
+                        <span>Esecuzione & Posologia</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderProtocolli(data) {
+            const grid = document.getElementById('protocolli-grid');
+            grid.innerHTML = data.map(p => `
+                <div onclick="openDetail('protocollo', ${p.id})" class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm hover:shadow-md hover:border-purple-300 transition cursor-pointer flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700">${p.district}</span>
+                            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">${p.severity}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-sm group-hover:text-purple-600 transition mb-1">${p.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2">${p.surgery}</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-purple-600 font-semibold">
+                        <span>Vedi Fasi & Return to Play</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Modali Dettaglio Clinico
+        function openDetail(type, id) {
+            const modal = document.getElementById('detail-modal');
+            const badge = document.getElementById('modal-district-badge');
+            const title = document.getElementById('modal-title');
+            const body = document.getElementById('modal-body');
+
+            if (type === 'ortopedica') {
+                const item = ortopedicheData.find(p => p.id === id);
+                badge.innerText = `${item.district} • ${item.severity}`;
+                badge.className = "text-xs font-semibold px-2.5 py-1 rounded-full bg-brand-100 text-brand-800";
+                title.innerText = item.title;
+                body.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                            <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">Inquadramento</h4>
+                            <p class="text-slate-600 leading-relaxed">${item.def}</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Eziologia</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed">${item.etiology}</p>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Quadro Clinico</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed">${item.clinic}</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-blue-50/70 p-3.5 rounded-xl border border-blue-100">
+                                <h4 class="text-xs font-bold text-blue-900 uppercase mb-1"><i class="fa-solid fa-pills mr-1"></i>Farmacologia</h4>
+                                <p class="text-blue-800 text-xs leading-relaxed">${item.meds}</p>
+                            </div>
+                            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-100">
+                                <h4 class="text-xs font-bold text-amber-900 uppercase mb-1"><i class="fa-solid fa-scalpel mr-1"></i>Chirurgia</h4>
+                                <p class="text-amber-800 text-xs leading-relaxed">${item.surgery}</p>
+                            </div>
+                        </div>
+                        <div class="bg-emerald-50/70 p-3.5 rounded-xl border border-emerald-100">
+                            <h4 class="text-xs font-bold text-emerald-900 uppercase mb-1"><i class="fa-solid fa-hand-holding-medical mr-1"></i>Riabilitazione</h4>
+                            <p class="text-emerald-800 text-xs leading-relaxed font-medium">${item.rehab}</p>
+                        </div>
+                    </div>`;
+            } else if (type === 'neurologica') {
+                const item = neurologicheData.find(p => p.id === id);
+                badge.innerText = `${item.district} • ${item.severity}`;
+                badge.className = "text-xs font-semibold px-2.5 py-1 rounded-full bg-rose-100 text-rose-800";
+                title.innerText = item.title;
+                body.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                            <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">Definizione e Quadro</h4>
+                            <p class="text-slate-600 leading-relaxed">${item.def}</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Eziopatogenesi</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed">${item.etiology}</p>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Segni e Sintomi</h4>
+                                <p class="text-slate-600 text-xs leading-relaxed">${item.clinic}</p>
+                            </div>
+                        </div>
+                        <div class="bg-indigo-50/70 p-4 rounded-xl border border-indigo-100">
+                            <h4 class="text-xs font-bold text-indigo-900 uppercase mb-1"><i class="fa-solid fa-pills mr-1.5"></i>Terapia Farmacologica Specifica</h4>
+                            <p class="text-indigo-800 text-xs leading-relaxed font-medium">${item.meds}</p>
+                        </div>
+                        <div class="bg-emerald-50/70 p-4 rounded-xl border border-emerald-100">
+                            <h4 class="text-xs font-bold text-emerald-900 uppercase mb-1"><i class="fa-solid fa-hand-holding-medical mr-1.5"></i>Trattamento Riabilitativo Neurologico</h4>
+                            <p class="text-emerald-800 text-xs leading-relaxed font-medium">${item.rehab}</p>
+                        </div>
+                    </div>`;
+            } else if (type === 'test') {
+                const item = testCliniciData.find(t => t.id === id);
+                badge.innerText = `${item.district} • ${item.category}`;
+                badge.className = "text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800";
+                title.innerText = item.title;
+                body.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-100">
+                            <h4 class="text-xs font-bold text-amber-900 uppercase mb-1">Scopo del Test</h4>
+                            <p class="text-amber-800 text-xs font-medium">${item.purpose}</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Posizione Paziente</h4>
+                                <p class="text-slate-600 text-xs">${item.patientPos}</p>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Posizione Terapista</h4>
+                                <p class="text-slate-600 text-xs">${item.therapistPos}</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                            <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Esecuzione Clinica</h4>
+                            <p class="text-slate-700 text-xs leading-relaxed">${item.execution}</p>
+                        </div>
+                        <div class="bg-rose-50/70 p-3.5 rounded-xl border border-rose-100">
+                            <h4 class="text-xs font-bold text-rose-900 uppercase mb-1"><i class="fa-solid fa-circle-exclamation mr-1"></i>Criterio di Positività</h4>
+                            <p class="text-rose-800 text-xs font-semibold">${item.positivity}</p>
+                            <p class="text-[11px] text-rose-700 mt-1">Patologia sospetta: <strong>${item.pathology}</strong> (${item.sensitivity}, ${item.specificity})</p>
+                        </div>
+                    </div>`;
+            } else if (type === 'trattamento') {
+                const item = trattamentiData.find(t => t.id === id);
+                let badgeColor = "bg-brand-100 text-brand-800";
+                if (item.category === 'Neurologici') badgeColor = "bg-rose-100 text-rose-800";
+                if (item.category === 'Pediatrici') badgeColor = "bg-teal-100 text-teal-800";
+
+                badge.innerText = `${item.category} • ${item.district}`;
+                badge.className = `text-xs font-semibold px-2.5 py-1 rounded-full ${badgeColor}`;
+                title.innerText = item.title;
+                body.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/80">
+                            <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-1.5 flex items-center">
+                                <i class="fa-solid fa-book-medical text-brand-600 mr-1.5"></i>Spiegazione Approfondita del Metodo & Razionale Scientifico
+                            </h4>
+                            <p class="text-slate-700 text-xs leading-relaxed">${item.def}</p>
+                        </div>
+
+                        <div class="bg-indigo-50/70 p-4 rounded-xl border border-indigo-100">
+                            <h4 class="text-xs font-bold text-indigo-900 uppercase tracking-wider mb-1.5 flex items-center">
+                                <i class="fa-solid fa-puzzle-piece text-indigo-600 mr-1.5"></i>Integrazione Sinergica con Altre Tecniche
+                            </h4>
+                            <p class="text-indigo-800 text-xs leading-relaxed">${item.integration}</p>
+                        </div>
+
+                        <div class="bg-emerald-50/70 p-4 rounded-xl border border-emerald-100">
+                            <h4 class="text-xs font-bold text-emerald-900 uppercase tracking-wider mb-1.5 flex items-center">
+                                <i class="fa-solid fa-bullseye text-emerald-600 mr-1.5"></i>Obiettivi Terapeutici Esaustivi
+                            </h4>
+                            <p class="text-emerald-800 text-xs whitespace-pre-line leading-relaxed font-medium">${item.goals}</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-blue-50/70 p-3.5 rounded-xl border border-blue-100">
+                                <h4 class="text-xs font-bold text-blue-900 uppercase mb-1 flex items-center">
+                                    <i class="fa-solid fa-circle-check text-blue-600 mr-1.5"></i>Indicazioni Cliniche
+                                </h4>
+                                <p class="text-blue-800 text-xs leading-relaxed">${item.indications}</p>
+                            </div>
+                            <div class="bg-rose-50/70 p-3.5 rounded-xl border border-rose-100">
+                                <h4 class="text-xs font-bold text-rose-900 uppercase mb-1 flex items-center">
+                                    <i class="fa-solid fa-triangle-exclamation text-rose-600 mr-1.5"></i>Controindicazioni & Precauzioni
+                                </h4>
+                                <p class="text-rose-800 text-xs leading-relaxed font-medium">${item.contraindications}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            } else if (type === 'strumentale') {
+                const item = strumentaleData.find(s => s.id === id);
+                badge.innerText = item.severity;
+                badge.className = "text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800";
+                title.innerText = item.title;
+                body.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-100">
+                            <h4 class="text-xs font-bold text-amber-900 uppercase mb-1">Principio Fisico e Meccanismo</h4>
+                            <p class="text-amber-800 text-xs leading-relaxed">${item.def}</p>
+                        </div>
+                        <div class="bg-emerald-50/70 p-4 rounded-xl border border-emerald-100">
+                            <h4 class="text-xs font-bold text-emerald-900 uppercase mb-2"><i class="fa-solid fa-check-circle mr-1.5"></i>5 Patologie Principali Indicate</h4>
+                            <ul class="space-y-1.5 text-emerald-800 text-xs font-semibold">
+                                ${item.indicationsList.map(ind => `<li class="flex items-center space-x-2"><span>${ind}</span></li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="bg-rose-50/70 p-3.5 rounded-xl border border-rose-100">
+                            <h4 class="text-xs font-bold text-rose-900 uppercase mb-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Controindicazioni e Precauzioni</h4>
+                            <p class="text-rose-800 text-xs leading-relaxed font-medium">${item.contraindications}</p>
+                        </div>
+                    </div>`;
+            } else if (type === 'muscolo') {
+                const item = anatomiaData.find(m => m.id === id);
+                badge.innerText = item.district;
+                badge.className = "text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800";
+                title.innerText = item.title;
+                body.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                                <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Origine Anatomica</h4>
+                                <p class="text-slate-600 text-xs">${item.origin}</p>
+                            </div>
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                                <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Inserzione Anatomica</h4>
+                                <p class="text-slate-600 text-xs">${item.insertion}</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-100">
+                                <h4 class="text-xs font-bold text-amber-900 uppercase mb-1"><i class="fa-solid fa-bolt mr-1"></i>Innervazione</h4>
+                                <p class="text-amber-800 text-xs font-medium">${item.innervation}</p>
+                            </div>
+                            <div class="bg-rose-50/70 p-3.5 rounded-xl border border-rose-100">
+                                <h4 class="text-xs font-bold text-rose-900 uppercase mb-1"><i class="fa-solid fa-heart-pulse mr-1"></i>Vascolarizzazione</h4>
+                                <p class="text-rose-800 text-xs font-medium">${item.blood}</p>
+                            </div>
+                        </div>
+                        <div class="bg-emerald-50/70 p-4 rounded-xl border border-emerald-100">
+                            <h4 class="text-xs font-bold text-emerald-900 uppercase mb-1"><i class="fa-solid fa-person-walking mr-1.5"></i>Azione nella Vita Quotidiana</h4>
+                            <p class="text-emerald-800 text-xs font-bold">${item.daily}</p>
+                        </div>
+                        <div class="bg-brand-50/70 p-3.5 rounded-xl border border-brand-100">
+                            <h4 class="text-xs font-bold text-brand-900 uppercase mb-2">Azioni Biomeccaniche</h4>
+                            <div class="flex flex-wrap gap-1.5">
+                                ${item.movements.map(mov => `<span class="px-2.5 py-1 bg-white border border-brand-200 rounded-lg text-xs font-medium text-brand-700">${mov}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>`;
+            } else if (type === 'esercizio') {
+                const item = eserciziData.find(e => e.id === id);
+                badge.innerText = `${item.category} • ${item.district}`;
+                badge.className = "text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-100 text-indigo-800";
+                title.innerText = item.title;
+                body.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between bg-indigo-50 p-3.5 rounded-xl border border-indigo-100">
+                            <div>
+                                <span class="text-[11px] font-bold text-indigo-900 uppercase">Target Muscolare</span>
+                                <p class="text-xs text-indigo-800 font-semibold">${item.target}</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[11px] font-bold text-indigo-900 uppercase">Posologia</span>
+                                <p class="text-xs text-indigo-800 font-bold">${item.dosage}</p>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <h4 class="text-xs font-bold text-slate-800 uppercase mb-2">Esecuzione Tecnica Step-by-Step</h4>
+                            <p class="text-slate-700 text-xs whitespace-pre-line leading-relaxed">${item.execution}</p>
+                        </div>
+                    </div>`;
+            } else if (type === 'protocollo') {
+                const item = protocolliData.find(p => p.id === id);
+                badge.innerText = `${item.district} • ${item.severity}`;
+                badge.className = "text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-100 text-purple-800";
+                title.innerText = item.title;
+                body.innerHTML = `
+                    <div class="space-y-4">
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                            <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Intervento Chirurgico</h4>
+                            <p class="text-slate-600 text-xs leading-relaxed">${item.surgery}</p>
+                        </div>
+                        <div class="bg-purple-50/70 p-4 rounded-xl border border-purple-100">
+                            <h4 class="text-xs font-bold text-purple-900 uppercase mb-2"><i class="fa-solid fa-calendar-check mr-1.5"></i>Fasi Riabilitative Post-Operatorie</h4>
+                            <p class="text-purple-800 text-xs whitespace-pre-line leading-relaxed font-medium">${item.phases}</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-amber-50/70 p-3.5 rounded-xl border border-amber-100">
+                                <h4 class="text-xs font-bold text-amber-900 uppercase mb-1"><i class="fa-solid fa-house-user mr-1"></i>Gestione Quotidiana</h4>
+                                <p class="text-amber-800 text-xs leading-relaxed">${item.daily}</p>
+                            </div>
+                            <div class="bg-emerald-50/70 p-3.5 rounded-xl border border-emerald-100">
+                                <h4 class="text-xs font-bold text-emerald-900 uppercase mb-1"><i class="fa-solid fa-trophy mr-1"></i>Return to Play</h4>
+                                <p class="text-emerald-800 text-xs leading-relaxed font-semibold">${item.rtp}</p>
+                            </div>
+                        </div>
+                    </div>`;
             }
+
+            modal.classList.remove('hidden');
         }
 
-        function renderOrtopediche() { renderOrtoGrid(ortopedicheData); }
-        function renderOrtoGrid(data) {
-            document.getElementById('orto-count').innerText = `${data.length} Patologie`;
-            document.getElementById('orto-grid').innerHTML = data.map(item => `
-                <div onclick="openPatologiaDetail(${item.id}, 'orto')" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-brand-50 text-brand-700">${item.district}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md ${item.severity === 'Grave' ? 'bg-rose-50 text-rose-700' : 'bg-slate-100 text-slate-600'}">${item.severity}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
-                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-brand-600 font-semibold">
-                        <span>Scheda clinica ortopedica completa</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-            `).join('');
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
         }
 
-        function renderNeurologiche() { renderNeuroGrid(neurologicheData); }
-        function renderNeuroGrid(data) {
-            document.getElementById('neuro-count').innerText = `${data.length} Patologie`;
-            document.getElementById('neuro-grid').innerHTML = data.map(item => `
-                <div onclick="openNeuroDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-rose-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rose-50 text-rose-700">${item.district}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md ${item.severity === 'Grave' ? 'bg-rose-50 text-rose-700' : 'bg-slate-100 text-slate-600'}">${item.severity}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
-                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-rose-600 font-semibold">
-                        <span>Scheda neurologica v1.6 (Farmaci & Tecniche)</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-            `).join('');
+        function toggleModal(modalId) {
+            document.getElementById(modalId).classList.toggle('hidden');
         }
 
-        function renderTestClinici() { renderTestsGrid(testCliniciData); }
-        function renderTestsGrid(data) {
-            document.getElementById('tests-count').innerText = `${data.length} Test Clinici`;
-            document.getElementById('tests-grid').innerHTML = data.map(item => `
-                <div onclick="openTestDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700">${item.district}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">${item.category}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
-                        <p class="text-xs text-slate-500 line-clamp-2"><strong>Scopo:</strong> ${item.purpose}</p>
-                        <div class="mt-2 flex gap-2">
-                            <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-medium">${item.sensitivity}</span>
-                            <span class="text-[10px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-medium">${item.specificity}</span>
-                        </div>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-amber-600 font-semibold">
-                        <span>Guida al test passo-passo</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-            `).join('');
-        }
+        // Logica Timer Clinico
+        let timerSeconds = 45;
+        let defaultSeconds = 45;
+        let timerInterval = null;
 
-        function renderTrattamenti() { renderTrattamentiGrid(trattamentiData); }
-        function renderTrattamentiGrid(data) {
-            document.getElementById('trattamenti-grid').innerHTML = data.map(item => `
-                <div onclick="openTrattamentoDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">${item.category}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-brand-50 text-brand-700">${item.district}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
-                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-brand-600 font-semibold">
-                        <span>Protocollo tecnica</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function renderStrumentale() { renderStrumentaleGrid(strumentaleData); }
-        function renderStrumentaleGrid(data) {
-            document.getElementById('strumentale-grid').innerHTML = data.map(item => `
-                <div onclick="openStrumentaleDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-amber-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700">${item.severity}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">${item.district}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
-                        <p class="text-xs text-slate-500 line-clamp-2">${item.def}</p>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-amber-600 font-semibold">
-                        <span>Principi fisici e controindicazioni</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function renderAnatomia() { renderAnatomiaGrid(anatomiaData); }
-        function renderAnatomiaGrid(data) {
-            document.getElementById('anatomia-count').innerText = `${data.length} Muscoli Certificati`;
-            document.getElementById('anatomia-grid').innerHTML = data.map(item => `
-                <div onclick="openAnatomiaDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-emerald-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">${item.district}</span>
-                            <span class="text-[11px] text-slate-400 font-medium">ID: #${item.id}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-2">${item.title}</h3>
-                        
-                        <div class="text-xs text-slate-600 space-y-1.5 bg-slate-50 p-3 rounded-xl border border-slate-100 mb-3">
-                            <p><strong>Origine:</strong> ${item.origin}</p>
-                            <p><strong>Inserzione:</strong> ${item.insertion}</p>
-                        </div>
-
-                        <div class="flex items-start space-x-2 text-xs text-brand-700 bg-brand-50 p-2.5 rounded-xl border border-brand-100">
-                            <i class="fa-solid fa-lightbulb mt-0.5 text-brand-500"></i>
-                            <p><strong>Vita quotidiana:</strong> ${item.daily}</p>
-                        </div>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-emerald-600 font-semibold">
-                        <span>Scheda e movimenti completi</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function renderEsercizi() { renderEserciziGrid(eserciziData); }
-        function renderEserciziGrid(data) {
-            document.getElementById('esercizi-count').innerText = `${data.length} Esercizi Clinici`;
-            document.getElementById('esercizi-grid').innerHTML = data.map(item => `
-                <div onclick="openEsercizioDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-indigo-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700">${item.category}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">${item.district}</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
-                        <p class="text-xs text-slate-500 mb-2"><strong>Obiettivo:</strong> ${item.target}</p>
-                        <div class="text-[11px] text-rose-700 bg-rose-50 p-2 rounded-xl border border-rose-100 mb-2">
-                            <i class="fa-solid fa-triangle-exclamation mr-1"></i><strong>Indicato per:</strong> ${item.indications.join(', ')}
-                        </div>
-                        <div class="bg-indigo-50/50 p-2 rounded-xl border border-indigo-100 text-[11px] text-indigo-900 font-medium flex items-center space-x-1.5">
-                            <i class="fa-solid fa-stopwatch text-indigo-600"></i>
-                            <span>Dosaggio: ${item.dosage}</span>
-                        </div>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-indigo-600 font-semibold">
-                        <span>Apri esecuzione passo-passo</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function renderProtocolli() { renderProtocolliGrid(protocolliData); }
-        function renderProtocolliGrid(data) {
-            document.getElementById('protocolli-count').innerText = `${data.length} Guide Post-Op`;
-            document.getElementById('protocolli-grid').innerHTML = data.map(item => `
-                <div onclick="openProtocolloDetail(${item.id})" class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-purple-500 hover:shadow-md transition cursor-pointer flex flex-col justify-between space-y-3">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-50 text-purple-700">${item.district}</span>
-                            <span class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">Guida Integrale</span>
-                        </div>
-                        <h3 class="font-bold text-slate-800 text-base leading-snug mb-1">${item.title}</h3>
-                        <p class="text-xs text-slate-500 line-clamp-2"><strong>Intervento:</strong> ${item.surgery}</p>
-                    </div>
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-purple-600 font-semibold">
-                        <span>Apri guida clinica completa</span><i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function openPatologiaDetail(id, type) {
-            const item = ortopedicheData.find(p => p.id === id);
-            document.getElementById('modal-district-badge').innerText = item.district;
-            document.getElementById('modal-title').innerText = item.title;
-            document.getElementById('modal-body').innerHTML = `
-                <div class="space-y-4">
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <h4 class="font-bold text-slate-800 text-xs uppercase mb-1">Definizione Clinica</h4>
-                        <p class="text-slate-700 text-sm leading-relaxed">${item.def}</p>
-                    </div>
-                    <div class="bg-brand-50 p-4 rounded-xl border border-brand-200">
-                        <h4 class="font-bold text-brand-900 text-xs uppercase mb-1"><i class="fa-solid fa-dna mr-1 text-brand-600"></i>Eziologia e Meccanismo</h4>
-                        <p class="text-slate-700 text-sm leading-relaxed">${item.etiology}</p>
-                    </div>
-                    <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
-                        <h4 class="font-bold text-amber-900 text-xs uppercase mb-1"><i class="fa-solid fa-stethoscope mr-1 text-amber-600"></i>Quadro Clinico e Sintomatologia</h4>
-                        <p class="text-slate-700 text-sm leading-relaxed">${item.clinic}</p>
-                    </div>
-                    <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-200">
-                        <h4 class="font-bold text-indigo-900 text-xs uppercase mb-1"><i class="fa-solid fa-pills mr-1 text-indigo-600"></i>Gestione Medica e Chirurgica</h4>
-                        <p class="text-slate-700 text-sm"><strong>Farmaci / Gestione:</strong> ${item.meds}</p>
-                        <p class="text-slate-700 text-sm mt-1"><strong>Chirurgia:</strong> ${item.surgery}</p>
-                    </div>
-                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
-                        <h4 class="font-bold text-emerald-900 text-xs uppercase mb-1"><i class="fa-solid fa-person-walking mr-1 text-emerald-600"></i>Approccio Riabilitativo e Fisioterapia</h4>
-                        <p class="text-slate-700 text-sm leading-relaxed">${item.rehab}</p>
-                    </div>
-                </div>
-            `;
-            document.getElementById('detail-modal').classList.remove('hidden');
-        }
-
-        // Modale specifico per le Patologie Neurologiche v1.6 (Senza chirurgia, con Farmacologia avanzata e Tecniche Neuro-riabilitative)
-        function openNeuroDetail(id) {
-            const item = neurologicheData.find(n => n.id === id);
-            document.getElementById('modal-district-badge').innerText = item.district;
-            document.getElementById('modal-title').innerText = item.title;
-            document.getElementById('modal-body').innerHTML = `
-                <div class="space-y-4">
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <h4 class="font-bold text-slate-800 text-xs uppercase mb-1">Definizione Neurologica</h4>
-                        <p class="text-slate-700 text-sm leading-relaxed">${item.def}</p>
-                    </div>
-                    <div class="bg-brand-50 p-4 rounded-xl border border-brand-200">
-                        <h4 class="font-bold text-brand-900 text-xs uppercase mb-1"><i class="fa-solid fa-dna mr-1 text-brand-600"></i>Eziologia e Patogenesi</h4>
-                        <p class="text-slate-700 text-sm leading-relaxed">${item.etiology}</p>
-                    </div>
-                    <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
-                        <h4 class="font-bold text-amber-900 text-xs uppercase mb-1"><i class="fa-solid fa-stethoscope mr-1 text-amber-600"></i>Quadro Clinico e Segni Universitari</h4>
-                        <p class="text-slate-700 text-sm leading-relaxed">${item.clinic}</p>
-                    </div>
-                    <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-200">
-                        <h4 class="font-bold text-indigo-900 text-xs uppercase mb-1"><i class="fa-solid fa-pills mr-1 text-indigo-600"></i>Opzioni di Terapia Farmacologica Specifica</h4>
-                        <p class="text-slate-700 text-sm leading-relaxed">${item.meds}</p>
-                    </div>
-                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
-                        <h4 class="font-bold text-emerald-900 text-xs uppercase mb-1"><i class="fa-solid fa-brain mr-1 text-emerald-600"></i>Protocollo Neuro-Riabilitativo Dettagliato (Evidence-Based)</h4>
-                        <p class="text-slate-700 text-sm leading-relaxed">${item.rehab}</p>
-                    </div>
-                </div>
-            `;
-            document.getElementById('detail-modal').classList.remove('hidden');
-        }
-
-        function openTestDetail(id) {
-            const item = testCliniciData.find(t => t.id === id);
-            document.getElementById('modal-district-badge').innerText = item.district;
-            document.getElementById('modal-title').innerText = item.title;
-            document.getElementById('modal-body').innerHTML = `
-                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 space-y-1">
-                    <h4 class="font-bold text-amber-900 text-xs uppercase"><i class="fa-solid fa-bullseye mr-1 text-amber-600"></i>Scopo del Test:</h4>
-                    <p class="text-slate-700 text-sm font-semibold">${item.purpose}</p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
-                        <h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Posizione Paziente</h4>
-                        <p class="text-xs text-slate-700">${item.patientPos}</p>
-                    </div>
-                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
-                        <h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Posizione Terapeuta</h4>
-                        <p class="text-xs text-slate-700">${item.therapistPos}</p>
-                    </div>
-                </div>
-                <div class="bg-brand-50 p-4 rounded-xl border border-brand-200 space-y-1">
-                    <h4 class="font-bold text-brand-900 text-xs uppercase"><i class="fa-solid fa-shoe-prints mr-1 text-brand-600"></i>Esecuzione Passo-Passo:</h4>
-                    <p class="text-slate-700 text-sm leading-relaxed">${item.execution}</p>
-                </div>
-                <div class="bg-rose-50 p-4 rounded-xl border border-rose-200 space-y-1">
-                    <h4 class="font-bold text-rose-900 text-xs uppercase"><i class="fa-solid fa-circle-exclamation mr-1 text-rose-600"></i>Segno di Positività e Patologia:</h4>
-                    <p class="text-slate-700 text-sm"><strong>Positività:</strong> ${item.positivity}</p>
-                    <p class="text-slate-700 text-sm mt-1"><strong>Patologia Associata:</strong> ${item.pathology}</p>
-                </div>
-                <div class="flex gap-3 pt-2">
-                    <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 rounded-lg text-xs font-bold border border-indigo-100">${item.sensitivity}</span>
-                    <span class="px-3 py-1.5 bg-indigo-50 text-indigo-800 rounded-lg text-xs font-bold border border-indigo-100">${item.specificity}</span>
-                </div>
-            `;
-            document.getElementById('detail-modal').classList.remove('hidden');
-        }
-
-        function openTrattamentoDetail(id) {
-            const item = trattamentiData.find(t => t.id === id);
-            document.getElementById('modal-district-badge').innerText = item.district;
-            document.getElementById('modal-title').innerText = item.title;
-            document.getElementById('modal-body').innerHTML = `
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Descrizione</h4><p>${item.def}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Obiettivi</h4><p>${item.goals}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Indicazioni</h4><p>${item.indications}</p></div>
-                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Controindicazioni</h4><p>${item.contraindications}</p></div>
-            `;
-            document.getElementById('detail-modal').classList.remove('hidden');
-        }
-
-        function openStrumentaleDetail(id) {
-            const item = strumentaleData.find(s => s.id === id);
-            document.getElementById('modal-district-badge').innerText = item.district;
-            document.getElementById('modal-title').innerText = item.title;
-            const patList = item.indicationsList.map(p => `<li class="py-1 px-2.5 bg-white rounded-lg border border-amber-100 font-medium text-slate-700">${p}</li>`).join('');
-            document.getElementById('modal-body').innerHTML = `
-                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 space-y-1.5">
-                    <h4 class="font-bold text-amber-900 text-xs uppercase flex items-center"><i class="fa-solid fa-atom mr-1.5 text-amber-600"></i>Principio Fisico e Meccanismo d'Azione (Dettaglio):</h4>
-                    <p class="text-slate-700 text-sm leading-relaxed">${item.def}</p>
-                </div>
-                <div class="bg-brand-50 p-4 rounded-xl border border-brand-200 space-y-2">
-                    <h4 class="font-bold text-brand-900 text-xs uppercase flex items-center"><i class="fa-solid fa-stethoscope mr-1.5 text-brand-600"></i>5 Patologie con Indicazione Specifica:</h4>
-                    <ul class="space-y-1.5 text-xs">${patList}</ul>
-                </div>
-                <div class="bg-rose-50 p-4 rounded-xl border border-rose-200 space-y-1">
-                    <h4 class="font-bold text-rose-900 text-xs uppercase flex items-center"><i class="fa-solid fa-triangle-exclamation mr-1.5 text-rose-600"></i>Controindicazioni Assolute e Relative:</h4>
-                    <p class="text-slate-700 text-sm font-medium">${item.contraindications}</p>
-                </div>
-            `;
-            document.getElementById('detail-modal').classList.remove('hidden');
-        }
-
-        function openAnatomiaDetail(id) {
-            const item = anatomiaData.find(a => a.id === id);
-            document.getElementById('modal-district-badge').innerText = item.district;
-            document.getElementById('modal-title').innerText = item.title;
-            const movList = item.movements.map(m => `<li class="py-1.5 px-3 bg-white rounded-xl border border-emerald-100 flex items-center space-x-2"><i class="fa-solid fa-check text-emerald-600"></i><span>${m}</span></li>`).join('');
-            
-            document.getElementById('modal-body').innerHTML = `
-                <div class="bg-brand-50 p-4 rounded-xl border border-brand-200 space-y-1">
-                    <h4 class="font-bold text-brand-800 text-xs uppercase flex items-center"><i class="fa-solid fa-lightbulb mr-1.5 text-brand-600"></i>Associazione con la Vita Quotidiana:</h4>
-                    <p class="text-slate-700 text-sm font-medium">${item.daily}</p>
-                </div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Origine</h4><p>${item.origin}</p></div>
-                <div><h4 class="font-bold text-slate-700 text-[11px] uppercase mb-1">Inserzione</h4><p>${item.insertion}</p></div>
-                <div class="bg-indigo-50 p-3 rounded-xl border border-indigo-100"><h4 class="font-bold text-indigo-700 text-[11px] uppercase mb-1">Innervazione</h4><p>${item.innervation}</p></div>
-                <div class="bg-rose-50 p-3 rounded-xl border border-rose-100"><h4 class="font-bold text-rose-700 text-[11px] uppercase mb-1">Vascolarizzazione</h4><p>${item.blood}</p></div>
-                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 space-y-2">
-                    <h4 class="font-bold text-emerald-800 text-xs uppercase"><i class="fa-solid fa-person-walking mr-1"></i>Tutti i Movimenti Specifici:</h4>
-                    <ul class="space-y-2 text-xs">${movList}</ul>
-                </div>
-            `;
-            document.getElementById('detail-modal').classList.remove('hidden');
-        }
-
-        function openEsercizioDetail(id) {
-            const item = eserciziData.find(e => e.id === id);
-            document.getElementById('modal-district-badge').innerText = item.district;
-            document.getElementById('modal-title').innerText = item.title;
-            
-            const formattedExecution = item.execution.split('\n').map(line => `<p class="py-1">${line}</p>`).join('');
-            const indList = item.indications.map(ind => `<span class="px-2.5 py-1 bg-white rounded-lg border border-rose-200 font-semibold text-rose-800 text-xs">${ind}</span>`).join('');
-
-            document.getElementById('modal-body').innerHTML = `
-                <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-200 space-y-1">
-                    <h4 class="font-bold text-indigo-800 text-xs uppercase"><i class="fa-solid fa-bullseye mr-1"></i>Obiettivo Muscolare:</h4>
-                    <p class="text-slate-700 text-sm font-semibold">${item.target}</p>
-                </div>
-                <div class="bg-rose-50 p-4 rounded-xl border border-rose-200 space-y-2">
-                    <h4 class="font-bold text-rose-800 text-xs uppercase"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Indicato per Patologie / Infortuni:</h4>
-                    <div class="flex flex-wrap gap-2">${indList}</div>
-                </div>
-                <div class="bg-brand-50 p-3 rounded-xl border border-brand-100 flex items-center justify-between">
-                    <div>
-                        <h4 class="font-bold text-brand-800 text-xs uppercase"><i class="fa-solid fa-stopwatch mr-1"></i>Dosaggio Prescrittivo:</h4>
-                        <p class="text-slate-800 text-sm font-bold">${item.dosage}</p>
-                    </div>
-                    <button onclick="toggleModal('timer-modal')" class="bg-brand-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-brand-500 transition">Avvia Timer</button>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wide border-b pb-1">Guida all'Esecuzione Passo-Passo:</h4>
-                    <div class="text-sm text-slate-700 space-y-2 bg-slate-50 p-4 rounded-xl border border-slate-200 leading-relaxed">
-                        ${formattedExecution}
-                    </div>
-                </div>
-            `;
-            document.getElementById('detail-modal').classList.remove('hidden');
-        }
-
-        function openProtocolloDetail(id) {
-            const item = protocolliData.find(p => p.id === id);
-            document.getElementById('modal-district-badge').innerText = item.district;
-            document.getElementById('modal-title').innerText = item.title;
-            
-            const formattedPhases = item.phases.split('\n').map(line => `<p class="py-1">${line}</p>`).join('');
-
-            document.getElementById('modal-body').innerHTML = `
-                <div class="bg-purple-50 p-4 rounded-xl border border-purple-200 space-y-1">
-                    <h4 class="font-bold text-purple-900 text-xs uppercase"><i class="fa-solid fa-scalpel mr-1"></i>Tipo di Intervento Chirurgico:</h4>
-                    <p class="text-slate-700 text-sm font-semibold">${item.surgery}</p>
-                </div>
-                <div class="space-y-2">
-                    <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wide border-b pb-1"><i class="fa-solid fa-calendar-days text-purple-600 mr-1"></i>Fasi Cronologiche, Tempistiche e Consigli:</h4>
-                    <div class="text-sm text-slate-700 space-y-2 bg-slate-50 p-4 rounded-xl border border-slate-200 leading-relaxed">
-                        ${formattedPhases}
-                    </div>
-                </div>
-                <div class="bg-brand-50 p-4 rounded-xl border border-brand-200 space-y-1">
-                    <h4 class="font-bold text-brand-900 text-xs uppercase"><i class="fa-solid fa-house mr-1"></i>Ritorno alla Vita Quotidiana:</h4>
-                    <p class="text-slate-700 text-sm">${item.daily}</p>
-                </div>
-                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 space-y-1">
-                    <h4 class="font-bold text-emerald-900 text-xs uppercase"><i class="fa-solid fa-person-running mr-1"></i>Ritorno in Campo (Return to Play - RTP):</h4>
-                    <p class="text-slate-700 text-sm font-semibold">${item.rtp}</p>
-                </div>
-            `;
-            document.getElementById('detail-modal').classList.remove('hidden');
-        }
-
-        function closeModal(modalId) { document.getElementById(modalId).classList.add('hidden'); }
-        function toggleModal(modalId) { document.getElementById(modalId).classList.toggle('hidden'); }
-
-        let timerInterval = null, timeLeft = 45, totalTime = 45, isRunning = false;
-        function setTimer(s) { pauseTimer(); totalTime = s; timeLeft = s; updateTimerDisplay(); }
         function updateTimerDisplay() {
-            const m = Math.floor(timeLeft / 60).toString().padStart(2, '0');
-            const sec = (timeLeft % 60).toString().padStart(2, '0');
-            document.getElementById('timer-display').innerText = `${m}:${sec}`;
+            const mins = Math.floor(timerSeconds / 60).toString().padStart(2, '0');
+            const secs = (timerSeconds % 60).toString().padStart(2, '0');
+            document.getElementById('timer-display').innerText = `${mins}:${secs}`;
         }
+
+        function setTimer(secs) {
+            pauseTimer();
+            defaultSeconds = secs;
+            timerSeconds = secs;
+            updateTimerDisplay();
+            document.getElementById('timer-status').innerText = `Impostato a ${secs} secondi`;
+        }
+
         function startTimer() {
-            if(isRunning) return;
-            if(timeLeft <= 0) timeLeft = totalTime;
-            isRunning = true;
-            document.getElementById('timer-status').innerText = "Esercizio in corso...";
+            if (timerInterval) return;
+            document.getElementById('timer-status').innerText = "Esecuzione in corso...";
             timerInterval = setInterval(() => {
-                timeLeft--;
-                updateTimerDisplay();
-                if(timeLeft <= 0) { pauseTimer(); document.getElementById('timer-status').innerText = "Tempo scaduto!"; }
+                if (timerSeconds > 0) {
+                    timerSeconds--;
+                    updateTimerDisplay();
+                } else {
+                    pauseTimer();
+                    document.getElementById('timer-status').innerText = "Tempo completato!";
+                }
             }, 1000);
         }
-        function pauseTimer() { isRunning = false; clearInterval(timerInterval); document.getElementById('timer-status').innerText = "In pausa"; }
-        function resetTimer() { pauseTimer(); timeLeft = totalTime; updateTimerDisplay(); document.getElementById('timer-status').innerText = "Pronto"; }
+
+        function pauseTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            document.getElementById('timer-status').innerText = "In pausa";
+        }
+
+        function resetTimer() {
+            pauseTimer();
+            timerSeconds = defaultSeconds;
+            updateTimerDisplay();
+            document.getElementById('timer-status').innerText = "Pronto";
+        }
     </script>
 </body>
 </html>
